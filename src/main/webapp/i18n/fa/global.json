@@ -1,16 +1,20 @@
 {
     "global": {
-        "title": "Insurancestart",
+        "title": "بیمیشو",
         "browsehappy": "شما از مرورگر <strong>قدیمی</strong> استفاده می‌کنید. لطفا <a href=\"http://browsehappy.com/?locale=en\">مرورگر خود را به روز کنید</a>",
         "menu": {
             "home": "خانه",
+            "about-us": "درباره",
+            "hi-there": "صدور",
+            "page-one": "همکار",
+            "page-two": "بیمه گذار",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "ماهیت ها",
+                "main": "اطلاعات پایه",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
-                "main": "حساب",
+                "main": "کاربری",
                 "settings": "تنظیمات",
                 "password": "رمزعبور",
                 "sessions": "نشست ها",
@@ -19,7 +23,7 @@
                 "register": "ثبت نام"
             },
             "admin": {
-                "main": "مدیریت برتر",
+                "main": "تنظیمات سیستم",
                 "userManagement": "مدیریت کاربر",
                 "tracker": "ردیاب کاربر",
                 "metrics": "معیارها",
@@ -131,5 +135,5 @@
         "idexists": "موجودیت جدید {{ entityName }} نمی‌تواند شناسه داشته‌باشد.",
         "idnull": "Invalid ID"
     },
-    "footer": "این پاورقی است"
+    "footer": "<strong>بیمه شو</strong> | جهت خدمات بیمه ای آسان <a href='#' target='_blank'>T</a> |  <a href='#' target='_blank'>گروه نرم افزاری مارس</a>"
 }

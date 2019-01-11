@@ -5,9 +5,9 @@
             "400": "Bad request.",
             "403": "شما به صفحه مورد نظر دسترسی ندارید.",
             "405": "The HTTP verb you used is not supported for this URL.",
-            "500": "Internal server error."
+            "500": "مشکل داخلی سرویس دهنده"
         },
-        "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-        "validation": "Validation error on the server."
+        "concurrencyFailure": "این اطلاعات همزمان توسط کاربر دیگری تعییر داده شده است درخواست شما لغو می گردد. ",
+        "validation": "مشکل اعتبار سنجی در سرویس دهنده"
     }
 }
