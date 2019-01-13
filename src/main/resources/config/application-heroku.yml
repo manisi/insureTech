@@ -19,7 +19,7 @@ eureka:
 spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://127.0.0.1:3306/insurancestart
+        url: jdbc:mysql://root:rootroot@127.0.0.1:3306/insurancestart
         username: root
         password: rootroot
         hikari:

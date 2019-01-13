@@ -592,7 +592,7 @@
                         <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                         <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                         <driver>com.mysql.jdbc.Driver</driver>
-                        <url>jdbc:mysql://127.0.0.1:3306/insurancestart</url>
+                        <url>jdbc:mysql://root:rootroot@127.0.0.1:3306/insurancestart</url>
                         <defaultSchemaName>insurancestart</defaultSchemaName>
                         <username>root</username>
                         <password>rootroot</password>
