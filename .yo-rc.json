@@ -31,6 +31,8 @@
         "otherModules": [],
         "enableTranslation": true,
         "nativeLanguage": "en",
-        "languages": ["en", "fa"]
+        "languages": ["en", "fa"],
+        "herokuAppName": "insurancestart",
+        "herokuDeployType": "git"
     }
 }
