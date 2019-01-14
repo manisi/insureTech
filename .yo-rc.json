@@ -15,7 +15,7 @@
         "enableHibernateCache": true,
         "websocket": "spring-websocket",
         "databaseType": "sql",
-        "devDatabaseType": "mysql",
+        "devDatabaseType": "postgresql",
         "prodDatabaseType": "postgresql",
         "searchEngine": "elasticsearch",
         "messageBroker": false,
