@@ -16,7 +16,7 @@
         "websocket": "spring-websocket",
         "databaseType": "sql",
         "devDatabaseType": "mysql",
-        "prodDatabaseType": "mysql",
+        "prodDatabaseType": "postgresql",
         "searchEngine": "elasticsearch",
         "messageBroker": false,
         "serviceDiscoveryType": false,
