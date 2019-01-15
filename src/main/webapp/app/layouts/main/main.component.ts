@@ -4,10 +4,10 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 import { JhiLanguageHelper } from 'app/core';
 
 @Component({
-    selector: 'insutech-main',
+    selector: 'jhi-main',
     templateUrl: './main.component.html'
 })
-export class InsutechMainComponent implements OnInit {
+export class JhiMainComponent implements OnInit {
     constructor(private jhiLanguageHelper: JhiLanguageHelper, private router: Router) {}
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {

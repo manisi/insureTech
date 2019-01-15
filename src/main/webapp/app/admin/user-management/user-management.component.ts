@@ -10,7 +10,7 @@ import { AccountService, UserService, User } from 'app/core';
 import { UserMgmtDeleteDialogComponent } from 'app/admin';
 
 @Component({
-    selector: 'insutech-user-mgmt',
+    selector: 'jhi-user-mgmt',
     templateUrl: './user-management.component.html'
 })
 export class UserMgmtComponent implements OnInit, OnDestroy {

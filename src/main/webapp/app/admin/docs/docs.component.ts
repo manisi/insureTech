@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'insutech-docs',
+    selector: 'jhi-docs',
     templateUrl: './docs.component.html'
 })
-export class InsutechDocsComponent {
+export class JhiDocsComponent {
     constructor() {}
 }

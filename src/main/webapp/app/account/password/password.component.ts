@@ -4,7 +4,7 @@ import { AccountService } from 'app/core';
 import { PasswordService } from './password.service';
 
 @Component({
-    selector: 'insutech-password',
+    selector: 'jhi-password',
     templateUrl: './password.component.html'
 })
 export class PasswordComponent implements OnInit {

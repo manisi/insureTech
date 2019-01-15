@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { InsutechTrackerService } from 'app/core';
+import { JhiTrackerService } from 'app/core';
 
 @Component({
-    selector: 'insutech-tracker',
+    selector: 'jhi-tracker',
     templateUrl: './tracker.component.html'
 })
-export class InsutechTrackerComponent implements OnInit, OnDestroy {
+export class JhiTrackerComponent implements OnInit, OnDestroy {
     activities: any[] = [];
 
-    constructor(private trackerService: InsutechTrackerService) {}
+    constructor(private trackerService: JhiTrackerService) {}
 
     showActivity(activity: any) {
         let existingActivity = false;

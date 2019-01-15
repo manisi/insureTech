@@ -3,28 +3,28 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 
 import { InsurancestartTestModule } from '../../../test.module';
-import { InsutechMetricsMonitoringModalComponent } from 'app/admin/metrics/metrics-modal.component';
-import { InsutechMetricsService } from 'app/admin/metrics/metrics.service';
+import { JhiMetricsMonitoringModalComponent } from 'app/admin/metrics/metrics-modal.component';
+import { JhiMetricsService } from 'app/admin/metrics/metrics.service';
 
 describe('Component Tests', () => {
-    describe('InsutechMetricsMonitoringModalComponent', () => {
-        let comp: InsutechMetricsMonitoringModalComponent;
-        let fixture: ComponentFixture<InsutechMetricsMonitoringModalComponent>;
-        let service: InsutechMetricsService;
+    describe('JhiMetricsMonitoringModalComponent', () => {
+        let comp: JhiMetricsMonitoringModalComponent;
+        let fixture: ComponentFixture<JhiMetricsMonitoringModalComponent>;
+        let service: JhiMetricsService;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [InsurancestartTestModule],
-                declarations: [InsutechMetricsMonitoringModalComponent]
+                declarations: [JhiMetricsMonitoringModalComponent]
             })
-                .overrideTemplate(InsutechMetricsMonitoringModalComponent, '')
+                .overrideTemplate(JhiMetricsMonitoringModalComponent, '')
                 .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(InsutechMetricsMonitoringModalComponent);
+            fixture = TestBed.createComponent(JhiMetricsMonitoringModalComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(InsutechMetricsService);
+            service = fixture.debugElement.injector.get(JhiMetricsService);
         });
 
         describe('ngOnInit', () => {

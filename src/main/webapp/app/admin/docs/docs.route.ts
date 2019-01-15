@@ -1,10 +1,10 @@
 import { Route } from '@angular/router';
 
-import { InsutechDocsComponent } from './docs.component';
+import { JhiDocsComponent } from './docs.component';
 
 export const docsRoute: Route = {
     path: 'docs',
-    component: InsutechDocsComponent,
+    component: JhiDocsComponent,
     data: {
         pageTitle: 'global.menu.admin.apidocs'
     }

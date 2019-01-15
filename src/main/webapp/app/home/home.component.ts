@@ -5,7 +5,7 @@ import { JhiEventManager } from 'ng-jhipster';
 import { LoginModalService, AccountService, Account } from 'app/core';
 
 @Component({
-    selector: 'insutech-home',
+    selector: 'jhi-home',
     templateUrl: './home.component.html',
     styleUrls: ['home.scss']
 })

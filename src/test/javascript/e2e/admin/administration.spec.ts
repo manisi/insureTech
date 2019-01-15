@@ -27,21 +27,21 @@ describe('administration', () => {
     });
 
     it('should load metrics', async () => {
-        await navBarPage.clickOnAdmin('insutech-metrics');
+        await navBarPage.clickOnAdmin('jhi-metrics');
         const expect1 = 'metrics.title';
         const value1 = await element(by.id('metrics-page-heading')).getAttribute('jhiTranslate');
         expect(value1).to.eq(expect1);
     });
 
     it('should load health', async () => {
-        await navBarPage.clickOnAdmin('insutech-health');
+        await navBarPage.clickOnAdmin('jhi-health');
         const expect1 = 'health.title';
         const value1 = await element(by.id('health-page-heading')).getAttribute('jhiTranslate');
         expect(value1).to.eq(expect1);
     });
 
     it('should load configuration', async () => {
-        await navBarPage.clickOnAdmin('insutech-configuration');
+        await navBarPage.clickOnAdmin('jhi-configuration');
         const expect1 = 'configuration.title';
         const value1 = await element(by.id('configuration-page-heading')).getAttribute('jhiTranslate');
         expect(value1).to.eq(expect1);

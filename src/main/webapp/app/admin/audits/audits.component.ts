@@ -9,7 +9,7 @@ import { Audit } from './audit.model';
 import { AuditsService } from './audits.service';
 
 @Component({
-    selector: 'insutech-audit',
+    selector: 'jhi-audit',
     templateUrl: './audits.component.html'
 })
 export class AuditsComponent implements OnInit, OnDestroy {

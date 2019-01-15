@@ -3,31 +3,31 @@ import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { InsurancestartTestModule } from '../../../test.module';
-import { InsutechConfigurationComponent } from 'app/admin/configuration/configuration.component';
-import { InsutechConfigurationService } from 'app/admin/configuration/configuration.service';
+import { JhiConfigurationComponent } from 'app/admin/configuration/configuration.component';
+import { JhiConfigurationService } from 'app/admin/configuration/configuration.service';
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { Log } from 'app/admin';
 
 describe('Component Tests', () => {
-    describe('InsutechConfigurationComponent', () => {
-        let comp: InsutechConfigurationComponent;
-        let fixture: ComponentFixture<InsutechConfigurationComponent>;
-        let service: InsutechConfigurationService;
+    describe('JhiConfigurationComponent', () => {
+        let comp: JhiConfigurationComponent;
+        let fixture: ComponentFixture<JhiConfigurationComponent>;
+        let service: JhiConfigurationService;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [InsurancestartTestModule],
-                declarations: [InsutechConfigurationComponent],
-                providers: [InsutechConfigurationService]
+                declarations: [JhiConfigurationComponent],
+                providers: [JhiConfigurationService]
             })
-                .overrideTemplate(InsutechConfigurationComponent, '')
+                .overrideTemplate(JhiConfigurationComponent, '')
                 .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(InsutechConfigurationComponent);
+            fixture = TestBed.createComponent(JhiConfigurationComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(InsutechConfigurationService);
+            service = fixture.debugElement.injector.get(JhiConfigurationService);
         });
 
         describe('OnInit', () => {

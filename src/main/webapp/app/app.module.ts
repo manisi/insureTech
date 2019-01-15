@@ -18,36 +18,33 @@ import { InsurancestartHomeModule } from './home/home.module';
 import { InsurancestartAccountModule } from './account/account.module';
 import { InsurancestartEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
+import { InsurancestartAppAboutUsModule } from './about-us/about-us.module';
+import { InsurancestartAppHiThereModule } from './hi-there/hi-there.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import {
-    InsutechMainComponent,
-    NavbarComponent,
-    FooterComponent,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    ErrorComponent
-} from './layouts';
+import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
 @NgModule({
     imports: [
         BrowserModule,
         InsurancestartAppRoutingModule,
-        Ng2Webstorage.forRoot({ prefix: 'insutech', separator: '-' }),
+        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         NgJhipsterModule.forRoot({
             // set below to true to make alerts look like toast
             alertAsToast: false,
             alertTimeout: 5000,
             i18nEnabled: true,
-            defaultI18nLang: 'en'
+            defaultI18nLang: 'fa'
         }),
         InsurancestartSharedModule.forRoot(),
         InsurancestartCoreModule,
         InsurancestartHomeModule,
         InsurancestartAccountModule,
+        InsurancestartAppAboutUsModule,
+        InsurancestartAppHiThereModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         InsurancestartEntityModule
     ],
-    declarations: [InsutechMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
@@ -70,7 +67,7 @@ import {
             multi: true
         }
     ],
-    bootstrap: [InsutechMainComponent]
+    bootstrap: [JhiMainComponent]
 })
 export class InsurancestartAppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {

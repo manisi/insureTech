@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { InsutechConfigurationService } from './configuration.service';
+import { JhiConfigurationService } from './configuration.service';
 
 @Component({
-    selector: 'insutech-configuration',
+    selector: 'jhi-configuration',
     templateUrl: './configuration.component.html'
 })
-export class InsutechConfigurationComponent implements OnInit {
+export class JhiConfigurationComponent implements OnInit {
     allConfiguration: any = null;
     configuration: any = null;
     configKeys: any[];
@@ -14,7 +14,7 @@ export class InsutechConfigurationComponent implements OnInit {
     orderProp: string;
     reverse: boolean;
 
-    constructor(private configurationService: InsutechConfigurationService) {
+    constructor(private configurationService: JhiConfigurationService) {
         this.configKeys = [];
         this.filter = '';
         this.orderProp = 'prefix';

@@ -13,13 +13,13 @@ import {
     UserMgmtUpdateComponent,
     UserMgmtDeleteDialogComponent,
     LogsComponent,
-    InsutechMetricsMonitoringModalComponent,
-    InsutechMetricsMonitoringComponent,
-    InsutechHealthModalComponent,
-    InsutechHealthCheckComponent,
-    InsutechConfigurationComponent,
-    InsutechDocsComponent,
-    InsutechTrackerComponent
+    JhiMetricsMonitoringModalComponent,
+    JhiMetricsMonitoringComponent,
+    JhiHealthModalComponent,
+    JhiHealthCheckComponent,
+    JhiConfigurationComponent,
+    JhiDocsComponent,
+    JhiTrackerComponent
 } from './';
 
 @NgModule({
@@ -35,16 +35,16 @@ import {
         UserMgmtUpdateComponent,
         UserMgmtDeleteDialogComponent,
         LogsComponent,
-        InsutechConfigurationComponent,
-        InsutechHealthCheckComponent,
-        InsutechHealthModalComponent,
-        InsutechDocsComponent,
-        InsutechTrackerComponent,
-        InsutechMetricsMonitoringComponent,
-        InsutechMetricsMonitoringModalComponent
+        JhiConfigurationComponent,
+        JhiHealthCheckComponent,
+        JhiHealthModalComponent,
+        JhiDocsComponent,
+        JhiTrackerComponent,
+        JhiMetricsMonitoringComponent,
+        JhiMetricsMonitoringModalComponent
     ],
     providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-    entryComponents: [UserMgmtDeleteDialogComponent, InsutechHealthModalComponent, InsutechMetricsMonitoringModalComponent],
+    entryComponents: [UserMgmtDeleteDialogComponent, JhiHealthModalComponent, JhiMetricsMonitoringModalComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class InsurancestartAdminModule {

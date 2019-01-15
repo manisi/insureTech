@@ -4,7 +4,7 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { AccountService, JhiLanguageHelper } from 'app/core';
 
 @Component({
-    selector: 'insutech-settings',
+    selector: 'jhi-settings',
     templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {

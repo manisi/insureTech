@@ -7,10 +7,10 @@ import { LoginService } from 'app/core/login/login.service';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 @Component({
-    selector: 'insutech-login-modal',
+    selector: 'jhi-login-modal',
     templateUrl: './login.component.html'
 })
-export class InsutechLoginModalComponent implements AfterViewInit {
+export class JhiLoginModalComponent implements AfterViewInit {
     authenticationError: boolean;
     password: string;
     rememberMe: boolean;

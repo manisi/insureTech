@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginService } from 'app/core/login/login.service';
-import { InsutechLoginModalComponent } from 'app/shared/login/login.component';
+import { JhiLoginModalComponent } from 'app/shared/login/login.component';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { InsurancestartTestModule } from '../../../test.module';
 import { MockLoginService } from '../../../helpers/mock-login.service';
@@ -12,8 +12,8 @@ import { MockStateStorageService } from '../../../helpers/mock-state-storage.ser
 
 describe('Component Tests', () => {
     describe('LoginComponent', () => {
-        let comp: InsutechLoginModalComponent;
-        let fixture: ComponentFixture<InsutechLoginModalComponent>;
+        let comp: JhiLoginModalComponent;
+        let fixture: ComponentFixture<JhiLoginModalComponent>;
         let mockLoginService: any;
         let mockStateStorageService: any;
         let mockRouter: any;
@@ -23,7 +23,7 @@ describe('Component Tests', () => {
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [InsurancestartTestModule],
-                declarations: [InsutechLoginModalComponent],
+                declarations: [JhiLoginModalComponent],
                 providers: [
                     {
                         provide: LoginService,
@@ -35,12 +35,12 @@ describe('Component Tests', () => {
                     }
                 ]
             })
-                .overrideTemplate(InsutechLoginModalComponent, '')
+                .overrideTemplate(JhiLoginModalComponent, '')
                 .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(InsutechLoginModalComponent);
+            fixture = TestBed.createComponent(JhiLoginModalComponent);
             comp = fixture.componentInstance;
             mockLoginService = fixture.debugElement.injector.get(LoginService);
             mockStateStorageService = fixture.debugElement.injector.get(StateStorageService);
