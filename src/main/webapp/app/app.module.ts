@@ -18,8 +18,6 @@ import { InsurancestartHomeModule } from './home/home.module';
 import { InsurancestartAccountModule } from './account/account.module';
 import { InsurancestartEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
-import { InsurancestartAppAboutUsModule } from './about-us/about-us.module';
-import { InsurancestartAppHiThereModule } from './hi-there/hi-there.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
@@ -39,8 +37,6 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         InsurancestartCoreModule,
         InsurancestartHomeModule,
         InsurancestartAccountModule,
-        InsurancestartAppAboutUsModule,
-        InsurancestartAppHiThereModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         InsurancestartEntityModule
     ],

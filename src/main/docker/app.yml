@@ -7,14 +7,9 @@ services:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_DATASOURCE_URL=jdbc:postgresql://insurancestart-postgresql:5432/insurancestart
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
-            - SPRING_DATA_JEST_URI=http://insurancestart-elasticsearch:9200
         ports:
             - 8080:8080
     insurancestart-postgresql:
         extends:
             file: postgresql.yml
             service: insurancestart-postgresql
-    insurancestart-elasticsearch:
-        extends:
-            file: elasticsearch.yml
-            service: insurancestart-elasticsearch
