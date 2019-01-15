@@ -3,28 +3,28 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 
 import { InsurancestartTestModule } from '../../../test.module';
-import { JhiHealthCheckComponent } from 'app/admin/health/health.component';
-import { JhiHealthService } from 'app/admin/health/health.service';
+import { InsutechHealthCheckComponent } from 'app/admin/health/health.component';
+import { InsutechHealthService } from 'app/admin/health/health.service';
 
 describe('Component Tests', () => {
-    describe('JhiHealthCheckComponent', () => {
-        let comp: JhiHealthCheckComponent;
-        let fixture: ComponentFixture<JhiHealthCheckComponent>;
-        let service: JhiHealthService;
+    describe('InsutechHealthCheckComponent', () => {
+        let comp: InsutechHealthCheckComponent;
+        let fixture: ComponentFixture<InsutechHealthCheckComponent>;
+        let service: InsutechHealthService;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [InsurancestartTestModule],
-                declarations: [JhiHealthCheckComponent]
+                declarations: [InsutechHealthCheckComponent]
             })
-                .overrideTemplate(JhiHealthCheckComponent, '')
+                .overrideTemplate(InsutechHealthCheckComponent, '')
                 .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(JhiHealthCheckComponent);
+            fixture = TestBed.createComponent(InsutechHealthCheckComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(JhiHealthService);
+            service = fixture.debugElement.injector.get(InsutechHealthService);
         });
 
         describe('baseName and subSystemName', () => {

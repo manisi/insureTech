@@ -38,7 +38,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/insurancestart
         username: insurancestart
-        password: insurancestart
+        password:
         hikari:
             auto-commit: false
     jpa:

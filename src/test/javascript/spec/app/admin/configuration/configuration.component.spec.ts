@@ -3,31 +3,31 @@ import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { InsurancestartTestModule } from '../../../test.module';
-import { JhiConfigurationComponent } from 'app/admin/configuration/configuration.component';
-import { JhiConfigurationService } from 'app/admin/configuration/configuration.service';
+import { InsutechConfigurationComponent } from 'app/admin/configuration/configuration.component';
+import { InsutechConfigurationService } from 'app/admin/configuration/configuration.service';
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { Log } from 'app/admin';
 
 describe('Component Tests', () => {
-    describe('JhiConfigurationComponent', () => {
-        let comp: JhiConfigurationComponent;
-        let fixture: ComponentFixture<JhiConfigurationComponent>;
-        let service: JhiConfigurationService;
+    describe('InsutechConfigurationComponent', () => {
+        let comp: InsutechConfigurationComponent;
+        let fixture: ComponentFixture<InsutechConfigurationComponent>;
+        let service: InsutechConfigurationService;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [InsurancestartTestModule],
-                declarations: [JhiConfigurationComponent],
-                providers: [JhiConfigurationService]
+                declarations: [InsutechConfigurationComponent],
+                providers: [InsutechConfigurationService]
             })
-                .overrideTemplate(JhiConfigurationComponent, '')
+                .overrideTemplate(InsutechConfigurationComponent, '')
                 .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(JhiConfigurationComponent);
+            fixture = TestBed.createComponent(InsutechConfigurationComponent);
             comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(JhiConfigurationService);
+            service = fixture.debugElement.injector.get(InsutechConfigurationService);
         });
 
         describe('OnInit', () => {

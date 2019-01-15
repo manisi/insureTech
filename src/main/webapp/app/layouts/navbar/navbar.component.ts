@@ -9,7 +9,7 @@ import { JhiLanguageHelper, AccountService, LoginModalService, LoginService } fr
 import { ProfileService } from '../profiles/profile.service';
 
 @Component({
-    selector: 'jhi-navbar',
+    selector: 'insutech-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['navbar.scss']
 })

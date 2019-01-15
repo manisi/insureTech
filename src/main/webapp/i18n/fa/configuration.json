@@ -5,7 +5,7 @@
         "filter": "فیلتر (با پیشوند)",
         "table": {
             "prefix": "پیشوند",
-            "properties": "ویژگی"
+            "properties": "خواص"
         }
     }
 }

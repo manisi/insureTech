@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { AccountService } from '../auth/account.service';
 import { AuthServerProvider } from '../auth/auth-jwt.service';
-import { JhiTrackerService } from '../tracker/tracker.service';
+import { InsutechTrackerService } from '../tracker/tracker.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
     constructor(
         private accountService: AccountService,
-        private trackerService: JhiTrackerService,
+        private trackerService: InsutechTrackerService,
         private authServerProvider: AuthServerProvider
     ) {}
 

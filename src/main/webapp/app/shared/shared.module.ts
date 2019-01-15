@@ -2,14 +2,19 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbDateMomentAdapter } from './util/datepicker-adapter';
-import { InsurancestartSharedLibsModule, InsurancestartSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective } from './';
+import {
+    InsurancestartSharedLibsModule,
+    InsurancestartSharedCommonModule,
+    InsutechLoginModalComponent,
+    HasAnyAuthorityDirective
+} from './';
 
 @NgModule({
     imports: [InsurancestartSharedLibsModule, InsurancestartSharedCommonModule],
-    declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],
+    declarations: [InsutechLoginModalComponent, HasAnyAuthorityDirective],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
-    entryComponents: [JhiLoginModalComponent],
-    exports: [InsurancestartSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective],
+    entryComponents: [InsutechLoginModalComponent],
+    exports: [InsurancestartSharedCommonModule, InsutechLoginModalComponent, HasAnyAuthorityDirective],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class InsurancestartSharedModule {

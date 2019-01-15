@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JhiMetricsService } from 'app/admin/metrics/metrics.service';
+import { InsutechMetricsService } from 'app/admin/metrics/metrics.service';
 import { SERVER_API_URL } from 'app/app.constants';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('Service Tests', () => {
     describe('Logs Service', () => {
-        let service: JhiMetricsService;
+        let service: InsutechMetricsService;
         let httpMock;
 
         beforeEach(() => {
@@ -14,7 +14,7 @@ describe('Service Tests', () => {
                 imports: [HttpClientTestingModule]
             });
 
-            service = TestBed.get(JhiMetricsService);
+            service = TestBed.get(InsutechMetricsService);
             httpMock = TestBed.get(HttpTestingController);
         });
 

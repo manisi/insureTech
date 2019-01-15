@@ -5,7 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { InsurancestartTestModule } from '../../../test.module';
 import { PasswordComponent } from 'app/account/password/password.component';
 import { PasswordService } from 'app/account/password/password.service';
-import { JhiTrackerService } from 'app/core/tracker/tracker.service';
+import { InsutechTrackerService } from 'app/core/tracker/tracker.service';
 import { MockTrackerService } from '../../../helpers/mock-tracker.service';
 
 describe('Component Tests', () => {
@@ -20,7 +20,7 @@ describe('Component Tests', () => {
                 declarations: [PasswordComponent],
                 providers: [
                     {
-                        provide: JhiTrackerService,
+                        provide: InsutechTrackerService,
                         useClass: MockTrackerService
                     }
                 ]

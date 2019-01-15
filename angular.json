@@ -19,12 +19,12 @@
             "inlineStyle": true,
             "inlineTemplate": false,
             "spec": false,
-            "prefix": "jhi",
+            "prefix": "insutech",
             "styleExt": "scss"
         },
         "@schematics/angular:directive": {
             "spec": false,
-            "prefix": "jhi"
+            "prefix": "insutech"
         },
         "@schematics/angular:guard": {
             "spec": false

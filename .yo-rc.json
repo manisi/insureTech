@@ -27,7 +27,7 @@
         "useSass": true,
         "clientPackageManager": "npm",
         "testFrameworks": ["gatling", "cucumber", "protractor"],
-        "jhiPrefix": "jhi",
+        "jhiPrefix": "insutech",
         "otherModules": [],
         "enableTranslation": true,
         "nativeLanguage": "en",

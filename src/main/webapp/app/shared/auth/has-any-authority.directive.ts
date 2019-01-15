@@ -13,7 +13,7 @@ import { AccountService } from 'app/core/auth/account.service';
  * ```
  */
 @Directive({
-    selector: '[jhiHasAnyAuthority]'
+    selector: '[insutechHasAnyAuthority]'
 })
 export class HasAnyAuthorityDirective {
     private authorities: string[];
@@ -25,7 +25,7 @@ export class HasAnyAuthorityDirective {
     ) {}
 
     @Input()
-    set jhiHasAnyAuthority(value: string | string[]) {
+    set insutechHasAnyAuthority(value: string | string[]) {
         this.authorities = typeof value === 'string' ? [value] : value;
         this.updateView();
         // Get notified each time authentication state changes.
