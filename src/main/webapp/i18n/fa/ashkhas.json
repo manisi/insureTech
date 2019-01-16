@@ -1,0 +1,26 @@
+{
+    "insurancestartApp": {
+        "ashkhas": {
+            "home": {
+                "title": "اشخاص",
+                "createLabel": "ایجاد شخص",
+                "createOrEditLabel": "ایحاد/ویرایش"
+            },
+            "created": "شخص با شناسه {{ param }} ایجادشد.",
+            "updated": "شخص با شناسه {{ param }} ویرایش شد.",
+            "deleted": "شخص با شناسه {{ param }} حذف  شد. ",
+            "delete": {
+                "question": "اطمینان دارید {{ id }}?"
+            },
+            "detail": {
+                "title": "اشخاص"
+            },
+            "firstName": "نام",
+            "lastName": "نام خانوادگی",
+            "email": "ایمیل",
+            "phoneNumber": "تلفن",
+            "hireDate": "ناریخ تولد",
+            "noeShakhs": "نوع شخص"
+        }
+    }
+}

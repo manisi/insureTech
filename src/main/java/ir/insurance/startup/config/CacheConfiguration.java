@@ -38,6 +38,18 @@ public class CacheConfiguration {
             cm.createCache(ir.insurance.startup.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(ir.insurance.startup.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(ir.insurance.startup.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Ashkhas.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Pooshesh.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Khodro.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Khodro.class.getName() + ".tips", jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.TipKhodro.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Nerkh.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Nerkh.class.getName() + ".nerkhs", jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Nerkh.class.getName() + ".sherkatBimes", jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.SherkatBime.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.SherkatBime.class.getName() + ".names", jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.City.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.Country.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "nerkh": {
+            "home": {
+                "title": "نرخ",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "A new Nerkh is created with identifier {{ param }}",
+            "updated": "A Nerkh is updated with identifier {{ param }}",
+            "deleted": "A Nerkh is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Nerkh {{ id }}?"
+            },
+            "detail": {
+                "title": "نرخ"
+            },
+            "name": "نام",
+            "faal": "فعال",
+            "mablagh": "مبلغ",
+            "nerkh": "نرخ",
+            "sherkatBime": "نام شرکت بیمه"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "Pooshesh",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "faal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "aztarikh",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "nerkh",
+            "otherEntityName": "nerkh",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190116184640",
+    "entityTableName": "pooshesh",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "bimisho"
+}

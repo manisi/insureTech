@@ -1,0 +1,83 @@
+entity Ashkhas {
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	hireDate Instant,
+     noeShakhs NoeShakhs,
+}
+
+enum NoeShakhs {
+    HAGHIGHI, HOGHOOGHI, ATBAE
+}
+
+entity Pooshesh {
+	name String,
+	faal Boolean,
+	aztarikh Instant
+}
+
+entity Khodro {
+	name String,
+    model String,
+    faal Boolean,
+    noe NoeKhodro,
+}
+
+enum NoeKhodro {
+    SAVARI, TAXI, AUTOCAR, CAMIOON
+} 
+
+entity TipKhodro {
+	name String,
+    model String,
+    faal Boolean,
+    noe NoeKhodro,
+}
+
+entity Nerkh {
+	name String,
+    faal Boolean,
+    mablagh Float,
+}
+
+entity SherkatBime {
+	name String,
+    faal Boolean,
+}
+
+entity City {
+	name String
+}
+
+entity Country {
+	name String
+}
+
+relationship ManyToMany {
+	Nerkh{sherkatBime(name)} to SherkatBime{name}
+}
+
+relationship OneToMany {
+	Nerkh{nerkh} to Pooshesh,
+}
+  relationship OneToMany {
+	Khodro{tips} to TipKhodro,
+}  
+  relationship ManyToOne {
+	City{tips} to Country,
+} 
+   
+   
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl //except Employee, Job
+
+// Set an angular suffix
+ angularSuffix * with bimisho

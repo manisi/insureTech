@@ -1,0 +1,11 @@
+{
+    "insurancestartApp": {
+        "NoeKhodro": {
+            "null": "",
+            "SAVARI": "سواری",
+            "TAXI": "تاکسی",
+            "AUTOCAR": "اتوکار",
+            "CAMIOON": "کامیون"
+        }
+    }
+}

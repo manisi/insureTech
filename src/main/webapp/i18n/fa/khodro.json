@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "khodro": {
+            "home": {
+                "title": "خودرو",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "A new Khodro is created with identifier {{ param }}",
+            "updated": "A Khodro is updated with identifier {{ param }}",
+            "deleted": "A Khodro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Khodro {{ id }}?"
+            },
+            "detail": {
+                "title": "خودرو"
+            },
+            "name": "نام",
+            "model": "مدل",
+            "faal": "فعال",
+            "noe": "نوع",
+            "tips": "تیپ ها"
+        }
+    }
+}

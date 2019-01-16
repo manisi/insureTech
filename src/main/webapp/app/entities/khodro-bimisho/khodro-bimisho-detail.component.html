@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="khodro">
+            <h2><span jhiTranslate="insurancestartApp.khodro.detail.title">Khodro</span> {{khodro.id}}</h2>
+            <hr>
+            <insutech-alert-error></insutech-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.khodro.name">Name</span></dt>
+                <dd>
+                    <span>{{khodro.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khodro.model">Model</span></dt>
+                <dd>
+                    <span>{{khodro.model}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khodro.faal">Faal</span></dt>
+                <dd>
+                    <span>{{khodro.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khodro.noe">Noe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'insurancestartApp.NoeKhodro.' + khodro.noe}}">{{khodro.noe}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/khodro-bimisho', khodro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "insurancestartApp": {
+        "ashkhas": {
+            "home": {
+                "title": "Ashkhas",
+                "createLabel": "Create a new Ashkhas",
+                "createOrEditLabel": "Create or edit a Ashkhas"
+            },
+            "created": "A new Ashkhas is created with identifier {{ param }}",
+            "updated": "A Ashkhas is updated with identifier {{ param }}",
+            "deleted": "A Ashkhas is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ashkhas {{ id }}?"
+            },
+            "detail": {
+                "title": "Ashkhas"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "hireDate": "Hire Date",
+            "noeShakhs": "Noe Shakhs"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "pooshesh": {
+            "home": {
+                "title": "پوشش ها",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "A new Pooshesh is created with identifier {{ param }}",
+            "updated": "A Pooshesh is updated with identifier {{ param }}",
+            "deleted": "A Pooshesh is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Pooshesh {{ id }}?"
+            },
+            "detail": {
+                "title": "پوشش"
+            },
+            "name": "نام",
+            "faal": "فعال",
+            "aztarikh": "از تاریخ",
+            "nerkh": "نرخ"
+        }
+    }
+}

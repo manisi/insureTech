@@ -11,6 +11,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "ashkhasBimisho": "Ashkhas",
+                "poosheshBimisho": "Pooshesh",
+                "khodroBimisho": "Khodro",
+                "tipKhodroBimisho": "Tip Khodro",
+                "nerkhBimisho": "Nerkh",
+                "sherkatBimeBimisho": "Sherkat Bime",
+                "cityBimisho": "City",
+                "countryBimisho": "Country",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -136,5 +144,5 @@
         "idexists": "A new {{ entityName }} cannot already have an ID",
         "idnull": "Invalid ID"
     },
-    "footer": "<strong>Insurance App</strong> | An application developed for a better life and <a href='' target='_blank'>T</a> | By <a href='http://raibledesigns.com' target='_blank'>Mars Group</a>"
+    "footer": "<strong>Insurance App</strong> | An application developed for a better life and <a href='' target='_blank'>T</a> | By <a href='' target='_blank'>Mars Group</a>"
 }

@@ -1,0 +1,21 @@
+{
+    "insurancestartApp": {
+        "country": {
+            "home": {
+                "title": "کشورها",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "کشور{{ param }} ایجاد شد.",
+            "updated": "کشور{{ param }} ویرایش شد.",
+            "deleted": "کشور{{ param }} حذف شد.",
+            "delete": {
+                "question": "اطمینان دارید{{ id }}?"
+            },
+            "detail": {
+                "title": "کشور"
+            },
+            "name": "نام"
+        }
+    }
+}

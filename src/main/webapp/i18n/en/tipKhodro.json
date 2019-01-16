@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "tipKhodro": {
+            "home": {
+                "title": "Tip Khodros",
+                "createLabel": "Create a new Tip Khodro",
+                "createOrEditLabel": "Create or edit a Tip Khodro"
+            },
+            "created": "A new Tip Khodro is created with identifier {{ param }}",
+            "updated": "A Tip Khodro is updated with identifier {{ param }}",
+            "deleted": "A Tip Khodro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tip Khodro {{ id }}?"
+            },
+            "detail": {
+                "title": "Tip Khodro"
+            },
+            "name": "Name",
+            "model": "Model",
+            "faal": "Faal",
+            "noe": "Noe",
+            "khodro": "Khodro"
+        }
+    }
+}

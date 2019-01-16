@@ -1,0 +1,22 @@
+{
+    "insurancestartApp": {
+        "city": {
+            "home": {
+                "title": "شهر ها",
+                "createLabel": "ایجاد شهر",
+                "createOrEditLabel": "ویرایش شهر"
+            },
+            "created": "شهر {{ param }} ایجاد شد.",
+            "updated": "شهر {{ param }} ویرایش شد.",
+            "deleted": "شهر {{ param }} حذف شد.",
+            "delete": {
+                "question": "اطمینان دارید{{ id }}?"
+            },
+            "detail": {
+                "title": "شهر"
+            },
+            "name": "نام",
+            "tips": "تیپ"
+        }
+    }
+}

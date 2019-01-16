@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="insutech-nerkh-bimisho-heading" jhiTranslate="insurancestartApp.nerkh.home.createOrEditLabel">Create or edit a Nerkh</h2>
+            <div>
+                <insutech-alert-error></insutech-alert-error>
+                <div class="form-group" [hidden]="!nerkh.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="nerkh.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.nerkh.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="nerkh.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.nerkh.faal" for="field_faal">Faal</label>
+                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
+                        [(ngModel)]="nerkh.faal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.nerkh.mablagh" for="field_mablagh">Mablagh</label>
+                    <input type="number" class="form-control" name="mablagh" id="field_mablagh"
+                        [(ngModel)]="nerkh.mablagh" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="insurancestartApp.nerkh.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
+                    <select class="form-control" id="field_sherkatBime" multiple name="sherkatBime" [(ngModel)]="nerkh.sherkatBimes">
+                        <option [ngValue]="getSelected(nerkh.sherkatBimes, sherkatBimeOption)" *ngFor="let sherkatBimeOption of sherkatbimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "nerkh": {
+            "home": {
+                "title": "Nerkhs",
+                "createLabel": "Create a new Nerkh",
+                "createOrEditLabel": "Create or edit a Nerkh"
+            },
+            "created": "A new Nerkh is created with identifier {{ param }}",
+            "updated": "A Nerkh is updated with identifier {{ param }}",
+            "deleted": "A Nerkh is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Nerkh {{ id }}?"
+            },
+            "detail": {
+                "title": "Nerkh"
+            },
+            "name": "Name",
+            "faal": "Faal",
+            "mablagh": "Mablagh",
+            "nerkh": "Nerkh",
+            "sherkatBime": "Sherkat Bime"
+        }
+    }
+}

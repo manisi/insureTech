@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="insutech-pooshesh-bimisho-heading" jhiTranslate="insurancestartApp.pooshesh.home.createOrEditLabel">Create or edit a Pooshesh</h2>
+            <div>
+                <insutech-alert-error></insutech-alert-error>
+                <div class="form-group" [hidden]="!pooshesh.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pooshesh.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.pooshesh.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="pooshesh.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.pooshesh.faal" for="field_faal">Faal</label>
+                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
+                        [(ngModel)]="pooshesh.faal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.pooshesh.aztarikh" for="field_aztarikh">Aztarikh</label>
+                    <div class="d-flex">
+                        <input id="field_aztarikh" type="datetime-local" class="form-control" name="aztarikh" [(ngModel)]="aztarikh"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.pooshesh.nerkh" for="field_nerkh">Nerkh</label>
+                    <select class="form-control" id="field_nerkh" name="nerkh" [(ngModel)]="pooshesh.nerkhId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nerkhOption.id" *ngFor="let nerkhOption of nerkhs; trackBy: trackNerkhById">{{nerkhOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

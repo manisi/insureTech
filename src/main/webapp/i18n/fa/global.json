@@ -11,6 +11,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "اطلاعات پایه",
+                "ashkhasBimisho": "اشخاص",
+                "poosheshBimisho": "پوشش",
+                "khodroBimisho": "خودرو",
+                "tipKhodroBimisho": "تیپ",
+                "nerkhBimisho": "نرخ",
+                "sherkatBimeBimisho": "نام شرکت بیمه",
+                "cityBimisho": "شهر",
+                "countryBimisho": "کشور",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

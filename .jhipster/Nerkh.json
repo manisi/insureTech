@@ -1,0 +1,43 @@
+{
+    "name": "Nerkh",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "faal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "mablagh",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "nerkh",
+            "otherEntityName": "pooshesh",
+            "otherEntityRelationshipName": "nerkh"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "name",
+            "relationshipName": "sherkatBime",
+            "otherEntityName": "sherkatBime",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190116184643",
+    "entityTableName": "nerkh",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "bimisho"
+}
