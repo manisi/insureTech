@@ -7,6 +7,8 @@ import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
@@ -41,6 +43,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         InsurancestartAccountModule,
         InsurancestartAppAboutUsModule,
         InsurancestartAppHiThereModule,
+
+        FontAwesomeModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         InsurancestartEntityModule
     ],

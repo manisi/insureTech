@@ -143,5 +143,6 @@
         "idexists": "موجودیت جدید {{ entityName }} نمی‌تواند شناسه داشته‌باشد.",
         "idnull": "Invalid ID"
     },
-    "footer": "<strong>بیمه شو</strong> | جهت خدمات بیمه ای آسان <a href='#' target='_blank'>T</a> |  <a href='#' target='_blank'>گروه نرم افزاری مارس</a>"
+    "footer": " <a href='#' target='_blank'>گروه مارس</a>",
+    "footer2": "<a href='#' target='_blank'><strong>بیمه شو</strong> </a> "
 }

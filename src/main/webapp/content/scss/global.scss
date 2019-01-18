@@ -51,8 +51,8 @@ Generic styles
 /* other generic styles */
 
 .jh-card {
-    margin: 0px;
-    padding: 1.5% 1.5% 5%;
+    padding: 1.5%;
+    margin-top: 20px;
     border: none;
 }
 
@@ -226,7 +226,9 @@ ui bootstrap tweaks
 /* ==========================================================================
 custom styles for 21-Points Health
 ========================================================================== */
-
+.jh-card {
+    border: none;
+}
 .footer {
     /*    bottom: 0;
     left: 0;

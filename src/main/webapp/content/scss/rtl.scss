@@ -73,6 +73,14 @@ html[dir='rtl'] {
     .navbar-nav > li {
         float: right;
     }
+
+    // for navbar item to left side of page
+    .ml-auto,
+    .mx-auto {
+        margin-right: auto !important;
+        margin-left: 4rem !important;
+    }
+
     .dl-horizontal dt {
         float: right;
     }
