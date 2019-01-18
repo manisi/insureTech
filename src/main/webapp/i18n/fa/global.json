@@ -4,6 +4,8 @@
         "browsehappy": "شما از مرورگر <strong>قدیمی</strong> استفاده می‌کنید. لطفا <a href=\"http://browsehappy.com/?locale=en\">مرورگر خود را به روز کنید</a>",
         "menu": {
             "home": "خانه",
+            "homeside": "صفحه اصلی",
+            "tirthissu": "صدور ثالث",
             "about-us": "درباره",
             "hi-there": "صدور",
             "page-one": "همکار",
