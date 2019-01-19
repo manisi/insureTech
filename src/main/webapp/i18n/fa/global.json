@@ -1,12 +1,14 @@
 {
     "global": {
-        "title": "بیمیشو",
+        "title": "بیمه بات",
         "browsehappy": "شما از مرورگر <strong>قدیمی</strong> استفاده می‌کنید. لطفا <a href=\"http://browsehappy.com/?locale=en\">مرورگر خود را به روز کنید</a>",
         "menu": {
             "home": "خانه",
             "homeside": "صفحه اصلی",
             "tirthissu": "بیمه شخص ثالث",
             "autobody": "بیمه بدنه",
+            "fire": "بیمه آتش سوزی",
+            "life": "بیمه عمر",
             "about-us": "درباره",
             "hi-there": "صدور",
             "page-one": "همکار",
@@ -25,7 +27,7 @@
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
-                "main": "کاربری",
+                "main": "ورود/ثبت نام",
                 "settings": "تنظیمات",
                 "password": "رمزعبور",
                 "sessions": "نشست ها",
@@ -147,5 +149,5 @@
         "idnull": "Invalid ID"
     },
     "footer": " <a href='#' target='_blank'>گروه مارس</a>",
-    "footer2": "<a href='#' target='_blank'><strong>بیمه شو</strong> </a> "
+    "footer2": "<a href='#' target='_blank'><strong>بیمه بات</strong> </a> "
 }

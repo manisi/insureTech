@@ -1,11 +1,13 @@
 {
     "global": {
-        "title": "Insurancestart",
+        "title": "‌Bime Bot",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
             "homeside": "Home Side",
             "tirthissu": "TirthPolicy",
+            "fire": "FirePolicy",
+            "life": "LifePolicy",
             "autobody": "AutoBodyIns",
             "about-us": "About Us",
             "hi-there": "Hi There",
