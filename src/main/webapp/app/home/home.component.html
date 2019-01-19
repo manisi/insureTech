@@ -1,5 +1,7 @@
 <div class="row">
-    <div class="col-md-3 side-menu">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10">
         <div>
  <!--           <div *ngIf="!isAuthenticated()">
                 <div class="alert alert-info" role="alert">
@@ -11,31 +13,39 @@
                     No more command line: fill an easy-to-use Web form, JHipster Online generates a complete <a href="" target="_blank" rel="noopener" data-translate="home.link.homepage">JHipster</a> application on your GitHub account.
                 </div>
             </div>-->
-            <div>
-                <div class="alert alert-primary" role="alert" *ngIf="isAuthenticated()">
+ <!--           <div>
+                <div class="alert alert-primary" role="alert" *ngIf="!isAuthenticated()">
                     <a class="navbar-brand logo" routerLink="/">
                         <span class="logo-img"></span>
                         <span jhiTranslate="global.title" class="navbar-title">Insurancestart</span>
-                        <!--<span class="badge badge-danger">new</span> Check out <a routerLink="/statistics">JHipster statistics</a> to have an overview of what JHipster users are building.-->
-                </div>
+                        &lt;!&ndash;<span class="badge badge-danger">new</span> Check out <a routerLink="/statistics">JHipster statistics</a> to have an overview of what JHipster users are building.&ndash;&gt;
+                </div>-->
 
-            <nav class="navbar navbar-dark bg-light">
-                <ul class="navbar-nav " [ngSwitch]="isAuthenticated()">
-                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngSwitchCase="true">
-                        <a class="nav-link text-primary mt-2" routerLink="/">
+            <nav class="navbar-dark navbar-expand-md  bg-primary align-middle" >
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+                        <a class="nav-link mt-2" routerLink="/">
                             <span class="btn-rounded align-middle">
                                 <fa-icon icon="home" size="2x" fixedWidth="true"></fa-icon>
                             </span>
                             <span jhiTranslate="global.menu.homeside" class="align-middle h5 ">Home</span>
                         </a>
                     </li>
-                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                        *ngIf="isAuthenticated()">
-                        <a class="nav-link text-primary mt-2" routerLink="hi-there">
+
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+                        <a class="nav-link  mt-2" routerLink="hi-there">
                             <span class="btn-rounded align-middle">
                                 <fa-icon icon="wrench" size="2x" fixedWidth="true"></fa-icon>
                             </span>
                             <span jhiTranslate="global.menu.tirthissu" class="align-middle h5" >tirthissu</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+                        <a class="nav-link  mt-2" routerLink="hi-there">
+                            <span class="btn-rounded align-middle">
+                                <fa-icon icon="wrench" size="2x" fixedWidth="true"></fa-icon>
+                            </span>
+                            <span jhiTranslate="global.menu.autobody" class="align-middle h5" >tirthissu</span>
                         </a>
                     </li>
 <!--                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngSwitchCase="true">
@@ -84,7 +94,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-9">
+<div class="row">
+   <div class="col-md-12">
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
         <div>
@@ -92,31 +103,33 @@
                 <div class="container" *ngSwitchCase="false">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header" jhiTranslate="login.form.button">
-                                    <fa-icon icon="sign-in-alt"></fa-icon>
-                                    &nbsp;Authentication
-                                </div>
-                                <div class="card-body">
+                            <!--<div class="card">-->
+                                <!--<div class="card-header" jhiTranslate="login.form.button">-->
+                                    <!--<fa-icon icon="sign-in-alt"></fa-icon>-->
+                                    <!--&nbsp;Authentication-->
+                                <!--</div>-->
+                                <!--<div class="card-body">-->
 
-                                    <button type="button" class="btn btn-info" jhiTranslate="login.form.button" (click)="login()">Please sign in</button>
-                                </div>
-                            </div>
+                                    <!--<button type="button" class="btn btn-info" jhiTranslate="login.form.button" (click)="login()">Please sign in</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
                         </div>
                         <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header" jhiTranslate="register.form.button">
-                                    <fa-icon icon="user-plus"></fa-icon>
-                                    &nbsp;Registration
-                                </div>
-                                <div class="card-body">
+                            <!--<div class="card">-->
+                                <!--<div class="card-header" jhiTranslate="register.form.button">-->
+                                    <!--<fa-icon icon="user-plus"></fa-icon>-->
+                                    <!--&nbsp;Registration-->
+                                <!--</div>-->
+                                <!--<div class="card-body">-->
 
 
-                                    <a class="btn btn-info" routerLink="register" jhiTranslate="register.form.button">Please register</a>
-                                </div>
-                            </div>
+                                    <!--<a class="btn btn-info" routerLink="register" jhiTranslate="register.form.button">Please register</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
                         </div>
                     </div>
+
+
 <!--                    <div class="row">
                         <div class="col-md-12">
                             <hr>
@@ -151,3 +164,5 @@
         </div>
     </div>
 </div>
+</div>
+<div class="col-md-1"></div>
