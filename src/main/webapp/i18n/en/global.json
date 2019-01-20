@@ -13,6 +13,7 @@
             "hi-there": "Hi There",
             "page-one": "Page One",
             "page-two": "Page Two",
+            "mohasebat": "Mohasebat",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
@@ -24,6 +25,16 @@
                 "sherkatBimeBimisho": "Sherkat Bime",
                 "cityBimisho": "City",
                 "countryBimisho": "Country",
+                "ashkhas": "Ashkhas",
+                "pooshesh": "Pooshesh",
+                "khodro": "Khodro",
+                "tipKhodro": "Tip Khodro",
+                "nerkh": "Nerkh",
+                "sherkatBime": "Sherkat Bime",
+                "city": "City",
+                "country": "Country",
+                "mohasebeSales": "Mohasebe Sales",
+                "mohasebeBadane": "Mohasebe Badane",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "mohasebeSales": {
+            "home": {
+                "title": "Mohasebe Sales",
+                "createLabel": "Create a new Mohasebe Sales",
+                "createOrEditLabel": "Create or edit a Mohasebe Sales"
+            },
+            "created": "A new Mohasebe Sales is created with identifier {{ param }}",
+            "updated": "A Mohasebe Sales is updated with identifier {{ param }}",
+            "deleted": "A Mohasebe Sales is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mohasebe Sales {{ id }}?"
+            },
+            "detail": {
+                "title": "Mohasebe Sales"
+            },
+            "nameSherkat": "Name Sherkat",
+            "saltakhfif": "Saltakhfif",
+            "tips": "Tips"
+        }
+    }
+}

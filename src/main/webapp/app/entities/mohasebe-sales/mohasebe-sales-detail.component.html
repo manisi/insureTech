@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mohasebeSales">
+            <h2><span jhiTranslate="insurancestartApp.mohasebeSales.detail.title">Mohasebe Sales</span> {{mohasebeSales.id}}</h2>
+            <hr>
+            <insutech-alert-error></insutech-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.mohasebeSales.nameSherkat">Name Sherkat</span></dt>
+                <dd>
+                    <span>{{mohasebeSales.nameSherkat}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.mohasebeSales.saltakhfif">Saltakhfif</span></dt>
+                <dd>
+                    <span>{{mohasebeSales.saltakhfif}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.mohasebeSales.tips">Tips</span></dt>
+                <dd>
+                    <div *ngIf="mohasebeSales.tipsId">
+                        <a [routerLink]="['/tip-khodro', mohasebeSales.tipsId, 'view']">{{mohasebeSales.tipsId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mohasebe-sales', mohasebeSales.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

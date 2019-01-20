@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pooshesh">
+            <h2><span jhiTranslate="insurancestartApp.pooshesh.detail.title">Pooshesh</span> {{pooshesh.id}}</h2>
+            <hr>
+            <insutech-alert-error></insutech-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.pooshesh.name">Name</span></dt>
+                <dd>
+                    <span>{{pooshesh.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.pooshesh.faal">Faal</span></dt>
+                <dd>
+                    <span>{{pooshesh.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.pooshesh.aztarikh">Aztarikh</span></dt>
+                <dd>
+                    <span>{{pooshesh.aztarikh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.pooshesh.nerkh">Nerkh</span></dt>
+                <dd>
+                    <div *ngIf="pooshesh.nerkhId">
+                        <a [routerLink]="['/nerkh', pooshesh.nerkhId, 'view']">{{pooshesh.nerkhId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pooshesh', pooshesh.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

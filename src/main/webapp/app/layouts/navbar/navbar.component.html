@@ -24,6 +24,29 @@
                 </a>
             </li>
 
+            <li  *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="mohasebe-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span jhiTranslate="global.menu.mohasebat">
+                            Entities
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+            <li>
+                <a class="dropdown-item" routerLink="mohasebe-sales" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                    <span jhiTranslate="global.menu.entities.mohasebeSales">Mohasebe Sales</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item" routerLink="mohasebe-badane" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                    <span jhiTranslate="global.menu.entities.mohasebeBadane">Mohasebe Badane</span>
+                </a>
+            </li>
+                </ul>
  <!--           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="hi-there" (click)="collapseNavbar()">
                     <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
@@ -49,54 +72,56 @@
                             <!--<span jhiTranslate="global.menu.hi-there">Hi there</span>-->
                         <!--</a>-->
                     <!--</li>-->
+
                     <li>
-                        <a class="dropdown-item" routerLink="ashkhas-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="ashkhas" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ashkhasBimisho">Ashkhas Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.ashkhas">Ashkhas</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="pooshesh-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="pooshesh" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.poosheshBimisho">Pooshesh Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.pooshesh">Pooshesh</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="khodro-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="khodro" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.khodroBimisho">Khodro Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.khodro">Khodro</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="tip-khodro-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="tip-khodro" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.tipKhodroBimisho">Tip Khodro Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.tipKhodro">Tip Khodro</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="nerkh-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="nerkh" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.nerkhBimisho">Nerkh Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.nerkh">Nerkh</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="sherkat-bime-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="sherkat-bime" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.sherkatBimeBimisho">Sherkat Bime Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.sherkatBime">Sherkat Bime</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="city-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="city" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.cityBimisho">City Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.city">City</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="country-bimisho" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="country" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.countryBimisho">Country Bimisho</span>
+                            <span jhiTranslate="global.menu.entities.country">Country</span>
                         </a>
                     </li>
+
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
