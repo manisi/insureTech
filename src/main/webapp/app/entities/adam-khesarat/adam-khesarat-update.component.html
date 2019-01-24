@@ -10,6 +10,32 @@
                         [(ngModel)]="adamKhesarat.id" readonly />
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.adamKhesarat.sabeghe" for="field_sabeghe">Sabeghe</label>
+                    <select class="form-control" id="field_sabeghe" name="sabeghe" [(ngModel)]="adamKhesarat.sabegheId"  required>
+                        <option *ngIf="!editForm.value.sabeghe" [ngValue]="null" selected></option>
+                        <option [ngValue]="sabegheOption.id" *ngFor="let sabegheOption of sabeghes; trackBy: trackSabegheById">{{sabegheOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.sabeghe?.dirty && editForm.controls.sabeghe?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.sabeghe?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.adamKhesarat.noeSabeghe" for="field_noeSabeghe">Noe Sabeghe</label>
+                    <select class="form-control" id="field_noeSabeghe" name="noeSabeghe" [(ngModel)]="adamKhesarat.noeSabegheId"  required>
+                        <option *ngIf="!editForm.value.noeSabeghe" [ngValue]="null" selected></option>
+                        <option [ngValue]="noeSabegheOption.id" *ngFor="let noeSabegheOption of noesabeghes; trackBy: trackNoeSabegheById">{{noeSabegheOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.noeSabeghe?.dirty && editForm.controls.noeSabeghe?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.noeSabeghe?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.adamKhesarat.sales" for="field_sales">Sales</label>
                     <input type="number" class="form-control" name="sales" id="field_sales"
                         [(ngModel)]="adamKhesarat.sales" required min="0" jhiMin="0"/>
@@ -78,32 +104,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.adamKhesarat.sabeghe" for="field_sabeghe">Sabeghe</label>
-                    <select class="form-control" id="field_sabeghe" name="sabeghe" [(ngModel)]="adamKhesarat.sabegheId"  required>
-                        <option *ngIf="!editForm.value.sabeghe" [ngValue]="null" selected></option>
-                        <option [ngValue]="sabegheOption.id" *ngFor="let sabegheOption of sabeghes; trackBy: trackSabegheById">{{sabegheOption.name}}</option>
-                    </select>
-                </div>
-                <div [hidden]="!(editForm.controls.sabeghe?.dirty && editForm.controls.sabeghe?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.sabeghe?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.adamKhesarat.noeSabeghe" for="field_noeSabeghe">Noe Sabeghe</label>
-                    <select class="form-control" id="field_noeSabeghe" name="noeSabeghe" [(ngModel)]="adamKhesarat.noeSabegheId"  required>
-                        <option *ngIf="!editForm.value.noeSabeghe" [ngValue]="null" selected></option>
-                        <option [ngValue]="noeSabegheOption.id" *ngFor="let noeSabegheOption of noesabeghes; trackBy: trackNoeSabegheById">{{noeSabegheOption.name}}</option>
-                    </select>
-                </div>
-                <div [hidden]="!(editForm.controls.noeSabeghe?.dirty && editForm.controls.noeSabeghe?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.noeSabeghe?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
+
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

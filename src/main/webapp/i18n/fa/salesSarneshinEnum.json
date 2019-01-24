@@ -2,8 +2,8 @@
     "insurancestartApp": {
         "SalesSarneshinEnum": {
             "null": "",
-            "SALES": "SALES",
-            "SARNESHIN": "SARNESHIN"
+            "SALES": "ثالث",
+            "SARNESHIN": "سرنشین"
         }
     }
 }

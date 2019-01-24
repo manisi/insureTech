@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "grouhKhodro": {
             "home": {
-                "title": "Grouh Khodros",
-                "createLabel": "Create a new Grouh Khodro",
-                "createOrEditLabel": "Create or edit a Grouh Khodro"
+                "title": "گروه خودرو",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
             },
             "created": "A new Grouh Khodro is created with identifier {{ param }}",
             "updated": "A Grouh Khodro is updated with identifier {{ param }}",
@@ -13,10 +13,10 @@
                 "question": "Are you sure you want to delete Grouh Khodro {{ id }}?"
             },
             "detail": {
-                "title": "Grouh Khodro"
+                "title": "گروه خودرو"
             },
-            "name": "Name",
-            "faal": "Faal"
+            "name": "نام",
+            "faal": "فعال"
         }
     }
 }

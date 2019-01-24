@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="developer (generated)" id="1548329507074-1">
+        <createTable tableName="pooshesh">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="poosheshPK"/>
+            </column>
+            <column name="aztarikh" type="BYTEA"/>
+            <column name="faal" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="nerkh_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548329507074-2">
+        <addForeignKeyConstraint baseColumnNames="nerkh_id" baseTableName="pooshesh" constraintName="FKc6tufxhckda9y4biko83kidsy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548329507074-3">
+        <dropTable tableName="jhi_date_time_wrapper"/>
+    </changeSet>
+</databaseChangeLog>

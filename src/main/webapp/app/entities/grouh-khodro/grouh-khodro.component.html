@@ -24,7 +24,10 @@
             <tr *ngFor="let grouhKhodro of grouhKhodros ;trackBy: trackId">
                 <td><a [routerLink]="['/grouh-khodro', grouhKhodro.id, 'view' ]">{{grouhKhodro.id}}</a></td>
                 <td>{{grouhKhodro.name}}</td>
-                <td>{{grouhKhodro.faal}}</td>
+                <!--<td>{{grouhKhodro.faal}}</td>-->
+                <td>
+                    <fa-icon [icon]="grouhKhodro.faal ? 'check' : 'times'" aria-hidden="true" class="{{grouhKhodro.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

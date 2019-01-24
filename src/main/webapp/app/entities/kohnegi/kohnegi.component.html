@@ -28,7 +28,10 @@
                 <td>{{kohnegi.darsadHarSal}}</td>
                 <td>{{kohnegi.maxDarsad}}</td>
                 <td>{{kohnegi.sharh}}</td>
-                <td>{{kohnegi.faal}}</td>
+                <!--<td>{{kohnegi.faal}}</td>-->
+                <td>
+                    <fa-icon [icon]="kohnegi.faal ? 'check' : 'times'" aria-hidden="true" class="{{kohnegi.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

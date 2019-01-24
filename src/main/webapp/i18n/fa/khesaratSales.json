@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "khesaratSales": {
             "home": {
-                "title": "Khesarat Sales",
-                "createLabel": "Create a new Khesarat Sales",
-                "createOrEditLabel": "Create or edit a Khesarat Sales"
+                "title": "خسارت ثالث",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
             },
             "created": "A new Khesarat Sales is created with identifier {{ param }}",
             "updated": "A Khesarat Sales is updated with identifier {{ param }}",
@@ -13,13 +13,13 @@
                 "question": "Are you sure you want to delete Khesarat Sales {{ id }}?"
             },
             "detail": {
-                "title": "Khesarat Sales"
+                "title": "خسارت ثالث"
             },
-            "noe": "Noe",
-            "nerkhKhesarat": "Nerkh Khesarat",
-            "faal": "Faal",
-            "sabeghe": "Sabeghe",
-            "noeSabeghe": "Noe Sabeghe"
+            "noe": "نوع",
+            "nerkhKhesarat": "نرخ خسارت",
+            "faal": "فعال",
+            "sabeghe": "سابقه",
+            "noeSabeghe": "نوع سابقه"
         }
     }
 }

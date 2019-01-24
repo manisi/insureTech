@@ -26,7 +26,10 @@
                 <td><a [routerLink]="['/sabeghe', sabeghe.id, 'view' ]">{{sabeghe.id}}</a></td>
                 <td>{{sabeghe.name}}</td>
                 <td>{{sabeghe.sharh}}</td>
-                <td>{{sabeghe.faal}}</td>
+
+                <td>
+                    <fa-icon [icon]="sabeghe.faal ? 'check' : 'times'" aria-hidden="true" class="{{sabeghe.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

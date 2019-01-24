@@ -15,22 +15,19 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sabegheName"><span jhiTranslate="insurancestartApp.adamKhesarat.sabeghe">Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="noeSabegheName"><span jhiTranslate="insurancestartApp.adamKhesarat.noeSabeghe">Noe Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="sales"><span jhiTranslate="insurancestartApp.adamKhesarat.sales">Sales</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mazad"><span jhiTranslate="insurancestartApp.adamKhesarat.mazad">Mazad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="sarneshin"><span jhiTranslate="insurancestartApp.adamKhesarat.sarneshin">Sarneshin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.adamKhesarat.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="sabegheName"><span jhiTranslate="insurancestartApp.adamKhesarat.sabeghe">Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="noeSabegheName"><span jhiTranslate="insurancestartApp.adamKhesarat.noeSabeghe">Noe Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+
             <th></th>
             </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let adamKhesarat of adamKhesarats ;trackBy: trackId">
                 <td><a [routerLink]="['/adam-khesarat', adamKhesarat.id, 'view' ]">{{adamKhesarat.id}}</a></td>
-                <td>{{adamKhesarat.sales}}</td>
-                <td>{{adamKhesarat.mazad}}</td>
-                <td>{{adamKhesarat.sarneshin}}</td>
-                <td>{{adamKhesarat.faal}}</td>
                 <td>
                     <div *ngIf="adamKhesarat.sabegheId">
                         <a [routerLink]="['../sabeghe', adamKhesarat.sabegheId , 'view' ]" >{{adamKhesarat.sabegheName}}</a>
@@ -41,6 +38,16 @@
                         <a [routerLink]="['../noe-sabeghe', adamKhesarat.noeSabegheId , 'view' ]" >{{adamKhesarat.noeSabegheName}}</a>
                     </div>
                 </td>
+                <td>{{adamKhesarat.sales}}</td>
+                <td>{{adamKhesarat.mazad}}</td>
+                <td>{{adamKhesarat.sarneshin}}</td>
+                <!--<td>{{adamKhesarat.faal}}</td>-->
+
+                <td>
+                    <fa-icon [icon]="adamKhesarat.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesarat.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
+
+
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

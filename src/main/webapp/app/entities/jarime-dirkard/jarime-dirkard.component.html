@@ -25,7 +25,10 @@
             <tr *ngFor="let jarimeDirkard of jarimeDirkards ;trackBy: trackId">
                 <td><a [routerLink]="['/jarime-dirkard', jarimeDirkard.id, 'view' ]">{{jarimeDirkard.id}}</a></td>
                 <td>{{jarimeDirkard.roozane}}</td>
-                <td>{{jarimeDirkard.faal}}</td>
+
+                <td>
+                    <fa-icon [icon]="jarimeDirkard.faal ? 'check' : 'times'" aria-hidden="true" class="{{jarimeDirkard.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
                 <td>
                     <div *ngIf="jarimeDirkard.grouhKhodroId">
                         <a [routerLink]="['../grouh-khodro', jarimeDirkard.grouhKhodroId , 'view' ]" >{{jarimeDirkard.grouhKhodroName}}</a>

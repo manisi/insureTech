@@ -26,7 +26,10 @@
                 <td><a [routerLink]="['/noe-sabeghe', noeSabeghe.id, 'view' ]">{{noeSabeghe.id}}</a></td>
                 <td>{{noeSabeghe.name}}</td>
                 <td>{{noeSabeghe.sharh}}</td>
-                <td>{{noeSabeghe.faal}}</td>
+                <!--<td>{{noeSabeghe.faal}}</td>-->
+                <td>
+                    <fa-icon [icon]="noeSabeghe.faal ? 'check' : 'times'" aria-hidden="true" class="{{noeSabeghe.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

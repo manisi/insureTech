@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "jarimeDirkard": {
             "home": {
-                "title": "Jarime Dirkards",
-                "createLabel": "Create a new Jarime Dirkard",
-                "createOrEditLabel": "Create or edit a Jarime Dirkard"
+                "title": "جریمه دیر کرد",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
             },
             "created": "A new Jarime Dirkard is created with identifier {{ param }}",
             "updated": "A Jarime Dirkard is updated with identifier {{ param }}",
@@ -13,11 +13,11 @@
                 "question": "Are you sure you want to delete Jarime Dirkard {{ id }}?"
             },
             "detail": {
-                "title": "Jarime Dirkard"
+                "title": "جریمه دیرکرد"
             },
-            "roozane": "Roozane",
-            "faal": "Faal",
-            "grouhKhodro": "Grouh Khodro"
+            "roozane": "روزانه",
+            "faal": "فعال",
+            "grouhKhodro": "گروه خودرو"
         }
     }
 }

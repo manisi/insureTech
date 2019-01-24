@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "kohnegi": {
             "home": {
-                "title": "Kohnegis",
-                "createLabel": "Create a new Kohnegi",
-                "createOrEditLabel": "Create or edit a Kohnegi"
+                "title": "کهنگی",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
             },
             "created": "A new Kohnegi is created with identifier {{ param }}",
             "updated": "A Kohnegi is updated with identifier {{ param }}",
@@ -13,12 +13,12 @@
                 "question": "Are you sure you want to delete Kohnegi {{ id }}?"
             },
             "detail": {
-                "title": "Kohnegi"
+                "title": "کهنگی"
             },
-            "darsadHarSal": "Darsad Har Sal",
-            "maxDarsad": "Max Darsad",
-            "sharh": "Sharh",
-            "faal": "Faal"
+            "darsadHarSal": "درصد هر سال",
+            "maxDarsad": "حداکثر درصد",
+            "sharh": "شرح",
+            "faal": "فعال"
         }
     }
 }

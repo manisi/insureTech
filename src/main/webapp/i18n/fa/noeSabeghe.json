@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "noeSabeghe": {
             "home": {
-                "title": "Noe Sabeghes",
-                "createLabel": "Create a new Noe Sabeghe",
-                "createOrEditLabel": "Create or edit a Noe Sabeghe"
+                "title": "نوع سابقه",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش/ایجاد"
             },
             "created": "A new Noe Sabeghe is created with identifier {{ param }}",
             "updated": "A Noe Sabeghe is updated with identifier {{ param }}",
@@ -13,11 +13,11 @@
                 "question": "Are you sure you want to delete Noe Sabeghe {{ id }}?"
             },
             "detail": {
-                "title": "Noe Sabeghe"
+                "title": "نوع سابقه"
             },
-            "name": "Name",
-            "sharh": "Sharh",
-            "faal": "Faal"
+            "name": "نام",
+            "sharh": "شرح",
+            "faal": "فعال"
         }
     }
 }
