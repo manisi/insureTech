@@ -42,7 +42,6 @@ import {
     faHome,
     faCheck
 } from '@fortawesome/free-solid-svg-icons';
-
 import { faTwitter, faGithub, faGitlab, faAngular, faAppStore, faJava, faGooglePlay } from '@fortawesome/free-brands-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
