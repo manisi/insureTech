@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-jarime-dirkard-heading" jhiTranslate="insurancestartApp.jarimeDirkard.home.createOrEditLabel">Create or edit a Jarime Dirkard</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!jarimeDirkard.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="jarimeDirkard.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.roozane" for="field_roozane">Roozane</label>
+                    <input type="number" class="form-control" name="roozane" id="field_roozane"
+                        [(ngModel)]="jarimeDirkard.roozane" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.roozane?.dirty && editForm.controls.roozane?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.roozane?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.roozane?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.roozane?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.faal" for="field_faal">Faal</label>
+                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
+                        [(ngModel)]="jarimeDirkard.faal" />
+                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>
+                    <select class="form-control" id="field_grouhKhodro" name="grouhKhodro" [(ngModel)]="jarimeDirkard.grouhKhodroId"  required>
+                        <option *ngIf="!editForm.value.grouhKhodro" [ngValue]="null" selected></option>
+                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.grouhKhodro?.dirty && editForm.controls.grouhKhodro?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.grouhKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

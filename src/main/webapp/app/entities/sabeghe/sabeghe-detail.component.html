@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sabeghe">
+            <h2><span jhiTranslate="insurancestartApp.sabeghe.detail.title">Sabeghe</span> {{sabeghe.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.sabeghe.name">Name</span></dt>
+                <dd>
+                    <span>{{sabeghe.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.sabeghe.sharh">Sharh</span></dt>
+                <dd>
+                    <span>{{sabeghe.sharh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.sabeghe.faal">Faal</span></dt>
+                <dd>
+                    <span>{{sabeghe.faal}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sabeghe', sabeghe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

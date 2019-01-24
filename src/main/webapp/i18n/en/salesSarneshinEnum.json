@@ -1,0 +1,9 @@
+{
+    "insurancestartApp": {
+        "SalesSarneshinEnum": {
+            "null": "",
+            "SALES": "SALES",
+            "SARNESHIN": "SARNESHIN"
+        }
+    }
+}

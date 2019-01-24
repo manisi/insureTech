@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "faal",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20190124054239",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "grouh_khodro",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll"
+}

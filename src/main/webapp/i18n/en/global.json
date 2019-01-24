@@ -35,6 +35,13 @@
                 "country": "Country",
                 "mohasebeSales": "Mohasebe Sales",
                 "mohasebeBadane": "Mohasebe Badane",
+                "grouhKhodro": "Grouh Khodro",
+                "kohnegi": "Kohnegi",
+                "sabeghe": "Sabeghe",
+                "noeSabeghe": "Noe Sabeghe",
+                "adamKhesarat": "Adam Khesarat",
+                "jarimeDirkard": "Jarime Dirkard",
+                "khesaratSales": "Khesarat Sales",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

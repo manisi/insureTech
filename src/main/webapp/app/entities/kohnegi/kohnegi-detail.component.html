@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="kohnegi">
+            <h2><span jhiTranslate="insurancestartApp.kohnegi.detail.title">Kohnegi</span> {{kohnegi.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.kohnegi.darsadHarSal">Darsad Har Sal</span></dt>
+                <dd>
+                    <span>{{kohnegi.darsadHarSal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.kohnegi.maxDarsad">Max Darsad</span></dt>
+                <dd>
+                    <span>{{kohnegi.maxDarsad}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.kohnegi.sharh">Sharh</span></dt>
+                <dd>
+                    <span>{{kohnegi.sharh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.kohnegi.faal">Faal</span></dt>
+                <dd>
+                    <span>{{kohnegi.faal}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/kohnegi', kohnegi.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "noeSabeghe": {
+            "home": {
+                "title": "Noe Sabeghes",
+                "createLabel": "Create a new Noe Sabeghe",
+                "createOrEditLabel": "Create or edit a Noe Sabeghe"
+            },
+            "created": "A new Noe Sabeghe is created with identifier {{ param }}",
+            "updated": "A Noe Sabeghe is updated with identifier {{ param }}",
+            "deleted": "A Noe Sabeghe is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Noe Sabeghe {{ id }}?"
+            },
+            "detail": {
+                "title": "Noe Sabeghe"
+            },
+            "name": "Name",
+            "sharh": "Sharh",
+            "faal": "Faal"
+        }
+    }
+}
