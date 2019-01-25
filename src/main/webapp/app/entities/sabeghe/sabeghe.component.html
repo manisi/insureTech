@@ -1,33 +1,5 @@
 <div>
-
-
-
-
-    <!--<form class="form-inline" (ngSubmit)="search()" >-->
-        <!--<div >-->
-            <!--<span class="col-sm-4">Search  By</span>-->
-
-            <!--<select class="form-control col-sm-4" [(ngModel)]="propkey" name="propkey">-->
-                <!--<option value=" "></option>-->
-                <!--<option   *ngFor="let prop of entity | keyvalue"> {{prop.value}}</option>-->
-            <!--</select>-->
-            <!--<select class="form-control col-sm-4 " [(ngModel)]="operation" name="operation" >-->
-                <!--<option value='='>=</option>-->
-                <!--<option value='<'>&lt;</option>-->
-                <!--<option value='>'>&gt;</option>-->
-                <!--<option value='contains'>contains</option>-->
-
-            <!--</select>-->
-            <!--<input class="form-control mr-sm-2 col-sm-4" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchvalue" name="searchvalue">-->
-            <!--<button class="btn btn-primary float-right" type="submit">-->
-                <!--<fa-icon [icon]="'search'"></fa-icon>-->
-            <!--</button>-->
-        <!--</div>-->
-    <!--</form>-->
-
-
     <jhi-alert></jhi-alert>
-
 
     <div class="row">
         <div class="col-sm-8">
@@ -53,7 +25,6 @@
                         <option value='<'>کوچکتر</option>
                         <option value='>'>بزرگتر</option>
                         <option value='contains'>شامل</option>
-
                     </select>
                     <input type="text" class="form-control"   aria-label="Search" [(ngModel)]="searchvalue" name="searchvalue"
                            placeholder="---"
@@ -68,17 +39,6 @@
             </form>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
     <br/>
     <div class="table-responsive" *ngIf="sabeghes">

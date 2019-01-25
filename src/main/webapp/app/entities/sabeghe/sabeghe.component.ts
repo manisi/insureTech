@@ -127,9 +127,11 @@ export class SabegheComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
-        this.searchvalue = '';
+        this.searchvalue = null;
         this.searchparams = [];
         this.sabeghes = [];
+        this.propkey = null;
+        this.operation = null;
         // this.router.navigate([
         //     '/points',
         //     {
