@@ -1,14 +1,85 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="insurancestartApp.sabeghe.home.title">Sabeghes</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sabeghe" [routerLink]="['/sabeghe/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="insurancestartApp.sabeghe.home.createLabel">
-            Create new Sabeghe
-            </span>
-        </button>
-    </h2>
+
+
+
+
+    <!--<form class="form-inline" (ngSubmit)="search()" >-->
+        <!--<div >-->
+            <!--<span class="col-sm-4">Search  By</span>-->
+
+            <!--<select class="form-control col-sm-4" [(ngModel)]="propkey" name="propkey">-->
+                <!--<option value=" "></option>-->
+                <!--<option   *ngFor="let prop of entity | keyvalue"> {{prop.value}}</option>-->
+            <!--</select>-->
+            <!--<select class="form-control col-sm-4 " [(ngModel)]="operation" name="operation" >-->
+                <!--<option value='='>=</option>-->
+                <!--<option value='<'>&lt;</option>-->
+                <!--<option value='>'>&gt;</option>-->
+                <!--<option value='contains'>contains</option>-->
+
+            <!--</select>-->
+            <!--<input class="form-control mr-sm-2 col-sm-4" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchvalue" name="searchvalue">-->
+            <!--<button class="btn btn-primary float-right" type="submit">-->
+                <!--<fa-icon [icon]="'search'"></fa-icon>-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</form>-->
+
+
     <jhi-alert></jhi-alert>
+
+
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 id="page-heading" jhiTranslate="insurancestartApp.sabeghe.home.title">Sabeghes</h2>
+        </div>
+        <div class="col-sm-4 text-right">
+            <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sabeghe"
+                    [routerLink]="['/sabeghe/new']"
+                    [ngbTooltip]="addTooltip" placement="bottom">
+                <fa-icon [icon]="'plus'"></fa-icon>
+                <ng-template #addTooltip>
+                    <span  jhiTranslate="insurancestartApp.sabeghe.home.createLabel">Create new Sabeghe</span>
+                </ng-template>
+            </button>
+            <form name="searchForm" class="form-inline" >
+                <div class="input-group w-100 mr-1">
+                    <select class="form-control col-sm-4" [(ngModel)]="propkey" name="propkey" >
+                        <option [ngValue]="null" selected></option>
+                        <option [ngValue]="prop.value" *ngFor="let prop of entity | keyvalue" jhiTranslate="insurancestartApp.sabeghe.{{prop.value}}"> {{prop.value}}</option>
+                    </select>
+                    <select class="form-control col-sm-4 " [(ngModel)]="operation" name="operation" >
+                        <option value='='>مساوی</option>
+                        <option value='<'>کوچکتر</option>
+                        <option value='>'>بزرگتر</option>
+                        <option value='contains'>شامل</option>
+
+                    </select>
+                    <input type="text" class="form-control"   aria-label="Search" [(ngModel)]="searchvalue" name="searchvalue"
+                           placeholder="---"
+                    >
+                    <button class="input-group-append btn btn-info" (click)="search()">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="searchvalue">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <br/>
     <div class="table-responsive" *ngIf="sabeghes">
         <table class="table table-striped">
