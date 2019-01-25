@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "khodro": {
+            "home": {
+                "title": "Khodros",
+                "createLabel": "Create a new Khodro",
+                "createOrEditLabel": "Create or edit a Khodro"
+            },
+            "created": "A new Khodro is created with identifier {{ param }}",
+            "updated": "A Khodro is updated with identifier {{ param }}",
+            "deleted": "A Khodro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Khodro {{ id }}?"
+            },
+            "detail": {
+                "title": "Khodro"
+            },
+            "name": "Name",
+            "model": "Model",
+            "faal": "Faal",
+            "noe": "Noe",
+            "tips": "Tips"
+        }
+    }
+}

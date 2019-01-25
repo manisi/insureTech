@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="khesaratSales">
+            <h2><span jhiTranslate="insurancestartApp.khesaratSales.detail.title">Khesarat Sales</span> {{khesaratSales.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.khesaratSales.noe">Noe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'insurancestartApp.SalesSarneshinEnum.' + khesaratSales.noe}}">{{khesaratSales.noe}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khesaratSales.nerkhKhesarat">Nerkh Khesarat</span></dt>
+                <dd>
+                    <span>{{khesaratSales.nerkhKhesarat}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khesaratSales.faal">Faal</span></dt>
+                <dd>
+                    <span>{{khesaratSales.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khesaratSales.sabeghe">Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="khesaratSales.sabegheId">
+                        <a [routerLink]="['/sabeghe', khesaratSales.sabegheId, 'view']">{{khesaratSales.sabegheName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.khesaratSales.noeSabeghe">Noe Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="khesaratSales.noeSabegheId">
+                        <a [routerLink]="['/noe-sabeghe', khesaratSales.noeSabegheId, 'view']">{{khesaratSales.noeSabegheName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/khesarat-sales', khesaratSales.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

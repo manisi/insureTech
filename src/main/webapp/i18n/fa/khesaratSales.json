@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "khesaratSales": {
+            "home": {
+                "title": "Khesarat Sales",
+                "createLabel": "Create a new Khesarat Sales",
+                "createOrEditLabel": "Create or edit a Khesarat Sales"
+            },
+            "created": "A new Khesarat Sales is created with identifier {{ param }}",
+            "updated": "A Khesarat Sales is updated with identifier {{ param }}",
+            "deleted": "A Khesarat Sales is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Khesarat Sales {{ id }}?"
+            },
+            "detail": {
+                "title": "Khesarat Sales"
+            },
+            "noe": "Noe",
+            "nerkhKhesarat": "Nerkh Khesarat",
+            "faal": "Faal",
+            "sabeghe": "Sabeghe",
+            "noeSabeghe": "Noe Sabeghe"
+        }
+    }
+}

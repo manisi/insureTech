@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "jarimeDirkard": {
+            "home": {
+                "title": "Jarime Dirkards",
+                "createLabel": "Create a new Jarime Dirkard",
+                "createOrEditLabel": "Create or edit a Jarime Dirkard"
+            },
+            "created": "A new Jarime Dirkard is created with identifier {{ param }}",
+            "updated": "A Jarime Dirkard is updated with identifier {{ param }}",
+            "deleted": "A Jarime Dirkard is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Jarime Dirkard {{ id }}?"
+            },
+            "detail": {
+                "title": "Jarime Dirkard"
+            },
+            "roozane": "Roozane",
+            "faal": "Faal",
+            "grouhKhodro": "Grouh Khodro"
+        }
+    }
+}

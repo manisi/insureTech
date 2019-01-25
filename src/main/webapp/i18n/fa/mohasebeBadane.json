@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "mohasebeBadane": {
+            "home": {
+                "title": "Mohasebe Badanes",
+                "createLabel": "Create a new Mohasebe Badane",
+                "createOrEditLabel": "Create or edit a Mohasebe Badane"
+            },
+            "created": "A new Mohasebe Badane is created with identifier {{ param }}",
+            "updated": "A Mohasebe Badane is updated with identifier {{ param }}",
+            "deleted": "A Mohasebe Badane is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mohasebe Badane {{ id }}?"
+            },
+            "detail": {
+                "title": "Mohasebe Badane"
+            },
+            "nameSherkat": "Name Sherkat",
+            "saltakhfif": "Saltakhfif",
+            "tips": "Tips"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.pooshesh.home.title">Poosheshes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pooshesh" [routerLink]="['/pooshesh/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.pooshesh.home.createLabel">
+            Create new Pooshesh
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="poosheshes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="insurancestartApp.pooshesh.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.pooshesh.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="aztarikh"><span jhiTranslate="insurancestartApp.pooshesh.aztarikh">Aztarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nerkhId"><span jhiTranslate="insurancestartApp.pooshesh.nerkh">Nerkh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pooshesh of poosheshes ;trackBy: trackId">
+                <td><a [routerLink]="['/pooshesh', pooshesh.id, 'view' ]">{{pooshesh.id}}</a></td>
+                <td>{{pooshesh.name}}</td>
+                <td>{{pooshesh.faal}}</td>
+                <td>{{pooshesh.aztarikh | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="pooshesh.nerkhId">
+                        <a [routerLink]="['../nerkh', pooshesh.nerkhId , 'view' ]" >{{pooshesh.nerkhId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/pooshesh', pooshesh.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pooshesh', pooshesh.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pooshesh/'+ pooshesh.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="poosheshes && poosheshes.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

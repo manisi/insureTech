@@ -1,0 +1,22 @@
+{
+    "insurancestartApp": {
+        "grouhKhodro": {
+            "home": {
+                "title": "Grouh Khodros",
+                "createLabel": "Create a new Grouh Khodro",
+                "createOrEditLabel": "Create or edit a Grouh Khodro"
+            },
+            "created": "A new Grouh Khodro is created with identifier {{ param }}",
+            "updated": "A Grouh Khodro is updated with identifier {{ param }}",
+            "deleted": "A Grouh Khodro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Grouh Khodro {{ id }}?"
+            },
+            "detail": {
+                "title": "Grouh Khodro"
+            },
+            "name": "Name",
+            "faal": "Faal"
+        }
+    }
+}

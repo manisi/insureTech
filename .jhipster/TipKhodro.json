@@ -1,0 +1,39 @@
+{
+    "name": "TipKhodro",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "faal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "noe",
+            "fieldType": "NoeKhodro",
+            "fieldValues": "SAVARI,TAXI,AUTOCAR,CAMIOON"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "khodro",
+            "otherEntityName": "khodro",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190116184642",
+    "entityTableName": "tip_khodro",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

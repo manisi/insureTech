@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "sabeghe": {
+            "home": {
+                "title": "Sabeghes",
+                "createLabel": "Create a new Sabeghe",
+                "createOrEditLabel": "Create or edit a Sabeghe"
+            },
+            "created": "A new Sabeghe is created with identifier {{ param }}",
+            "updated": "A Sabeghe is updated with identifier {{ param }}",
+            "deleted": "A Sabeghe is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sabeghe {{ id }}?"
+            },
+            "detail": {
+                "title": "Sabeghe"
+            },
+            "name": "Name",
+            "sharh": "Sharh",
+            "faal": "Faal"
+        }
+    }
+}

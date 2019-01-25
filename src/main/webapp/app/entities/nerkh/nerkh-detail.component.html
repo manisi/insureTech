@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nerkh">
+            <h2><span jhiTranslate="insurancestartApp.nerkh.detail.title">Nerkh</span> {{nerkh.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.nerkh.name">Name</span></dt>
+                <dd>
+                    <span>{{nerkh.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.nerkh.faal">Faal</span></dt>
+                <dd>
+                    <span>{{nerkh.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.nerkh.mablagh">Mablagh</span></dt>
+                <dd>
+                    <span>{{nerkh.mablagh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.nerkh.sherkatBime">Sherkat Bime</span></dt>
+                <dd>
+                    <span *ngFor="let sherkatBime of nerkh.sherkatBimes; let last = last">
+                        <a [routerLink]="['/sherkat-bime', sherkatBime?.id, 'view' ]">{{sherkatBime.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nerkh', nerkh.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adamKhesarat">
+            <h2><span jhiTranslate="insurancestartApp.adamKhesarat.detail.title">Adam Khesarat</span> {{adamKhesarat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.adamKhesarat.sales">Sales</span></dt>
+                <dd>
+                    <span>{{adamKhesarat.sales}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesarat.mazad">Mazad</span></dt>
+                <dd>
+                    <span>{{adamKhesarat.mazad}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesarat.sarneshin">Sarneshin</span></dt>
+                <dd>
+                    <span>{{adamKhesarat.sarneshin}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesarat.faal">Faal</span></dt>
+                <dd>
+                    <span>{{adamKhesarat.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesarat.sabeghe">Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="adamKhesarat.sabegheId">
+                        <a [routerLink]="['/sabeghe', adamKhesarat.sabegheId, 'view']">{{adamKhesarat.sabegheName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesarat.noeSabeghe">Noe Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="adamKhesarat.noeSabegheId">
+                        <a [routerLink]="['/noe-sabeghe', adamKhesarat.noeSabegheId, 'view']">{{adamKhesarat.noeSabegheName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adam-khesarat', adamKhesarat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

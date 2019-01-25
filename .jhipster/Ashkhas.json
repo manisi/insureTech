@@ -1,0 +1,40 @@
+{
+    "name": "Ashkhas",
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hireDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "noeShakhs",
+            "fieldType": "NoeShakhs",
+            "fieldValues": "HAGHIGHI,HOGHOOGHI,ATBAE"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190116184639",
+    "entityTableName": "ashkhas",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "pooshesh": {
+            "home": {
+                "title": "Poosheshes",
+                "createLabel": "Create a new Pooshesh",
+                "createOrEditLabel": "Create or edit a Pooshesh"
+            },
+            "created": "A new Pooshesh is created with identifier {{ param }}",
+            "updated": "A Pooshesh is updated with identifier {{ param }}",
+            "deleted": "A Pooshesh is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Pooshesh {{ id }}?"
+            },
+            "detail": {
+                "title": "Pooshesh"
+            },
+            "name": "Name",
+            "faal": "Faal",
+            "aztarikh": "Aztarikh",
+            "nerkh": "Nerkh"
+        }
+    }
+}

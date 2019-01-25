@@ -1,0 +1,31 @@
+{
+    "name": "SherkatBime",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "faal",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "name",
+            "otherEntityName": "nerkh",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "sherkatBime"
+        }
+    ],
+    "changelogDate": "20190116184644",
+    "entityTableName": "sherkat_bime",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

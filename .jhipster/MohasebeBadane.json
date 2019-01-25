@@ -1,0 +1,30 @@
+{
+    "name": "MohasebeBadane",
+    "fields": [
+        {
+            "fieldName": "nameSherkat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "saltakhfif",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tips",
+            "otherEntityName": "tipKhodro",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190120165021",
+    "entityTableName": "mohasebe_badane",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

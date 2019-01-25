@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "sherkatBime": {
+            "home": {
+                "title": "Sherkat Bimes",
+                "createLabel": "Create a new Sherkat Bime",
+                "createOrEditLabel": "Create or edit a Sherkat Bime"
+            },
+            "created": "A new Sherkat Bime is created with identifier {{ param }}",
+            "updated": "A Sherkat Bime is updated with identifier {{ param }}",
+            "deleted": "A Sherkat Bime is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sherkat Bime {{ id }}?"
+            },
+            "detail": {
+                "title": "Sherkat Bime"
+            },
+            "name": "Name",
+            "faal": "Faal",
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ir.insurance.startup",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "monolith",
+    "baseName": "insurancestart",
+    "packageName": "ir.insurance.startup",
+    "packageFolder": "ir/insurance/startup",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWIxNzhlYzI0NjBiM2UxNzQ4YWUyZTdhMGIxMWU0MThhMjYyNGYyNmY4ZmFiNmE3MmE4NTVlMzk1MTllM2U5NWM4MTAwYTk5MGJkYmUzMzExMzczODI4NTliZDE0ODYzZjVmNGQ1NDA3ZjllNmVjYTlhYmEwYzRmZTYxYTYxZDc=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fa"
+    ],
+    "herokuAppName": "insurancestart",
+    "herokuDeployType": "git"
+  }
+}
