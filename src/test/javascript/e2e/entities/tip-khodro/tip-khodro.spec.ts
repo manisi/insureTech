@@ -24,6 +24,7 @@ describe('TipKhodro e2e test', () => {
     it('should load TipKhodros', async () => {
         await navBarPage.goToEntity('tip-khodro');
         tipKhodroComponentsPage = new TipKhodroComponentsPage();
+        await browser.wait(ec.visibilityOf(tipKhodroComponentsPage.title), 5000);
         expect(await tipKhodroComponentsPage.getTitle()).to.eq('insurancestartApp.tipKhodro.home.title');
     });
 

@@ -477,7 +477,7 @@ public class KohnegiResourceIntTest {
 
         int databaseSizeBeforeDelete = kohnegiRepository.findAll().size();
 
-        // Get the kohnegi
+        // Delete the kohnegi
         restKohnegiMockMvc.perform(delete("/api/kohnegis/{id}", kohnegi.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

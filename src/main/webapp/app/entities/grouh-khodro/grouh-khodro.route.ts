@@ -16,7 +16,7 @@ import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
 export class GrouhKhodroResolve implements Resolve<IGrouhKhodro> {
     constructor(private service: GrouhKhodroService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<GrouhKhodro> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IGrouhKhodro> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class GrouhKhodroResolve implements Resolve<IGrouhKhodro> {
 
 export const grouhKhodroRoute: Routes = [
     {
-        path: 'grouh-khodro',
+        path: '',
         component: GrouhKhodroComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const grouhKhodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'grouh-khodro/:id/view',
+        path: ':id/view',
         component: GrouhKhodroDetailComponent,
         resolve: {
             grouhKhodro: GrouhKhodroResolve
@@ -51,7 +51,7 @@ export const grouhKhodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'grouh-khodro/new',
+        path: 'new',
         component: GrouhKhodroUpdateComponent,
         resolve: {
             grouhKhodro: GrouhKhodroResolve
@@ -63,7 +63,7 @@ export const grouhKhodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'grouh-khodro/:id/edit',
+        path: ':id/edit',
         component: GrouhKhodroUpdateComponent,
         resolve: {
             grouhKhodro: GrouhKhodroResolve
@@ -78,7 +78,7 @@ export const grouhKhodroRoute: Routes = [
 
 export const grouhKhodroPopupRoute: Routes = [
     {
-        path: 'grouh-khodro/:id/delete',
+        path: ':id/delete',
         component: GrouhKhodroDeletePopupComponent,
         resolve: {
             grouhKhodro: GrouhKhodroResolve

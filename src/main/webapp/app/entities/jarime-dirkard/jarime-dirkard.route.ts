@@ -16,7 +16,7 @@ import { IJarimeDirkard } from 'app/shared/model/jarime-dirkard.model';
 export class JarimeDirkardResolve implements Resolve<IJarimeDirkard> {
     constructor(private service: JarimeDirkardService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<JarimeDirkard> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IJarimeDirkard> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class JarimeDirkardResolve implements Resolve<IJarimeDirkard> {
 
 export const jarimeDirkardRoute: Routes = [
     {
-        path: 'jarime-dirkard',
+        path: '',
         component: JarimeDirkardComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const jarimeDirkardRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'jarime-dirkard/:id/view',
+        path: ':id/view',
         component: JarimeDirkardDetailComponent,
         resolve: {
             jarimeDirkard: JarimeDirkardResolve
@@ -51,7 +51,7 @@ export const jarimeDirkardRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'jarime-dirkard/new',
+        path: 'new',
         component: JarimeDirkardUpdateComponent,
         resolve: {
             jarimeDirkard: JarimeDirkardResolve
@@ -63,7 +63,7 @@ export const jarimeDirkardRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'jarime-dirkard/:id/edit',
+        path: ':id/edit',
         component: JarimeDirkardUpdateComponent,
         resolve: {
             jarimeDirkard: JarimeDirkardResolve
@@ -78,7 +78,7 @@ export const jarimeDirkardRoute: Routes = [
 
 export const jarimeDirkardPopupRoute: Routes = [
     {
-        path: 'jarime-dirkard/:id/delete',
+        path: ':id/delete',
         component: JarimeDirkardDeletePopupComponent,
         resolve: {
             jarimeDirkard: JarimeDirkardResolve

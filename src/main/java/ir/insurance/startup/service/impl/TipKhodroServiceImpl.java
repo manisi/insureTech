@@ -42,7 +42,6 @@ public class TipKhodroServiceImpl implements TipKhodroService {
     @Override
     public TipKhodroDTO save(TipKhodroDTO tipKhodroDTO) {
         log.debug("Request to save TipKhodro : {}", tipKhodroDTO);
-
         TipKhodro tipKhodro = tipKhodroMapper.toEntity(tipKhodroDTO);
         tipKhodro = tipKhodroRepository.save(tipKhodro);
         return tipKhodroMapper.toDto(tipKhodro);
@@ -84,7 +83,6 @@ public class TipKhodroServiceImpl implements TipKhodroService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete TipKhodro : {}", id);
-        tipKhodroRepository.deleteById(id);
+        log.debug("Request to delete TipKhodro : {}", id);        tipKhodroRepository.deleteById(id);
     }
 }

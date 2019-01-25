@@ -233,7 +233,7 @@ public class CityResourceIntTest {
 
         int databaseSizeBeforeDelete = cityRepository.findAll().size();
 
-        // Get the city
+        // Delete the city
         restCityMockMvc.perform(delete("/api/cities/{id}", city.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-
 import { IKhesaratSales } from 'app/shared/model/khesarat-sales.model';
 import { KhesaratSalesService } from './khesarat-sales.service';
 import { ISabeghe } from 'app/shared/model/sabeghe.model';
@@ -36,18 +36,20 @@ export class KhesaratSalesUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ khesaratSales }) => {
             this.khesaratSales = khesaratSales;
         });
-        this.sabegheService.query().subscribe(
-            (res: HttpResponse<ISabeghe[]>) => {
-                this.sabeghes = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.noeSabegheService.query().subscribe(
-            (res: HttpResponse<INoeSabeghe[]>) => {
-                this.noesabeghes = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.sabegheService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ISabeghe[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ISabeghe[]>) => response.body)
+            )
+            .subscribe((res: ISabeghe[]) => (this.sabeghes = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.noeSabegheService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<INoeSabeghe[]>) => mayBeOk.ok),
+                map((response: HttpResponse<INoeSabeghe[]>) => response.body)
+            )
+            .subscribe((res: INoeSabeghe[]) => (this.noesabeghes = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

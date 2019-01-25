@@ -1,5 +1,6 @@
 package ir.insurance.startup.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -20,7 +21,7 @@ import java.util.Objects;
 public class Nerkh implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
@@ -41,8 +42,8 @@ public class Nerkh implements Serializable {
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "nerkh_sherkat_bime",
-               joinColumns = @JoinColumn(name = "nerkhs_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "sherkat_bimes_id", referencedColumnName = "id"))
+               joinColumns = @JoinColumn(name = "nerkh_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "sherkat_bime_id", referencedColumnName = "id"))
     private Set<SherkatBime> sherkatBimes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

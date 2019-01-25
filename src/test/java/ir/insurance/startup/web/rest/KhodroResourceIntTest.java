@@ -261,7 +261,7 @@ public class KhodroResourceIntTest {
 
         int databaseSizeBeforeDelete = khodroRepository.findAll().size();
 
-        // Get the khodro
+        // Delete the khodro
         restKhodroMockMvc.perform(delete("/api/khodros/{id}", khodro.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

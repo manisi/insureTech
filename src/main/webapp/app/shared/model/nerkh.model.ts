@@ -1,5 +1,5 @@
-import { IPooshesh } from 'app/shared/model//pooshesh.model';
-import { ISherkatBime } from 'app/shared/model//sherkat-bime.model';
+import { IPooshesh } from 'app/shared/model/pooshesh.model';
+import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 
 export interface INerkh {
     id?: number;

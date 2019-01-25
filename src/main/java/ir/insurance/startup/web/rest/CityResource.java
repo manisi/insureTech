@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.CityService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class CityResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/cities")
-    @Timed
     public ResponseEntity<CityDTO> createCity(@RequestBody CityDTO cityDTO) throws URISyntaxException {
         log.debug("REST request to save City : {}", cityDTO);
         if (cityDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class CityResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/cities")
-    @Timed
     public ResponseEntity<CityDTO> updateCity(@RequestBody CityDTO cityDTO) throws URISyntaxException {
         log.debug("REST request to update City : {}", cityDTO);
         if (cityDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class CityResource {
      * @return the ResponseEntity with status 200 (OK) and the list of cities in body
      */
     @GetMapping("/cities")
-    @Timed
     public ResponseEntity<List<CityDTO>> getAllCities(Pageable pageable) {
         log.debug("REST request to get a page of Cities");
         Page<CityDTO> page = cityService.findAll(pageable);
@@ -103,7 +98,6 @@ public class CityResource {
      * @return the ResponseEntity with status 200 (OK) and with body the cityDTO, or with status 404 (Not Found)
      */
     @GetMapping("/cities/{id}")
-    @Timed
     public ResponseEntity<CityDTO> getCity(@PathVariable Long id) {
         log.debug("REST request to get City : {}", id);
         Optional<CityDTO> cityDTO = cityService.findOne(id);
@@ -117,7 +111,6 @@ public class CityResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/cities/{id}")
-    @Timed
     public ResponseEntity<Void> deleteCity(@PathVariable Long id) {
         log.debug("REST request to delete City : {}", id);
         cityService.delete(id);

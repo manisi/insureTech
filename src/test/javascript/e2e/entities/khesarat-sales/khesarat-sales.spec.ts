@@ -24,6 +24,7 @@ describe('KhesaratSales e2e test', () => {
     it('should load KhesaratSales', async () => {
         await navBarPage.goToEntity('khesarat-sales');
         khesaratSalesComponentsPage = new KhesaratSalesComponentsPage();
+        await browser.wait(ec.visibilityOf(khesaratSalesComponentsPage.title), 5000);
         expect(await khesaratSalesComponentsPage.getTitle()).to.eq('insurancestartApp.khesaratSales.home.title');
     });
 

@@ -24,7 +24,6 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 @NgModule({
     imports: [
         BrowserModule,
-        InsurancestartAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         NgJhipsterModule.forRoot({
             // set below to true to make alerts look like toast
@@ -38,7 +37,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         InsurancestartHomeModule,
         InsurancestartAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
-        InsurancestartEntityModule
+        InsurancestartEntityModule,
+        InsurancestartAppRoutingModule
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [

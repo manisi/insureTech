@@ -40,7 +40,6 @@ public class SabegheService {
      */
     public SabegheDTO save(SabegheDTO sabegheDTO) {
         log.debug("Request to save Sabeghe : {}", sabegheDTO);
-
         Sabeghe sabeghe = sabegheMapper.toEntity(sabegheDTO);
         sabeghe = sabegheRepository.save(sabeghe);
         return sabegheMapper.toDto(sabeghe);
@@ -79,7 +78,6 @@ public class SabegheService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete Sabeghe : {}", id);
-        sabegheRepository.deleteById(id);
+        log.debug("Request to delete Sabeghe : {}", id);        sabegheRepository.deleteById(id);
     }
 }

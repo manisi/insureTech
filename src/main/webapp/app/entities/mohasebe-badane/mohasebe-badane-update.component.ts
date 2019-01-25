@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-
 import { IMohasebeBadane } from 'app/shared/model/mohasebe-badane.model';
 import { MohasebeBadaneService } from './mohasebe-badane.service';
 import { ITipKhodro } from 'app/shared/model/tip-khodro.model';
@@ -31,12 +31,13 @@ export class MohasebeBadaneUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ mohasebeBadane }) => {
             this.mohasebeBadane = mohasebeBadane;
         });
-        this.tipKhodroService.query().subscribe(
-            (res: HttpResponse<ITipKhodro[]>) => {
-                this.tipkhodros = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.tipKhodroService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ITipKhodro[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ITipKhodro[]>) => response.body)
+            )
+            .subscribe((res: ITipKhodro[]) => (this.tipkhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

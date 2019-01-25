@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.KohnegiService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class KohnegiResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/kohnegis")
-    @Timed
     public ResponseEntity<KohnegiDTO> createKohnegi(@Valid @RequestBody KohnegiDTO kohnegiDTO) throws URISyntaxException {
         log.debug("REST request to save Kohnegi : {}", kohnegiDTO);
         if (kohnegiDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class KohnegiResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/kohnegis")
-    @Timed
     public ResponseEntity<KohnegiDTO> updateKohnegi(@Valid @RequestBody KohnegiDTO kohnegiDTO) throws URISyntaxException {
         log.debug("REST request to update Kohnegi : {}", kohnegiDTO);
         if (kohnegiDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class KohnegiResource {
      * @return the ResponseEntity with status 200 (OK) and the list of kohnegis in body
      */
     @GetMapping("/kohnegis")
-    @Timed
     public ResponseEntity<List<KohnegiDTO>> getAllKohnegis(KohnegiCriteria criteria, Pageable pageable) {
         log.debug("REST request to get Kohnegis by criteria: {}", criteria);
         Page<KohnegiDTO> page = kohnegiQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class KohnegiResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/kohnegis/count")
-    @Timed
     public ResponseEntity<Long> countKohnegis(KohnegiCriteria criteria) {
         log.debug("REST request to count Kohnegis by criteria: {}", criteria);
         return ResponseEntity.ok().body(kohnegiQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class KohnegiResource {
      * @return the ResponseEntity with status 200 (OK) and with body the kohnegiDTO, or with status 404 (Not Found)
      */
     @GetMapping("/kohnegis/{id}")
-    @Timed
     public ResponseEntity<KohnegiDTO> getKohnegi(@PathVariable Long id) {
         log.debug("REST request to get Kohnegi : {}", id);
         Optional<KohnegiDTO> kohnegiDTO = kohnegiService.findOne(id);
@@ -137,7 +130,6 @@ public class KohnegiResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/kohnegis/{id}")
-    @Timed
     public ResponseEntity<Void> deleteKohnegi(@PathVariable Long id) {
         log.debug("REST request to delete Kohnegi : {}", id);
         kohnegiService.delete(id);

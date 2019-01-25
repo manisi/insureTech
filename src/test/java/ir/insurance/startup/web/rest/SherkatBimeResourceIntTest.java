@@ -242,7 +242,7 @@ public class SherkatBimeResourceIntTest {
 
         int databaseSizeBeforeDelete = sherkatBimeRepository.findAll().size();
 
-        // Get the sherkatBime
+        // Delete the sherkatBime
         restSherkatBimeMockMvc.perform(delete("/api/sherkat-bimes/{id}", sherkatBime.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

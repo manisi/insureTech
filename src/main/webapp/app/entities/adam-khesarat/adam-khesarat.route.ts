@@ -16,7 +16,7 @@ import { IAdamKhesarat } from 'app/shared/model/adam-khesarat.model';
 export class AdamKhesaratResolve implements Resolve<IAdamKhesarat> {
     constructor(private service: AdamKhesaratService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<AdamKhesarat> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAdamKhesarat> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class AdamKhesaratResolve implements Resolve<IAdamKhesarat> {
 
 export const adamKhesaratRoute: Routes = [
     {
-        path: 'adam-khesarat',
+        path: '',
         component: AdamKhesaratComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const adamKhesaratRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'adam-khesarat/:id/view',
+        path: ':id/view',
         component: AdamKhesaratDetailComponent,
         resolve: {
             adamKhesarat: AdamKhesaratResolve
@@ -51,7 +51,7 @@ export const adamKhesaratRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'adam-khesarat/new',
+        path: 'new',
         component: AdamKhesaratUpdateComponent,
         resolve: {
             adamKhesarat: AdamKhesaratResolve
@@ -63,7 +63,7 @@ export const adamKhesaratRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'adam-khesarat/:id/edit',
+        path: ':id/edit',
         component: AdamKhesaratUpdateComponent,
         resolve: {
             adamKhesarat: AdamKhesaratResolve
@@ -78,7 +78,7 @@ export const adamKhesaratRoute: Routes = [
 
 export const adamKhesaratPopupRoute: Routes = [
     {
-        path: 'adam-khesarat/:id/delete',
+        path: ':id/delete',
         component: AdamKhesaratDeletePopupComponent,
         resolve: {
             adamKhesarat: AdamKhesaratResolve

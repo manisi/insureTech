@@ -17,7 +17,7 @@ import { ICountry } from 'app/shared/model/country.model';
 export class CountryResolve implements Resolve<ICountry> {
     constructor(private service: CountryService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Country> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ICountry> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class CountryResolve implements Resolve<ICountry> {
 
 export const countryRoute: Routes = [
     {
-        path: 'country',
+        path: '',
         component: CountryComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const countryRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'country/:id/view',
+        path: ':id/view',
         component: CountryDetailComponent,
         resolve: {
             country: CountryResolve
@@ -56,7 +56,7 @@ export const countryRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'country/new',
+        path: 'new',
         component: CountryUpdateComponent,
         resolve: {
             country: CountryResolve
@@ -68,7 +68,7 @@ export const countryRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'country/:id/edit',
+        path: ':id/edit',
         component: CountryUpdateComponent,
         resolve: {
             country: CountryResolve
@@ -83,7 +83,7 @@ export const countryRoute: Routes = [
 
 export const countryPopupRoute: Routes = [
     {
-        path: 'country/:id/delete',
+        path: ':id/delete',
         component: CountryDeletePopupComponent,
         resolve: {
             country: CountryResolve

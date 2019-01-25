@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.NoeSabegheService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class NoeSabegheResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/noe-sabeghes")
-    @Timed
     public ResponseEntity<NoeSabegheDTO> createNoeSabeghe(@Valid @RequestBody NoeSabegheDTO noeSabegheDTO) throws URISyntaxException {
         log.debug("REST request to save NoeSabeghe : {}", noeSabegheDTO);
         if (noeSabegheDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class NoeSabegheResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/noe-sabeghes")
-    @Timed
     public ResponseEntity<NoeSabegheDTO> updateNoeSabeghe(@Valid @RequestBody NoeSabegheDTO noeSabegheDTO) throws URISyntaxException {
         log.debug("REST request to update NoeSabeghe : {}", noeSabegheDTO);
         if (noeSabegheDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class NoeSabegheResource {
      * @return the ResponseEntity with status 200 (OK) and the list of noeSabeghes in body
      */
     @GetMapping("/noe-sabeghes")
-    @Timed
     public ResponseEntity<List<NoeSabegheDTO>> getAllNoeSabeghes(NoeSabegheCriteria criteria, Pageable pageable) {
         log.debug("REST request to get NoeSabeghes by criteria: {}", criteria);
         Page<NoeSabegheDTO> page = noeSabegheQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class NoeSabegheResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/noe-sabeghes/count")
-    @Timed
     public ResponseEntity<Long> countNoeSabeghes(NoeSabegheCriteria criteria) {
         log.debug("REST request to count NoeSabeghes by criteria: {}", criteria);
         return ResponseEntity.ok().body(noeSabegheQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class NoeSabegheResource {
      * @return the ResponseEntity with status 200 (OK) and with body the noeSabegheDTO, or with status 404 (Not Found)
      */
     @GetMapping("/noe-sabeghes/{id}")
-    @Timed
     public ResponseEntity<NoeSabegheDTO> getNoeSabeghe(@PathVariable Long id) {
         log.debug("REST request to get NoeSabeghe : {}", id);
         Optional<NoeSabegheDTO> noeSabegheDTO = noeSabegheService.findOne(id);
@@ -137,7 +130,6 @@ public class NoeSabegheResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/noe-sabeghes/{id}")
-    @Timed
     public ResponseEntity<Void> deleteNoeSabeghe(@PathVariable Long id) {
         log.debug("REST request to delete NoeSabeghe : {}", id);
         noeSabegheService.delete(id);

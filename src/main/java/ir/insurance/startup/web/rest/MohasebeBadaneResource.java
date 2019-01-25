@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.MohasebeBadaneService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class MohasebeBadaneResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/mohasebe-badanes")
-    @Timed
     public ResponseEntity<MohasebeBadaneDTO> createMohasebeBadane(@RequestBody MohasebeBadaneDTO mohasebeBadaneDTO) throws URISyntaxException {
         log.debug("REST request to save MohasebeBadane : {}", mohasebeBadaneDTO);
         if (mohasebeBadaneDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class MohasebeBadaneResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/mohasebe-badanes")
-    @Timed
     public ResponseEntity<MohasebeBadaneDTO> updateMohasebeBadane(@RequestBody MohasebeBadaneDTO mohasebeBadaneDTO) throws URISyntaxException {
         log.debug("REST request to update MohasebeBadane : {}", mohasebeBadaneDTO);
         if (mohasebeBadaneDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class MohasebeBadaneResource {
      * @return the ResponseEntity with status 200 (OK) and the list of mohasebeBadanes in body
      */
     @GetMapping("/mohasebe-badanes")
-    @Timed
     public ResponseEntity<List<MohasebeBadaneDTO>> getAllMohasebeBadanes(Pageable pageable) {
         log.debug("REST request to get a page of MohasebeBadanes");
         Page<MohasebeBadaneDTO> page = mohasebeBadaneService.findAll(pageable);
@@ -103,7 +98,6 @@ public class MohasebeBadaneResource {
      * @return the ResponseEntity with status 200 (OK) and with body the mohasebeBadaneDTO, or with status 404 (Not Found)
      */
     @GetMapping("/mohasebe-badanes/{id}")
-    @Timed
     public ResponseEntity<MohasebeBadaneDTO> getMohasebeBadane(@PathVariable Long id) {
         log.debug("REST request to get MohasebeBadane : {}", id);
         Optional<MohasebeBadaneDTO> mohasebeBadaneDTO = mohasebeBadaneService.findOne(id);
@@ -117,7 +111,6 @@ public class MohasebeBadaneResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/mohasebe-badanes/{id}")
-    @Timed
     public ResponseEntity<Void> deleteMohasebeBadane(@PathVariable Long id) {
         log.debug("REST request to delete MohasebeBadane : {}", id);
         mohasebeBadaneService.delete(id);

@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.CountryService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class CountryResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/countries")
-    @Timed
     public ResponseEntity<CountryDTO> createCountry(@RequestBody CountryDTO countryDTO) throws URISyntaxException {
         log.debug("REST request to save Country : {}", countryDTO);
         if (countryDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class CountryResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/countries")
-    @Timed
     public ResponseEntity<CountryDTO> updateCountry(@RequestBody CountryDTO countryDTO) throws URISyntaxException {
         log.debug("REST request to update Country : {}", countryDTO);
         if (countryDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class CountryResource {
      * @return the ResponseEntity with status 200 (OK) and the list of countries in body
      */
     @GetMapping("/countries")
-    @Timed
     public ResponseEntity<List<CountryDTO>> getAllCountries(Pageable pageable) {
         log.debug("REST request to get a page of Countries");
         Page<CountryDTO> page = countryService.findAll(pageable);
@@ -103,7 +98,6 @@ public class CountryResource {
      * @return the ResponseEntity with status 200 (OK) and with body the countryDTO, or with status 404 (Not Found)
      */
     @GetMapping("/countries/{id}")
-    @Timed
     public ResponseEntity<CountryDTO> getCountry(@PathVariable Long id) {
         log.debug("REST request to get Country : {}", id);
         Optional<CountryDTO> countryDTO = countryService.findOne(id);
@@ -117,7 +111,6 @@ public class CountryResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/countries/{id}")
-    @Timed
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
         log.debug("REST request to delete Country : {}", id);
         countryService.delete(id);

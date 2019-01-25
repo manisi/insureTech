@@ -16,7 +16,7 @@ import { ISabeghe } from 'app/shared/model/sabeghe.model';
 export class SabegheResolve implements Resolve<ISabeghe> {
     constructor(private service: SabegheService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Sabeghe> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ISabeghe> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class SabegheResolve implements Resolve<ISabeghe> {
 
 export const sabegheRoute: Routes = [
     {
-        path: 'sabeghe',
+        path: '',
         component: SabegheComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const sabegheRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'sabeghe/:id/view',
+        path: ':id/view',
         component: SabegheDetailComponent,
         resolve: {
             sabeghe: SabegheResolve
@@ -51,7 +51,7 @@ export const sabegheRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'sabeghe/new',
+        path: 'new',
         component: SabegheUpdateComponent,
         resolve: {
             sabeghe: SabegheResolve
@@ -63,7 +63,7 @@ export const sabegheRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'sabeghe/:id/edit',
+        path: ':id/edit',
         component: SabegheUpdateComponent,
         resolve: {
             sabeghe: SabegheResolve
@@ -78,7 +78,7 @@ export const sabegheRoute: Routes = [
 
 export const sabeghePopupRoute: Routes = [
     {
-        path: 'sabeghe/:id/delete',
+        path: ':id/delete',
         component: SabegheDeletePopupComponent,
         resolve: {
             sabeghe: SabegheResolve

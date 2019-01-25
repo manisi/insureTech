@@ -584,7 +584,7 @@ public class AdamKhesaratResourceIntTest {
 
         int databaseSizeBeforeDelete = adamKhesaratRepository.findAll().size();
 
-        // Get the adamKhesarat
+        // Delete the adamKhesarat
         restAdamKhesaratMockMvc.perform(delete("/api/adam-khesarats/{id}", adamKhesarat.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

@@ -40,7 +40,6 @@ public class GrouhKhodroService {
      */
     public GrouhKhodroDTO save(GrouhKhodroDTO grouhKhodroDTO) {
         log.debug("Request to save GrouhKhodro : {}", grouhKhodroDTO);
-
         GrouhKhodro grouhKhodro = grouhKhodroMapper.toEntity(grouhKhodroDTO);
         grouhKhodro = grouhKhodroRepository.save(grouhKhodro);
         return grouhKhodroMapper.toDto(grouhKhodro);
@@ -79,7 +78,6 @@ public class GrouhKhodroService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete GrouhKhodro : {}", id);
-        grouhKhodroRepository.deleteById(id);
+        log.debug("Request to delete GrouhKhodro : {}", id);        grouhKhodroRepository.deleteById(id);
     }
 }

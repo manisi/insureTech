@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { filter, map } from 'rxjs/operators';
 import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
 import { GrouhKhodroService } from './grouh-khodro.service';
 

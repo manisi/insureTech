@@ -261,7 +261,7 @@ public class TipKhodroResourceIntTest {
 
         int databaseSizeBeforeDelete = tipKhodroRepository.findAll().size();
 
-        // Get the tipKhodro
+        // Delete the tipKhodro
         restTipKhodroMockMvc.perform(delete("/api/tip-khodros/{id}", tipKhodro.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

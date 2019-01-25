@@ -1,4 +1,4 @@
-import { INerkh } from 'app/shared/model//nerkh.model';
+import { INerkh } from 'app/shared/model/nerkh.model';
 
 export interface ISherkatBime {
     id?: number;

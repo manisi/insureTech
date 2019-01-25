@@ -24,6 +24,7 @@ describe('City e2e test', () => {
     it('should load Cities', async () => {
         await navBarPage.goToEntity('city');
         cityComponentsPage = new CityComponentsPage();
+        await browser.wait(ec.visibilityOf(cityComponentsPage.title), 5000);
         expect(await cityComponentsPage.getTitle()).to.eq('insurancestartApp.city.home.title');
     });
 

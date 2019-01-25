@@ -1,5 +1,6 @@
 package ir.insurance.startup.domain;
 
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -20,7 +21,7 @@ import ir.insurance.startup.domain.enumeration.NoeShakhs;
 public class Ashkhas implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")

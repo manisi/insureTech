@@ -42,7 +42,6 @@ public class NerkhServiceImpl implements NerkhService {
     @Override
     public NerkhDTO save(NerkhDTO nerkhDTO) {
         log.debug("Request to save Nerkh : {}", nerkhDTO);
-
         Nerkh nerkh = nerkhMapper.toEntity(nerkhDTO);
         nerkh = nerkhRepository.save(nerkh);
         return nerkhMapper.toDto(nerkh);
@@ -93,7 +92,6 @@ public class NerkhServiceImpl implements NerkhService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Nerkh : {}", id);
-        nerkhRepository.deleteById(id);
+        log.debug("Request to delete Nerkh : {}", id);        nerkhRepository.deleteById(id);
     }
 }

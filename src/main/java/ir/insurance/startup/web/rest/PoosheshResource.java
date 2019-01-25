@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.PoosheshService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class PoosheshResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/poosheshes")
-    @Timed
     public ResponseEntity<PoosheshDTO> createPooshesh(@RequestBody PoosheshDTO poosheshDTO) throws URISyntaxException {
         log.debug("REST request to save Pooshesh : {}", poosheshDTO);
         if (poosheshDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class PoosheshResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/poosheshes")
-    @Timed
     public ResponseEntity<PoosheshDTO> updatePooshesh(@RequestBody PoosheshDTO poosheshDTO) throws URISyntaxException {
         log.debug("REST request to update Pooshesh : {}", poosheshDTO);
         if (poosheshDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class PoosheshResource {
      * @return the ResponseEntity with status 200 (OK) and the list of poosheshes in body
      */
     @GetMapping("/poosheshes")
-    @Timed
     public ResponseEntity<List<PoosheshDTO>> getAllPoosheshes(Pageable pageable) {
         log.debug("REST request to get a page of Poosheshes");
         Page<PoosheshDTO> page = poosheshService.findAll(pageable);
@@ -103,7 +98,6 @@ public class PoosheshResource {
      * @return the ResponseEntity with status 200 (OK) and with body the poosheshDTO, or with status 404 (Not Found)
      */
     @GetMapping("/poosheshes/{id}")
-    @Timed
     public ResponseEntity<PoosheshDTO> getPooshesh(@PathVariable Long id) {
         log.debug("REST request to get Pooshesh : {}", id);
         Optional<PoosheshDTO> poosheshDTO = poosheshService.findOne(id);
@@ -117,7 +111,6 @@ public class PoosheshResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/poosheshes/{id}")
-    @Timed
     public ResponseEntity<Void> deletePooshesh(@PathVariable Long id) {
         log.debug("REST request to delete Pooshesh : {}", id);
         poosheshService.delete(id);

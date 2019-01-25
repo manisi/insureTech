@@ -517,7 +517,7 @@ public class KhesaratSalesResourceIntTest {
 
         int databaseSizeBeforeDelete = khesaratSalesRepository.findAll().size();
 
-        // Get the khesaratSales
+        // Delete the khesaratSales
         restKhesaratSalesMockMvc.perform(delete("/api/khesarat-sales/{id}", khesaratSales.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

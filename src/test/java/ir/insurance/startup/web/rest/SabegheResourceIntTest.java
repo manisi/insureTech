@@ -447,7 +447,7 @@ public class SabegheResourceIntTest {
 
         int databaseSizeBeforeDelete = sabegheRepository.findAll().size();
 
-        // Get the sabeghe
+        // Delete the sabeghe
         restSabegheMockMvc.perform(delete("/api/sabeghes/{id}", sabeghe.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

@@ -233,7 +233,7 @@ public class CountryResourceIntTest {
 
         int databaseSizeBeforeDelete = countryRepository.findAll().size();
 
-        // Get the country
+        // Delete the country
         restCountryMockMvc.perform(delete("/api/countries/{id}", country.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

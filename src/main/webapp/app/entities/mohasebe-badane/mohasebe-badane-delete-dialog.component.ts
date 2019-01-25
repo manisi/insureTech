@@ -54,11 +54,11 @@ export class MohasebeBadaneDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.mohasebeBadane = mohasebeBadane;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/mohasebe-badane', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/mohasebe-badane', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

@@ -447,7 +447,7 @@ public class NoeSabegheResourceIntTest {
 
         int databaseSizeBeforeDelete = noeSabegheRepository.findAll().size();
 
-        // Get the noeSabeghe
+        // Delete the noeSabeghe
         restNoeSabegheMockMvc.perform(delete("/api/noe-sabeghes/{id}", noeSabeghe.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

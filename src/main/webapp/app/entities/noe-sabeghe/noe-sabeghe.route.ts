@@ -16,7 +16,7 @@ import { INoeSabeghe } from 'app/shared/model/noe-sabeghe.model';
 export class NoeSabegheResolve implements Resolve<INoeSabeghe> {
     constructor(private service: NoeSabegheService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<NoeSabeghe> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<INoeSabeghe> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class NoeSabegheResolve implements Resolve<INoeSabeghe> {
 
 export const noeSabegheRoute: Routes = [
     {
-        path: 'noe-sabeghe',
+        path: '',
         component: NoeSabegheComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const noeSabegheRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'noe-sabeghe/:id/view',
+        path: ':id/view',
         component: NoeSabegheDetailComponent,
         resolve: {
             noeSabeghe: NoeSabegheResolve
@@ -51,7 +51,7 @@ export const noeSabegheRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'noe-sabeghe/new',
+        path: 'new',
         component: NoeSabegheUpdateComponent,
         resolve: {
             noeSabeghe: NoeSabegheResolve
@@ -63,7 +63,7 @@ export const noeSabegheRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'noe-sabeghe/:id/edit',
+        path: ':id/edit',
         component: NoeSabegheUpdateComponent,
         resolve: {
             noeSabeghe: NoeSabegheResolve
@@ -78,7 +78,7 @@ export const noeSabegheRoute: Routes = [
 
 export const noeSabeghePopupRoute: Routes = [
     {
-        path: 'noe-sabeghe/:id/delete',
+        path: ':id/delete',
         component: NoeSabegheDeletePopupComponent,
         resolve: {
             noeSabeghe: NoeSabegheResolve

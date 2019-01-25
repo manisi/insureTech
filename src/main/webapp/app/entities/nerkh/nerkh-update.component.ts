@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-
 import { INerkh } from 'app/shared/model/nerkh.model';
 import { NerkhService } from './nerkh.service';
 import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
@@ -31,12 +31,13 @@ export class NerkhUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ nerkh }) => {
             this.nerkh = nerkh;
         });
-        this.sherkatBimeService.query().subscribe(
-            (res: HttpResponse<ISherkatBime[]>) => {
-                this.sherkatbimes = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.sherkatBimeService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ISherkatBime[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ISherkatBime[]>) => response.body)
+            )
+            .subscribe((res: ISherkatBime[]) => (this.sherkatbimes = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

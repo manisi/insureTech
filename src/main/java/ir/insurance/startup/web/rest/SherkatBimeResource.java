@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.SherkatBimeService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class SherkatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/sherkat-bimes")
-    @Timed
     public ResponseEntity<SherkatBimeDTO> createSherkatBime(@RequestBody SherkatBimeDTO sherkatBimeDTO) throws URISyntaxException {
         log.debug("REST request to save SherkatBime : {}", sherkatBimeDTO);
         if (sherkatBimeDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class SherkatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/sherkat-bimes")
-    @Timed
     public ResponseEntity<SherkatBimeDTO> updateSherkatBime(@RequestBody SherkatBimeDTO sherkatBimeDTO) throws URISyntaxException {
         log.debug("REST request to update SherkatBime : {}", sherkatBimeDTO);
         if (sherkatBimeDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class SherkatBimeResource {
      * @return the ResponseEntity with status 200 (OK) and the list of sherkatBimes in body
      */
     @GetMapping("/sherkat-bimes")
-    @Timed
     public ResponseEntity<List<SherkatBimeDTO>> getAllSherkatBimes(Pageable pageable) {
         log.debug("REST request to get a page of SherkatBimes");
         Page<SherkatBimeDTO> page = sherkatBimeService.findAll(pageable);
@@ -103,7 +98,6 @@ public class SherkatBimeResource {
      * @return the ResponseEntity with status 200 (OK) and with body the sherkatBimeDTO, or with status 404 (Not Found)
      */
     @GetMapping("/sherkat-bimes/{id}")
-    @Timed
     public ResponseEntity<SherkatBimeDTO> getSherkatBime(@PathVariable Long id) {
         log.debug("REST request to get SherkatBime : {}", id);
         Optional<SherkatBimeDTO> sherkatBimeDTO = sherkatBimeService.findOne(id);
@@ -117,7 +111,6 @@ public class SherkatBimeResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/sherkat-bimes/{id}")
-    @Timed
     public ResponseEntity<Void> deleteSherkatBime(@PathVariable Long id) {
         log.debug("REST request to delete SherkatBime : {}", id);
         sherkatBimeService.delete(id);

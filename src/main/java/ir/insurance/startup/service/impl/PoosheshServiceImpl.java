@@ -42,7 +42,6 @@ public class PoosheshServiceImpl implements PoosheshService {
     @Override
     public PoosheshDTO save(PoosheshDTO poosheshDTO) {
         log.debug("Request to save Pooshesh : {}", poosheshDTO);
-
         Pooshesh pooshesh = poosheshMapper.toEntity(poosheshDTO);
         pooshesh = poosheshRepository.save(pooshesh);
         return poosheshMapper.toDto(pooshesh);
@@ -84,7 +83,6 @@ public class PoosheshServiceImpl implements PoosheshService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Pooshesh : {}", id);
-        poosheshRepository.deleteById(id);
+        log.debug("Request to delete Pooshesh : {}", id);        poosheshRepository.deleteById(id);
     }
 }

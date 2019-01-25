@@ -295,7 +295,7 @@ public class NerkhResourceIntTest {
 
         int databaseSizeBeforeDelete = nerkhRepository.findAll().size();
 
-        // Get the nerkh
+        // Delete the nerkh
         restNerkhMockMvc.perform(delete("/api/nerkhs/{id}", nerkh.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

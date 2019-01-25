@@ -398,7 +398,7 @@ public class GrouhKhodroResourceIntTest {
 
         int databaseSizeBeforeDelete = grouhKhodroRepository.findAll().size();
 
-        // Get the grouhKhodro
+        // Delete the grouhKhodro
         restGrouhKhodroMockMvc.perform(delete("/api/grouh-khodros/{id}", grouhKhodro.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

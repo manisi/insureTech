@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.AshkhasService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class AshkhasResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/ashkhas")
-    @Timed
     public ResponseEntity<AshkhasDTO> createAshkhas(@RequestBody AshkhasDTO ashkhasDTO) throws URISyntaxException {
         log.debug("REST request to save Ashkhas : {}", ashkhasDTO);
         if (ashkhasDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class AshkhasResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/ashkhas")
-    @Timed
     public ResponseEntity<AshkhasDTO> updateAshkhas(@RequestBody AshkhasDTO ashkhasDTO) throws URISyntaxException {
         log.debug("REST request to update Ashkhas : {}", ashkhasDTO);
         if (ashkhasDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class AshkhasResource {
      * @return the ResponseEntity with status 200 (OK) and the list of ashkhas in body
      */
     @GetMapping("/ashkhas")
-    @Timed
     public ResponseEntity<List<AshkhasDTO>> getAllAshkhas(Pageable pageable) {
         log.debug("REST request to get a page of Ashkhas");
         Page<AshkhasDTO> page = ashkhasService.findAll(pageable);
@@ -103,7 +98,6 @@ public class AshkhasResource {
      * @return the ResponseEntity with status 200 (OK) and with body the ashkhasDTO, or with status 404 (Not Found)
      */
     @GetMapping("/ashkhas/{id}")
-    @Timed
     public ResponseEntity<AshkhasDTO> getAshkhas(@PathVariable Long id) {
         log.debug("REST request to get Ashkhas : {}", id);
         Optional<AshkhasDTO> ashkhasDTO = ashkhasService.findOne(id);
@@ -117,7 +111,6 @@ public class AshkhasResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/ashkhas/{id}")
-    @Timed
     public ResponseEntity<Void> deleteAshkhas(@PathVariable Long id) {
         log.debug("REST request to delete Ashkhas : {}", id);
         ashkhasService.delete(id);

@@ -17,7 +17,7 @@ import { IAshkhas } from 'app/shared/model/ashkhas.model';
 export class AshkhasResolve implements Resolve<IAshkhas> {
     constructor(private service: AshkhasService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Ashkhas> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IAshkhas> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class AshkhasResolve implements Resolve<IAshkhas> {
 
 export const ashkhasRoute: Routes = [
     {
-        path: 'ashkhas',
+        path: '',
         component: AshkhasComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const ashkhasRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'ashkhas/:id/view',
+        path: ':id/view',
         component: AshkhasDetailComponent,
         resolve: {
             ashkhas: AshkhasResolve
@@ -56,7 +56,7 @@ export const ashkhasRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'ashkhas/new',
+        path: 'new',
         component: AshkhasUpdateComponent,
         resolve: {
             ashkhas: AshkhasResolve
@@ -68,7 +68,7 @@ export const ashkhasRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'ashkhas/:id/edit',
+        path: ':id/edit',
         component: AshkhasUpdateComponent,
         resolve: {
             ashkhas: AshkhasResolve
@@ -83,7 +83,7 @@ export const ashkhasRoute: Routes = [
 
 export const ashkhasPopupRoute: Routes = [
     {
-        path: 'ashkhas/:id/delete',
+        path: ':id/delete',
         component: AshkhasDeletePopupComponent,
         resolve: {
             ashkhas: AshkhasResolve

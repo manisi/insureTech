@@ -24,6 +24,7 @@ describe('SherkatBime e2e test', () => {
     it('should load SherkatBimes', async () => {
         await navBarPage.goToEntity('sherkat-bime');
         sherkatBimeComponentsPage = new SherkatBimeComponentsPage();
+        await browser.wait(ec.visibilityOf(sherkatBimeComponentsPage.title), 5000);
         expect(await sherkatBimeComponentsPage.getTitle()).to.eq('insurancestartApp.sherkatBime.home.title');
     });
 

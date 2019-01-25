@@ -281,7 +281,7 @@ public class AshkhasResourceIntTest {
 
         int databaseSizeBeforeDelete = ashkhasRepository.findAll().size();
 
-        // Get the ashkhas
+        // Delete the ashkhas
         restAshkhasMockMvc.perform(delete("/api/ashkhas/{id}", ashkhas.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

@@ -54,11 +54,11 @@ export class SherkatBimeDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.sherkatBime = sherkatBime;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/sherkat-bime', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/sherkat-bime', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

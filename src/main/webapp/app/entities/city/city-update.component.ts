@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-
 import { ICity } from 'app/shared/model/city.model';
 import { CityService } from './city.service';
 import { ICountry } from 'app/shared/model/country.model';
@@ -31,12 +31,13 @@ export class CityUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ city }) => {
             this.city = city;
         });
-        this.countryService.query().subscribe(
-            (res: HttpResponse<ICountry[]>) => {
-                this.countries = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.countryService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ICountry[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ICountry[]>) => response.body)
+            )
+            .subscribe((res: ICountry[]) => (this.countries = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

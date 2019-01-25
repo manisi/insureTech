@@ -24,6 +24,7 @@ describe('Pooshesh e2e test', () => {
     it('should load Poosheshes', async () => {
         await navBarPage.goToEntity('pooshesh');
         poosheshComponentsPage = new PoosheshComponentsPage();
+        await browser.wait(ec.visibilityOf(poosheshComponentsPage.title), 5000);
         expect(await poosheshComponentsPage.getTitle()).to.eq('insurancestartApp.pooshesh.home.title');
     });
 

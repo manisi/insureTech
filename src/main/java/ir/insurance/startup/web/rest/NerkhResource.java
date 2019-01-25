@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.NerkhService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class NerkhResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/nerkhs")
-    @Timed
     public ResponseEntity<NerkhDTO> createNerkh(@RequestBody NerkhDTO nerkhDTO) throws URISyntaxException {
         log.debug("REST request to save Nerkh : {}", nerkhDTO);
         if (nerkhDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class NerkhResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/nerkhs")
-    @Timed
     public ResponseEntity<NerkhDTO> updateNerkh(@RequestBody NerkhDTO nerkhDTO) throws URISyntaxException {
         log.debug("REST request to update Nerkh : {}", nerkhDTO);
         if (nerkhDTO.getId() == null) {
@@ -89,7 +85,6 @@ public class NerkhResource {
      * @return the ResponseEntity with status 200 (OK) and the list of nerkhs in body
      */
     @GetMapping("/nerkhs")
-    @Timed
     public ResponseEntity<List<NerkhDTO>> getAllNerkhs(Pageable pageable, @RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get a page of Nerkhs");
         Page<NerkhDTO> page;
@@ -109,7 +104,6 @@ public class NerkhResource {
      * @return the ResponseEntity with status 200 (OK) and with body the nerkhDTO, or with status 404 (Not Found)
      */
     @GetMapping("/nerkhs/{id}")
-    @Timed
     public ResponseEntity<NerkhDTO> getNerkh(@PathVariable Long id) {
         log.debug("REST request to get Nerkh : {}", id);
         Optional<NerkhDTO> nerkhDTO = nerkhService.findOne(id);
@@ -123,7 +117,6 @@ public class NerkhResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/nerkhs/{id}")
-    @Timed
     public ResponseEntity<Void> deleteNerkh(@PathVariable Long id) {
         log.debug("REST request to delete Nerkh : {}", id);
         nerkhService.delete(id);

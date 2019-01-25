@@ -47,11 +47,11 @@ export class KhodroDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.khodro = khodro;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/khodro', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/khodro', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

@@ -24,6 +24,7 @@ describe('JarimeDirkard e2e test', () => {
     it('should load JarimeDirkards', async () => {
         await navBarPage.goToEntity('jarime-dirkard');
         jarimeDirkardComponentsPage = new JarimeDirkardComponentsPage();
+        await browser.wait(ec.visibilityOf(jarimeDirkardComponentsPage.title), 5000);
         expect(await jarimeDirkardComponentsPage.getTitle()).to.eq('insurancestartApp.jarimeDirkard.home.title');
     });
 

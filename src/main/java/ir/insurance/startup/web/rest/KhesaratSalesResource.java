@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.KhesaratSalesService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class KhesaratSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/khesarat-sales")
-    @Timed
     public ResponseEntity<KhesaratSalesDTO> createKhesaratSales(@Valid @RequestBody KhesaratSalesDTO khesaratSalesDTO) throws URISyntaxException {
         log.debug("REST request to save KhesaratSales : {}", khesaratSalesDTO);
         if (khesaratSalesDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class KhesaratSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/khesarat-sales")
-    @Timed
     public ResponseEntity<KhesaratSalesDTO> updateKhesaratSales(@Valid @RequestBody KhesaratSalesDTO khesaratSalesDTO) throws URISyntaxException {
         log.debug("REST request to update KhesaratSales : {}", khesaratSalesDTO);
         if (khesaratSalesDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class KhesaratSalesResource {
      * @return the ResponseEntity with status 200 (OK) and the list of khesaratSales in body
      */
     @GetMapping("/khesarat-sales")
-    @Timed
     public ResponseEntity<List<KhesaratSalesDTO>> getAllKhesaratSales(KhesaratSalesCriteria criteria, Pageable pageable) {
         log.debug("REST request to get KhesaratSales by criteria: {}", criteria);
         Page<KhesaratSalesDTO> page = khesaratSalesQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class KhesaratSalesResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/khesarat-sales/count")
-    @Timed
     public ResponseEntity<Long> countKhesaratSales(KhesaratSalesCriteria criteria) {
         log.debug("REST request to count KhesaratSales by criteria: {}", criteria);
         return ResponseEntity.ok().body(khesaratSalesQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class KhesaratSalesResource {
      * @return the ResponseEntity with status 200 (OK) and with body the khesaratSalesDTO, or with status 404 (Not Found)
      */
     @GetMapping("/khesarat-sales/{id}")
-    @Timed
     public ResponseEntity<KhesaratSalesDTO> getKhesaratSales(@PathVariable Long id) {
         log.debug("REST request to get KhesaratSales : {}", id);
         Optional<KhesaratSalesDTO> khesaratSalesDTO = khesaratSalesService.findOne(id);
@@ -137,7 +130,6 @@ public class KhesaratSalesResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/khesarat-sales/{id}")
-    @Timed
     public ResponseEntity<Void> deleteKhesaratSales(@PathVariable Long id) {
         log.debug("REST request to delete KhesaratSales : {}", id);
         khesaratSalesService.delete(id);

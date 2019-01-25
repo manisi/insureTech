@@ -17,7 +17,7 @@ import { IKhodro } from 'app/shared/model/khodro.model';
 export class KhodroResolve implements Resolve<IKhodro> {
     constructor(private service: KhodroService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Khodro> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IKhodro> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class KhodroResolve implements Resolve<IKhodro> {
 
 export const khodroRoute: Routes = [
     {
-        path: 'khodro',
+        path: '',
         component: KhodroComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const khodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'khodro/:id/view',
+        path: ':id/view',
         component: KhodroDetailComponent,
         resolve: {
             khodro: KhodroResolve
@@ -56,7 +56,7 @@ export const khodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'khodro/new',
+        path: 'new',
         component: KhodroUpdateComponent,
         resolve: {
             khodro: KhodroResolve
@@ -68,7 +68,7 @@ export const khodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'khodro/:id/edit',
+        path: ':id/edit',
         component: KhodroUpdateComponent,
         resolve: {
             khodro: KhodroResolve
@@ -83,7 +83,7 @@ export const khodroRoute: Routes = [
 
 export const khodroPopupRoute: Routes = [
     {
-        path: 'khodro/:id/delete',
+        path: ':id/delete',
         component: KhodroDeletePopupComponent,
         resolve: {
             khodro: KhodroResolve
