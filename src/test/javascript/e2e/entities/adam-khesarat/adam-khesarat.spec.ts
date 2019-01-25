@@ -24,6 +24,7 @@ describe('AdamKhesarat e2e test', () => {
     it('should load AdamKhesarats', async () => {
         await navBarPage.goToEntity('adam-khesarat');
         adamKhesaratComponentsPage = new AdamKhesaratComponentsPage();
+        await browser.wait(ec.visibilityOf(adamKhesaratComponentsPage.title), 5000);
         expect(await adamKhesaratComponentsPage.getTitle()).to.eq('insurancestartApp.adamKhesarat.home.title');
     });
 

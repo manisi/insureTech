@@ -8,14 +8,14 @@
     -->
     <changeSet id="20190116184643-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="nerkhs_id"
+        <addForeignKeyConstraint baseColumnNames="nerkh_id"
                                  baseTableName="nerkh_sherkat_bime"
-                                 constraintName="fk_nerkh_sherkat_bime_nerkhs_id"
+                                 constraintName="fk_nerkh_sherkat_bime_nerkh_id"
                                  referencedColumnNames="id"
                                  referencedTableName="nerkh"/>
-        <addForeignKeyConstraint baseColumnNames="sherkat_bimes_id"
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id"
                                  baseTableName="nerkh_sherkat_bime"
-                                 constraintName="fk_nerkh_sherkat_bime_sherkat_bimes_id"
+                                 constraintName="fk_nerkh_sherkat_bime_sherkat_bime_id"
                                  referencedColumnNames="id"
                                  referencedTableName="sherkat_bime"/>
         

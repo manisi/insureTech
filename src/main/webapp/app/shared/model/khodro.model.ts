@@ -1,4 +1,4 @@
-import { ITipKhodro } from 'app/shared/model//tip-khodro.model';
+import { ITipKhodro } from 'app/shared/model/tip-khodro.model';
 
 export const enum NoeKhodro {
     SAVARI = 'SAVARI',

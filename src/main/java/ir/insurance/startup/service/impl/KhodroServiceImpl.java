@@ -42,7 +42,6 @@ public class KhodroServiceImpl implements KhodroService {
     @Override
     public KhodroDTO save(KhodroDTO khodroDTO) {
         log.debug("Request to save Khodro : {}", khodroDTO);
-
         Khodro khodro = khodroMapper.toEntity(khodroDTO);
         khodro = khodroRepository.save(khodro);
         return khodroMapper.toDto(khodro);
@@ -84,7 +83,6 @@ public class KhodroServiceImpl implements KhodroService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Khodro : {}", id);
-        khodroRepository.deleteById(id);
+        log.debug("Request to delete Khodro : {}", id);        khodroRepository.deleteById(id);
     }
 }

@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.MohasebeSalesService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class MohasebeSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/mohasebe-sales")
-    @Timed
     public ResponseEntity<MohasebeSalesDTO> createMohasebeSales(@RequestBody MohasebeSalesDTO mohasebeSalesDTO) throws URISyntaxException {
         log.debug("REST request to save MohasebeSales : {}", mohasebeSalesDTO);
         if (mohasebeSalesDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class MohasebeSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/mohasebe-sales")
-    @Timed
     public ResponseEntity<MohasebeSalesDTO> updateMohasebeSales(@RequestBody MohasebeSalesDTO mohasebeSalesDTO) throws URISyntaxException {
         log.debug("REST request to update MohasebeSales : {}", mohasebeSalesDTO);
         if (mohasebeSalesDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class MohasebeSalesResource {
      * @return the ResponseEntity with status 200 (OK) and the list of mohasebeSales in body
      */
     @GetMapping("/mohasebe-sales")
-    @Timed
     public ResponseEntity<List<MohasebeSalesDTO>> getAllMohasebeSales(Pageable pageable) {
         log.debug("REST request to get a page of MohasebeSales");
         Page<MohasebeSalesDTO> page = mohasebeSalesService.findAll(pageable);
@@ -103,7 +98,6 @@ public class MohasebeSalesResource {
      * @return the ResponseEntity with status 200 (OK) and with body the mohasebeSalesDTO, or with status 404 (Not Found)
      */
     @GetMapping("/mohasebe-sales/{id}")
-    @Timed
     public ResponseEntity<MohasebeSalesDTO> getMohasebeSales(@PathVariable Long id) {
         log.debug("REST request to get MohasebeSales : {}", id);
         Optional<MohasebeSalesDTO> mohasebeSalesDTO = mohasebeSalesService.findOne(id);
@@ -117,7 +111,6 @@ public class MohasebeSalesResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/mohasebe-sales/{id}")
-    @Timed
     public ResponseEntity<Void> deleteMohasebeSales(@PathVariable Long id) {
         log.debug("REST request to delete MohasebeSales : {}", id);
         mohasebeSalesService.delete(id);

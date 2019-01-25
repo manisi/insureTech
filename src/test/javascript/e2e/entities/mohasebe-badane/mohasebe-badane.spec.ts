@@ -24,6 +24,7 @@ describe('MohasebeBadane e2e test', () => {
     it('should load MohasebeBadanes', async () => {
         await navBarPage.goToEntity('mohasebe-badane');
         mohasebeBadaneComponentsPage = new MohasebeBadaneComponentsPage();
+        await browser.wait(ec.visibilityOf(mohasebeBadaneComponentsPage.title), 5000);
         expect(await mohasebeBadaneComponentsPage.getTitle()).to.eq('insurancestartApp.mohasebeBadane.home.title');
     });
 

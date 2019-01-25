@@ -253,7 +253,7 @@ public class PoosheshResourceIntTest {
 
         int databaseSizeBeforeDelete = poosheshRepository.findAll().size();
 
-        // Get the pooshesh
+        // Delete the pooshesh
         restPoosheshMockMvc.perform(delete("/api/poosheshes/{id}", pooshesh.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

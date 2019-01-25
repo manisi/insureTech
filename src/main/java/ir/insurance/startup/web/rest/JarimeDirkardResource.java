@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.JarimeDirkardService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class JarimeDirkardResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/jarime-dirkards")
-    @Timed
     public ResponseEntity<JarimeDirkardDTO> createJarimeDirkard(@Valid @RequestBody JarimeDirkardDTO jarimeDirkardDTO) throws URISyntaxException {
         log.debug("REST request to save JarimeDirkard : {}", jarimeDirkardDTO);
         if (jarimeDirkardDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class JarimeDirkardResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/jarime-dirkards")
-    @Timed
     public ResponseEntity<JarimeDirkardDTO> updateJarimeDirkard(@Valid @RequestBody JarimeDirkardDTO jarimeDirkardDTO) throws URISyntaxException {
         log.debug("REST request to update JarimeDirkard : {}", jarimeDirkardDTO);
         if (jarimeDirkardDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class JarimeDirkardResource {
      * @return the ResponseEntity with status 200 (OK) and the list of jarimeDirkards in body
      */
     @GetMapping("/jarime-dirkards")
-    @Timed
     public ResponseEntity<List<JarimeDirkardDTO>> getAllJarimeDirkards(JarimeDirkardCriteria criteria, Pageable pageable) {
         log.debug("REST request to get JarimeDirkards by criteria: {}", criteria);
         Page<JarimeDirkardDTO> page = jarimeDirkardQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class JarimeDirkardResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/jarime-dirkards/count")
-    @Timed
     public ResponseEntity<Long> countJarimeDirkards(JarimeDirkardCriteria criteria) {
         log.debug("REST request to count JarimeDirkards by criteria: {}", criteria);
         return ResponseEntity.ok().body(jarimeDirkardQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class JarimeDirkardResource {
      * @return the ResponseEntity with status 200 (OK) and with body the jarimeDirkardDTO, or with status 404 (Not Found)
      */
     @GetMapping("/jarime-dirkards/{id}")
-    @Timed
     public ResponseEntity<JarimeDirkardDTO> getJarimeDirkard(@PathVariable Long id) {
         log.debug("REST request to get JarimeDirkard : {}", id);
         Optional<JarimeDirkardDTO> jarimeDirkardDTO = jarimeDirkardService.findOne(id);
@@ -137,7 +130,6 @@ public class JarimeDirkardResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/jarime-dirkards/{id}")
-    @Timed
     public ResponseEntity<Void> deleteJarimeDirkard(@PathVariable Long id) {
         log.debug("REST request to delete JarimeDirkard : {}", id);
         jarimeDirkardService.delete(id);

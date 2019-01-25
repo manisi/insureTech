@@ -54,11 +54,11 @@ export class KhesaratSalesDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.khesaratSales = khesaratSales;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/khesarat-sales', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/khesarat-sales', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

@@ -1,45 +1,79 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-import { InsurancestartAshkhasModule } from './ashkhas/ashkhas.module';
-import { InsurancestartPoosheshModule } from './pooshesh/pooshesh.module';
-import { InsurancestartKhodroModule } from './khodro/khodro.module';
-import { InsurancestartTipKhodroModule } from './tip-khodro/tip-khodro.module';
-import { InsurancestartNerkhModule } from './nerkh/nerkh.module';
-import { InsurancestartSherkatBimeModule } from './sherkat-bime/sherkat-bime.module';
-import { InsurancestartCityModule } from './city/city.module';
-import { InsurancestartCountryModule } from './country/country.module';
-import { InsurancestartMohasebeSalesModule } from './mohasebe-sales/mohasebe-sales.module';
-import { InsurancestartMohasebeBadaneModule } from './mohasebe-badane/mohasebe-badane.module';
-import { InsurancestartGrouhKhodroModule } from './grouh-khodro/grouh-khodro.module';
-import { InsurancestartKohnegiModule } from './kohnegi/kohnegi.module';
-import { InsurancestartSabegheModule } from './sabeghe/sabeghe.module';
-import { InsurancestartNoeSabegheModule } from './noe-sabeghe/noe-sabeghe.module';
-import { InsurancestartAdamKhesaratModule } from './adam-khesarat/adam-khesarat.module';
-import { InsurancestartJarimeDirkardModule } from './jarime-dirkard/jarime-dirkard.module';
-import { InsurancestartKhesaratSalesModule } from './khesarat-sales/khesarat-sales.module';
-/* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-    // prettier-ignore
     imports: [
-        InsurancestartAshkhasModule,
-        InsurancestartPoosheshModule,
-        InsurancestartKhodroModule,
-        InsurancestartTipKhodroModule,
-        InsurancestartNerkhModule,
-        InsurancestartSherkatBimeModule,
-        InsurancestartCityModule,
-        InsurancestartCountryModule,
-        InsurancestartMohasebeSalesModule,
-        InsurancestartMohasebeBadaneModule,
-        InsurancestartGrouhKhodroModule,
-        InsurancestartKohnegiModule,
-        InsurancestartSabegheModule,
-        InsurancestartNoeSabegheModule,
-        InsurancestartAdamKhesaratModule,
-        InsurancestartJarimeDirkardModule,
-        InsurancestartKhesaratSalesModule,
-        /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
+        RouterModule.forChild([
+            {
+                path: 'ashkhas',
+                loadChildren: './ashkhas/ashkhas.module#InsurancestartAshkhasModule'
+            },
+            {
+                path: 'pooshesh',
+                loadChildren: './pooshesh/pooshesh.module#InsurancestartPoosheshModule'
+            },
+            {
+                path: 'khodro',
+                loadChildren: './khodro/khodro.module#InsurancestartKhodroModule'
+            },
+            {
+                path: 'tip-khodro',
+                loadChildren: './tip-khodro/tip-khodro.module#InsurancestartTipKhodroModule'
+            },
+            {
+                path: 'nerkh',
+                loadChildren: './nerkh/nerkh.module#InsurancestartNerkhModule'
+            },
+            {
+                path: 'sherkat-bime',
+                loadChildren: './sherkat-bime/sherkat-bime.module#InsurancestartSherkatBimeModule'
+            },
+            {
+                path: 'city',
+                loadChildren: './city/city.module#InsurancestartCityModule'
+            },
+            {
+                path: 'country',
+                loadChildren: './country/country.module#InsurancestartCountryModule'
+            },
+            {
+                path: 'mohasebe-sales',
+                loadChildren: './mohasebe-sales/mohasebe-sales.module#InsurancestartMohasebeSalesModule'
+            },
+            {
+                path: 'mohasebe-badane',
+                loadChildren: './mohasebe-badane/mohasebe-badane.module#InsurancestartMohasebeBadaneModule'
+            },
+            {
+                path: 'grouh-khodro',
+                loadChildren: './grouh-khodro/grouh-khodro.module#InsurancestartGrouhKhodroModule'
+            },
+            {
+                path: 'kohnegi',
+                loadChildren: './kohnegi/kohnegi.module#InsurancestartKohnegiModule'
+            },
+            {
+                path: 'sabeghe',
+                loadChildren: './sabeghe/sabeghe.module#InsurancestartSabegheModule'
+            },
+            {
+                path: 'noe-sabeghe',
+                loadChildren: './noe-sabeghe/noe-sabeghe.module#InsurancestartNoeSabegheModule'
+            },
+            {
+                path: 'adam-khesarat',
+                loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
+            },
+            {
+                path: 'jarime-dirkard',
+                loadChildren: './jarime-dirkard/jarime-dirkard.module#InsurancestartJarimeDirkardModule'
+            },
+            {
+                path: 'khesarat-sales',
+                loadChildren: './khesarat-sales/khesarat-sales.module#InsurancestartKhesaratSalesModule'
+            }
+            /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
+        ])
     ],
     declarations: [],
     entryComponents: [],

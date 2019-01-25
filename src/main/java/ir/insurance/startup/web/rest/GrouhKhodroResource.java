@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.GrouhKhodroService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class GrouhKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/grouh-khodros")
-    @Timed
     public ResponseEntity<GrouhKhodroDTO> createGrouhKhodro(@Valid @RequestBody GrouhKhodroDTO grouhKhodroDTO) throws URISyntaxException {
         log.debug("REST request to save GrouhKhodro : {}", grouhKhodroDTO);
         if (grouhKhodroDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class GrouhKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/grouh-khodros")
-    @Timed
     public ResponseEntity<GrouhKhodroDTO> updateGrouhKhodro(@Valid @RequestBody GrouhKhodroDTO grouhKhodroDTO) throws URISyntaxException {
         log.debug("REST request to update GrouhKhodro : {}", grouhKhodroDTO);
         if (grouhKhodroDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class GrouhKhodroResource {
      * @return the ResponseEntity with status 200 (OK) and the list of grouhKhodros in body
      */
     @GetMapping("/grouh-khodros")
-    @Timed
     public ResponseEntity<List<GrouhKhodroDTO>> getAllGrouhKhodros(GrouhKhodroCriteria criteria, Pageable pageable) {
         log.debug("REST request to get GrouhKhodros by criteria: {}", criteria);
         Page<GrouhKhodroDTO> page = grouhKhodroQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class GrouhKhodroResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/grouh-khodros/count")
-    @Timed
     public ResponseEntity<Long> countGrouhKhodros(GrouhKhodroCriteria criteria) {
         log.debug("REST request to count GrouhKhodros by criteria: {}", criteria);
         return ResponseEntity.ok().body(grouhKhodroQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class GrouhKhodroResource {
      * @return the ResponseEntity with status 200 (OK) and with body the grouhKhodroDTO, or with status 404 (Not Found)
      */
     @GetMapping("/grouh-khodros/{id}")
-    @Timed
     public ResponseEntity<GrouhKhodroDTO> getGrouhKhodro(@PathVariable Long id) {
         log.debug("REST request to get GrouhKhodro : {}", id);
         Optional<GrouhKhodroDTO> grouhKhodroDTO = grouhKhodroService.findOne(id);
@@ -137,7 +130,6 @@ public class GrouhKhodroResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/grouh-khodros/{id}")
-    @Timed
     public ResponseEntity<Void> deleteGrouhKhodro(@PathVariable Long id) {
         log.debug("REST request to delete GrouhKhodro : {}", id);
         grouhKhodroService.delete(id);

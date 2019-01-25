@@ -47,11 +47,11 @@ export class PoosheshDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.pooshesh = pooshesh;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/pooshesh', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/pooshesh', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

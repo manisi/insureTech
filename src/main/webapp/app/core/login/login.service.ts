@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { AccountService } from '../auth/account.service';
-import { AuthServerProvider } from '../auth/auth-jwt.service';
-import { JhiTrackerService } from '../tracker/tracker.service';
+import { AccountService } from 'app/core/auth/account.service';
+import { AuthServerProvider } from 'app/core/auth/auth-jwt.service';
+import { JhiTrackerService } from 'app/core/tracker/tracker.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {

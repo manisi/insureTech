@@ -16,7 +16,7 @@ import { IKhesaratSales } from 'app/shared/model/khesarat-sales.model';
 export class KhesaratSalesResolve implements Resolve<IKhesaratSales> {
     constructor(private service: KhesaratSalesService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<KhesaratSales> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IKhesaratSales> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class KhesaratSalesResolve implements Resolve<IKhesaratSales> {
 
 export const khesaratSalesRoute: Routes = [
     {
-        path: 'khesarat-sales',
+        path: '',
         component: KhesaratSalesComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const khesaratSalesRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'khesarat-sales/:id/view',
+        path: ':id/view',
         component: KhesaratSalesDetailComponent,
         resolve: {
             khesaratSales: KhesaratSalesResolve
@@ -51,7 +51,7 @@ export const khesaratSalesRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'khesarat-sales/new',
+        path: 'new',
         component: KhesaratSalesUpdateComponent,
         resolve: {
             khesaratSales: KhesaratSalesResolve
@@ -63,7 +63,7 @@ export const khesaratSalesRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'khesarat-sales/:id/edit',
+        path: ':id/edit',
         component: KhesaratSalesUpdateComponent,
         resolve: {
             khesaratSales: KhesaratSalesResolve
@@ -78,7 +78,7 @@ export const khesaratSalesRoute: Routes = [
 
 export const khesaratSalesPopupRoute: Routes = [
     {
-        path: 'khesarat-sales/:id/delete',
+        path: ':id/delete',
         component: KhesaratSalesDeletePopupComponent,
         resolve: {
             khesaratSales: KhesaratSalesResolve

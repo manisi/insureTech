@@ -6,7 +6,7 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <p id="jhi-delete-jarimeDirkard-heading" jhiTranslate="insurancestartApp.jarimeDirkard.delete.question" translateValues="{id: '{{jarimeDirkard.id}}'}">Are you sure you want to delete this Jarime Dirkard?</p>
+        <p id="jhi-delete-jarimeDirkard-heading" jhiTranslate="insurancestartApp.jarimeDirkard.delete.question" [translateValues]="{id: jarimeDirkard.id}">Are you sure you want to delete this Jarime Dirkard?</p>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

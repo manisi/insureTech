@@ -17,7 +17,7 @@ import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 export class SherkatBimeResolve implements Resolve<ISherkatBime> {
     constructor(private service: SherkatBimeService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<SherkatBime> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ISherkatBime> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class SherkatBimeResolve implements Resolve<ISherkatBime> {
 
 export const sherkatBimeRoute: Routes = [
     {
-        path: 'sherkat-bime',
+        path: '',
         component: SherkatBimeComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const sherkatBimeRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'sherkat-bime/:id/view',
+        path: ':id/view',
         component: SherkatBimeDetailComponent,
         resolve: {
             sherkatBime: SherkatBimeResolve
@@ -56,7 +56,7 @@ export const sherkatBimeRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'sherkat-bime/new',
+        path: 'new',
         component: SherkatBimeUpdateComponent,
         resolve: {
             sherkatBime: SherkatBimeResolve
@@ -68,7 +68,7 @@ export const sherkatBimeRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'sherkat-bime/:id/edit',
+        path: ':id/edit',
         component: SherkatBimeUpdateComponent,
         resolve: {
             sherkatBime: SherkatBimeResolve
@@ -83,7 +83,7 @@ export const sherkatBimeRoute: Routes = [
 
 export const sherkatBimePopupRoute: Routes = [
     {
-        path: 'sherkat-bime/:id/delete',
+        path: ':id/delete',
         component: SherkatBimeDeletePopupComponent,
         resolve: {
             sherkatBime: SherkatBimeResolve

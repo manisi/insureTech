@@ -17,7 +17,7 @@ import { IMohasebeBadane } from 'app/shared/model/mohasebe-badane.model';
 export class MohasebeBadaneResolve implements Resolve<IMohasebeBadane> {
     constructor(private service: MohasebeBadaneService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MohasebeBadane> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IMohasebeBadane> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class MohasebeBadaneResolve implements Resolve<IMohasebeBadane> {
 
 export const mohasebeBadaneRoute: Routes = [
     {
-        path: 'mohasebe-badane',
+        path: '',
         component: MohasebeBadaneComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const mohasebeBadaneRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'mohasebe-badane/:id/view',
+        path: ':id/view',
         component: MohasebeBadaneDetailComponent,
         resolve: {
             mohasebeBadane: MohasebeBadaneResolve
@@ -56,7 +56,7 @@ export const mohasebeBadaneRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'mohasebe-badane/new',
+        path: 'new',
         component: MohasebeBadaneUpdateComponent,
         resolve: {
             mohasebeBadane: MohasebeBadaneResolve
@@ -68,7 +68,7 @@ export const mohasebeBadaneRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'mohasebe-badane/:id/edit',
+        path: ':id/edit',
         component: MohasebeBadaneUpdateComponent,
         resolve: {
             mohasebeBadane: MohasebeBadaneResolve
@@ -83,7 +83,7 @@ export const mohasebeBadaneRoute: Routes = [
 
 export const mohasebeBadanePopupRoute: Routes = [
     {
-        path: 'mohasebe-badane/:id/delete',
+        path: ':id/delete',
         component: MohasebeBadaneDeletePopupComponent,
         resolve: {
             mohasebeBadane: MohasebeBadaneResolve

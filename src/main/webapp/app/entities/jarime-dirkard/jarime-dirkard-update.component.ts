@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-
 import { IJarimeDirkard } from 'app/shared/model/jarime-dirkard.model';
 import { JarimeDirkardService } from './jarime-dirkard.service';
 import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
@@ -31,12 +31,13 @@ export class JarimeDirkardUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ jarimeDirkard }) => {
             this.jarimeDirkard = jarimeDirkard;
         });
-        this.grouhKhodroService.query().subscribe(
-            (res: HttpResponse<IGrouhKhodro[]>) => {
-                this.grouhkhodros = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.grouhKhodroService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IGrouhKhodro[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IGrouhKhodro[]>) => response.body)
+            )
+            .subscribe((res: IGrouhKhodro[]) => (this.grouhkhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

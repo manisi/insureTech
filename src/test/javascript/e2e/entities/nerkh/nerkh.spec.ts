@@ -24,6 +24,7 @@ describe('Nerkh e2e test', () => {
     it('should load Nerkhs', async () => {
         await navBarPage.goToEntity('nerkh');
         nerkhComponentsPage = new NerkhComponentsPage();
+        await browser.wait(ec.visibilityOf(nerkhComponentsPage.title), 5000);
         expect(await nerkhComponentsPage.getTitle()).to.eq('insurancestartApp.nerkh.home.title');
     });
 

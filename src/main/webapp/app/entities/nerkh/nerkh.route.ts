@@ -17,7 +17,7 @@ import { INerkh } from 'app/shared/model/nerkh.model';
 export class NerkhResolve implements Resolve<INerkh> {
     constructor(private service: NerkhService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Nerkh> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<INerkh> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class NerkhResolve implements Resolve<INerkh> {
 
 export const nerkhRoute: Routes = [
     {
-        path: 'nerkh',
+        path: '',
         component: NerkhComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const nerkhRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'nerkh/:id/view',
+        path: ':id/view',
         component: NerkhDetailComponent,
         resolve: {
             nerkh: NerkhResolve
@@ -56,7 +56,7 @@ export const nerkhRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'nerkh/new',
+        path: 'new',
         component: NerkhUpdateComponent,
         resolve: {
             nerkh: NerkhResolve
@@ -68,7 +68,7 @@ export const nerkhRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'nerkh/:id/edit',
+        path: ':id/edit',
         component: NerkhUpdateComponent,
         resolve: {
             nerkh: NerkhResolve
@@ -83,7 +83,7 @@ export const nerkhRoute: Routes = [
 
 export const nerkhPopupRoute: Routes = [
     {
-        path: 'nerkh/:id/delete',
+        path: ':id/delete',
         component: NerkhDeletePopupComponent,
         resolve: {
             nerkh: NerkhResolve

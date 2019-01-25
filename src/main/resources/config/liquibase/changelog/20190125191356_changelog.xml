@@ -1,0 +1,62 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="developer (generated)" id="1548443642507-1">
+        <createTable tableName="pooshesh">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="poosheshPK"/>
+            </column>
+            <column name="aztarikh" type="BYTEA"/>
+            <column name="faal" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="nerkh_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-2">
+        <addColumn tableName="nerkh_sherkat_bime">
+            <column name="nerkh_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-3">
+        <addColumn tableName="nerkh_sherkat_bime">
+            <column name="sherkat_bime_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-4">
+        <createIndex indexName="IX_null" tableName="nerkh_sherkat_bime" unique="true">
+            <column name="nerkh_id"/>
+            <column name="sherkat_bime_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-5">
+        <addForeignKeyConstraint baseColumnNames="nerkh_id" baseTableName="nerkh_sherkat_bime" constraintName="FK8r42pkp22ek0qtomw44fhxsbn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-6">
+        <addForeignKeyConstraint baseColumnNames="nerkh_id" baseTableName="pooshesh" constraintName="FKc6tufxhckda9y4biko83kidsy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-7">
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id" baseTableName="nerkh_sherkat_bime" constraintName="FKhtatnmh1y0mqd34wpylugaxny" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sherkat_bime"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-8">
+        <dropForeignKeyConstraint baseTableName="nerkh_sherkat_bime" constraintName="fk_nerkh_sherkat_bime_nerkhs_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-9">
+        <dropForeignKeyConstraint baseTableName="nerkh_sherkat_bime" constraintName="fk_nerkh_sherkat_bime_sherkat_bimes_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-10">
+        <dropTable tableName="jhi_date_time_wrapper"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-11">
+        <dropColumn columnName="nerkhs_id" tableName="nerkh_sherkat_bime"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-12">
+        <dropColumn columnName="sherkat_bimes_id" tableName="nerkh_sherkat_bime"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1548443642507-13">
+        <dropPrimaryKey tableName="nerkh_sherkat_bime"/>
+        <addPrimaryKey columnNames="nerkh_id, sherkat_bime_id" tableName="nerkh_sherkat_bime"/>
+    </changeSet>
+</databaseChangeLog>

@@ -24,6 +24,7 @@ describe('NoeSabeghe e2e test', () => {
     it('should load NoeSabeghes', async () => {
         await navBarPage.goToEntity('noe-sabeghe');
         noeSabegheComponentsPage = new NoeSabegheComponentsPage();
+        await browser.wait(ec.visibilityOf(noeSabegheComponentsPage.title), 5000);
         expect(await noeSabegheComponentsPage.getTitle()).to.eq('insurancestartApp.noeSabeghe.home.title');
     });
 

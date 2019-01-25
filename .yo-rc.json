@@ -4,7 +4,7 @@
             "packageName": "ir.insurance.startup",
             "nativeLanguage": "en"
         },
-        "jhipsterVersion": "5.7.2",
+        "jhipsterVersion": "5.8.0",
         "applicationType": "monolith",
         "baseName": "insurancestart",
         "packageName": "ir.insurance.startup",
@@ -33,6 +33,8 @@
         "nativeLanguage": "en",
         "languages": ["en", "fa"],
         "herokuAppName": "insurancestart",
-        "herokuDeployType": "git"
+        "herokuDeployType": "git",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO"
     }
 }

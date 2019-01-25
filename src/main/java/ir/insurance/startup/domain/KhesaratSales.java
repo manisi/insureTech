@@ -1,5 +1,6 @@
 package ir.insurance.startup.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -21,7 +22,7 @@ import ir.insurance.startup.domain.enumeration.SalesSarneshinEnum;
 public class KhesaratSales implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
@@ -43,12 +44,12 @@ public class KhesaratSales implements Serializable {
 
     @ManyToOne(optional = false)
     @NotNull
-    @JsonIgnoreProperties("")
+    @JsonIgnoreProperties("khesaratSales")
     private Sabeghe sabeghe;
 
     @ManyToOne(optional = false)
     @NotNull
-    @JsonIgnoreProperties("")
+    @JsonIgnoreProperties("khesaratSales")
     private NoeSabeghe noeSabeghe;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -242,7 +242,7 @@ public class MohasebeSalesResourceIntTest {
 
         int databaseSizeBeforeDelete = mohasebeSalesRepository.findAll().size();
 
-        // Get the mohasebeSales
+        // Delete the mohasebeSales
         restMohasebeSalesMockMvc.perform(delete("/api/mohasebe-sales/{id}", mohasebeSales.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

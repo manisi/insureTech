@@ -47,11 +47,11 @@ export class AshkhasDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.ashkhas = ashkhas;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/ashkhas', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/ashkhas', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

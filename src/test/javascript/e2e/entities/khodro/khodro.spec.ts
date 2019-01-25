@@ -24,6 +24,7 @@ describe('Khodro e2e test', () => {
     it('should load Khodros', async () => {
         await navBarPage.goToEntity('khodro');
         khodroComponentsPage = new KhodroComponentsPage();
+        await browser.wait(ec.visibilityOf(khodroComponentsPage.title), 5000);
         expect(await khodroComponentsPage.getTitle()).to.eq('insurancestartApp.khodro.home.title');
     });
 

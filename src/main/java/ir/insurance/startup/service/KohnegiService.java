@@ -40,7 +40,6 @@ public class KohnegiService {
      */
     public KohnegiDTO save(KohnegiDTO kohnegiDTO) {
         log.debug("Request to save Kohnegi : {}", kohnegiDTO);
-
         Kohnegi kohnegi = kohnegiMapper.toEntity(kohnegiDTO);
         kohnegi = kohnegiRepository.save(kohnegi);
         return kohnegiMapper.toDto(kohnegi);
@@ -79,7 +78,6 @@ public class KohnegiService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete Kohnegi : {}", id);
-        kohnegiRepository.deleteById(id);
+        log.debug("Request to delete Kohnegi : {}", id);        kohnegiRepository.deleteById(id);
     }
 }

@@ -40,7 +40,6 @@ public class KhesaratSalesService {
      */
     public KhesaratSalesDTO save(KhesaratSalesDTO khesaratSalesDTO) {
         log.debug("Request to save KhesaratSales : {}", khesaratSalesDTO);
-
         KhesaratSales khesaratSales = khesaratSalesMapper.toEntity(khesaratSalesDTO);
         khesaratSales = khesaratSalesRepository.save(khesaratSales);
         return khesaratSalesMapper.toDto(khesaratSales);
@@ -79,7 +78,6 @@ public class KhesaratSalesService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete KhesaratSales : {}", id);
-        khesaratSalesRepository.deleteById(id);
+        log.debug("Request to delete KhesaratSales : {}", id);        khesaratSalesRepository.deleteById(id);
     }
 }

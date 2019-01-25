@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.SabegheService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class SabegheResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/sabeghes")
-    @Timed
     public ResponseEntity<SabegheDTO> createSabeghe(@Valid @RequestBody SabegheDTO sabegheDTO) throws URISyntaxException {
         log.debug("REST request to save Sabeghe : {}", sabegheDTO);
         if (sabegheDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class SabegheResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/sabeghes")
-    @Timed
     public ResponseEntity<SabegheDTO> updateSabeghe(@Valid @RequestBody SabegheDTO sabegheDTO) throws URISyntaxException {
         log.debug("REST request to update Sabeghe : {}", sabegheDTO);
         if (sabegheDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class SabegheResource {
      * @return the ResponseEntity with status 200 (OK) and the list of sabeghes in body
      */
     @GetMapping("/sabeghes")
-    @Timed
     public ResponseEntity<List<SabegheDTO>> getAllSabeghes(SabegheCriteria criteria, Pageable pageable) {
         log.debug("REST request to get Sabeghes by criteria: {}", criteria);
         Page<SabegheDTO> page = sabegheQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class SabegheResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/sabeghes/count")
-    @Timed
     public ResponseEntity<Long> countSabeghes(SabegheCriteria criteria) {
         log.debug("REST request to count Sabeghes by criteria: {}", criteria);
         return ResponseEntity.ok().body(sabegheQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class SabegheResource {
      * @return the ResponseEntity with status 200 (OK) and with body the sabegheDTO, or with status 404 (Not Found)
      */
     @GetMapping("/sabeghes/{id}")
-    @Timed
     public ResponseEntity<SabegheDTO> getSabeghe(@PathVariable Long id) {
         log.debug("REST request to get Sabeghe : {}", id);
         Optional<SabegheDTO> sabegheDTO = sabegheService.findOne(id);
@@ -137,7 +130,6 @@ public class SabegheResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/sabeghes/{id}")
-    @Timed
     public ResponseEntity<Void> deleteSabeghe(@PathVariable Long id) {
         log.debug("REST request to delete Sabeghe : {}", id);
         sabegheService.delete(id);

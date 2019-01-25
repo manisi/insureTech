@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-
 import { ITipKhodro } from 'app/shared/model/tip-khodro.model';
 import { TipKhodroService } from './tip-khodro.service';
 import { IKhodro } from 'app/shared/model/khodro.model';
@@ -31,12 +31,13 @@ export class TipKhodroUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ tipKhodro }) => {
             this.tipKhodro = tipKhodro;
         });
-        this.khodroService.query().subscribe(
-            (res: HttpResponse<IKhodro[]>) => {
-                this.khodros = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.khodroService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IKhodro[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IKhodro[]>) => response.body)
+            )
+            .subscribe((res: IKhodro[]) => (this.khodros = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

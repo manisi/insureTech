@@ -17,7 +17,7 @@ import { ICity } from 'app/shared/model/city.model';
 export class CityResolve implements Resolve<ICity> {
     constructor(private service: CityService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<City> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ICity> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class CityResolve implements Resolve<ICity> {
 
 export const cityRoute: Routes = [
     {
-        path: 'city',
+        path: '',
         component: CityComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const cityRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'city/:id/view',
+        path: ':id/view',
         component: CityDetailComponent,
         resolve: {
             city: CityResolve
@@ -56,7 +56,7 @@ export const cityRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'city/new',
+        path: 'new',
         component: CityUpdateComponent,
         resolve: {
             city: CityResolve
@@ -68,7 +68,7 @@ export const cityRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'city/:id/edit',
+        path: ':id/edit',
         component: CityUpdateComponent,
         resolve: {
             city: CityResolve
@@ -83,7 +83,7 @@ export const cityRoute: Routes = [
 
 export const cityPopupRoute: Routes = [
     {
-        path: 'city/:id/delete',
+        path: ':id/delete',
         component: CityDeletePopupComponent,
         resolve: {
             city: CityResolve

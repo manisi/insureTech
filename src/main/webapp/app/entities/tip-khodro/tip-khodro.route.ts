@@ -17,7 +17,7 @@ import { ITipKhodro } from 'app/shared/model/tip-khodro.model';
 export class TipKhodroResolve implements Resolve<ITipKhodro> {
     constructor(private service: TipKhodroService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<TipKhodro> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ITipKhodro> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class TipKhodroResolve implements Resolve<ITipKhodro> {
 
 export const tipKhodroRoute: Routes = [
     {
-        path: 'tip-khodro',
+        path: '',
         component: TipKhodroComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const tipKhodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'tip-khodro/:id/view',
+        path: ':id/view',
         component: TipKhodroDetailComponent,
         resolve: {
             tipKhodro: TipKhodroResolve
@@ -56,7 +56,7 @@ export const tipKhodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'tip-khodro/new',
+        path: 'new',
         component: TipKhodroUpdateComponent,
         resolve: {
             tipKhodro: TipKhodroResolve
@@ -68,7 +68,7 @@ export const tipKhodroRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'tip-khodro/:id/edit',
+        path: ':id/edit',
         component: TipKhodroUpdateComponent,
         resolve: {
             tipKhodro: TipKhodroResolve
@@ -83,7 +83,7 @@ export const tipKhodroRoute: Routes = [
 
 export const tipKhodroPopupRoute: Routes = [
     {
-        path: 'tip-khodro/:id/delete',
+        path: ':id/delete',
         component: TipKhodroDeletePopupComponent,
         resolve: {
             tipKhodro: TipKhodroResolve

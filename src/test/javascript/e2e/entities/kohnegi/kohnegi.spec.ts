@@ -24,6 +24,7 @@ describe('Kohnegi e2e test', () => {
     it('should load Kohnegis', async () => {
         await navBarPage.goToEntity('kohnegi');
         kohnegiComponentsPage = new KohnegiComponentsPage();
+        await browser.wait(ec.visibilityOf(kohnegiComponentsPage.title), 5000);
         expect(await kohnegiComponentsPage.getTitle()).to.eq('insurancestartApp.kohnegi.home.title');
     });
 

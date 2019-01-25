@@ -16,7 +16,7 @@ import { IKohnegi } from 'app/shared/model/kohnegi.model';
 export class KohnegiResolve implements Resolve<IKohnegi> {
     constructor(private service: KohnegiService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Kohnegi> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IKohnegi> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -30,7 +30,7 @@ export class KohnegiResolve implements Resolve<IKohnegi> {
 
 export const kohnegiRoute: Routes = [
     {
-        path: 'kohnegi',
+        path: '',
         component: KohnegiComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -39,7 +39,7 @@ export const kohnegiRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'kohnegi/:id/view',
+        path: ':id/view',
         component: KohnegiDetailComponent,
         resolve: {
             kohnegi: KohnegiResolve
@@ -51,7 +51,7 @@ export const kohnegiRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'kohnegi/new',
+        path: 'new',
         component: KohnegiUpdateComponent,
         resolve: {
             kohnegi: KohnegiResolve
@@ -63,7 +63,7 @@ export const kohnegiRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'kohnegi/:id/edit',
+        path: ':id/edit',
         component: KohnegiUpdateComponent,
         resolve: {
             kohnegi: KohnegiResolve
@@ -78,7 +78,7 @@ export const kohnegiRoute: Routes = [
 
 export const kohnegiPopupRoute: Routes = [
     {
-        path: 'kohnegi/:id/delete',
+        path: ':id/delete',
         component: KohnegiDeletePopupComponent,
         resolve: {
             kohnegi: KohnegiResolve

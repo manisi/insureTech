@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.TipKhodroService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class TipKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/tip-khodros")
-    @Timed
     public ResponseEntity<TipKhodroDTO> createTipKhodro(@RequestBody TipKhodroDTO tipKhodroDTO) throws URISyntaxException {
         log.debug("REST request to save TipKhodro : {}", tipKhodroDTO);
         if (tipKhodroDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class TipKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/tip-khodros")
-    @Timed
     public ResponseEntity<TipKhodroDTO> updateTipKhodro(@RequestBody TipKhodroDTO tipKhodroDTO) throws URISyntaxException {
         log.debug("REST request to update TipKhodro : {}", tipKhodroDTO);
         if (tipKhodroDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class TipKhodroResource {
      * @return the ResponseEntity with status 200 (OK) and the list of tipKhodros in body
      */
     @GetMapping("/tip-khodros")
-    @Timed
     public ResponseEntity<List<TipKhodroDTO>> getAllTipKhodros(Pageable pageable) {
         log.debug("REST request to get a page of TipKhodros");
         Page<TipKhodroDTO> page = tipKhodroService.findAll(pageable);
@@ -103,7 +98,6 @@ public class TipKhodroResource {
      * @return the ResponseEntity with status 200 (OK) and with body the tipKhodroDTO, or with status 404 (Not Found)
      */
     @GetMapping("/tip-khodros/{id}")
-    @Timed
     public ResponseEntity<TipKhodroDTO> getTipKhodro(@PathVariable Long id) {
         log.debug("REST request to get TipKhodro : {}", id);
         Optional<TipKhodroDTO> tipKhodroDTO = tipKhodroService.findOne(id);
@@ -117,7 +111,6 @@ public class TipKhodroResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/tip-khodros/{id}")
-    @Timed
     public ResponseEntity<Void> deleteTipKhodro(@PathVariable Long id) {
         log.debug("REST request to delete TipKhodro : {}", id);
         tipKhodroService.delete(id);

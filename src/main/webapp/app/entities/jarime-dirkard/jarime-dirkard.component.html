@@ -49,7 +49,7 @@
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'jarime-dirkard/'+ jarimeDirkard.id + '/delete'} }]"
+                                [routerLink]="['/', 'jarime-dirkard', { outlets: { popup: jarimeDirkard.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">

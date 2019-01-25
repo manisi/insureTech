@@ -5,8 +5,10 @@
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
-        <insutech-alert-error></insutech-alert-error>
-        <p id="insutech-delete-city-heading" jhiTranslate="insurancestartApp.city.delete.question" translateValues="{id: '{{city.id}}'}">Are you sure you want to delete this City?</p>
+
+        <jhi-alert-error></jhi-alert-error>
+        <p id="jhi-delete-city-heading" jhiTranslate="insurancestartApp.city.delete.question" [translateValues]="{id: city.id}">Are you sure you want to delete this City?</p>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

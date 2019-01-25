@@ -40,7 +40,6 @@ public class JarimeDirkardService {
      */
     public JarimeDirkardDTO save(JarimeDirkardDTO jarimeDirkardDTO) {
         log.debug("Request to save JarimeDirkard : {}", jarimeDirkardDTO);
-
         JarimeDirkard jarimeDirkard = jarimeDirkardMapper.toEntity(jarimeDirkardDTO);
         jarimeDirkard = jarimeDirkardRepository.save(jarimeDirkard);
         return jarimeDirkardMapper.toDto(jarimeDirkard);
@@ -79,7 +78,6 @@ public class JarimeDirkardService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete JarimeDirkard : {}", id);
-        jarimeDirkardRepository.deleteById(id);
+        log.debug("Request to delete JarimeDirkard : {}", id);        jarimeDirkardRepository.deleteById(id);
     }
 }

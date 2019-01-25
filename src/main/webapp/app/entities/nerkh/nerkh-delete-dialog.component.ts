@@ -47,11 +47,11 @@ export class NerkhDeletePopupComponent implements OnInit, OnDestroy {
                 this.ngbModalRef.componentInstance.nerkh = nerkh;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/nerkh', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate(['/nerkh', { outlets: { popup: null } }]);
                         this.ngbModalRef = null;
                     }
                 );

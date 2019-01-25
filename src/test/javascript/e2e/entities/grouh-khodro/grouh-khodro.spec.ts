@@ -24,6 +24,7 @@ describe('GrouhKhodro e2e test', () => {
     it('should load GrouhKhodros', async () => {
         await navBarPage.goToEntity('grouh-khodro');
         grouhKhodroComponentsPage = new GrouhKhodroComponentsPage();
+        await browser.wait(ec.visibilityOf(grouhKhodroComponentsPage.title), 5000);
         expect(await grouhKhodroComponentsPage.getTitle()).to.eq('insurancestartApp.grouhKhodro.home.title');
     });
 

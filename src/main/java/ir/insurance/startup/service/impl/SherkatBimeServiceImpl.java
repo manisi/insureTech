@@ -42,7 +42,6 @@ public class SherkatBimeServiceImpl implements SherkatBimeService {
     @Override
     public SherkatBimeDTO save(SherkatBimeDTO sherkatBimeDTO) {
         log.debug("Request to save SherkatBime : {}", sherkatBimeDTO);
-
         SherkatBime sherkatBime = sherkatBimeMapper.toEntity(sherkatBimeDTO);
         sherkatBime = sherkatBimeRepository.save(sherkatBime);
         return sherkatBimeMapper.toDto(sherkatBime);
@@ -84,7 +83,6 @@ public class SherkatBimeServiceImpl implements SherkatBimeService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete SherkatBime : {}", id);
-        sherkatBimeRepository.deleteById(id);
+        log.debug("Request to delete SherkatBime : {}", id);        sherkatBimeRepository.deleteById(id);
     }
 }

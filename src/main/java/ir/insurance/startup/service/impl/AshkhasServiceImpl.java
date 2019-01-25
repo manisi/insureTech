@@ -42,7 +42,6 @@ public class AshkhasServiceImpl implements AshkhasService {
     @Override
     public AshkhasDTO save(AshkhasDTO ashkhasDTO) {
         log.debug("Request to save Ashkhas : {}", ashkhasDTO);
-
         Ashkhas ashkhas = ashkhasMapper.toEntity(ashkhasDTO);
         ashkhas = ashkhasRepository.save(ashkhas);
         return ashkhasMapper.toDto(ashkhas);
@@ -84,7 +83,6 @@ public class AshkhasServiceImpl implements AshkhasService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Ashkhas : {}", id);
-        ashkhasRepository.deleteById(id);
+        log.debug("Request to delete Ashkhas : {}", id);        ashkhasRepository.deleteById(id);
     }
 }

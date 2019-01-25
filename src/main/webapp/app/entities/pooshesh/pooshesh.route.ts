@@ -17,7 +17,7 @@ import { IPooshesh } from 'app/shared/model/pooshesh.model';
 export class PoosheshResolve implements Resolve<IPooshesh> {
     constructor(private service: PoosheshService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Pooshesh> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPooshesh> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class PoosheshResolve implements Resolve<IPooshesh> {
 
 export const poosheshRoute: Routes = [
     {
-        path: 'pooshesh',
+        path: '',
         component: PoosheshComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const poosheshRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'pooshesh/:id/view',
+        path: ':id/view',
         component: PoosheshDetailComponent,
         resolve: {
             pooshesh: PoosheshResolve
@@ -56,7 +56,7 @@ export const poosheshRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'pooshesh/new',
+        path: 'new',
         component: PoosheshUpdateComponent,
         resolve: {
             pooshesh: PoosheshResolve
@@ -68,7 +68,7 @@ export const poosheshRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'pooshesh/:id/edit',
+        path: ':id/edit',
         component: PoosheshUpdateComponent,
         resolve: {
             pooshesh: PoosheshResolve
@@ -83,7 +83,7 @@ export const poosheshRoute: Routes = [
 
 export const poosheshPopupRoute: Routes = [
     {
-        path: 'pooshesh/:id/delete',
+        path: ':id/delete',
         component: PoosheshDeletePopupComponent,
         resolve: {
             pooshesh: PoosheshResolve

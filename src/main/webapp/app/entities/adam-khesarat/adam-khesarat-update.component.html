@@ -45,7 +45,7 @@
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.sales?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            [hidden]="!editForm.controls.sales?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
                             This field should be at least 0.
                         </small>
                         <small class="form-text text-danger"
@@ -64,7 +64,7 @@
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.mazad?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            [hidden]="!editForm.controls.mazad?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
                             This field should be at least 0.
                         </small>
                         <small class="form-text text-danger"
@@ -83,7 +83,7 @@
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.sarneshin?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            [hidden]="!editForm.controls.sarneshin?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
                             This field should be at least 0.
                         </small>
                         <small class="form-text text-danger"

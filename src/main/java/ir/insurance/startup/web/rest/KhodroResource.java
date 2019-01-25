@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.KhodroService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -47,7 +45,6 @@ public class KhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/khodros")
-    @Timed
     public ResponseEntity<KhodroDTO> createKhodro(@RequestBody KhodroDTO khodroDTO) throws URISyntaxException {
         log.debug("REST request to save Khodro : {}", khodroDTO);
         if (khodroDTO.getId() != null) {
@@ -69,7 +66,6 @@ public class KhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/khodros")
-    @Timed
     public ResponseEntity<KhodroDTO> updateKhodro(@RequestBody KhodroDTO khodroDTO) throws URISyntaxException {
         log.debug("REST request to update Khodro : {}", khodroDTO);
         if (khodroDTO.getId() == null) {
@@ -88,7 +84,6 @@ public class KhodroResource {
      * @return the ResponseEntity with status 200 (OK) and the list of khodros in body
      */
     @GetMapping("/khodros")
-    @Timed
     public ResponseEntity<List<KhodroDTO>> getAllKhodros(Pageable pageable) {
         log.debug("REST request to get a page of Khodros");
         Page<KhodroDTO> page = khodroService.findAll(pageable);
@@ -103,7 +98,6 @@ public class KhodroResource {
      * @return the ResponseEntity with status 200 (OK) and with body the khodroDTO, or with status 404 (Not Found)
      */
     @GetMapping("/khodros/{id}")
-    @Timed
     public ResponseEntity<KhodroDTO> getKhodro(@PathVariable Long id) {
         log.debug("REST request to get Khodro : {}", id);
         Optional<KhodroDTO> khodroDTO = khodroService.findOne(id);
@@ -117,7 +111,6 @@ public class KhodroResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/khodros/{id}")
-    @Timed
     public ResponseEntity<Void> deleteKhodro(@PathVariable Long id) {
         log.debug("REST request to delete Khodro : {}", id);
         khodroService.delete(id);

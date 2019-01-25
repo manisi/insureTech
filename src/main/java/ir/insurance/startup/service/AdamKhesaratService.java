@@ -40,7 +40,6 @@ public class AdamKhesaratService {
      */
     public AdamKhesaratDTO save(AdamKhesaratDTO adamKhesaratDTO) {
         log.debug("Request to save AdamKhesarat : {}", adamKhesaratDTO);
-
         AdamKhesarat adamKhesarat = adamKhesaratMapper.toEntity(adamKhesaratDTO);
         adamKhesarat = adamKhesaratRepository.save(adamKhesarat);
         return adamKhesaratMapper.toDto(adamKhesarat);
@@ -79,7 +78,6 @@ public class AdamKhesaratService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete AdamKhesarat : {}", id);
-        adamKhesaratRepository.deleteById(id);
+        log.debug("Request to delete AdamKhesarat : {}", id);        adamKhesaratRepository.deleteById(id);
     }
 }

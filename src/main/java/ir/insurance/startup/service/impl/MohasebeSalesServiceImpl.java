@@ -42,7 +42,6 @@ public class MohasebeSalesServiceImpl implements MohasebeSalesService {
     @Override
     public MohasebeSalesDTO save(MohasebeSalesDTO mohasebeSalesDTO) {
         log.debug("Request to save MohasebeSales : {}", mohasebeSalesDTO);
-
         MohasebeSales mohasebeSales = mohasebeSalesMapper.toEntity(mohasebeSalesDTO);
         mohasebeSales = mohasebeSalesRepository.save(mohasebeSales);
         return mohasebeSalesMapper.toDto(mohasebeSales);
@@ -84,7 +83,6 @@ public class MohasebeSalesServiceImpl implements MohasebeSalesService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete MohasebeSales : {}", id);
-        mohasebeSalesRepository.deleteById(id);
+        log.debug("Request to delete MohasebeSales : {}", id);        mohasebeSalesRepository.deleteById(id);
     }
 }

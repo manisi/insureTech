@@ -24,6 +24,7 @@ describe('Country e2e test', () => {
     it('should load Countries', async () => {
         await navBarPage.goToEntity('country');
         countryComponentsPage = new CountryComponentsPage();
+        await browser.wait(ec.visibilityOf(countryComponentsPage.title), 5000);
         expect(await countryComponentsPage.getTitle()).to.eq('insurancestartApp.country.home.title');
     });
 

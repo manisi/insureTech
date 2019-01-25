@@ -24,6 +24,7 @@ describe('Ashkhas e2e test', () => {
     it('should load Ashkhas', async () => {
         await navBarPage.goToEntity('ashkhas');
         ashkhasComponentsPage = new AshkhasComponentsPage();
+        await browser.wait(ec.visibilityOf(ashkhasComponentsPage.title), 5000);
         expect(await ashkhasComponentsPage.getTitle()).to.eq('insurancestartApp.ashkhas.home.title');
     });
 

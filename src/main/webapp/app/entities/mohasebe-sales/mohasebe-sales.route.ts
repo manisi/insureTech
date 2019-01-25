@@ -17,7 +17,7 @@ import { IMohasebeSales } from 'app/shared/model/mohasebe-sales.model';
 export class MohasebeSalesResolve implements Resolve<IMohasebeSales> {
     constructor(private service: MohasebeSalesService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MohasebeSales> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IMohasebeSales> {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
             return this.service.find(id).pipe(
@@ -31,7 +31,7 @@ export class MohasebeSalesResolve implements Resolve<IMohasebeSales> {
 
 export const mohasebeSalesRoute: Routes = [
     {
-        path: 'mohasebe-sales',
+        path: '',
         component: MohasebeSalesComponent,
         resolve: {
             pagingParams: JhiResolvePagingParams
@@ -44,7 +44,7 @@ export const mohasebeSalesRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'mohasebe-sales/:id/view',
+        path: ':id/view',
         component: MohasebeSalesDetailComponent,
         resolve: {
             mohasebeSales: MohasebeSalesResolve
@@ -56,7 +56,7 @@ export const mohasebeSalesRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'mohasebe-sales/new',
+        path: 'new',
         component: MohasebeSalesUpdateComponent,
         resolve: {
             mohasebeSales: MohasebeSalesResolve
@@ -68,7 +68,7 @@ export const mohasebeSalesRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'mohasebe-sales/:id/edit',
+        path: ':id/edit',
         component: MohasebeSalesUpdateComponent,
         resolve: {
             mohasebeSales: MohasebeSalesResolve
@@ -83,7 +83,7 @@ export const mohasebeSalesRoute: Routes = [
 
 export const mohasebeSalesPopupRoute: Routes = [
     {
-        path: 'mohasebe-sales/:id/delete',
+        path: ':id/delete',
         component: MohasebeSalesDeletePopupComponent,
         resolve: {
             mohasebeSales: MohasebeSalesResolve

@@ -423,7 +423,7 @@ public class JarimeDirkardResourceIntTest {
 
         int databaseSizeBeforeDelete = jarimeDirkardRepository.findAll().size();
 
-        // Get the jarimeDirkard
+        // Delete the jarimeDirkard
         restJarimeDirkardMockMvc.perform(delete("/api/jarime-dirkards/{id}", jarimeDirkard.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());

@@ -1,6 +1,4 @@
 package ir.insurance.startup.web.rest;
-
-import com.codahale.metrics.annotation.Timed;
 import ir.insurance.startup.service.AdamKhesaratService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -53,7 +51,6 @@ public class AdamKhesaratResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/adam-khesarats")
-    @Timed
     public ResponseEntity<AdamKhesaratDTO> createAdamKhesarat(@Valid @RequestBody AdamKhesaratDTO adamKhesaratDTO) throws URISyntaxException {
         log.debug("REST request to save AdamKhesarat : {}", adamKhesaratDTO);
         if (adamKhesaratDTO.getId() != null) {
@@ -75,7 +72,6 @@ public class AdamKhesaratResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/adam-khesarats")
-    @Timed
     public ResponseEntity<AdamKhesaratDTO> updateAdamKhesarat(@Valid @RequestBody AdamKhesaratDTO adamKhesaratDTO) throws URISyntaxException {
         log.debug("REST request to update AdamKhesarat : {}", adamKhesaratDTO);
         if (adamKhesaratDTO.getId() == null) {
@@ -95,7 +91,6 @@ public class AdamKhesaratResource {
      * @return the ResponseEntity with status 200 (OK) and the list of adamKhesarats in body
      */
     @GetMapping("/adam-khesarats")
-    @Timed
     public ResponseEntity<List<AdamKhesaratDTO>> getAllAdamKhesarats(AdamKhesaratCriteria criteria, Pageable pageable) {
         log.debug("REST request to get AdamKhesarats by criteria: {}", criteria);
         Page<AdamKhesaratDTO> page = adamKhesaratQueryService.findByCriteria(criteria, pageable);
@@ -110,7 +105,6 @@ public class AdamKhesaratResource {
     * @return the ResponseEntity with status 200 (OK) and the count in body
     */
     @GetMapping("/adam-khesarats/count")
-    @Timed
     public ResponseEntity<Long> countAdamKhesarats(AdamKhesaratCriteria criteria) {
         log.debug("REST request to count AdamKhesarats by criteria: {}", criteria);
         return ResponseEntity.ok().body(adamKhesaratQueryService.countByCriteria(criteria));
@@ -123,7 +117,6 @@ public class AdamKhesaratResource {
      * @return the ResponseEntity with status 200 (OK) and with body the adamKhesaratDTO, or with status 404 (Not Found)
      */
     @GetMapping("/adam-khesarats/{id}")
-    @Timed
     public ResponseEntity<AdamKhesaratDTO> getAdamKhesarat(@PathVariable Long id) {
         log.debug("REST request to get AdamKhesarat : {}", id);
         Optional<AdamKhesaratDTO> adamKhesaratDTO = adamKhesaratService.findOne(id);
@@ -137,7 +130,6 @@ public class AdamKhesaratResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/adam-khesarats/{id}")
-    @Timed
     public ResponseEntity<Void> deleteAdamKhesarat(@PathVariable Long id) {
         log.debug("REST request to delete AdamKhesarat : {}", id);
         adamKhesaratService.delete(id);
