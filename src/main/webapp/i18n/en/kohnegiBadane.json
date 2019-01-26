@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "kohnegiBadane": {
+            "home": {
+                "title": "Kohnegi Badanes",
+                "createLabel": "Create a new Kohnegi Badane",
+                "createOrEditLabel": "Create or edit a Kohnegi Badane"
+            },
+            "created": "A new Kohnegi Badane is created with identifier {{ param }}",
+            "updated": "A Kohnegi Badane is updated with identifier {{ param }}",
+            "deleted": "A Kohnegi Badane is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kohnegi Badane {{ id }}?"
+            },
+            "detail": {
+                "title": "Kohnegi Badane"
+            },
+            "darsadHarSal": "Darsad Har Sal",
+            "maxDarsad": "Max Darsad",
+            "sharh": "Sharh",
+            "faal": "Faal"
+        }
+    }
+}

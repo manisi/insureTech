@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "adamKhesaratBadane": {
+            "home": {
+                "title": "عدم خسارت بدنه",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Adam Khesarat Badane is created with identifier {{ param }}",
+            "updated": "A Adam Khesarat Badane is updated with identifier {{ param }}",
+            "deleted": "A Adam Khesarat Badane is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Adam Khesarat Badane {{ id }}?"
+            },
+            "detail": {
+                "title": "عدم خسارت بدنه"
+            },
+            "badane": "بدنه",
+            "faal": "فعال",
+            "noeSabeghe": "نوع سابقه",
+            "sabeghe": "سابقه"
+        }
+    }
+}

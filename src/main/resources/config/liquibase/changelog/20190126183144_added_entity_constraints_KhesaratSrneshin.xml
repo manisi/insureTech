@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity KhesaratSrneshin.
+    -->
+    <changeSet id="20190126183144-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="noe_sabeghe_id"
+                                 baseTableName="khesarat_srneshin"
+                                 constraintName="fk_khesarat_srneshin_noe_sabeghe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="noe_sabeghe"/>
+
+        <addForeignKeyConstraint baseColumnNames="sabeghe_id"
+                                 baseTableName="khesarat_srneshin"
+                                 constraintName="fk_khesarat_srneshin_sabeghe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sabeghe"/>
+
+    </changeSet>
+</databaseChangeLog>

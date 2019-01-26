@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "khesaratSrneshin": {
+            "home": {
+                "title": "Khesarat Srneshins",
+                "createLabel": "Create a new Khesarat Srneshin",
+                "createOrEditLabel": "Create or edit a Khesarat Srneshin"
+            },
+            "created": "A new Khesarat Srneshin is created with identifier {{ param }}",
+            "updated": "A Khesarat Srneshin is updated with identifier {{ param }}",
+            "deleted": "A Khesarat Srneshin is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Khesarat Srneshin {{ id }}?"
+            },
+            "detail": {
+                "title": "Khesarat Srneshin"
+            },
+            "nerkhKhesarat": "Nerkh Khesarat",
+            "faal": "Faal",
+            "noeSabeghe": "Noe Sabeghe",
+            "sabeghe": "Sabeghe"
+        }
+    }
+}

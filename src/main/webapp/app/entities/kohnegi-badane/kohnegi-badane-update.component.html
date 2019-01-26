@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-kohnegi-badane-heading" jhiTranslate="insurancestartApp.kohnegiBadane.home.createOrEditLabel">Create or edit a Kohnegi Badane</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!kohnegiBadane.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="kohnegiBadane.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.kohnegiBadane.darsadHarSal" for="field_darsadHarSal">Darsad Har Sal</label>
+                    <input type="number" class="form-control" name="darsadHarSal" id="field_darsadHarSal"
+                        [(ngModel)]="kohnegiBadane.darsadHarSal" required min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.darsadHarSal?.dirty && editForm.controls.darsadHarSal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.darsadHarSal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.darsadHarSal?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.darsadHarSal?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.darsadHarSal?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.kohnegiBadane.maxDarsad" for="field_maxDarsad">Max Darsad</label>
+                    <input type="number" class="form-control" name="maxDarsad" id="field_maxDarsad"
+                        [(ngModel)]="kohnegiBadane.maxDarsad" required min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.maxDarsad?.dirty && editForm.controls.maxDarsad?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.maxDarsad?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.maxDarsad?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.maxDarsad?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.maxDarsad?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.kohnegiBadane.sharh" for="field_sharh">Sharh</label>
+                    <textarea class="form-control" name="sharh" id="field_sharh"
+                        [(ngModel)]="kohnegiBadane.sharh" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.kohnegiBadane.faal" for="field_faal">Faal</label>
+                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
+                        [(ngModel)]="kohnegiBadane.faal" />
+                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

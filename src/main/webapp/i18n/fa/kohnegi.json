@@ -2,7 +2,7 @@
     "insurancestartApp": {
         "kohnegi": {
             "home": {
-                "title": "کهنگی",
+                "title": "کهنگی ثالث",
                 "createLabel": "ایجاد",
                 "createOrEditLabel": "ویرایش"
             },
@@ -13,7 +13,7 @@
                 "question": "Are you sure you want to delete Kohnegi {{ id }}?"
             },
             "detail": {
-                "title": "کهنگی"
+                "title": "کهنگی ثالث"
             },
             "darsadHarSal": "درصد هر سال",
             "maxDarsad": "حداکثر درصد",

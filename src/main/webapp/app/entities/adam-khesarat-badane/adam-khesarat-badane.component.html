@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.adamKhesaratBadane.home.title">Adam Khesarat Badanes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-adam-khesarat-badane" [routerLink]="['/adam-khesarat-badane/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.adamKhesaratBadane.home.createLabel">
+            Create new Adam Khesarat Badane
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="adamKhesaratBadanes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="badane"><span jhiTranslate="insurancestartApp.adamKhesaratBadane.badane">Badane</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.adamKhesaratBadane.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noeSabegheName"><span jhiTranslate="insurancestartApp.adamKhesaratBadane.noeSabeghe">Noe Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sabegheName"><span jhiTranslate="insurancestartApp.adamKhesaratBadane.sabeghe">Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let adamKhesaratBadane of adamKhesaratBadanes ;trackBy: trackId">
+                <td><a [routerLink]="['/adam-khesarat-badane', adamKhesaratBadane.id, 'view' ]">{{adamKhesaratBadane.id}}</a></td>
+                <td>{{adamKhesaratBadane.badane}}</td>
+                <!--<td>{{adamKhesaratBadane.faal}}</td>-->
+                <td>
+                    <fa-icon [icon]="adamKhesaratBadane.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesaratBadane.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
+                <td>
+                    <div *ngIf="adamKhesaratBadane.noeSabegheId">
+                        <a [routerLink]="['../noe-sabeghe', adamKhesaratBadane.noeSabegheId , 'view' ]" >{{adamKhesaratBadane.noeSabegheName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="adamKhesaratBadane.sabegheId">
+                        <a [routerLink]="['../sabeghe', adamKhesaratBadane.sabegheId , 'view' ]" >{{adamKhesaratBadane.sabegheName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/adam-khesarat-badane', adamKhesaratBadane.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/adam-khesarat-badane', adamKhesaratBadane.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'adam-khesarat-badane', { outlets: { popup: adamKhesaratBadane.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adamKhesaratSarneshin">
+            <h2><span jhiTranslate="insurancestartApp.adamKhesaratSarneshin.detail.title">Adam Khesarat Sarneshin</span> {{adamKhesaratSarneshin.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSarneshin.sarneshin">Sarneshin</span></dt>
+                <dd>
+                    <span>{{adamKhesaratSarneshin.sarneshin}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSarneshin.faal">Faal</span></dt>
+                <dd>
+                    <span>{{adamKhesaratSarneshin.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSarneshin.noeSabeghe">Noe Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="adamKhesaratSarneshin.noeSabegheId">
+                        <a [routerLink]="['/noe-sabeghe', adamKhesaratSarneshin.noeSabegheId, 'view']">{{adamKhesaratSarneshin.noeSabegheName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSarneshin.sabeghe">Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="adamKhesaratSarneshin.sabegheId">
+                        <a [routerLink]="['/sabeghe', adamKhesaratSarneshin.sabegheId, 'view']">{{adamKhesaratSarneshin.sabegheName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adam-khesarat-sarneshin', adamKhesaratSarneshin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

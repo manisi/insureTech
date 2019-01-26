@@ -36,12 +36,16 @@
                 "mohasebeSales": "Mohasebe Sales",
                 "mohasebeBadane": "Mohasebe Badane",
                 "grouhKhodro": "Grouh Khodro",
-                "kohnegi": "Kohnegi",
+                "kohnegi": "Kohnegi Sales",
                 "sabeghe": "Sabeghe",
                 "noeSabeghe": "Noe Sabeghe",
                 "adamKhesarat": "Adam Khesarat",
                 "jarimeDirkard": "Jarime Dirkard",
                 "khesaratSales": "Khesarat Sales",
+                "kohnegiBadane": "Kohnegi Badane",
+                "khesaratSrneshin": "Khesarat Srneshin",
+                "adamKhesaratSarneshin": "Adam Khesarat Sarneshin",
+                "adamKhesaratBadane": "Adam Khesarat Badane",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -71,6 +71,22 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'khesarat-sales',
                 loadChildren: './khesarat-sales/khesarat-sales.module#InsurancestartKhesaratSalesModule'
+            },
+            {
+                path: 'kohnegi-badane',
+                loadChildren: './kohnegi-badane/kohnegi-badane.module#InsurancestartKohnegiBadaneModule'
+            },
+            {
+                path: 'khesarat-srneshin',
+                loadChildren: './khesarat-srneshin/khesarat-srneshin.module#InsurancestartKhesaratSrneshinModule'
+            },
+            {
+                path: 'adam-khesarat-sarneshin',
+                loadChildren: './adam-khesarat-sarneshin/adam-khesarat-sarneshin.module#InsurancestartAdamKhesaratSarneshinModule'
+            },
+            {
+                path: 'adam-khesarat-badane',
+                loadChildren: './adam-khesarat-badane/adam-khesarat-badane.module#InsurancestartAdamKhesaratBadaneModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

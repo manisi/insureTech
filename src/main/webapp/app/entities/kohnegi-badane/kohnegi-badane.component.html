@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.kohnegiBadane.home.title">Kohnegi Badanes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-kohnegi-badane" [routerLink]="['/kohnegi-badane/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.kohnegiBadane.home.createLabel">
+            Create new Kohnegi Badane
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="kohnegiBadanes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="darsadHarSal"><span jhiTranslate="insurancestartApp.kohnegiBadane.darsadHarSal">Darsad Har Sal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxDarsad"><span jhiTranslate="insurancestartApp.kohnegiBadane.maxDarsad">Max Darsad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sharh"><span jhiTranslate="insurancestartApp.kohnegiBadane.sharh">Sharh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.kohnegiBadane.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let kohnegiBadane of kohnegiBadanes ;trackBy: trackId">
+                <td><a [routerLink]="['/kohnegi-badane', kohnegiBadane.id, 'view' ]">{{kohnegiBadane.id}}</a></td>
+                <td>{{kohnegiBadane.darsadHarSal}}</td>
+                <td>{{kohnegiBadane.maxDarsad}}</td>
+                <td>{{kohnegiBadane.sharh}}</td>
+                <!--<td>{{kohnegiBadane.faal}}</td>-->
+                <td>
+                    <fa-icon [icon]="kohnegiBadane.faal ? 'check' : 'times'" aria-hidden="true" class="{{kohnegiBadane.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/kohnegi-badane', kohnegiBadane.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/kohnegi-badane', kohnegiBadane.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'kohnegi-badane', { outlets: { popup: kohnegiBadane.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

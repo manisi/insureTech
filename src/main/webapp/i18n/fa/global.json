@@ -28,12 +28,16 @@
                 "mohasebeBadane": "محاسبه بدنه",
                 "mohasebeSales": "محاسبه ثالث",
                 "grouhKhodro": "گروه خودرو",
-                "kohnegi": "کهنگی",
+                "kohnegi": "کهنگی ثالث",
                 "sabeghe": "سابقه",
                 "noeSabeghe": "نوع سابقه",
                 "adamKhesarat": "عدم خسارت",
                 "jarimeDirkard": "جریمه دیرکرد",
                 "khesaratSales": "خسارت ثالث",
+                "kohnegiBadane": "کهنگی بدنه",
+                "khesaratSrneshin": "خسارت سرنشین",
+                "adamKhesaratSarneshin": "عدم خسارت سرنشین",
+                "adamKhesaratBadane": "عدم خسارت بدنه",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -63,8 +67,8 @@
         "form": {
             "username": "نام کاربری",
             "username.placeholder": "نام کاربری شما",
-            "currentpassword": "Current password",
-            "currentpassword.placeholder": "Current password",
+            "currentpassword": "پسورد جاری",
+            "currentpassword.placeholder": "پسورد جاری",
             "newpassword": "رمزعبور جدید",
             "newpassword.placeholder": "رمزعبور جدید",
             "confirmpassword": "تصدیق رمزعبور جدید",

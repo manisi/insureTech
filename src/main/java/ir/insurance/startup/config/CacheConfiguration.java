@@ -59,6 +59,10 @@ public class CacheConfiguration {
             cm.createCache(ir.insurance.startup.domain.AdamKhesarat.class.getName(), jcacheConfiguration);
             cm.createCache(ir.insurance.startup.domain.JarimeDirkard.class.getName(), jcacheConfiguration);
             cm.createCache(ir.insurance.startup.domain.KhesaratSales.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.KohnegiBadane.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.KhesaratSrneshin.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.AdamKhesaratSarneshin.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.AdamKhesaratBadane.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

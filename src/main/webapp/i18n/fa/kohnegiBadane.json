@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "kohnegiBadane": {
+            "home": {
+                "title": "کهنگی بدنه",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Kohnegi Badane is created with identifier {{ param }}",
+            "updated": "A Kohnegi Badane is updated with identifier {{ param }}",
+            "deleted": "A Kohnegi Badane is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kohnegi Badane {{ id }}?"
+            },
+            "detail": {
+                "title": "کهنگی بدنه"
+            },
+            "darsadHarSal": "درصد هر سال",
+            "maxDarsad": "حداکثر درصد",
+            "sharh": "شرح",
+            "faal": "فعال"
+        }
+    }
+}
