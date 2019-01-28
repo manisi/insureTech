@@ -4,7 +4,7 @@
             "home": {
                 "title": "عدم خسارت ثالث",
                 "createLabel": "ایجاد",
-                "createOrEditLabel": "ویرایش/ایجاد"
+                "createOrEditLabel": "ایجاد/ویرایش"
             },
             "created": "A new Adam Khesarat is created with identifier {{ param }}",
             "updated": "A Adam Khesarat is updated with identifier {{ param }}",
@@ -19,7 +19,7 @@
             "mazad": "مازاد",
             "faal": "فعال",
             "sabeghe": "سابقه",
-            "noeSabeghe": "نوع سابثه"
+            "noeSabeghe": "نوع سابقه"
         }
     }
 }

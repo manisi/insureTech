@@ -91,6 +91,18 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'adam-khesarat',
                 loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
+            },
+            {
+                path: 'adam-khesarat',
+                loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
+            },
+            {
+                path: 'adam-khesarat',
+                loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
+            },
+            {
+                path: 'adam-khesarat',
+                loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

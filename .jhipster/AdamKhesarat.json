@@ -10,7 +10,7 @@
                 "required"
             ],
             "otherEntityField": "name",
-            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipNameUndefined": false,
             "otherEntityRelationshipName": "adamKhesarat"
         },
         {
@@ -21,7 +21,7 @@
                 "required"
             ],
             "otherEntityField": "name",
-            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipNameUndefined": false,
             "otherEntityRelationshipName": "adamKhesarat"
         }
     ],
