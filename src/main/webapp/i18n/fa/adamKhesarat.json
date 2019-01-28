@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "adamKhesarat": {
             "home": {
-                "title": "عدم خسارت",
+                "title": "عدم خسارت ثالث",
                 "createLabel": "ایجاد",
-                "createOrEditLabel": "ویرایش"
+                "createOrEditLabel": "ویرایش/ایجاد"
             },
             "created": "A new Adam Khesarat is created with identifier {{ param }}",
             "updated": "A Adam Khesarat is updated with identifier {{ param }}",
@@ -13,14 +13,13 @@
                 "question": "Are you sure you want to delete Adam Khesarat {{ id }}?"
             },
             "detail": {
-                "title": "عدم خسارت"
+                "title": "عدم خسارت ثالث"
             },
             "sales": "ثالث",
             "mazad": "مازاد",
-            "sarneshin": "سرنشین",
             "faal": "فعال",
             "sabeghe": "سابقه",
-            "noeSabeghe": "نوع سابقه"
+            "noeSabeghe": "نوع سابثه"
         }
     }
 }

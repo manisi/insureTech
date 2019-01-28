@@ -95,9 +95,6 @@ public class AdamKhesaratQueryService extends QueryService<AdamKhesarat> {
             if (criteria.getMazad() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getMazad(), AdamKhesarat_.mazad));
             }
-            if (criteria.getSarneshin() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getSarneshin(), AdamKhesarat_.sarneshin));
-            }
             if (criteria.getFaal() != null) {
                 specification = specification.and(buildSpecification(criteria.getFaal(), AdamKhesarat_.faal));
             }

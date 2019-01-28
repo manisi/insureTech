@@ -74,7 +74,6 @@ class AdamKhesaratGatlingTest extends Simulation {
                 "id":null
                 , "sales":null
                 , "mazad":null
-                , "sarneshin":null
                 , "faal":null
                 }""")).asJSON
             .check(status.is(201))

@@ -2,7 +2,6 @@ export interface IAdamKhesarat {
     id?: number;
     sales?: number;
     mazad?: number;
-    sarneshin?: number;
     faal?: boolean;
     sabegheName?: string;
     sabegheId?: number;
@@ -15,7 +14,6 @@ export class AdamKhesarat implements IAdamKhesarat {
         public id?: number,
         public sales?: number,
         public mazad?: number,
-        public sarneshin?: number,
         public faal?: boolean,
         public sabegheName?: string,
         public sabegheId?: number,

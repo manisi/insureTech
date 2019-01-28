@@ -53,9 +53,6 @@ public class AdamKhesaratResourceIntTest {
     private static final Float DEFAULT_MAZAD = 0F;
     private static final Float UPDATED_MAZAD = 1F;
 
-    private static final Float DEFAULT_SARNESHIN = 0F;
-    private static final Float UPDATED_SARNESHIN = 1F;
-
     private static final Boolean DEFAULT_FAAL = false;
     private static final Boolean UPDATED_FAAL = true;
 
@@ -112,7 +109,6 @@ public class AdamKhesaratResourceIntTest {
         AdamKhesarat adamKhesarat = new AdamKhesarat()
             .sales(DEFAULT_SALES)
             .mazad(DEFAULT_MAZAD)
-            .sarneshin(DEFAULT_SARNESHIN)
             .faal(DEFAULT_FAAL);
         // Add required entity
         Sabeghe sabeghe = SabegheResourceIntTest.createEntity(em);
@@ -150,7 +146,6 @@ public class AdamKhesaratResourceIntTest {
         AdamKhesarat testAdamKhesarat = adamKhesaratList.get(adamKhesaratList.size() - 1);
         assertThat(testAdamKhesarat.getSales()).isEqualTo(DEFAULT_SALES);
         assertThat(testAdamKhesarat.getMazad()).isEqualTo(DEFAULT_MAZAD);
-        assertThat(testAdamKhesarat.getSarneshin()).isEqualTo(DEFAULT_SARNESHIN);
         assertThat(testAdamKhesarat.isFaal()).isEqualTo(DEFAULT_FAAL);
     }
 
@@ -214,25 +209,6 @@ public class AdamKhesaratResourceIntTest {
 
     @Test
     @Transactional
-    public void checkSarneshinIsRequired() throws Exception {
-        int databaseSizeBeforeTest = adamKhesaratRepository.findAll().size();
-        // set the field null
-        adamKhesarat.setSarneshin(null);
-
-        // Create the AdamKhesarat, which fails.
-        AdamKhesaratDTO adamKhesaratDTO = adamKhesaratMapper.toDto(adamKhesarat);
-
-        restAdamKhesaratMockMvc.perform(post("/api/adam-khesarats")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(adamKhesaratDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<AdamKhesarat> adamKhesaratList = adamKhesaratRepository.findAll();
-        assertThat(adamKhesaratList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkFaalIsRequired() throws Exception {
         int databaseSizeBeforeTest = adamKhesaratRepository.findAll().size();
         // set the field null
@@ -263,7 +239,6 @@ public class AdamKhesaratResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(adamKhesarat.getId().intValue())))
             .andExpect(jsonPath("$.[*].sales").value(hasItem(DEFAULT_SALES.doubleValue())))
             .andExpect(jsonPath("$.[*].mazad").value(hasItem(DEFAULT_MAZAD.doubleValue())))
-            .andExpect(jsonPath("$.[*].sarneshin").value(hasItem(DEFAULT_SARNESHIN.doubleValue())))
             .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
     }
     
@@ -280,7 +255,6 @@ public class AdamKhesaratResourceIntTest {
             .andExpect(jsonPath("$.id").value(adamKhesarat.getId().intValue()))
             .andExpect(jsonPath("$.sales").value(DEFAULT_SALES.doubleValue()))
             .andExpect(jsonPath("$.mazad").value(DEFAULT_MAZAD.doubleValue()))
-            .andExpect(jsonPath("$.sarneshin").value(DEFAULT_SARNESHIN.doubleValue()))
             .andExpect(jsonPath("$.faal").value(DEFAULT_FAAL.booleanValue()));
     }
 
@@ -360,45 +334,6 @@ public class AdamKhesaratResourceIntTest {
 
         // Get all the adamKhesaratList where mazad is null
         defaultAdamKhesaratShouldNotBeFound("mazad.specified=false");
-    }
-
-    @Test
-    @Transactional
-    public void getAllAdamKhesaratsBySarneshinIsEqualToSomething() throws Exception {
-        // Initialize the database
-        adamKhesaratRepository.saveAndFlush(adamKhesarat);
-
-        // Get all the adamKhesaratList where sarneshin equals to DEFAULT_SARNESHIN
-        defaultAdamKhesaratShouldBeFound("sarneshin.equals=" + DEFAULT_SARNESHIN);
-
-        // Get all the adamKhesaratList where sarneshin equals to UPDATED_SARNESHIN
-        defaultAdamKhesaratShouldNotBeFound("sarneshin.equals=" + UPDATED_SARNESHIN);
-    }
-
-    @Test
-    @Transactional
-    public void getAllAdamKhesaratsBySarneshinIsInShouldWork() throws Exception {
-        // Initialize the database
-        adamKhesaratRepository.saveAndFlush(adamKhesarat);
-
-        // Get all the adamKhesaratList where sarneshin in DEFAULT_SARNESHIN or UPDATED_SARNESHIN
-        defaultAdamKhesaratShouldBeFound("sarneshin.in=" + DEFAULT_SARNESHIN + "," + UPDATED_SARNESHIN);
-
-        // Get all the adamKhesaratList where sarneshin equals to UPDATED_SARNESHIN
-        defaultAdamKhesaratShouldNotBeFound("sarneshin.in=" + UPDATED_SARNESHIN);
-    }
-
-    @Test
-    @Transactional
-    public void getAllAdamKhesaratsBySarneshinIsNullOrNotNull() throws Exception {
-        // Initialize the database
-        adamKhesaratRepository.saveAndFlush(adamKhesarat);
-
-        // Get all the adamKhesaratList where sarneshin is not null
-        defaultAdamKhesaratShouldBeFound("sarneshin.specified=true");
-
-        // Get all the adamKhesaratList where sarneshin is null
-        defaultAdamKhesaratShouldNotBeFound("sarneshin.specified=false");
     }
 
     @Test
@@ -487,7 +422,6 @@ public class AdamKhesaratResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(adamKhesarat.getId().intValue())))
             .andExpect(jsonPath("$.[*].sales").value(hasItem(DEFAULT_SALES.doubleValue())))
             .andExpect(jsonPath("$.[*].mazad").value(hasItem(DEFAULT_MAZAD.doubleValue())))
-            .andExpect(jsonPath("$.[*].sarneshin").value(hasItem(DEFAULT_SARNESHIN.doubleValue())))
             .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
 
         // Check, that the count call also returns 1
@@ -538,7 +472,6 @@ public class AdamKhesaratResourceIntTest {
         updatedAdamKhesarat
             .sales(UPDATED_SALES)
             .mazad(UPDATED_MAZAD)
-            .sarneshin(UPDATED_SARNESHIN)
             .faal(UPDATED_FAAL);
         AdamKhesaratDTO adamKhesaratDTO = adamKhesaratMapper.toDto(updatedAdamKhesarat);
 
@@ -553,7 +486,6 @@ public class AdamKhesaratResourceIntTest {
         AdamKhesarat testAdamKhesarat = adamKhesaratList.get(adamKhesaratList.size() - 1);
         assertThat(testAdamKhesarat.getSales()).isEqualTo(UPDATED_SALES);
         assertThat(testAdamKhesarat.getMazad()).isEqualTo(UPDATED_MAZAD);
-        assertThat(testAdamKhesarat.getSarneshin()).isEqualTo(UPDATED_SARNESHIN);
         assertThat(testAdamKhesarat.isFaal()).isEqualTo(UPDATED_FAAL);
     }
 

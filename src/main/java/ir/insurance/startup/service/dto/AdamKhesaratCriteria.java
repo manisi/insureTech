@@ -28,8 +28,6 @@ public class AdamKhesaratCriteria implements Serializable {
 
     private FloatFilter mazad;
 
-    private FloatFilter sarneshin;
-
     private BooleanFilter faal;
 
     private LongFilter sabegheId;
@@ -58,14 +56,6 @@ public class AdamKhesaratCriteria implements Serializable {
 
     public void setMazad(FloatFilter mazad) {
         this.mazad = mazad;
-    }
-
-    public FloatFilter getSarneshin() {
-        return sarneshin;
-    }
-
-    public void setSarneshin(FloatFilter sarneshin) {
-        this.sarneshin = sarneshin;
     }
 
     public BooleanFilter getFaal() {
@@ -106,7 +96,6 @@ public class AdamKhesaratCriteria implements Serializable {
             Objects.equals(id, that.id) &&
             Objects.equals(sales, that.sales) &&
             Objects.equals(mazad, that.mazad) &&
-            Objects.equals(sarneshin, that.sarneshin) &&
             Objects.equals(faal, that.faal) &&
             Objects.equals(sabegheId, that.sabegheId) &&
             Objects.equals(noeSabegheId, that.noeSabegheId);
@@ -118,7 +107,6 @@ public class AdamKhesaratCriteria implements Serializable {
         id,
         sales,
         mazad,
-        sarneshin,
         faal,
         sabegheId,
         noeSabegheId
@@ -131,7 +119,6 @@ public class AdamKhesaratCriteria implements Serializable {
                 (id != null ? "id=" + id + ", " : "") +
                 (sales != null ? "sales=" + sales + ", " : "") +
                 (mazad != null ? "mazad=" + mazad + ", " : "") +
-                (sarneshin != null ? "sarneshin=" + sarneshin + ", " : "") +
                 (faal != null ? "faal=" + faal + ", " : "") +
                 (sabegheId != null ? "sabegheId=" + sabegheId + ", " : "") +
                 (noeSabegheId != null ? "noeSabegheId=" + noeSabegheId + ", " : "") +

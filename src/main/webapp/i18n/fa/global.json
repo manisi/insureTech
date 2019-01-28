@@ -38,6 +38,7 @@
                 "khesaratSrneshin": "خسارت سرنشین",
                 "adamKhesaratSarneshin": "عدم خسارت سرنشین",
                 "adamKhesaratBadane": "عدم خسارت بدنه",
+                "adamKhesarat": "عدم خسارت ثالث",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(AdamKhesaratService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new AdamKhesarat(0, 0, 0, 0, false);
+            elemDefault = new AdamKhesarat(0, 0, 0, false);
         });
 
         describe('Service methods', async () => {
@@ -57,7 +57,6 @@ describe('Service Tests', () => {
                     {
                         sales: 1,
                         mazad: 1,
-                        sarneshin: 1,
                         faal: true
                     },
                     elemDefault
@@ -77,7 +76,6 @@ describe('Service Tests', () => {
                     {
                         sales: 1,
                         mazad: 1,
-                        sarneshin: 1,
                         faal: true
                     },
                     elemDefault

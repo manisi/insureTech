@@ -28,7 +28,6 @@ export class AdamKhesaratUpdatePage {
     cancelButton = element(by.id('cancel-save'));
     salesInput = element(by.id('field_sales'));
     mazadInput = element(by.id('field_mazad'));
-    sarneshinInput = element(by.id('field_sarneshin'));
     faalInput = element(by.id('field_faal'));
     sabegheSelect = element(by.id('field_sabeghe'));
     noeSabegheSelect = element(by.id('field_noeSabeghe'));
@@ -51,14 +50,6 @@ export class AdamKhesaratUpdatePage {
 
     async getMazadInput() {
         return this.mazadInput.getAttribute('value');
-    }
-
-    async setSarneshinInput(sarneshin) {
-        await this.sarneshinInput.sendKeys(sarneshin);
-    }
-
-    async getSarneshinInput() {
-        return this.sarneshinInput.getAttribute('value');
     }
 
     getFaalInput() {

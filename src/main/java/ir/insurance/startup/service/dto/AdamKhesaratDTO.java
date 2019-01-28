@@ -20,10 +20,6 @@ public class AdamKhesaratDTO implements Serializable {
     private Float mazad;
 
     @NotNull
-    @DecimalMin(value = "0")
-    private Float sarneshin;
-
-    @NotNull
     private Boolean faal;
 
     private Long sabegheId;
@@ -56,14 +52,6 @@ public class AdamKhesaratDTO implements Serializable {
 
     public void setMazad(Float mazad) {
         this.mazad = mazad;
-    }
-
-    public Float getSarneshin() {
-        return sarneshin;
-    }
-
-    public void setSarneshin(Float sarneshin) {
-        this.sarneshin = sarneshin;
     }
 
     public Boolean isFaal() {
@@ -133,7 +121,6 @@ public class AdamKhesaratDTO implements Serializable {
             "id=" + getId() +
             ", sales=" + getSales() +
             ", mazad=" + getMazad() +
-            ", sarneshin=" + getSarneshin() +
             ", faal='" + isFaal() + "'" +
             ", sabeghe=" + getSabegheId() +
             ", sabeghe='" + getSabegheName() + "'" +

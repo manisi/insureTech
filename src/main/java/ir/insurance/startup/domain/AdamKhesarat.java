@@ -37,11 +37,6 @@ public class AdamKhesarat implements Serializable {
     private Float mazad;
 
     @NotNull
-    @DecimalMin(value = "0")
-    @Column(name = "sarneshin", nullable = false)
-    private Float sarneshin;
-
-    @NotNull
     @Column(name = "faal", nullable = false)
     private Boolean faal;
 
@@ -88,19 +83,6 @@ public class AdamKhesarat implements Serializable {
 
     public void setMazad(Float mazad) {
         this.mazad = mazad;
-    }
-
-    public Float getSarneshin() {
-        return sarneshin;
-    }
-
-    public AdamKhesarat sarneshin(Float sarneshin) {
-        this.sarneshin = sarneshin;
-        return this;
-    }
-
-    public void setSarneshin(Float sarneshin) {
-        this.sarneshin = sarneshin;
     }
 
     public Boolean isFaal() {
@@ -169,7 +151,6 @@ public class AdamKhesarat implements Serializable {
             "id=" + getId() +
             ", sales=" + getSales() +
             ", mazad=" + getMazad() +
-            ", sarneshin=" + getSarneshin() +
             ", faal='" + isFaal() + "'" +
             "}";
     }

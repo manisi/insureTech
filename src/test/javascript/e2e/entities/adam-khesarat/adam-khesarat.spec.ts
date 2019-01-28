@@ -42,13 +42,11 @@ describe('AdamKhesarat e2e test', () => {
         await promise.all([
             adamKhesaratUpdatePage.setSalesInput('5'),
             adamKhesaratUpdatePage.setMazadInput('5'),
-            adamKhesaratUpdatePage.setSarneshinInput('5'),
             adamKhesaratUpdatePage.sabegheSelectLastOption(),
             adamKhesaratUpdatePage.noeSabegheSelectLastOption(),
         ]);
         expect(await adamKhesaratUpdatePage.getSalesInput()).to.eq('5');
         expect(await adamKhesaratUpdatePage.getMazadInput()).to.eq('5');
-        expect(await adamKhesaratUpdatePage.getSarneshinInput()).to.eq('5');
         const selectedFaal = adamKhesaratUpdatePage.getFaalInput();
         if (await selectedFaal.isSelected()) {
             await adamKhesaratUpdatePage.getFaalInput().click();

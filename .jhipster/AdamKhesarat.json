@@ -9,7 +9,9 @@
             "relationshipValidateRules": [
                 "required"
             ],
-            "otherEntityField": "name"
+            "otherEntityField": "name",
+            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipName": "adamKhesarat"
         },
         {
             "relationshipName": "noeSabeghe",
@@ -18,7 +20,9 @@
             "relationshipValidateRules": [
                 "required"
             ],
-            "otherEntityField": "name"
+            "otherEntityField": "name",
+            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipName": "adamKhesarat"
         }
     ],
     "fields": [
@@ -41,15 +45,6 @@
             "fieldValidateRulesMin": 0
         },
         {
-            "fieldName": "sarneshin",
-            "fieldType": "Float",
-            "fieldValidateRules": [
-                "required",
-                "min"
-            ],
-            "fieldValidateRulesMin": 0
-        },
-        {
             "fieldName": "faal",
             "fieldType": "Boolean",
             "fieldValidateRules": [
@@ -62,6 +57,7 @@
     "searchEngine": false,
     "service": "serviceClass",
     "entityTableName": "adam_khesarat",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": true,
     "pagination": "infinite-scroll"
 }
