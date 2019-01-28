@@ -16,7 +16,9 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="name"><span jhiTranslate="insurancestartApp.grouhKhodro.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="code"><span jhiTranslate="insurancestartApp.grouhKhodro.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.grouhKhodro.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+
             <th></th>
             </tr>
             </thead>
@@ -24,6 +26,7 @@
             <tr *ngFor="let grouhKhodro of grouhKhodros ;trackBy: trackId">
                 <td><a [routerLink]="['/grouh-khodro', grouhKhodro.id, 'view' ]">{{grouhKhodro.id}}</a></td>
                 <td>{{grouhKhodro.name}}</td>
+                <td>{{grouhKhodro.code}}</td>
                 <!--<td>{{grouhKhodro.faal}}</td>-->
                 <td>
                     <fa-icon [icon]="grouhKhodro.faal ? 'check' : 'times'" aria-hidden="true" class="{{grouhKhodro.faal ? 'text-success' : 'text-danger'}}"></fa-icon>

@@ -28,6 +28,8 @@ public class GrouhKhodroCriteria implements Serializable {
 
     private BooleanFilter faal;
 
+    private IntegerFilter code;
+
     public LongFilter getId() {
         return id;
     }
@@ -52,6 +54,14 @@ public class GrouhKhodroCriteria implements Serializable {
         this.faal = faal;
     }
 
+    public IntegerFilter getCode() {
+        return code;
+    }
+
+    public void setCode(IntegerFilter code) {
+        this.code = code;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -65,7 +75,8 @@ public class GrouhKhodroCriteria implements Serializable {
         return
             Objects.equals(id, that.id) &&
             Objects.equals(name, that.name) &&
-            Objects.equals(faal, that.faal);
+            Objects.equals(faal, that.faal) &&
+            Objects.equals(code, that.code);
     }
 
     @Override
@@ -73,7 +84,8 @@ public class GrouhKhodroCriteria implements Serializable {
         return Objects.hash(
         id,
         name,
-        faal
+        faal,
+        code
         );
     }
 
@@ -83,6 +95,7 @@ public class GrouhKhodroCriteria implements Serializable {
                 (id != null ? "id=" + id + ", " : "") +
                 (name != null ? "name=" + name + ", " : "") +
                 (faal != null ? "faal=" + faal + ", " : "") +
+                (code != null ? "code=" + code + ", " : "") +
             "}";
     }
 

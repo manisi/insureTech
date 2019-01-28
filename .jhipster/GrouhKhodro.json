@@ -17,6 +17,11 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "Integer",
+            "fieldValidateRules": []
         }
     ],
     "changelogDate": "20190124054239",
@@ -24,6 +29,7 @@
     "searchEngine": false,
     "service": "serviceClass",
     "entityTableName": "grouh_khodro",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": true,
     "pagination": "infinite-scroll"
 }

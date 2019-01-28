@@ -33,6 +33,9 @@ public class GrouhKhodro implements Serializable {
     @Column(name = "faal", nullable = false)
     private Boolean faal;
 
+    @Column(name = "code")
+    private Integer code;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -67,6 +70,19 @@ public class GrouhKhodro implements Serializable {
     public void setFaal(Boolean faal) {
         this.faal = faal;
     }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public GrouhKhodro code(Integer code) {
+        this.code = code;
+        return this;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -95,6 +111,7 @@ public class GrouhKhodro implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", faal='" + isFaal() + "'" +
+            ", code=" + getCode() +
             "}";
     }
 }

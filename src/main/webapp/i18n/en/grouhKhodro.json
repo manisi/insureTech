@@ -16,7 +16,8 @@
                 "title": "Grouh Khodro"
             },
             "name": "Name",
-            "faal": "Faal"
+            "faal": "Faal",
+            "code": "Code"
         }
     }
 }

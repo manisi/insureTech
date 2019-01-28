@@ -74,6 +74,7 @@ class GrouhKhodroGatlingTest extends Simulation {
                 "id":null
                 , "name":"SAMPLE_TEXT"
                 , "faal":null
+                , "code":"0"
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_grouhKhodro_url"))).exitHereIfFailed

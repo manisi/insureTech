@@ -51,6 +51,9 @@ public class GrouhKhodroResourceIntTest {
     private static final Boolean DEFAULT_FAAL = false;
     private static final Boolean UPDATED_FAAL = true;
 
+    private static final Integer DEFAULT_CODE = 1;
+    private static final Integer UPDATED_CODE = 2;
+
     @Autowired
     private GrouhKhodroRepository grouhKhodroRepository;
 
@@ -103,7 +106,8 @@ public class GrouhKhodroResourceIntTest {
     public static GrouhKhodro createEntity(EntityManager em) {
         GrouhKhodro grouhKhodro = new GrouhKhodro()
             .name(DEFAULT_NAME)
-            .faal(DEFAULT_FAAL);
+            .faal(DEFAULT_FAAL)
+            .code(DEFAULT_CODE);
         return grouhKhodro;
     }
 
@@ -130,6 +134,7 @@ public class GrouhKhodroResourceIntTest {
         GrouhKhodro testGrouhKhodro = grouhKhodroList.get(grouhKhodroList.size() - 1);
         assertThat(testGrouhKhodro.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testGrouhKhodro.isFaal()).isEqualTo(DEFAULT_FAAL);
+        assertThat(testGrouhKhodro.getCode()).isEqualTo(DEFAULT_CODE);
     }
 
     @Test
@@ -202,7 +207,8 @@ public class GrouhKhodroResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(grouhKhodro.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
+            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())))
+            .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)));
     }
     
     @Test
@@ -217,7 +223,8 @@ public class GrouhKhodroResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(grouhKhodro.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.faal").value(DEFAULT_FAAL.booleanValue()));
+            .andExpect(jsonPath("$.faal").value(DEFAULT_FAAL.booleanValue()))
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE));
     }
 
     @Test
@@ -297,6 +304,72 @@ public class GrouhKhodroResourceIntTest {
         // Get all the grouhKhodroList where faal is null
         defaultGrouhKhodroShouldNotBeFound("faal.specified=false");
     }
+
+    @Test
+    @Transactional
+    public void getAllGrouhKhodrosByCodeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        grouhKhodroRepository.saveAndFlush(grouhKhodro);
+
+        // Get all the grouhKhodroList where code equals to DEFAULT_CODE
+        defaultGrouhKhodroShouldBeFound("code.equals=" + DEFAULT_CODE);
+
+        // Get all the grouhKhodroList where code equals to UPDATED_CODE
+        defaultGrouhKhodroShouldNotBeFound("code.equals=" + UPDATED_CODE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllGrouhKhodrosByCodeIsInShouldWork() throws Exception {
+        // Initialize the database
+        grouhKhodroRepository.saveAndFlush(grouhKhodro);
+
+        // Get all the grouhKhodroList where code in DEFAULT_CODE or UPDATED_CODE
+        defaultGrouhKhodroShouldBeFound("code.in=" + DEFAULT_CODE + "," + UPDATED_CODE);
+
+        // Get all the grouhKhodroList where code equals to UPDATED_CODE
+        defaultGrouhKhodroShouldNotBeFound("code.in=" + UPDATED_CODE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllGrouhKhodrosByCodeIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        grouhKhodroRepository.saveAndFlush(grouhKhodro);
+
+        // Get all the grouhKhodroList where code is not null
+        defaultGrouhKhodroShouldBeFound("code.specified=true");
+
+        // Get all the grouhKhodroList where code is null
+        defaultGrouhKhodroShouldNotBeFound("code.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllGrouhKhodrosByCodeIsGreaterThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        grouhKhodroRepository.saveAndFlush(grouhKhodro);
+
+        // Get all the grouhKhodroList where code greater than or equals to DEFAULT_CODE
+        defaultGrouhKhodroShouldBeFound("code.greaterOrEqualThan=" + DEFAULT_CODE);
+
+        // Get all the grouhKhodroList where code greater than or equals to UPDATED_CODE
+        defaultGrouhKhodroShouldNotBeFound("code.greaterOrEqualThan=" + UPDATED_CODE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllGrouhKhodrosByCodeIsLessThanSomething() throws Exception {
+        // Initialize the database
+        grouhKhodroRepository.saveAndFlush(grouhKhodro);
+
+        // Get all the grouhKhodroList where code less than or equals to DEFAULT_CODE
+        defaultGrouhKhodroShouldNotBeFound("code.lessThan=" + DEFAULT_CODE);
+
+        // Get all the grouhKhodroList where code less than or equals to UPDATED_CODE
+        defaultGrouhKhodroShouldBeFound("code.lessThan=" + UPDATED_CODE);
+    }
+
     /**
      * Executes the search, and checks that the default entity is returned
      */
@@ -306,7 +379,8 @@ public class GrouhKhodroResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(grouhKhodro.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
+            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())))
+            .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)));
 
         // Check, that the count call also returns 1
         restGrouhKhodroMockMvc.perform(get("/api/grouh-khodros/count?sort=id,desc&" + filter))
@@ -355,7 +429,8 @@ public class GrouhKhodroResourceIntTest {
         em.detach(updatedGrouhKhodro);
         updatedGrouhKhodro
             .name(UPDATED_NAME)
-            .faal(UPDATED_FAAL);
+            .faal(UPDATED_FAAL)
+            .code(UPDATED_CODE);
         GrouhKhodroDTO grouhKhodroDTO = grouhKhodroMapper.toDto(updatedGrouhKhodro);
 
         restGrouhKhodroMockMvc.perform(put("/api/grouh-khodros")
@@ -369,6 +444,7 @@ public class GrouhKhodroResourceIntTest {
         GrouhKhodro testGrouhKhodro = grouhKhodroList.get(grouhKhodroList.size() - 1);
         assertThat(testGrouhKhodro.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testGrouhKhodro.isFaal()).isEqualTo(UPDATED_FAAL);
+        assertThat(testGrouhKhodro.getCode()).isEqualTo(UPDATED_CODE);
     }
 
     @Test

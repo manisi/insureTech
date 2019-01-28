@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(GrouhKhodroService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new GrouhKhodro(0, 'AAAAAAA', false);
+            elemDefault = new GrouhKhodro(0, 'AAAAAAA', false, 0);
         });
 
         describe('Service methods', async () => {
@@ -56,7 +56,8 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         name: 'BBBBBB',
-                        faal: true
+                        faal: true,
+                        code: 1
                     },
                     elemDefault
                 );
@@ -74,7 +75,8 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         name: 'BBBBBB',
-                        faal: true
+                        faal: true,
+                        code: 1
                     },
                     elemDefault
                 );

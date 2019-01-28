@@ -28,6 +28,7 @@ export class GrouhKhodroUpdatePage {
     cancelButton = element(by.id('cancel-save'));
     nameInput = element(by.id('field_name'));
     faalInput = element(by.id('field_faal'));
+    codeInput = element(by.id('field_code'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -44,6 +45,14 @@ export class GrouhKhodroUpdatePage {
     getFaalInput() {
         return this.faalInput;
     }
+    async setCodeInput(code) {
+        await this.codeInput.sendKeys(code);
+    }
+
+    async getCodeInput() {
+        return this.codeInput.getAttribute('value');
+    }
+
     async save() {
         await this.saveButton.click();
     }

@@ -17,6 +17,8 @@ public class GrouhKhodroDTO implements Serializable {
     @NotNull
     private Boolean faal;
 
+    private Integer code;
+
     public Long getId() {
         return id;
     }
@@ -39,6 +41,14 @@ public class GrouhKhodroDTO implements Serializable {
 
     public void setFaal(Boolean faal) {
         this.faal = faal;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     @Override
@@ -68,6 +78,7 @@ public class GrouhKhodroDTO implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", faal='" + isFaal() + "'" +
+            ", code=" + getCode() +
             "}";
     }
 }

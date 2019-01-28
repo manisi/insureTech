@@ -95,6 +95,9 @@ public class GrouhKhodroQueryService extends QueryService<GrouhKhodro> {
             if (criteria.getFaal() != null) {
                 specification = specification.and(buildSpecification(criteria.getFaal(), GrouhKhodro_.faal));
             }
+            if (criteria.getCode() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getCode(), GrouhKhodro_.code));
+            }
         }
         return specification;
     }

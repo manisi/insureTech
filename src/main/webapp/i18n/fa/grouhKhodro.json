@@ -4,7 +4,7 @@
             "home": {
                 "title": "گروه خودرو",
                 "createLabel": "ایجاد",
-                "createOrEditLabel": "ویرایش"
+                "createOrEditLabel": "ایجاد/ویرایش"
             },
             "created": "A new Grouh Khodro is created with identifier {{ param }}",
             "updated": "A Grouh Khodro is updated with identifier {{ param }}",
@@ -16,7 +16,8 @@
                 "title": "گروه خودرو"
             },
             "name": "نام",
-            "faal": "فعال"
+            "faal": "فعال",
+            "code": "کد"
         }
     }
 }

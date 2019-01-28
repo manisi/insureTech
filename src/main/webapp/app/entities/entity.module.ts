@@ -103,6 +103,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'adam-khesarat',
                 loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
+            },
+            {
+                path: 'grouh-khodro',
+                loadChildren: './grouh-khodro/grouh-khodro.module#InsurancestartGrouhKhodroModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

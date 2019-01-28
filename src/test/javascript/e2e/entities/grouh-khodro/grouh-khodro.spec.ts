@@ -39,7 +39,7 @@ describe('GrouhKhodro e2e test', () => {
         const nbButtonsBeforeCreate = await grouhKhodroComponentsPage.countDeleteButtons();
 
         await grouhKhodroComponentsPage.clickOnCreateButton();
-        await promise.all([grouhKhodroUpdatePage.setNameInput('name')]);
+        await promise.all([grouhKhodroUpdatePage.setNameInput('name'), grouhKhodroUpdatePage.setCodeInput('5')]);
         expect(await grouhKhodroUpdatePage.getNameInput()).to.eq('name');
         const selectedFaal = grouhKhodroUpdatePage.getFaalInput();
         if (await selectedFaal.isSelected()) {
@@ -49,6 +49,7 @@ describe('GrouhKhodro e2e test', () => {
             await grouhKhodroUpdatePage.getFaalInput().click();
             expect(await grouhKhodroUpdatePage.getFaalInput().isSelected()).to.be.true;
         }
+        expect(await grouhKhodroUpdatePage.getCodeInput()).to.eq('5');
         await grouhKhodroUpdatePage.save();
         expect(await grouhKhodroUpdatePage.getSaveButton().isPresent()).to.be.false;
 

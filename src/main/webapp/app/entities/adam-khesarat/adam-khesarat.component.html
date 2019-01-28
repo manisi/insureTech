@@ -28,7 +28,10 @@
                 <td><a [routerLink]="['/adam-khesarat', adamKhesarat.id, 'view' ]">{{adamKhesarat.id}}</a></td>
                 <td>{{adamKhesarat.sales}}</td>
                 <td>{{adamKhesarat.mazad}}</td>
-                <td>{{adamKhesarat.faal}}</td>
+                <!--<td>{{adamKhesarat.faal}}</td>-->
+                <td>
+                    <fa-icon [icon]="adamKhesarat.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesarat.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                </td>
                 <td>
                     <div *ngIf="adamKhesarat.sabegheId">
                         <a [routerLink]="['../sabeghe', adamKhesarat.sabegheId , 'view' ]" >{{adamKhesarat.sabegheName}}</a>
