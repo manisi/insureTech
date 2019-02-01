@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-anvae-khodro-heading" jhiTranslate="insurancestartApp.anvaeKhodro.home.createOrEditLabel">Create or edit a Anvae Khodro</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!anvaeKhodro.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="anvaeKhodro.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.grouhVasile" for="field_grouhVasile">Grouh Vasile</label>
+                    <input type="text" class="form-control" name="grouhVasile" id="field_grouhVasile"
+                        [(ngModel)]="anvaeKhodro.grouhVasile" required/>
+                    <div [hidden]="!(editForm.controls.grouhVasile?.dirty && editForm.controls.grouhVasile?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.grouhVasile?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.systemVasile" for="field_systemVasile">System Vasile</label>
+                    <input type="text" class="form-control" name="systemVasile" id="field_systemVasile"
+                        [(ngModel)]="anvaeKhodro.systemVasile" required/>
+                    <div [hidden]="!(editForm.controls.systemVasile?.dirty && editForm.controls.systemVasile?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.systemVasile?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.onvan" for="field_onvan">Onvan</label>
+                    <input type="text" class="form-control" name="onvan" id="field_onvan"
+                        [(ngModel)]="anvaeKhodro.onvan" required/>
+                    <div [hidden]="!(editForm.controls.onvan?.dirty && editForm.controls.onvan?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.onvan?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.tonazh" for="field_tonazh">Tonazh</label>
+                    <input type="text" class="form-control" name="tonazh" id="field_tonazh"
+                        [(ngModel)]="anvaeKhodro.tonazh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.tedadSarneshin" for="field_tedadSarneshin">Tedad Sarneshin</label>
+                    <input type="text" class="form-control" name="tedadSarneshin" id="field_tedadSarneshin"
+                        [(ngModel)]="anvaeKhodro.tedadSarneshin" required/>
+                    <div [hidden]="!(editForm.controls.tedadSarneshin?.dirty && editForm.controls.tedadSarneshin?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tedadSarneshin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.tedadSilandre" for="field_tedadSilandre">Tedad Silandre</label>
+                    <input type="text" class="form-control" name="tedadSilandre" id="field_tedadSilandre"
+                        [(ngModel)]="anvaeKhodro.tedadSilandre" required/>
+                    <div [hidden]="!(editForm.controls.tedadSilandre?.dirty && editForm.controls.tedadSilandre?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tedadSilandre?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.dasteBandi" for="field_dasteBandi">Daste Bandi</label>
+                    <input type="text" class="form-control" name="dasteBandi" id="field_dasteBandi"
+                        [(ngModel)]="anvaeKhodro.dasteBandi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.savariType" for="field_savariType">Savari Type</label>
+                    <input type="text" class="form-control" name="savariType" id="field_savariType"
+                        [(ngModel)]="anvaeKhodro.savariType" required/>
+                    <div [hidden]="!(editForm.controls.savariType?.dirty && editForm.controls.savariType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.savariType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>
+                    <select class="form-control" id="field_grouhKhodro" name="grouhKhodro" [(ngModel)]="anvaeKhodro.grouhKhodroId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.name}} ({{grouhKhodroOption.code}})</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190128192209_changelog.xml" relativeToChangelogFile="false"/>
+    <!--<include file="config/liquibase/changelog/20190128192209_changelog.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190116184639_added_entity_Ashkhas.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190116184640_added_entity_Pooshesh.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190116184641_added_entity_Khodro.xml" relativeToChangelogFile="false"/>-->
@@ -27,6 +27,7 @@
     <!--<include file="config/liquibase/changelog/20190126183144_added_entity_KhesaratSrneshin.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190126183643_added_entity_AdamKhesaratSarneshin.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190126184052_added_entity_AdamKhesaratBadane.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20190201040605_added_entity_AnvaeKhodro.xml" relativeToChangelogFile="false"/>
     <!--&lt;!&ndash; jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here &ndash;&gt;-->
     <!--<include file="config/liquibase/changelog/20190116184640_added_entity_constraints_Pooshesh.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190116184642_added_entity_constraints_TipKhodro.xml" relativeToChangelogFile="false"/>-->
@@ -40,5 +41,6 @@
     <!--<include file="config/liquibase/changelog/20190126183144_added_entity_constraints_KhesaratSrneshin.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190126183643_added_entity_constraints_AdamKhesaratSarneshin.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190126184052_added_entity_constraints_AdamKhesaratBadane.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20190201040605_added_entity_constraints_AnvaeKhodro.xml" relativeToChangelogFile="false"/>
     <!--&lt;!&ndash; jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here &ndash;&gt;-->
 </databaseChangeLog>

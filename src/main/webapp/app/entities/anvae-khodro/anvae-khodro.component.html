@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.anvaeKhodro.home.title">Anvae Khodros</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-anvae-khodro" [routerLink]="['/anvae-khodro/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.anvaeKhodro.home.createLabel">
+            Create new Anvae Khodro
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="anvaeKhodros">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grouhVasile"><span jhiTranslate="insurancestartApp.anvaeKhodro.grouhVasile">Grouh Vasile</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="systemVasile"><span jhiTranslate="insurancestartApp.anvaeKhodro.systemVasile">System Vasile</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="onvan"><span jhiTranslate="insurancestartApp.anvaeKhodro.onvan">Onvan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tonazh"><span jhiTranslate="insurancestartApp.anvaeKhodro.tonazh">Tonazh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tedadSarneshin"><span jhiTranslate="insurancestartApp.anvaeKhodro.tedadSarneshin">Tedad Sarneshin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tedadSilandre"><span jhiTranslate="insurancestartApp.anvaeKhodro.tedadSilandre">Tedad Silandre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dasteBandi"><span jhiTranslate="insurancestartApp.anvaeKhodro.dasteBandi">Daste Bandi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="savariType"><span jhiTranslate="insurancestartApp.anvaeKhodro.savariType">Savari Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.anvaeKhodro.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let anvaeKhodro of anvaeKhodros ;trackBy: trackId">
+                <td><a [routerLink]="['/anvae-khodro', anvaeKhodro.id, 'view' ]">{{anvaeKhodro.id}}</a></td>
+                <td>{{anvaeKhodro.grouhVasile}}</td>
+                <td>{{anvaeKhodro.systemVasile}}</td>
+                <td>{{anvaeKhodro.onvan}}</td>
+                <td>{{anvaeKhodro.tonazh}}</td>
+                <td>{{anvaeKhodro.tedadSarneshin}}</td>
+                <td>{{anvaeKhodro.tedadSilandre}}</td>
+                <td>{{anvaeKhodro.dasteBandi}}</td>
+                <td>{{anvaeKhodro.savariType}}</td>
+                <td>
+                    <div *ngIf="anvaeKhodro.grouhKhodroId">
+                        <a [routerLink]="['../grouh-khodro', anvaeKhodro.grouhKhodroId , 'view' ]" >{{anvaeKhodro.grouhKhodroCode}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/anvae-khodro', anvaeKhodro.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/anvae-khodro', anvaeKhodro.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'anvae-khodro', { outlets: { popup: anvaeKhodro.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="anvaeKhodros && anvaeKhodros.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

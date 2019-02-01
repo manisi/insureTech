@@ -1,0 +1,15 @@
+./mvnw package -Pprod -DskipTests
+./mvnw liquibase:diff
+
+heroku rollback v39
+heroku rollback
+
+git reset --hard heroku/master
+git reset heroku HEAD:~1
+
+
+git reset --hard HEAD~1 #number back level
+git revert HEAD
+git reset --hard HEAD^
+
+git push -f origin master

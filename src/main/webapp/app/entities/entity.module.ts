@@ -107,6 +107,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'grouh-khodro',
                 loadChildren: './grouh-khodro/grouh-khodro.module#InsurancestartGrouhKhodroModule'
+            },
+            {
+                path: 'anvae-khodro',
+                loadChildren: './anvae-khodro/anvae-khodro.module#InsurancestartAnvaeKhodroModule'
+            },
+            {
+                path: 'anvae-khodro',
+                loadChildren: './anvae-khodro/anvae-khodro.module#InsurancestartAnvaeKhodroModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

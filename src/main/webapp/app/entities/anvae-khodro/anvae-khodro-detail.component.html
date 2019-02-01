@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="anvaeKhodro">
+            <h2><span jhiTranslate="insurancestartApp.anvaeKhodro.detail.title">Anvae Khodro</span> {{anvaeKhodro.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.grouhVasile">Grouh Vasile</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.grouhVasile}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.systemVasile">System Vasile</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.systemVasile}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.onvan">Onvan</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.onvan}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.tonazh">Tonazh</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.tonazh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.tedadSarneshin">Tedad Sarneshin</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.tedadSarneshin}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.tedadSilandre">Tedad Silandre</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.tedadSilandre}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.dasteBandi">Daste Bandi</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.dasteBandi}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.savariType">Savari Type</span></dt>
+                <dd>
+                    <span>{{anvaeKhodro.savariType}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.anvaeKhodro.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="anvaeKhodro.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', anvaeKhodro.grouhKhodroId, 'view']">{{anvaeKhodro.grouhKhodroCode}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/anvae-khodro', anvaeKhodro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
