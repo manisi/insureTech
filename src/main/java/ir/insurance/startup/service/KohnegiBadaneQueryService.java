@@ -98,6 +98,10 @@ public class KohnegiBadaneQueryService extends QueryService<KohnegiBadane> {
             if (criteria.getFaal() != null) {
                 specification = specification.and(buildSpecification(criteria.getFaal(), KohnegiBadane_.faal));
             }
+            if (criteria.getGrouhKhodroId() != null) {
+                specification = specification.and(buildSpecification(criteria.getGrouhKhodroId(),
+                    root -> root.join(KohnegiBadane_.grouhKhodro, JoinType.LEFT).get(GrouhKhodro_.id)));
+            }
         }
         return specification;
     }

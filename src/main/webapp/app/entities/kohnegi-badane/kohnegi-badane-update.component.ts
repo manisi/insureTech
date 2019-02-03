@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiDataUtils } from 'ng-jhipster';
+import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { IKohnegiBadane } from 'app/shared/model/kohnegi-badane.model';
 import { KohnegiBadaneService } from './kohnegi-badane.service';
+import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
+import { GrouhKhodroService } from 'app/entities/grouh-khodro';
 
 @Component({
     selector: 'jhi-kohnegi-badane-update',
@@ -15,9 +17,13 @@ export class KohnegiBadaneUpdateComponent implements OnInit {
     kohnegiBadane: IKohnegiBadane;
     isSaving: boolean;
 
+    grouhkhodros: IGrouhKhodro[];
+
     constructor(
         protected dataUtils: JhiDataUtils,
+        protected jhiAlertService: JhiAlertService,
         protected kohnegiBadaneService: KohnegiBadaneService,
+        protected grouhKhodroService: GrouhKhodroService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -26,6 +32,13 @@ export class KohnegiBadaneUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ kohnegiBadane }) => {
             this.kohnegiBadane = kohnegiBadane;
         });
+        this.grouhKhodroService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IGrouhKhodro[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IGrouhKhodro[]>) => response.body)
+            )
+            .subscribe((res: IGrouhKhodro[]) => (this.grouhkhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -64,5 +77,13 @@ export class KohnegiBadaneUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
+    }
+
+    protected onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackGrouhKhodroById(index: number, item: IGrouhKhodro) {
+        return item.id;
     }
 }

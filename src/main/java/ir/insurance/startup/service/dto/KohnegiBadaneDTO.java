@@ -28,6 +28,10 @@ public class KohnegiBadaneDTO implements Serializable {
     @NotNull
     private Boolean faal;
 
+    private Long grouhKhodroId;
+
+    private String grouhKhodroCode;
+
     public Long getId() {
         return id;
     }
@@ -68,6 +72,22 @@ public class KohnegiBadaneDTO implements Serializable {
         this.faal = faal;
     }
 
+    public Long getGrouhKhodroId() {
+        return grouhKhodroId;
+    }
+
+    public void setGrouhKhodroId(Long grouhKhodroId) {
+        this.grouhKhodroId = grouhKhodroId;
+    }
+
+    public String getGrouhKhodroCode() {
+        return grouhKhodroCode;
+    }
+
+    public void setGrouhKhodroCode(String grouhKhodroCode) {
+        this.grouhKhodroCode = grouhKhodroCode;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -97,6 +117,8 @@ public class KohnegiBadaneDTO implements Serializable {
             ", maxDarsad=" + getMaxDarsad() +
             ", sharh='" + getSharh() + "'" +
             ", faal='" + isFaal() + "'" +
+            ", grouhKhodro=" + getGrouhKhodroId() +
+            ", grouhKhodro='" + getGrouhKhodroCode() + "'" +
             "}";
     }
 }

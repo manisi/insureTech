@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiDataUtils } from 'ng-jhipster';
+import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { IKohnegi } from 'app/shared/model/kohnegi.model';
 import { KohnegiService } from './kohnegi.service';
+import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
+import { GrouhKhodroService } from 'app/entities/grouh-khodro';
 
 @Component({
     selector: 'jhi-kohnegi-update',
@@ -15,13 +17,28 @@ export class KohnegiUpdateComponent implements OnInit {
     kohnegi: IKohnegi;
     isSaving: boolean;
 
-    constructor(protected dataUtils: JhiDataUtils, protected kohnegiService: KohnegiService, protected activatedRoute: ActivatedRoute) {}
+    grouhkhodros: IGrouhKhodro[];
+
+    constructor(
+        protected dataUtils: JhiDataUtils,
+        protected jhiAlertService: JhiAlertService,
+        protected kohnegiService: KohnegiService,
+        protected grouhKhodroService: GrouhKhodroService,
+        protected activatedRoute: ActivatedRoute
+    ) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ kohnegi }) => {
             this.kohnegi = kohnegi;
         });
+        this.grouhKhodroService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IGrouhKhodro[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IGrouhKhodro[]>) => response.body)
+            )
+            .subscribe((res: IGrouhKhodro[]) => (this.grouhkhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -60,5 +77,13 @@ export class KohnegiUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
+    }
+
+    protected onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackGrouhKhodroById(index: number, item: IGrouhKhodro) {
+        return item.id;
     }
 }

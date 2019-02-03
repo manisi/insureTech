@@ -21,6 +21,12 @@
                 <dd>
                     <span>{{kohnegiBadane.faal}}</span>
                 </dd>
+                <dt><span jhiTranslate="insurancestartApp.kohnegiBadane.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="kohnegiBadane.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', kohnegiBadane.grouhKhodroId, 'view']">{{kohnegiBadane.grouhKhodroCode}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

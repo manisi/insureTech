@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="developer (generated)" id="1549163467702-1">
+        <addColumn tableName="kohnegi">
+            <column name="grouh_khodro_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1549163467702-2">
+        <addColumn tableName="kohnegi_badane">
+            <column name="grouh_khodro_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1549163467702-3">
+        <addPrimaryKey columnNames="nerkh_id, sherkat_bime_id" tableName="nerkh_sherkat_bime"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1549163467702-4">
+        <addForeignKeyConstraint baseColumnNames="grouh_khodro_id" baseTableName="kohnegi" constraintName="FK48071hlakjvo3ummqdq6b4hg5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="grouh_khodro"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1549163467702-5">
+        <addForeignKeyConstraint baseColumnNames="grouh_khodro_id" baseTableName="kohnegi_badane" constraintName="FKpl27tgykr84s49vyqmc59k2j4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="grouh_khodro"/>
+    </changeSet>
+</databaseChangeLog>

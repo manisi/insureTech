@@ -11,7 +11,7 @@ describe('Kohnegi e2e test', () => {
     let signInPage: SignInPage;
     let kohnegiUpdatePage: KohnegiUpdatePage;
     let kohnegiComponentsPage: KohnegiComponentsPage;
-    let kohnegiDeleteDialog: KohnegiDeleteDialog;
+    /*let kohnegiDeleteDialog: KohnegiDeleteDialog;*/
 
     before(async () => {
         await browser.get('/');
@@ -35,14 +35,15 @@ describe('Kohnegi e2e test', () => {
         await kohnegiUpdatePage.cancel();
     });
 
-    it('should create and save Kohnegis', async () => {
+    /* it('should create and save Kohnegis', async () => {
         const nbButtonsBeforeCreate = await kohnegiComponentsPage.countDeleteButtons();
 
         await kohnegiComponentsPage.clickOnCreateButton();
         await promise.all([
             kohnegiUpdatePage.setDarsadHarSalInput('5'),
             kohnegiUpdatePage.setMaxDarsadInput('5'),
-            kohnegiUpdatePage.setSharhInput('sharh')
+            kohnegiUpdatePage.setSharhInput('sharh'),
+            kohnegiUpdatePage.grouhKhodroSelectLastOption(),
         ]);
         expect(await kohnegiUpdatePage.getDarsadHarSalInput()).to.eq('5');
         expect(await kohnegiUpdatePage.getMaxDarsadInput()).to.eq('5');
@@ -59,18 +60,19 @@ describe('Kohnegi e2e test', () => {
         expect(await kohnegiUpdatePage.getSaveButton().isPresent()).to.be.false;
 
         expect(await kohnegiComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeCreate + 1);
-    });
+    });*/
 
-    it('should delete last Kohnegi', async () => {
+    /* it('should delete last Kohnegi', async () => {
         const nbButtonsBeforeDelete = await kohnegiComponentsPage.countDeleteButtons();
         await kohnegiComponentsPage.clickOnLastDeleteButton();
 
         kohnegiDeleteDialog = new KohnegiDeleteDialog();
-        expect(await kohnegiDeleteDialog.getDialogTitle()).to.eq('insurancestartApp.kohnegi.delete.question');
+        expect(await kohnegiDeleteDialog.getDialogTitle())
+            .to.eq('insurancestartApp.kohnegi.delete.question');
         await kohnegiDeleteDialog.clickOnConfirmButton();
 
         expect(await kohnegiComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);
-    });
+    });*/
 
     after(async () => {
         await navBarPage.autoSignOut();

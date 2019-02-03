@@ -30,6 +30,8 @@ public class KohnegiBadaneCriteria implements Serializable {
 
     private BooleanFilter faal;
 
+    private LongFilter grouhKhodroId;
+
     public LongFilter getId() {
         return id;
     }
@@ -62,6 +64,14 @@ public class KohnegiBadaneCriteria implements Serializable {
         this.faal = faal;
     }
 
+    public LongFilter getGrouhKhodroId() {
+        return grouhKhodroId;
+    }
+
+    public void setGrouhKhodroId(LongFilter grouhKhodroId) {
+        this.grouhKhodroId = grouhKhodroId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -76,7 +86,8 @@ public class KohnegiBadaneCriteria implements Serializable {
             Objects.equals(id, that.id) &&
             Objects.equals(darsadHarSal, that.darsadHarSal) &&
             Objects.equals(maxDarsad, that.maxDarsad) &&
-            Objects.equals(faal, that.faal);
+            Objects.equals(faal, that.faal) &&
+            Objects.equals(grouhKhodroId, that.grouhKhodroId);
     }
 
     @Override
@@ -85,7 +96,8 @@ public class KohnegiBadaneCriteria implements Serializable {
         id,
         darsadHarSal,
         maxDarsad,
-        faal
+        faal,
+        grouhKhodroId
         );
     }
 
@@ -96,6 +108,7 @@ public class KohnegiBadaneCriteria implements Serializable {
                 (darsadHarSal != null ? "darsadHarSal=" + darsadHarSal + ", " : "") +
                 (maxDarsad != null ? "maxDarsad=" + maxDarsad + ", " : "") +
                 (faal != null ? "faal=" + faal + ", " : "") +
+                (grouhKhodroId != null ? "grouhKhodroId=" + grouhKhodroId + ", " : "") +
             "}";
     }
 

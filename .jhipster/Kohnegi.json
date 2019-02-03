@@ -1,7 +1,19 @@
 {
     "fluentMethods": true,
     "clientRootFolder": "",
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "grouhKhodro",
+            "otherEntityName": "grouhKhodro",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "code",
+            "otherEntityRelationshipName": "kohnegi",
+            "otherEntityRelationshipNameUndefined": true
+        }
+    ],
     "fields": [
         {
             "fieldName": "darsadHarSal",
@@ -39,6 +51,7 @@
     "searchEngine": false,
     "service": "serviceClass",
     "entityTableName": "kohnegi",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": true,
     "pagination": "infinite-scroll"
 }

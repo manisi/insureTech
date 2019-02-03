@@ -115,6 +115,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'anvae-khodro',
                 loadChildren: './anvae-khodro/anvae-khodro.module#InsurancestartAnvaeKhodroModule'
+            },
+            {
+                path: 'kohnegi-badane',
+                loadChildren: './kohnegi-badane/kohnegi-badane.module#InsurancestartKohnegiBadaneModule'
+            },
+            {
+                path: 'kohnegi',
+                loadChildren: './kohnegi/kohnegi.module#InsurancestartKohnegiModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

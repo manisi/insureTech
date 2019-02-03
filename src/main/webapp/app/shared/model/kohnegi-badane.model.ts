@@ -4,10 +4,20 @@ export interface IKohnegiBadane {
     maxDarsad?: number;
     sharh?: any;
     faal?: boolean;
+    grouhKhodroCode?: string;
+    grouhKhodroId?: number;
 }
 
 export class KohnegiBadane implements IKohnegiBadane {
-    constructor(public id?: number, public darsadHarSal?: number, public maxDarsad?: number, public sharh?: any, public faal?: boolean) {
+    constructor(
+        public id?: number,
+        public darsadHarSal?: number,
+        public maxDarsad?: number,
+        public sharh?: any,
+        public faal?: boolean,
+        public grouhKhodroCode?: string,
+        public grouhKhodroId?: number
+    ) {
         this.faal = this.faal || false;
     }
 }

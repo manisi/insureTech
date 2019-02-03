@@ -19,6 +19,7 @@
             <th jhiSortBy="maxDarsad"><span jhiTranslate="insurancestartApp.kohnegi.maxDarsad">Max Darsad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="sharh"><span jhiTranslate="insurancestartApp.kohnegi.sharh">Sharh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.kohnegi.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.kohnegi.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -28,9 +29,11 @@
                 <td>{{kohnegi.darsadHarSal}}</td>
                 <td>{{kohnegi.maxDarsad}}</td>
                 <td>{{kohnegi.sharh}}</td>
-                <!--<td>{{kohnegi.faal}}</td>-->
+                <td>{{kohnegi.faal}}</td>
                 <td>
-                    <fa-icon [icon]="kohnegi.faal ? 'check' : 'times'" aria-hidden="true" class="{{kohnegi.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <div *ngIf="kohnegi.grouhKhodroId">
+                        <a [routerLink]="['../grouh-khodro', kohnegi.grouhKhodroId , 'view' ]" >{{kohnegi.grouhKhodroCode}}</a>
+                    </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

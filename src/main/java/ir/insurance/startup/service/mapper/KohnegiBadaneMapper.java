@@ -8,10 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity KohnegiBadane and its DTO KohnegiBadaneDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {GrouhKhodroMapper.class})
 public interface KohnegiBadaneMapper extends EntityMapper<KohnegiBadaneDTO, KohnegiBadane> {
 
+    @Mapping(source = "grouhKhodro.id", target = "grouhKhodroId")
+    @Mapping(source = "grouhKhodro.code", target = "grouhKhodroCode")
+    KohnegiBadaneDTO toDto(KohnegiBadane kohnegiBadane);
 
+    @Mapping(source = "grouhKhodroId", target = "grouhKhodro")
+    KohnegiBadane toEntity(KohnegiBadaneDTO kohnegiBadaneDTO);
 
     default KohnegiBadane fromId(Long id) {
         if (id == null) {

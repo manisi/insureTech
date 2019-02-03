@@ -30,6 +30,7 @@ export class KohnegiBadaneUpdatePage {
     maxDarsadInput = element(by.id('field_maxDarsad'));
     sharhInput = element(by.id('field_sharh'));
     faalInput = element(by.id('field_faal'));
+    grouhKhodroSelect = element(by.id('field_grouhKhodro'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -62,6 +63,26 @@ export class KohnegiBadaneUpdatePage {
     getFaalInput() {
         return this.faalInput;
     }
+
+    async grouhKhodroSelectLastOption() {
+        await this.grouhKhodroSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async grouhKhodroSelectOption(option) {
+        await this.grouhKhodroSelect.sendKeys(option);
+    }
+
+    getGrouhKhodroSelect(): ElementFinder {
+        return this.grouhKhodroSelect;
+    }
+
+    async getGrouhKhodroSelectedOption() {
+        return this.grouhKhodroSelect.element(by.css('option:checked')).getText();
+    }
+
     async save() {
         await this.saveButton.click();
     }

@@ -3,6 +3,7 @@ package ir.insurance.startup.web.rest;
 import ir.insurance.startup.InsurancestartApp;
 
 import ir.insurance.startup.domain.Kohnegi;
+import ir.insurance.startup.domain.GrouhKhodro;
 import ir.insurance.startup.repository.KohnegiRepository;
 import ir.insurance.startup.service.KohnegiService;
 import ir.insurance.startup.service.dto.KohnegiDTO;
@@ -113,6 +114,11 @@ public class KohnegiResourceIntTest {
             .maxDarsad(DEFAULT_MAX_DARSAD)
             .sharh(DEFAULT_SHARH)
             .faal(DEFAULT_FAAL);
+        // Add required entity
+        GrouhKhodro grouhKhodro = GrouhKhodroResourceIntTest.createEntity(em);
+        em.persist(grouhKhodro);
+        em.flush();
+        kohnegi.setGrouhKhodro(grouhKhodro);
         return kohnegi;
     }
 
@@ -370,6 +376,25 @@ public class KohnegiResourceIntTest {
         // Get all the kohnegiList where faal is null
         defaultKohnegiShouldNotBeFound("faal.specified=false");
     }
+
+    @Test
+    @Transactional
+    public void getAllKohnegisByGrouhKhodroIsEqualToSomething() throws Exception {
+        // Initialize the database
+        GrouhKhodro grouhKhodro = GrouhKhodroResourceIntTest.createEntity(em);
+        em.persist(grouhKhodro);
+        em.flush();
+        kohnegi.setGrouhKhodro(grouhKhodro);
+        kohnegiRepository.saveAndFlush(kohnegi);
+        Long grouhKhodroId = grouhKhodro.getId();
+
+        // Get all the kohnegiList where grouhKhodro equals to grouhKhodroId
+        defaultKohnegiShouldBeFound("grouhKhodroId.equals=" + grouhKhodroId);
+
+        // Get all the kohnegiList where grouhKhodro equals to grouhKhodroId + 1
+        defaultKohnegiShouldNotBeFound("grouhKhodroId.equals=" + (grouhKhodroId + 1));
+    }
+
     /**
      * Executes the search, and checks that the default entity is returned
      */

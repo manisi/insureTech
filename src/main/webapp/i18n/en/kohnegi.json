@@ -13,12 +13,13 @@
                 "question": "Are you sure you want to delete Kohnegi {{ id }}?"
             },
             "detail": {
-                "title": "Kohnegi Sales"
+                "title": "Kohnegi"
             },
             "darsadHarSal": "Darsad Har Sal",
             "maxDarsad": "Max Darsad",
             "sharh": "Sharh",
-            "faal": "Faal"
+            "faal": "Faal",
+            "grouhKhodro": "Grouh Khodro"
         }
     }
 }
