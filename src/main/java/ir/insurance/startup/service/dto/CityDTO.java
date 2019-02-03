@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,6 +10,7 @@ public class CityDTO implements Serializable {
     private Long id;
 
     private String name;
+
 
     private Long tipsId;
 

@@ -4,7 +4,7 @@
       "packageName": "ir.insurance.startup",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "5.8.0",
+    "jhipsterVersion": "5.8.1",
     "applicationType": "monolith",
     "baseName": "insurancestart",
     "packageName": "ir.insurance.startup",

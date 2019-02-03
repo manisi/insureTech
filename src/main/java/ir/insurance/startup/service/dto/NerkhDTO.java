@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +16,7 @@ public class NerkhDTO implements Serializable {
     private Boolean faal;
 
     private Float mablagh;
+
 
     private Set<SherkatBimeDTO> sherkatBimes = new HashSet<>();
 

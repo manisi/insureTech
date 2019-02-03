@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,6 +12,7 @@ public class SherkatBimeDTO implements Serializable {
     private String name;
 
     private Boolean faal;
+
 
     public Long getId() {
         return id;
