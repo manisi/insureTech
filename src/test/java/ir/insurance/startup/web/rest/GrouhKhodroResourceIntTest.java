@@ -8,7 +8,6 @@ import ir.insurance.startup.service.GrouhKhodroService;
 import ir.insurance.startup.service.dto.GrouhKhodroDTO;
 import ir.insurance.startup.service.mapper.GrouhKhodroMapper;
 import ir.insurance.startup.web.rest.errors.ExceptionTranslator;
-import ir.insurance.startup.service.dto.GrouhKhodroCriteria;
 import ir.insurance.startup.service.GrouhKhodroQueryService;
 
 import org.junit.Before;
@@ -210,7 +209,7 @@ public class GrouhKhodroResourceIntTest {
             .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)));
     }
-    
+
     @Test
     @Transactional
     public void getGrouhKhodro() throws Exception {
@@ -378,9 +377,11 @@ public class GrouhKhodroResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(grouhKhodro.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)));
+
 
         // Check, that the count call also returns 1
         restGrouhKhodroMockMvc.perform(get("/api/grouh-khodros/count?sort=id,desc&" + filter))

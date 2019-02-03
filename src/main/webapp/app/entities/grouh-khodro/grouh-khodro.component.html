@@ -28,8 +28,14 @@
                 <td>{{grouhKhodro.name}}</td>
                 <td>{{grouhKhodro.code}}</td>
                 <!--<td>{{grouhKhodro.faal}}</td>-->
+                <!--<td>-->
+                    <!--<fa-icon [icon]="grouhKhodro.faal ? 'check' : 'times'" aria-hidden="true" class="{{grouhKhodro.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->
+                <!--</td>-->
                 <td>
-                    <fa-icon [icon]="grouhKhodro.faal ? 'check' : 'times'" aria-hidden="true" class="{{grouhKhodro.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(grouhKhodro, true)" *ngIf="!grouhKhodro.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(grouhKhodro, false)" *ngIf="grouhKhodro.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

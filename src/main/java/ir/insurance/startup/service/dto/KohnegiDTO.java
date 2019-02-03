@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -29,6 +28,7 @@ public class KohnegiDTO implements Serializable {
     private Long grouhKhodroId;
 
     private String grouhKhodroCode;
+
 
     public Long getId() {
         return id;

@@ -29,9 +29,16 @@
                 <td>{{adamKhesarat.sales}}</td>
                 <td>{{adamKhesarat.mazad}}</td>
                 <!--<td>{{adamKhesarat.faal}}</td>-->
+                <!--<td>-->
+                    <!--<fa-icon [icon]="adamKhesarat.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesarat.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->
+                <!--</td>-->
                 <td>
-                    <fa-icon [icon]="adamKhesarat.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesarat.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(adamKhesarat, true)" *ngIf="!adamKhesarat.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(adamKhesarat, false)" *ngIf="adamKhesarat.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
                 </td>
+
                 <td>
                     <div *ngIf="adamKhesarat.sabegheId">
                         <a [routerLink]="['../sabeghe', adamKhesarat.sabegheId , 'view' ]" >{{adamKhesarat.sabegheName}}</a>

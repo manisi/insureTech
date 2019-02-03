@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import java.time.Instant;
 import java.io.Serializable;
 import java.util.Objects;
@@ -23,6 +22,7 @@ public class AshkhasDTO implements Serializable {
     private Instant hireDate;
 
     private NoeShakhs noeShakhs;
+
 
     public Long getId() {
         return id;

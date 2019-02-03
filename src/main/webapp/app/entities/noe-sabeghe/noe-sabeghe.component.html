@@ -27,9 +27,16 @@
                 <td>{{noeSabeghe.name}}</td>
                 <td>{{noeSabeghe.sharh}}</td>
                 <!--<td>{{noeSabeghe.faal}}</td>-->
+                <!--<td>-->
+                    <!--<fa-icon [icon]="noeSabeghe.faal ? 'check' : 'times'" aria-hidden="true" class="{{noeSabeghe.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->
+                <!--</td>-->
                 <td>
-                    <fa-icon [icon]="noeSabeghe.faal ? 'check' : 'times'" aria-hidden="true" class="{{noeSabeghe.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(noeSabeghe, true)" *ngIf="!noeSabeghe.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(noeSabeghe, false)" *ngIf="noeSabeghe.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
                 </td>
+
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -26,8 +26,14 @@
                 <td><a [routerLink]="['/jarime-dirkard', jarimeDirkard.id, 'view' ]">{{jarimeDirkard.id}}</a></td>
                 <td>{{jarimeDirkard.roozane}}</td>
 
+                <!--<td>-->
+                    <!--<fa-icon [icon]="jarimeDirkard.faal ? 'check' : 'times'" aria-hidden="true" class="{{jarimeDirkard.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->
+                <!--</td>-->
                 <td>
-                    <fa-icon [icon]="jarimeDirkard.faal ? 'check' : 'times'" aria-hidden="true" class="{{jarimeDirkard.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(jarimeDirkard, true)" *ngIf="!jarimeDirkard.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(jarimeDirkard, false)" *ngIf="jarimeDirkard.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
                 </td>
                 <td>
                     <div *ngIf="jarimeDirkard.grouhKhodroId">

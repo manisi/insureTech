@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import java.io.Serializable;
 import java.util.Objects;
 import ir.insurance.startup.domain.enumeration.NoeKhodro;
@@ -18,6 +17,7 @@ public class TipKhodroDTO implements Serializable {
     private Boolean faal;
 
     private NoeKhodro noe;
+
 
     private Long khodroId;
 

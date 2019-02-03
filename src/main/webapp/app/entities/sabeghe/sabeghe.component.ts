@@ -19,6 +19,8 @@ export class SabegheComponent implements OnInit, OnDestroy {
     currentAccount: any;
     eventSubscriber: Subscription;
     itemsPerPage: number;
+    error: any;
+    success: any;
     links: any;
     page: any;
     predicate: any;
@@ -45,6 +47,20 @@ export class SabegheComponent implements OnInit, OnDestroy {
         };
         this.predicate = 'id';
         this.reverse = true;
+    }
+
+    setActive(sabeghe, isActivated) {
+        sabeghe.faal = isActivated;
+        this.sabegheService.update(sabeghe).subscribe(response => {
+            if (response.status === 200) {
+                this.error = null;
+                this.success = 'OK';
+                // this.loadAll();
+            } else {
+                this.success = null;
+                this.error = 'ERROR';
+            }
+        });
     }
 
     //search

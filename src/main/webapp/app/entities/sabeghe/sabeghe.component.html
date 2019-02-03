@@ -58,9 +58,18 @@
                 <td>{{sabeghe.name}}</td>
                 <td>{{sabeghe.sharh}}</td>
 
+                <!--<td>-->
+                    <!--<fa-icon [icon]="sabeghe.faal ? 'check' : 'times'" aria-hidden="true" class="{{sabeghe.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->
+                <!--</td>-->
+
                 <td>
-                    <fa-icon [icon]="sabeghe.faal ? 'check' : 'times'" aria-hidden="true" class="{{sabeghe.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(sabeghe, true)" *ngIf="!sabeghe.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(sabeghe, false)" *ngIf="sabeghe.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
                 </td>
+
+
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

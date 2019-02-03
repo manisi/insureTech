@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,6 +17,7 @@ public class SabegheDTO implements Serializable {
 
     @NotNull
     private Boolean faal;
+
 
     public Long getId() {
         return id;

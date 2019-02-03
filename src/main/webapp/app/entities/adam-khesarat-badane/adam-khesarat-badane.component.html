@@ -27,8 +27,14 @@
                 <td><a [routerLink]="['/adam-khesarat-badane', adamKhesaratBadane.id, 'view' ]">{{adamKhesaratBadane.id}}</a></td>
                 <td>{{adamKhesaratBadane.badane}}</td>
                 <!--<td>{{adamKhesaratBadane.faal}}</td>-->
+                <!--<td>-->
+                    <!--<fa-icon [icon]="adamKhesaratBadane.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesaratBadane.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->
+                <!--</td>-->
                 <td>
-                    <fa-icon [icon]="adamKhesaratBadane.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesaratBadane.faal ? 'text-success' : 'text-danger'}}"></fa-icon>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(adamKhesaratBadane, true)" *ngIf="!adamKhesaratBadane.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(adamKhesaratBadane, false)" *ngIf="adamKhesaratBadane.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
                 </td>
                 <td>
                     <div *ngIf="adamKhesaratBadane.noeSabegheId">

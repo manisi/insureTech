@@ -20,6 +20,8 @@ export class AdamKhesaratComponent implements OnInit, OnDestroy {
     eventSubscriber: Subscription;
     itemsPerPage: number;
     links: any;
+    error: any;
+    success: any;
     page: any;
     predicate: any;
     reverse: any;
@@ -40,6 +42,20 @@ export class AdamKhesaratComponent implements OnInit, OnDestroy {
         };
         this.predicate = 'id';
         this.reverse = true;
+    }
+
+    setActive(adamKhesarat, isActivated) {
+        adamKhesarat.faal = isActivated;
+        this.adamKhesaratService.update(adamKhesarat).subscribe(response => {
+            if (response.status === 200) {
+                this.error = null;
+                this.success = 'OK';
+                // this.loadAll();
+            } else {
+                this.success = null;
+                this.error = 'ERROR';
+            }
+        });
     }
 
     loadAll() {

@@ -20,6 +20,8 @@ export class GrouhKhodroComponent implements OnInit, OnDestroy {
     eventSubscriber: Subscription;
     itemsPerPage: number;
     links: any;
+    error: any;
+    success: any;
     page: any;
     predicate: any;
     reverse: any;
@@ -40,6 +42,20 @@ export class GrouhKhodroComponent implements OnInit, OnDestroy {
         };
         this.predicate = 'id';
         this.reverse = true;
+    }
+
+    setActive(grouhKhodro, isActivated) {
+        grouhKhodro.faal = isActivated;
+        this.grouhKhodroService.update(grouhKhodro).subscribe(response => {
+            if (response.status === 200) {
+                this.error = null;
+                this.success = 'OK';
+                // this.loadAll();
+            } else {
+                this.success = null;
+                this.error = 'ERROR';
+            }
+        });
     }
 
     loadAll() {

@@ -19,6 +19,8 @@ export class NoeSabegheComponent implements OnInit, OnDestroy {
     currentAccount: any;
     eventSubscriber: Subscription;
     itemsPerPage: number;
+    error: any;
+    success: any;
     links: any;
     page: any;
     predicate: any;
@@ -40,6 +42,20 @@ export class NoeSabegheComponent implements OnInit, OnDestroy {
         };
         this.predicate = 'id';
         this.reverse = true;
+    }
+
+    setActive(noeSabeghe, isActivated) {
+        noeSabeghe.faal = isActivated;
+        this.noeSabegheService.update(noeSabeghe).subscribe(response => {
+            if (response.status === 200) {
+                this.error = null;
+                this.success = 'OK';
+                // this.loadAll();
+            } else {
+                this.success = null;
+                this.error = 'ERROR';
+            }
+        });
     }
 
     loadAll() {

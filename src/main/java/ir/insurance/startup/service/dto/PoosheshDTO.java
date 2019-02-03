@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import java.time.Instant;
 import java.io.Serializable;
 import java.util.Objects;
@@ -16,6 +15,7 @@ public class PoosheshDTO implements Serializable {
     private Boolean faal;
 
     private Instant aztarikh;
+
 
     private Long nerkhId;
 

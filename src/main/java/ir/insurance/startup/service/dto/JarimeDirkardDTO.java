@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,6 +16,7 @@ public class JarimeDirkardDTO implements Serializable {
 
     @NotNull
     private Boolean faal;
+
 
     private Long grouhKhodroId;
 
