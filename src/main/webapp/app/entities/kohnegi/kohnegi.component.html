@@ -29,7 +29,13 @@
                 <td>{{kohnegi.darsadHarSal}}</td>
                 <td>{{kohnegi.maxDarsad}}</td>
                 <td>{{kohnegi.sharh}}</td>
-                <td>{{kohnegi.faal}}</td>
+                <!--<td>{{kohnegi.faal}}</td>-->
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(kohnegi, true)" *ngIf="!kohnegi.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(kohnegi, false)" *ngIf="kohnegi.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
+                </td>
                 <td>
                     <div *ngIf="kohnegi.grouhKhodroId">
                         <a [routerLink]="['../grouh-khodro', kohnegi.grouhKhodroId , 'view' ]" >{{kohnegi.grouhKhodroCode}}</a>
