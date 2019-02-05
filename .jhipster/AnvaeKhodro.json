@@ -6,7 +6,9 @@
             "relationshipName": "grouhKhodro",
             "otherEntityName": "grouhKhodro",
             "relationshipType": "many-to-one",
-            "otherEntityField": "code"
+            "otherEntityField": "code",
+            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipName": "anvaeKhodro"
         }
     ],
     "fields": [
@@ -56,6 +58,13 @@
         {
             "fieldName": "savariType",
             "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "faal",
+            "fieldType": "Boolean",
             "fieldValidateRules": [
                 "required"
             ]

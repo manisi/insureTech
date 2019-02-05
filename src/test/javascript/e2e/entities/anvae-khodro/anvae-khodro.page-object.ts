@@ -34,6 +34,7 @@ export class AnvaeKhodroUpdatePage {
     tedadSilandreInput = element(by.id('field_tedadSilandre'));
     dasteBandiInput = element(by.id('field_dasteBandi'));
     savariTypeInput = element(by.id('field_savariType'));
+    faalInput = element(by.id('field_faal'));
     grouhKhodroSelect = element(by.id('field_grouhKhodro'));
 
     async getPageTitle() {
@@ -102,6 +103,10 @@ export class AnvaeKhodroUpdatePage {
 
     async getSavariTypeInput() {
         return this.savariTypeInput.getAttribute('value');
+    }
+
+    getFaalInput() {
+        return this.faalInput;
     }
 
     async grouhKhodroSelectLastOption() {

@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(AnvaeKhodroService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new AnvaeKhodro(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+            elemDefault = new AnvaeKhodro(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', false);
         });
 
         describe('Service methods', async () => {
@@ -62,7 +62,8 @@ describe('Service Tests', () => {
                         tedadSarneshin: 'BBBBBB',
                         tedadSilandre: 'BBBBBB',
                         dasteBandi: 'BBBBBB',
-                        savariType: 'BBBBBB'
+                        savariType: 'BBBBBB',
+                        faal: true
                     },
                     elemDefault
                 );
@@ -86,7 +87,8 @@ describe('Service Tests', () => {
                         tedadSarneshin: 'BBBBBB',
                         tedadSilandre: 'BBBBBB',
                         dasteBandi: 'BBBBBB',
-                        savariType: 'BBBBBB'
+                        savariType: 'BBBBBB',
+                        faal: true
                     },
                     elemDefault
                 );

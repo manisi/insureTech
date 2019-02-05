@@ -56,6 +56,10 @@ public class AnvaeKhodro implements Serializable {
     @Column(name = "savari_type", nullable = false)
     private String savariType;
 
+    @NotNull
+    @Column(name = "faal", nullable = false)
+    private Boolean faal;
+
     @ManyToOne
     @JsonIgnoreProperties("anvaeKhodros")
     private GrouhKhodro grouhKhodro;
@@ -173,6 +177,19 @@ public class AnvaeKhodro implements Serializable {
         this.savariType = savariType;
     }
 
+    public Boolean isFaal() {
+        return faal;
+    }
+
+    public AnvaeKhodro faal(Boolean faal) {
+        this.faal = faal;
+        return this;
+    }
+
+    public void setFaal(Boolean faal) {
+        this.faal = faal;
+    }
+
     public GrouhKhodro getGrouhKhodro() {
         return grouhKhodro;
     }
@@ -219,6 +236,7 @@ public class AnvaeKhodro implements Serializable {
             ", tedadSilandre='" + getTedadSilandre() + "'" +
             ", dasteBandi='" + getDasteBandi() + "'" +
             ", savariType='" + getSavariType() + "'" +
+            ", faal='" + isFaal() + "'" +
             "}";
     }
 }

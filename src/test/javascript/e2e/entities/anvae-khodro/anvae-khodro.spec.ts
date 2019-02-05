@@ -58,6 +58,14 @@ describe('AnvaeKhodro e2e test', () => {
         expect(await anvaeKhodroUpdatePage.getTedadSilandreInput()).to.eq('tedadSilandre');
         expect(await anvaeKhodroUpdatePage.getDasteBandiInput()).to.eq('dasteBandi');
         expect(await anvaeKhodroUpdatePage.getSavariTypeInput()).to.eq('savariType');
+        const selectedFaal = anvaeKhodroUpdatePage.getFaalInput();
+        if (await selectedFaal.isSelected()) {
+            await anvaeKhodroUpdatePage.getFaalInput().click();
+            expect(await anvaeKhodroUpdatePage.getFaalInput().isSelected()).to.be.false;
+        } else {
+            await anvaeKhodroUpdatePage.getFaalInput().click();
+            expect(await anvaeKhodroUpdatePage.getFaalInput().isSelected()).to.be.true;
+        }
         await anvaeKhodroUpdatePage.save();
         expect(await anvaeKhodroUpdatePage.getSaveButton().isPresent()).to.be.false;
 

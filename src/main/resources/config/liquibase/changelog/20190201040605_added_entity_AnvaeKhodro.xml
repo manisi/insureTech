@@ -53,6 +53,10 @@
                 <constraints nullable="false" />
             </column>
 
+            <column name="faal" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
             <column name="grouh_khodro_id" type="bigint">
                 <constraints nullable="true" />
             </column>

@@ -40,6 +40,8 @@ public class AnvaeKhodroCriteria implements Serializable {
 
     private StringFilter savariType;
 
+    private BooleanFilter faal;
+
     private LongFilter grouhKhodroId;
 
     public LongFilter getId() {
@@ -114,6 +116,14 @@ public class AnvaeKhodroCriteria implements Serializable {
         this.savariType = savariType;
     }
 
+    public BooleanFilter getFaal() {
+        return faal;
+    }
+
+    public void setFaal(BooleanFilter faal) {
+        this.faal = faal;
+    }
+
     public LongFilter getGrouhKhodroId() {
         return grouhKhodroId;
     }
@@ -142,6 +152,7 @@ public class AnvaeKhodroCriteria implements Serializable {
             Objects.equals(tedadSilandre, that.tedadSilandre) &&
             Objects.equals(dasteBandi, that.dasteBandi) &&
             Objects.equals(savariType, that.savariType) &&
+            Objects.equals(faal, that.faal) &&
             Objects.equals(grouhKhodroId, that.grouhKhodroId);
     }
 
@@ -157,6 +168,7 @@ public class AnvaeKhodroCriteria implements Serializable {
         tedadSilandre,
         dasteBandi,
         savariType,
+        faal,
         grouhKhodroId
         );
     }
@@ -173,6 +185,7 @@ public class AnvaeKhodroCriteria implements Serializable {
                 (tedadSilandre != null ? "tedadSilandre=" + tedadSilandre + ", " : "") +
                 (dasteBandi != null ? "dasteBandi=" + dasteBandi + ", " : "") +
                 (savariType != null ? "savariType=" + savariType + ", " : "") +
+                (faal != null ? "faal=" + faal + ", " : "") +
                 (grouhKhodroId != null ? "grouhKhodroId=" + grouhKhodroId + ", " : "") +
             "}";
     }

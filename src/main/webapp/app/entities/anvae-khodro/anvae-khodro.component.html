@@ -23,6 +23,7 @@
             <th jhiSortBy="tedadSilandre"><span jhiTranslate="insurancestartApp.anvaeKhodro.tedadSilandre">Tedad Silandre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dasteBandi"><span jhiTranslate="insurancestartApp.anvaeKhodro.dasteBandi">Daste Bandi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="savariType"><span jhiTranslate="insurancestartApp.anvaeKhodro.savariType">Savari Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.anvaeKhodro.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.anvaeKhodro.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
@@ -38,6 +39,7 @@
                 <td>{{anvaeKhodro.tedadSilandre}}</td>
                 <td>{{anvaeKhodro.dasteBandi}}</td>
                 <td>{{anvaeKhodro.savariType}}</td>
+                <td>{{anvaeKhodro.faal}}</td>
                 <td>
                     <div *ngIf="anvaeKhodro.grouhKhodroId">
                         <a [routerLink]="['../grouh-khodro', anvaeKhodro.grouhKhodroId , 'view' ]" >{{anvaeKhodro.grouhKhodroCode}}</a>

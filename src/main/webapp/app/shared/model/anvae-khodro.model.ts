@@ -8,6 +8,7 @@ export interface IAnvaeKhodro {
     tedadSilandre?: string;
     dasteBandi?: string;
     savariType?: string;
+    faal?: boolean;
     grouhKhodroCode?: string;
     grouhKhodroId?: number;
 }
@@ -23,7 +24,10 @@ export class AnvaeKhodro implements IAnvaeKhodro {
         public tedadSilandre?: string,
         public dasteBandi?: string,
         public savariType?: string,
+        public faal?: boolean,
         public grouhKhodroCode?: string,
         public grouhKhodroId?: number
-    ) {}
+    ) {
+        this.faal = this.faal || false;
+    }
 }

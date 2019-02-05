@@ -70,6 +70,9 @@ public class AnvaeKhodroResourceIntTest {
     private static final String DEFAULT_SAVARI_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_SAVARI_TYPE = "BBBBBBBBBB";
 
+    private static final Boolean DEFAULT_FAAL = false;
+    private static final Boolean UPDATED_FAAL = true;
+
     @Autowired
     private AnvaeKhodroRepository anvaeKhodroRepository;
 
@@ -128,7 +131,8 @@ public class AnvaeKhodroResourceIntTest {
             .tedadSarneshin(DEFAULT_TEDAD_SARNESHIN)
             .tedadSilandre(DEFAULT_TEDAD_SILANDRE)
             .dasteBandi(DEFAULT_DASTE_BANDI)
-            .savariType(DEFAULT_SAVARI_TYPE);
+            .savariType(DEFAULT_SAVARI_TYPE)
+            .faal(DEFAULT_FAAL);
         return anvaeKhodro;
     }
 
@@ -161,6 +165,7 @@ public class AnvaeKhodroResourceIntTest {
         assertThat(testAnvaeKhodro.getTedadSilandre()).isEqualTo(DEFAULT_TEDAD_SILANDRE);
         assertThat(testAnvaeKhodro.getDasteBandi()).isEqualTo(DEFAULT_DASTE_BANDI);
         assertThat(testAnvaeKhodro.getSavariType()).isEqualTo(DEFAULT_SAVARI_TYPE);
+        assertThat(testAnvaeKhodro.isFaal()).isEqualTo(DEFAULT_FAAL);
     }
 
     @Test
@@ -299,6 +304,25 @@ public class AnvaeKhodroResourceIntTest {
 
     @Test
     @Transactional
+    public void checkFaalIsRequired() throws Exception {
+        int databaseSizeBeforeTest = anvaeKhodroRepository.findAll().size();
+        // set the field null
+        anvaeKhodro.setFaal(null);
+
+        // Create the AnvaeKhodro, which fails.
+        AnvaeKhodroDTO anvaeKhodroDTO = anvaeKhodroMapper.toDto(anvaeKhodro);
+
+        restAnvaeKhodroMockMvc.perform(post("/api/anvae-khodros")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(anvaeKhodroDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<AnvaeKhodro> anvaeKhodroList = anvaeKhodroRepository.findAll();
+        assertThat(anvaeKhodroList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllAnvaeKhodros() throws Exception {
         // Initialize the database
         anvaeKhodroRepository.saveAndFlush(anvaeKhodro);
@@ -315,7 +339,8 @@ public class AnvaeKhodroResourceIntTest {
             .andExpect(jsonPath("$.[*].tedadSarneshin").value(hasItem(DEFAULT_TEDAD_SARNESHIN.toString())))
             .andExpect(jsonPath("$.[*].tedadSilandre").value(hasItem(DEFAULT_TEDAD_SILANDRE.toString())))
             .andExpect(jsonPath("$.[*].dasteBandi").value(hasItem(DEFAULT_DASTE_BANDI.toString())))
-            .andExpect(jsonPath("$.[*].savariType").value(hasItem(DEFAULT_SAVARI_TYPE.toString())));
+            .andExpect(jsonPath("$.[*].savariType").value(hasItem(DEFAULT_SAVARI_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
     }
     
     @Test
@@ -336,7 +361,8 @@ public class AnvaeKhodroResourceIntTest {
             .andExpect(jsonPath("$.tedadSarneshin").value(DEFAULT_TEDAD_SARNESHIN.toString()))
             .andExpect(jsonPath("$.tedadSilandre").value(DEFAULT_TEDAD_SILANDRE.toString()))
             .andExpect(jsonPath("$.dasteBandi").value(DEFAULT_DASTE_BANDI.toString()))
-            .andExpect(jsonPath("$.savariType").value(DEFAULT_SAVARI_TYPE.toString()));
+            .andExpect(jsonPath("$.savariType").value(DEFAULT_SAVARI_TYPE.toString()))
+            .andExpect(jsonPath("$.faal").value(DEFAULT_FAAL.booleanValue()));
     }
 
     @Test
@@ -653,6 +679,45 @@ public class AnvaeKhodroResourceIntTest {
 
     @Test
     @Transactional
+    public void getAllAnvaeKhodrosByFaalIsEqualToSomething() throws Exception {
+        // Initialize the database
+        anvaeKhodroRepository.saveAndFlush(anvaeKhodro);
+
+        // Get all the anvaeKhodroList where faal equals to DEFAULT_FAAL
+        defaultAnvaeKhodroShouldBeFound("faal.equals=" + DEFAULT_FAAL);
+
+        // Get all the anvaeKhodroList where faal equals to UPDATED_FAAL
+        defaultAnvaeKhodroShouldNotBeFound("faal.equals=" + UPDATED_FAAL);
+    }
+
+    @Test
+    @Transactional
+    public void getAllAnvaeKhodrosByFaalIsInShouldWork() throws Exception {
+        // Initialize the database
+        anvaeKhodroRepository.saveAndFlush(anvaeKhodro);
+
+        // Get all the anvaeKhodroList where faal in DEFAULT_FAAL or UPDATED_FAAL
+        defaultAnvaeKhodroShouldBeFound("faal.in=" + DEFAULT_FAAL + "," + UPDATED_FAAL);
+
+        // Get all the anvaeKhodroList where faal equals to UPDATED_FAAL
+        defaultAnvaeKhodroShouldNotBeFound("faal.in=" + UPDATED_FAAL);
+    }
+
+    @Test
+    @Transactional
+    public void getAllAnvaeKhodrosByFaalIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        anvaeKhodroRepository.saveAndFlush(anvaeKhodro);
+
+        // Get all the anvaeKhodroList where faal is not null
+        defaultAnvaeKhodroShouldBeFound("faal.specified=true");
+
+        // Get all the anvaeKhodroList where faal is null
+        defaultAnvaeKhodroShouldNotBeFound("faal.specified=false");
+    }
+
+    @Test
+    @Transactional
     public void getAllAnvaeKhodrosByGrouhKhodroIsEqualToSomething() throws Exception {
         // Initialize the database
         GrouhKhodro grouhKhodro = GrouhKhodroResourceIntTest.createEntity(em);
@@ -677,14 +742,15 @@ public class AnvaeKhodroResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(anvaeKhodro.getId().intValue())))
-            .andExpect(jsonPath("$.[*].grouhVasile").value(hasItem(DEFAULT_GROUH_VASILE.toString())))
-            .andExpect(jsonPath("$.[*].systemVasile").value(hasItem(DEFAULT_SYSTEM_VASILE.toString())))
-            .andExpect(jsonPath("$.[*].onvan").value(hasItem(DEFAULT_ONVAN.toString())))
-            .andExpect(jsonPath("$.[*].tonazh").value(hasItem(DEFAULT_TONAZH.toString())))
-            .andExpect(jsonPath("$.[*].tedadSarneshin").value(hasItem(DEFAULT_TEDAD_SARNESHIN.toString())))
-            .andExpect(jsonPath("$.[*].tedadSilandre").value(hasItem(DEFAULT_TEDAD_SILANDRE.toString())))
-            .andExpect(jsonPath("$.[*].dasteBandi").value(hasItem(DEFAULT_DASTE_BANDI.toString())))
-            .andExpect(jsonPath("$.[*].savariType").value(hasItem(DEFAULT_SAVARI_TYPE.toString())));
+            .andExpect(jsonPath("$.[*].grouhVasile").value(hasItem(DEFAULT_GROUH_VASILE)))
+            .andExpect(jsonPath("$.[*].systemVasile").value(hasItem(DEFAULT_SYSTEM_VASILE)))
+            .andExpect(jsonPath("$.[*].onvan").value(hasItem(DEFAULT_ONVAN)))
+            .andExpect(jsonPath("$.[*].tonazh").value(hasItem(DEFAULT_TONAZH)))
+            .andExpect(jsonPath("$.[*].tedadSarneshin").value(hasItem(DEFAULT_TEDAD_SARNESHIN)))
+            .andExpect(jsonPath("$.[*].tedadSilandre").value(hasItem(DEFAULT_TEDAD_SILANDRE)))
+            .andExpect(jsonPath("$.[*].dasteBandi").value(hasItem(DEFAULT_DASTE_BANDI)))
+            .andExpect(jsonPath("$.[*].savariType").value(hasItem(DEFAULT_SAVARI_TYPE)))
+            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
 
         // Check, that the count call also returns 1
         restAnvaeKhodroMockMvc.perform(get("/api/anvae-khodros/count?sort=id,desc&" + filter))
@@ -739,7 +805,8 @@ public class AnvaeKhodroResourceIntTest {
             .tedadSarneshin(UPDATED_TEDAD_SARNESHIN)
             .tedadSilandre(UPDATED_TEDAD_SILANDRE)
             .dasteBandi(UPDATED_DASTE_BANDI)
-            .savariType(UPDATED_SAVARI_TYPE);
+            .savariType(UPDATED_SAVARI_TYPE)
+            .faal(UPDATED_FAAL);
         AnvaeKhodroDTO anvaeKhodroDTO = anvaeKhodroMapper.toDto(updatedAnvaeKhodro);
 
         restAnvaeKhodroMockMvc.perform(put("/api/anvae-khodros")
@@ -759,6 +826,7 @@ public class AnvaeKhodroResourceIntTest {
         assertThat(testAnvaeKhodro.getTedadSilandre()).isEqualTo(UPDATED_TEDAD_SILANDRE);
         assertThat(testAnvaeKhodro.getDasteBandi()).isEqualTo(UPDATED_DASTE_BANDI);
         assertThat(testAnvaeKhodro.getSavariType()).isEqualTo(UPDATED_SAVARI_TYPE);
+        assertThat(testAnvaeKhodro.isFaal()).isEqualTo(UPDATED_FAAL);
     }
 
     @Test

@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -32,6 +31,10 @@ public class AnvaeKhodroDTO implements Serializable {
 
     @NotNull
     private String savariType;
+
+    @NotNull
+    private Boolean faal;
+
 
     private Long grouhKhodroId;
 
@@ -109,6 +112,14 @@ public class AnvaeKhodroDTO implements Serializable {
         this.savariType = savariType;
     }
 
+    public Boolean isFaal() {
+        return faal;
+    }
+
+    public void setFaal(Boolean faal) {
+        this.faal = faal;
+    }
+
     public Long getGrouhKhodroId() {
         return grouhKhodroId;
     }
@@ -158,6 +169,7 @@ public class AnvaeKhodroDTO implements Serializable {
             ", tedadSilandre='" + getTedadSilandre() + "'" +
             ", dasteBandi='" + getDasteBandi() + "'" +
             ", savariType='" + getSavariType() + "'" +
+            ", faal='" + isFaal() + "'" +
             ", grouhKhodro=" + getGrouhKhodroId() +
             ", grouhKhodro='" + getGrouhKhodroCode() + "'" +
             "}";

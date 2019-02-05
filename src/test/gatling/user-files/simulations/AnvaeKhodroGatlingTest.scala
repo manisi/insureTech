@@ -80,6 +80,7 @@ class AnvaeKhodroGatlingTest extends Simulation {
                 , "tedadSilandre":"SAMPLE_TEXT"
                 , "dasteBandi":"SAMPLE_TEXT"
                 , "savariType":"SAMPLE_TEXT"
+                , "faal":null
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_anvaeKhodro_url"))).exitHereIfFailed

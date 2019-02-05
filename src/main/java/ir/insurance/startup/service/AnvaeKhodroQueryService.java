@@ -113,6 +113,9 @@ public class AnvaeKhodroQueryService extends QueryService<AnvaeKhodro> {
             if (criteria.getSavariType() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getSavariType(), AnvaeKhodro_.savariType));
             }
+            if (criteria.getFaal() != null) {
+                specification = specification.and(buildSpecification(criteria.getFaal(), AnvaeKhodro_.faal));
+            }
             if (criteria.getGrouhKhodroId() != null) {
                 specification = specification.and(buildSpecification(criteria.getGrouhKhodroId(),
                     root -> root.join(AnvaeKhodro_.grouhKhodro, JoinType.LEFT).get(GrouhKhodro_.id)));
