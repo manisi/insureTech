@@ -48,6 +48,20 @@ export class AnvaeKhodroComponent implements OnInit, OnDestroy {
         });
     }
 
+    setActive(anvaeKhodro, isActivated) {
+        anvaeKhodro.faal = isActivated;
+        this.anvaeKhodroService.update(anvaeKhodro).subscribe(response => {
+            if (response.status === 200) {
+                this.error = null;
+                this.success = 'OK';
+                // this.loadAll();
+            } else {
+                this.success = null;
+                this.error = 'ERROR';
+            }
+        });
+    }
+
     loadAll() {
         this.anvaeKhodroService
             .query({

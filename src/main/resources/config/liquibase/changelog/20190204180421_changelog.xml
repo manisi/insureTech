@@ -3,7 +3,7 @@
     <changeSet author="developer (generated)" id="1549303466498-1">
         <addColumn tableName="anvae_khodro">
             <column name="faal" type="boolean">
-                <constraints nullable="true"/>
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
