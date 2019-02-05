@@ -7,7 +7,7 @@
             "otherEntityName": "grouhKhodro",
             "relationshipType": "many-to-one",
             "otherEntityField": "code",
-            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipNameUndefined": false,
             "otherEntityRelationshipName": "anvaeKhodro"
         }
     ],

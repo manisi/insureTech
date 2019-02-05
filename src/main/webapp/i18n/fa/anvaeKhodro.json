@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "anvaeKhodro": {
             "home": {
-                "title": "انواع خودرو",
-                "createLabel": "ایجاد",
-                "createOrEditLabel": "ایجاد/ویرایش"
+                "title": "Anvae Khodros",
+                "createLabel": "Create a new Anvae Khodro",
+                "createOrEditLabel": "Create or edit a Anvae Khodro"
             },
             "created": "A new Anvae Khodro is created with identifier {{ param }}",
             "updated": "A Anvae Khodro is updated with identifier {{ param }}",
@@ -13,18 +13,18 @@
                 "question": "Are you sure you want to delete Anvae Khodro {{ id }}?"
             },
             "detail": {
-                "title": "انواع خودرو"
+                "title": "Anvae Khodro"
             },
-            "grouhVasile": "گروه وسیله",
-            "systemVasile": "سیستم",
-            "onvan": "عنوان",
-            "tonazh": "تناژ",
-            "tedadSarneshin": "تعداد سرنشین",
-            "tedadSilandre": "تعداد سیلندر",
-            "dasteBandi": "دسته بندی",
-            "savariType": "سواری",
-            "faal": "فعال",
-            "grouhKhodro": "گروه خودرو"
+            "grouhVasile": "Grouh Vasile",
+            "systemVasile": "System Vasile",
+            "onvan": "Onvan",
+            "tonazh": "Tonazh",
+            "tedadSarneshin": "Tedad Sarneshin",
+            "tedadSilandre": "Tedad Silandre",
+            "dasteBandi": "Daste Bandi",
+            "savariType": "Savari Type",
+            "faal": "Faal",
+            "grouhKhodro": "Grouh Khodro"
         }
     }
 }

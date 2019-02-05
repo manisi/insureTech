@@ -39,13 +39,7 @@
                 <td>{{anvaeKhodro.tedadSilandre}}</td>
                 <td>{{anvaeKhodro.dasteBandi}}</td>
                 <td>{{anvaeKhodro.savariType}}</td>
-                <!--<td>{{anvaeKhodro.faal}}</td>-->
-                <td>
-                    <button class="btn btn-danger btn-sm" (click)="setActive(anvaeKhodro, true)" *ngIf="!anvaeKhodro.faal"
-                            jhiTranslate="userManagement.deactivated">Deactivated</button>
-                    <button class="btn btn-success btn-sm" (click)="setActive(anvaeKhodro, false)" *ngIf="anvaeKhodro.faal"
-                            jhiTranslate="userManagement.activated">Activated</button>
-                </td>
+                <td>{{anvaeKhodro.faal}}</td>
                 <td>
                     <div *ngIf="anvaeKhodro.grouhKhodroId">
                         <a [routerLink]="['../grouh-khodro', anvaeKhodro.grouhKhodroId , 'view' ]" >{{anvaeKhodro.grouhKhodroCode}}</a>
