@@ -81,6 +81,10 @@ import { RouterModule } from '@angular/router';
                 loadChildren: './khesarat-srneshin/khesarat-srneshin.module#InsurancestartKhesaratSrneshinModule'
             },
             {
+                path: 'adam-khesarat-sarneshin',
+                loadChildren: './adam-khesarat-sarneshin/adam-khesarat-sarneshin.module#InsurancestartAdamKhesaratSarneshinModule'
+            },
+            {
                 path: 'adam-khesarat-badane',
                 loadChildren: './adam-khesarat-badane/adam-khesarat-badane.module#InsurancestartAdamKhesaratBadaneModule'
             },
@@ -97,8 +101,20 @@ import { RouterModule } from '@angular/router';
                 loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
             },
             {
+                path: 'adam-khesarat',
+                loadChildren: './adam-khesarat/adam-khesarat.module#InsurancestartAdamKhesaratModule'
+            },
+            {
                 path: 'grouh-khodro',
                 loadChildren: './grouh-khodro/grouh-khodro.module#InsurancestartGrouhKhodroModule'
+            },
+            {
+                path: 'anvae-khodro',
+                loadChildren: './anvae-khodro/anvae-khodro.module#InsurancestartAnvaeKhodroModule'
+            },
+            {
+                path: 'anvae-khodro',
+                loadChildren: './anvae-khodro/anvae-khodro.module#InsurancestartAnvaeKhodroModule'
             },
             {
                 path: 'kohnegi-badane',

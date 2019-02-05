@@ -21,6 +21,8 @@ import { InsurancestartAppAboutUsModule } from './about-us/about-us.module';
 import { InsurancestartAppHiThereModule } from './hi-there/hi-there.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n, NgbCalendarPersian } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerI18nPersian } from 'app/entities/anvae-khodro/datepicker-jalali';
 
 @NgModule({
     imports: [
@@ -65,6 +67,14 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
             provide: HTTP_INTERCEPTORS,
             useClass: NotificationInterceptor,
             multi: true
+        },
+        {
+            provide: NgbCalendar,
+            useClass: NgbCalendarPersian
+        },
+        {
+            provide: NgbDatepickerI18n,
+            useClass: NgbDatepickerI18nPersian
         }
     ],
     bootstrap: [JhiMainComponent]
