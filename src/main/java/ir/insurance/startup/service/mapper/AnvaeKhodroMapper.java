@@ -13,6 +13,7 @@ public interface AnvaeKhodroMapper extends EntityMapper<AnvaeKhodroDTO, AnvaeKho
 
     @Mapping(source = "grouhKhodro.id", target = "grouhKhodroId")
     @Mapping(source = "grouhKhodro.code", target = "grouhKhodroCode")
+    @Mapping(source = "grouhKhodro.name", target = "grouhKhodroName")
     AnvaeKhodroDTO toDto(AnvaeKhodro anvaeKhodro);
 
     @Mapping(source = "grouhKhodroId", target = "grouhKhodro")

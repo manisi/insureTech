@@ -40,6 +40,8 @@ public class AnvaeKhodroDTO implements Serializable {
 
     private String grouhKhodroCode;
 
+    private String grouhKhodroName;
+
     public Long getId() {
         return id;
     }
@@ -134,6 +136,14 @@ public class AnvaeKhodroDTO implements Serializable {
 
     public void setGrouhKhodroCode(String grouhKhodroCode) {
         this.grouhKhodroCode = grouhKhodroCode;
+    }
+
+    public String getGrouhKhodroName() {
+        return grouhKhodroName;
+    }
+
+    public void setGrouhKhodroName(String grouhKhodroName) {
+        this.grouhKhodroName = grouhKhodroName;
     }
 
     @Override

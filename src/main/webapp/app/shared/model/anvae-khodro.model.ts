@@ -10,6 +10,7 @@ export interface IAnvaeKhodro {
     savariType?: string;
     faal?: boolean;
     grouhKhodroCode?: string;
+    grouhKhodroName?: string;
     grouhKhodroId?: number;
 }
 
@@ -25,6 +26,7 @@ export class AnvaeKhodro implements IAnvaeKhodro {
         public dasteBandi?: string,
         public savariType?: string,
         public faal?: boolean,
+        public grouhKhodroName?: string,
         public grouhKhodroCode?: string,
         public grouhKhodroId?: number
     ) {

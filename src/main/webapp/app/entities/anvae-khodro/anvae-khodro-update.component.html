@@ -101,7 +101,7 @@
                     <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>
                     <select class="form-control" id="field_grouhKhodro" name="grouhKhodro" [(ngModel)]="anvaeKhodro.grouhKhodroId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.code}}</option>
+                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.name}}({{grouhKhodroOption.code}})</option>
                     </select>
                 </div>
             </div>
