@@ -9,6 +9,7 @@ import io.github.jhipster.service.filter.FloatFilter;
 import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
+import io.github.jhipster.service.filter.LocalDateFilter;
 
 /**
  * Criteria class for the Sabeghe entity. This class is used in SabegheResource to
@@ -29,6 +30,8 @@ public class SabegheCriteria implements Serializable {
     private StringFilter sharh;
 
     private BooleanFilter faal;
+
+    private LocalDateFilter tarikh;
 
     public LongFilter getId() {
         return id;
@@ -62,6 +65,14 @@ public class SabegheCriteria implements Serializable {
         this.faal = faal;
     }
 
+    public LocalDateFilter getTarikh() {
+        return tarikh;
+    }
+
+    public void setTarikh(LocalDateFilter tarikh) {
+        this.tarikh = tarikh;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -76,7 +87,8 @@ public class SabegheCriteria implements Serializable {
             Objects.equals(id, that.id) &&
             Objects.equals(name, that.name) &&
             Objects.equals(sharh, that.sharh) &&
-            Objects.equals(faal, that.faal);
+            Objects.equals(faal, that.faal) &&
+            Objects.equals(tarikh, that.tarikh);
     }
 
     @Override
@@ -85,7 +97,8 @@ public class SabegheCriteria implements Serializable {
         id,
         name,
         sharh,
-        faal
+        faal,
+        tarikh
         );
     }
 
@@ -96,6 +109,7 @@ public class SabegheCriteria implements Serializable {
                 (name != null ? "name=" + name + ", " : "") +
                 (sharh != null ? "sharh=" + sharh + ", " : "") +
                 (faal != null ? "faal=" + faal + ", " : "") +
+                (tarikh != null ? "tarikh=" + tarikh + ", " : "") +
             "}";
     }
 

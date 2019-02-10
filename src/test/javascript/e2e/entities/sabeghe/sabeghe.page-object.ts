@@ -29,6 +29,7 @@ export class SabegheUpdatePage {
     nameInput = element(by.id('field_name'));
     sharhInput = element(by.id('field_sharh'));
     faalInput = element(by.id('field_faal'));
+    tarikhInput = element(by.id('field_tarikh'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -53,6 +54,14 @@ export class SabegheUpdatePage {
     getFaalInput() {
         return this.faalInput;
     }
+    async setTarikhInput(tarikh) {
+        await this.tarikhInput.sendKeys(tarikh);
+    }
+
+    async getTarikhInput() {
+        return this.tarikhInput.getAttribute('value');
+    }
+
     async save() {
         await this.saveButton.click();
     }

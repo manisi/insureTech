@@ -2,9 +2,9 @@
     "insurancestartApp": {
         "sabeghe": {
             "home": {
-                "title": "سابقه",
-                "createLabel": "ایجاد",
-                "createOrEditLabel": "ایجاد/ویرایش"
+                "title": "Sabeghes",
+                "createLabel": "Create a new Sabeghe",
+                "createOrEditLabel": "Create or edit a Sabeghe"
             },
             "created": "A new Sabeghe is created with identifier {{ param }}",
             "updated": "A Sabeghe is updated with identifier {{ param }}",
@@ -13,12 +13,12 @@
                 "question": "Are you sure you want to delete Sabeghe {{ id }}?"
             },
             "detail": {
-                "title": "سابقه"
+                "title": "Sabeghe"
             },
-            "id": "شناسه",
-            "name": "نام",
-            "sharh": "شرح",
-            "faal": "فعال"
+            "name": "Name",
+            "sharh": "Sharh",
+            "faal": "Faal",
+            "tarikh": "Tarikh"
         }
     }
 }

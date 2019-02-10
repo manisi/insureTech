@@ -15,10 +15,10 @@
             "detail": {
                 "title": "Sabeghe"
             },
-            "id": "ID",
             "name": "Name",
             "sharh": "Sharh",
-            "faal": "Faal"
+            "faal": "Faal",
+            "tarikh": "Tarikh"
         }
     }
 }

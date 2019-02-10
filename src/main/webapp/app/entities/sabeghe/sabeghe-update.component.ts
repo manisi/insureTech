@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { ISabeghe } from 'app/shared/model/sabeghe.model';
 import { SabegheService } from './sabeghe.service';
-
+import { NgbDateStruct, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'jalali-moment';
+//import {toGregorian} from "@ng-bootstrap/ng-bootstrap/datepicker/jalali/jalali";
+//moment.locale('fa', { useGregorianParser: true });
 @Component({
     selector: 'jhi-sabeghe-update',
     templateUrl: './sabeghe-update.component.html'
@@ -13,14 +16,23 @@ import { SabegheService } from './sabeghe.service';
 export class SabegheUpdateComponent implements OnInit {
     sabeghe: ISabeghe;
     isSaving: boolean;
+    model: NgbDateStruct;
+    date: { year: number; month: number; day: number };
 
-    constructor(protected sabegheService: SabegheService, protected activatedRoute: ActivatedRoute) {}
+    constructor(protected sabegheService: SabegheService, protected activatedRoute: ActivatedRoute, private calendar: NgbCalendar) {
+        // this.dayTemplateData = this.dayTemplateData.bind(this);
+    }
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ sabeghe }) => {
             this.sabeghe = sabeghe;
         });
+    }
+
+    selectToday() {
+        this.model = this.calendar.getToday();
+        //   this.date = new NgbDate(this.calendar.getToday().year, this.calendar.getToday().month, this.calendar.getToday().day);
     }
 
     previousState() {

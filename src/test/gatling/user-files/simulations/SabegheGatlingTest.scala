@@ -75,6 +75,7 @@ class SabegheGatlingTest extends Simulation {
                 , "name":"SAMPLE_TEXT"
                 , "sharh":"SAMPLE_TEXT"
                 , "faal":null
+                , "tarikh":"2020-01-01T00:00:00.000Z"
                 }""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_sabeghe_url"))).exitHereIfFailed

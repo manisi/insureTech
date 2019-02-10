@@ -39,7 +39,11 @@ describe('Sabeghe e2e test', () => {
         const nbButtonsBeforeCreate = await sabegheComponentsPage.countDeleteButtons();
 
         await sabegheComponentsPage.clickOnCreateButton();
-        await promise.all([sabegheUpdatePage.setNameInput('name'), sabegheUpdatePage.setSharhInput('sharh')]);
+        await promise.all([
+            sabegheUpdatePage.setNameInput('name'),
+            sabegheUpdatePage.setSharhInput('sharh'),
+            sabegheUpdatePage.setTarikhInput('2000-12-31')
+        ]);
         expect(await sabegheUpdatePage.getNameInput()).to.eq('name');
         expect(await sabegheUpdatePage.getSharhInput()).to.eq('sharh');
         const selectedFaal = sabegheUpdatePage.getFaalInput();
@@ -50,6 +54,7 @@ describe('Sabeghe e2e test', () => {
             await sabegheUpdatePage.getFaalInput().click();
             expect(await sabegheUpdatePage.getFaalInput().isSelected()).to.be.true;
         }
+        expect(await sabegheUpdatePage.getTarikhInput()).to.eq('2000-12-31');
         await sabegheUpdatePage.save();
         expect(await sabegheUpdatePage.getSaveButton().isPresent()).to.be.false;
 

@@ -19,18 +19,11 @@ export class SabegheComponent implements OnInit, OnDestroy {
     currentAccount: any;
     eventSubscriber: Subscription;
     itemsPerPage: number;
-    error: any;
-    success: any;
     links: any;
     page: any;
     predicate: any;
     reverse: any;
     totalItems: number;
-    searchvalue: any;
-    propkey: string;
-    operation: string;
-    entity: any;
-    searchparams: any[] = [];
 
     constructor(
         protected sabegheService: SabegheService,
@@ -49,45 +42,6 @@ export class SabegheComponent implements OnInit, OnDestroy {
         this.reverse = true;
     }
 
-    setActive(sabeghe, isActivated) {
-        sabeghe.faal = isActivated;
-        this.sabegheService.update(sabeghe).subscribe(response => {
-            if (response.status === 200) {
-                this.error = null;
-                this.success = 'OK';
-                // this.loadAll();
-            } else {
-                this.success = null;
-                this.error = 'ERROR';
-            }
-        });
-    }
-
-    //search
-    search() {
-        this.searchparams.push(this.propkey);
-        this.searchparams.push(this.operation);
-        this.searchparams.push(this.searchvalue);
-        if (this.searchvalue != null) {
-            this.sabegheService
-                .search(this.searchparams, {
-                    page: this.page,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe((res: HttpResponse<ISabeghe[]>) => {
-                    console.log('red', res);
-                    this.searchparams = [];
-                    if (res.body) {
-                        this.sabeghes = [];
-                    }
-                    this.paginateSabeghes(res.body, res.headers), (res: HttpErrorResponse) => this.onError(res.message);
-                });
-        } else {
-            this.reset();
-        }
-    }
-
     loadAll() {
         this.sabegheService
             .query({
@@ -104,7 +58,6 @@ export class SabegheComponent implements OnInit, OnDestroy {
     reset() {
         this.page = 0;
         this.sabeghes = [];
-        this.searchparams = [];
         this.loadAll();
     }
 
@@ -141,31 +94,11 @@ export class SabegheComponent implements OnInit, OnDestroy {
         return result;
     }
 
-    clear() {
-        this.page = 0;
-        this.searchvalue = null;
-        this.searchparams = [];
-        this.sabeghes = [];
-        this.propkey = null;
-        this.operation = null;
-        // this.router.navigate([
-        //     '/points',
-        //     {
-        //         page: this.page,
-        //         sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-        //     }
-        // ]);
-        this.loadAll();
-    }
-
     protected paginateSabeghes(data: ISabeghe[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         for (let i = 0; i < data.length; i++) {
             this.sabeghes.push(data[i]);
-        }
-        if (this.sabeghes.length > 0) {
-            this.entity = Object.keys(this.sabeghes[0]);
         }
     }
 

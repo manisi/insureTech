@@ -36,9 +36,25 @@
                         </small>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.sabeghe.tarikh" for="field_tarikh">Tarikh</label>
+                    <div class="input-group">
+                        <input id="field_tarikh" type="text"  class="form-control"  [displayMonths]="1" [firstDayOfWeek]="6" name="tarikh"   ngbDatepicker placeholder="yyyy-mm-dd"  #tarikhDp="ngbDatepicker" [(ngModel)]="sabeghe.tarikh" />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="tarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
 
             </div>
             <div>
+                <!--<ngb-datepicker #dp [(ngModel)]="model" [firstDayOfWeek]="6"></ngb-datepicker>-->
+                <!--<button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>-->
+                <!--<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">To current month</button>-->
+
+                <hr/>
+
+                <pre>Model: {{ model | json }}</pre>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>

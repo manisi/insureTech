@@ -98,6 +98,9 @@ public class SabegheQueryService extends QueryService<Sabeghe> {
             if (criteria.getFaal() != null) {
                 specification = specification.and(buildSpecification(criteria.getFaal(), Sabeghe_.faal));
             }
+            if (criteria.getTarikh() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getTarikh(), Sabeghe_.tarikh));
+            }
         }
         return specification;
     }

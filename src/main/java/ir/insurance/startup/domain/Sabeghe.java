@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -35,6 +36,9 @@ public class Sabeghe implements Serializable {
     @NotNull
     @Column(name = "faal", nullable = false)
     private Boolean faal;
+
+    @Column(name = "tarikh")
+    private LocalDate tarikh;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -83,6 +87,19 @@ public class Sabeghe implements Serializable {
     public void setFaal(Boolean faal) {
         this.faal = faal;
     }
+
+    public LocalDate getTarikh() {
+        return tarikh;
+    }
+
+    public Sabeghe tarikh(LocalDate tarikh) {
+        this.tarikh = tarikh;
+        return this;
+    }
+
+    public void setTarikh(LocalDate tarikh) {
+        this.tarikh = tarikh;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -112,6 +129,7 @@ public class Sabeghe implements Serializable {
             ", name='" + getName() + "'" +
             ", sharh='" + getSharh() + "'" +
             ", faal='" + isFaal() + "'" +
+            ", tarikh='" + getTarikh() + "'" +
             "}";
     }
 }

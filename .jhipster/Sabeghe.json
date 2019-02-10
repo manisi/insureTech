@@ -20,6 +20,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "tarikh",
+            "fieldType": "LocalDate"
         }
     ],
     "changelogDate": "20190124065605",
@@ -27,6 +31,7 @@
     "searchEngine": false,
     "service": "serviceClass",
     "entityTableName": "sabeghe",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": true,
     "pagination": "infinite-scroll"
 }

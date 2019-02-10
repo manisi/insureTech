@@ -16,7 +16,6 @@ import { InsurancestartAppRoutingModule } from './app-routing.module';
 import { InsurancestartHomeModule } from './home/home.module';
 import { InsurancestartAccountModule } from './account/account.module';
 import { InsurancestartEntityModule } from './entities/entity.module';
-import * as moment from 'moment';
 import { InsurancestartAppAboutUsModule } from './about-us/about-us.module';
 import { InsurancestartAppHiThereModule } from './hi-there/hi-there.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -39,7 +38,6 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         InsurancestartAccountModule,
         InsurancestartAppAboutUsModule,
         InsurancestartAppHiThereModule,
-
         // jhipster-needle-angular-add-module JHipster will add new module here
         InsurancestartEntityModule,
         InsurancestartAppRoutingModule
@@ -66,11 +64,19 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
             useClass: NotificationInterceptor,
             multi: true
         }
+        // ,{
+        //     provide: NgbCalendar,
+        //     useClass: NgbCalendarPersian
+        // },
+        // {
+        //     provide: NgbDatepickerI18n,
+        //     useClass: NgbDatepickerI18nPersian
+        // }
     ],
     bootstrap: [JhiMainComponent]
 })
 export class InsurancestartAppModule {
-    constructor(private dpConfig: NgbDatepickerConfig) {
-        this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
-    }
+    // constructor(private dpConfig: NgbDatepickerConfig) {
+    // this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
+    // }
 }

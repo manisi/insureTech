@@ -3,8 +3,9 @@
  */
 import { Injectable } from '@angular/core';
 import { NgbDateAdapter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { Moment } from 'moment';
-import * as moment from 'moment';
+import { Moment } from 'jalali-moment';
+import * as moment from 'jalali-moment';
+moment.locale('fa', { useGregorianParser: true });
 
 @Injectable()
 export class NgbDateMomentAdapter extends NgbDateAdapter<Moment> {
@@ -14,7 +15,6 @@ export class NgbDateMomentAdapter extends NgbDateAdapter<Moment> {
         }
         return null;
     }
-
     toModel(date: NgbDateStruct): Moment {
         return date ? moment(date.year + '-' + date.month + '-' + date.day, 'YYYY-MM-DD') : null;
     }

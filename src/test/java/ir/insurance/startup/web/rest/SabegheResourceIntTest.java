@@ -27,6 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 
@@ -53,6 +55,9 @@ public class SabegheResourceIntTest {
 
     private static final Boolean DEFAULT_FAAL = false;
     private static final Boolean UPDATED_FAAL = true;
+
+    private static final LocalDate DEFAULT_TARIKH = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_TARIKH = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private SabegheRepository sabegheRepository;
@@ -107,7 +112,8 @@ public class SabegheResourceIntTest {
         Sabeghe sabeghe = new Sabeghe()
             .name(DEFAULT_NAME)
             .sharh(DEFAULT_SHARH)
-            .faal(DEFAULT_FAAL);
+            .faal(DEFAULT_FAAL)
+            .tarikh(DEFAULT_TARIKH);
         return sabeghe;
     }
 
@@ -135,6 +141,7 @@ public class SabegheResourceIntTest {
         assertThat(testSabeghe.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testSabeghe.getSharh()).isEqualTo(DEFAULT_SHARH);
         assertThat(testSabeghe.isFaal()).isEqualTo(DEFAULT_FAAL);
+        assertThat(testSabeghe.getTarikh()).isEqualTo(DEFAULT_TARIKH);
     }
 
     @Test
@@ -208,7 +215,8 @@ public class SabegheResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(sabeghe.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].sharh").value(hasItem(DEFAULT_SHARH.toString())))
-            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
+            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())))
+            .andExpect(jsonPath("$.[*].tarikh").value(hasItem(DEFAULT_TARIKH.toString())));
     }
     
     @Test
@@ -224,7 +232,8 @@ public class SabegheResourceIntTest {
             .andExpect(jsonPath("$.id").value(sabeghe.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.sharh").value(DEFAULT_SHARH.toString()))
-            .andExpect(jsonPath("$.faal").value(DEFAULT_FAAL.booleanValue()));
+            .andExpect(jsonPath("$.faal").value(DEFAULT_FAAL.booleanValue()))
+            .andExpect(jsonPath("$.tarikh").value(DEFAULT_TARIKH.toString()));
     }
 
     @Test
@@ -343,6 +352,72 @@ public class SabegheResourceIntTest {
         // Get all the sabegheList where faal is null
         defaultSabegheShouldNotBeFound("faal.specified=false");
     }
+
+    @Test
+    @Transactional
+    public void getAllSabeghesByTarikhIsEqualToSomething() throws Exception {
+        // Initialize the database
+        sabegheRepository.saveAndFlush(sabeghe);
+
+        // Get all the sabegheList where tarikh equals to DEFAULT_TARIKH
+        defaultSabegheShouldBeFound("tarikh.equals=" + DEFAULT_TARIKH);
+
+        // Get all the sabegheList where tarikh equals to UPDATED_TARIKH
+        defaultSabegheShouldNotBeFound("tarikh.equals=" + UPDATED_TARIKH);
+    }
+
+    @Test
+    @Transactional
+    public void getAllSabeghesByTarikhIsInShouldWork() throws Exception {
+        // Initialize the database
+        sabegheRepository.saveAndFlush(sabeghe);
+
+        // Get all the sabegheList where tarikh in DEFAULT_TARIKH or UPDATED_TARIKH
+        defaultSabegheShouldBeFound("tarikh.in=" + DEFAULT_TARIKH + "," + UPDATED_TARIKH);
+
+        // Get all the sabegheList where tarikh equals to UPDATED_TARIKH
+        defaultSabegheShouldNotBeFound("tarikh.in=" + UPDATED_TARIKH);
+    }
+
+    @Test
+    @Transactional
+    public void getAllSabeghesByTarikhIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        sabegheRepository.saveAndFlush(sabeghe);
+
+        // Get all the sabegheList where tarikh is not null
+        defaultSabegheShouldBeFound("tarikh.specified=true");
+
+        // Get all the sabegheList where tarikh is null
+        defaultSabegheShouldNotBeFound("tarikh.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllSabeghesByTarikhIsGreaterThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        sabegheRepository.saveAndFlush(sabeghe);
+
+        // Get all the sabegheList where tarikh greater than or equals to DEFAULT_TARIKH
+        defaultSabegheShouldBeFound("tarikh.greaterOrEqualThan=" + DEFAULT_TARIKH);
+
+        // Get all the sabegheList where tarikh greater than or equals to UPDATED_TARIKH
+        defaultSabegheShouldNotBeFound("tarikh.greaterOrEqualThan=" + UPDATED_TARIKH);
+    }
+
+    @Test
+    @Transactional
+    public void getAllSabeghesByTarikhIsLessThanSomething() throws Exception {
+        // Initialize the database
+        sabegheRepository.saveAndFlush(sabeghe);
+
+        // Get all the sabegheList where tarikh less than or equals to DEFAULT_TARIKH
+        defaultSabegheShouldNotBeFound("tarikh.lessThan=" + DEFAULT_TARIKH);
+
+        // Get all the sabegheList where tarikh less than or equals to UPDATED_TARIKH
+        defaultSabegheShouldBeFound("tarikh.lessThan=" + UPDATED_TARIKH);
+    }
+
     /**
      * Executes the search, and checks that the default entity is returned
      */
@@ -353,7 +428,8 @@ public class SabegheResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(sabeghe.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].sharh").value(hasItem(DEFAULT_SHARH)))
-            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())));
+            .andExpect(jsonPath("$.[*].faal").value(hasItem(DEFAULT_FAAL.booleanValue())))
+            .andExpect(jsonPath("$.[*].tarikh").value(hasItem(DEFAULT_TARIKH.toString())));
 
         // Check, that the count call also returns 1
         restSabegheMockMvc.perform(get("/api/sabeghes/count?sort=id,desc&" + filter))
@@ -403,7 +479,8 @@ public class SabegheResourceIntTest {
         updatedSabeghe
             .name(UPDATED_NAME)
             .sharh(UPDATED_SHARH)
-            .faal(UPDATED_FAAL);
+            .faal(UPDATED_FAAL)
+            .tarikh(UPDATED_TARIKH);
         SabegheDTO sabegheDTO = sabegheMapper.toDto(updatedSabeghe);
 
         restSabegheMockMvc.perform(put("/api/sabeghes")
@@ -418,6 +495,7 @@ public class SabegheResourceIntTest {
         assertThat(testSabeghe.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testSabeghe.getSharh()).isEqualTo(UPDATED_SHARH);
         assertThat(testSabeghe.isFaal()).isEqualTo(UPDATED_FAAL);
+        assertThat(testSabeghe.getTarikh()).isEqualTo(UPDATED_TARIKH);
     }
 
     @Test

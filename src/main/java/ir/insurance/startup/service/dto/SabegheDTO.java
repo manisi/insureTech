@@ -1,4 +1,5 @@
 package ir.insurance.startup.service.dto;
+import java.time.LocalDate;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,6 +18,8 @@ public class SabegheDTO implements Serializable {
 
     @NotNull
     private Boolean faal;
+
+    private LocalDate tarikh;
 
 
     public Long getId() {
@@ -51,6 +54,14 @@ public class SabegheDTO implements Serializable {
         this.faal = faal;
     }
 
+    public LocalDate getTarikh() {
+        return tarikh;
+    }
+
+    public void setTarikh(LocalDate tarikh) {
+        this.tarikh = tarikh;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -79,6 +90,7 @@ public class SabegheDTO implements Serializable {
             ", name='" + getName() + "'" +
             ", sharh='" + getSharh() + "'" +
             ", faal='" + isFaal() + "'" +
+            ", tarikh='" + getTarikh() + "'" +
             "}";
     }
 }
