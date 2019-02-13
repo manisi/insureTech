@@ -5,6 +5,8 @@ import { Title } from '@angular/platform-browser';
 import locale from '@angular/common/locales/en';
 
 import { FindLanguageFromKeyPipe } from 'app/shared';
+import { JalaliPipe } from 'app/shared';
+
 @NgModule({
     imports: [HttpClientModule],
     exports: [],
@@ -16,7 +18,8 @@ import { FindLanguageFromKeyPipe } from 'app/shared';
             useValue: 'en'
         },
         FindLanguageFromKeyPipe,
-        DatePipe
+        DatePipe,
+        JalaliPipe
     ]
 })
 export class InsurancestartCoreModule {

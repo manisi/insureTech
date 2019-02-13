@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { InsurancestartSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import { InsurancestartSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent, JalaliPipe } from './';
 
 @NgModule({
     imports: [InsurancestartSharedLibsModule],
-    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [InsurancestartSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
+    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent, JalaliPipe],
+    exports: [InsurancestartSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent, JalaliPipe]
 })
 export class InsurancestartSharedCommonModule {}
