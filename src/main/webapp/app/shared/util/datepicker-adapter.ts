@@ -1,11 +1,10 @@
-/**
- * Angular bootstrap Date adapter
- */
 import { Injectable } from '@angular/core';
 import { NgbDateAdapter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Moment } from 'jalali-moment';
 import * as moment from 'jalali-moment';
+
 moment.locale('fa', { useGregorianParser: true });
+// let todayJalali = moment().locale('fa').format('YYYY/M/D');
 
 @Injectable()
 export class NgbDateMomentAdapter extends NgbDateAdapter<Moment> {

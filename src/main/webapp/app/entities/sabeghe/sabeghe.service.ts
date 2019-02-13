@@ -11,7 +11,7 @@ import { ISabeghe } from 'app/shared/model/sabeghe.model';
 
 type EntityResponseType = HttpResponse<ISabeghe>;
 type EntityArrayResponseType = HttpResponse<ISabeghe[]>;
-//moment.locale('fa', { useGregorianParser: true });
+
 @Injectable({ providedIn: 'root' })
 export class SabegheService {
     public resourceUrl = SERVER_API_URL + 'api/sabeghes';
@@ -50,6 +50,7 @@ export class SabegheService {
     }
 
     protected convertDateFromClient(sabeghe: ISabeghe): ISabeghe {
+        console.log(':::::::::::::::::::::' + 'hhhhhhhhhhh' + sabeghe.tarikh.format(DATE_FORMAT));
         const copy: ISabeghe = Object.assign({}, sabeghe, {
             tarikh: sabeghe.tarikh != null && sabeghe.tarikh.isValid() ? sabeghe.tarikh.format(DATE_FORMAT) : null
         });
@@ -57,6 +58,7 @@ export class SabegheService {
     }
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
+        console.log(':::::::::sssssssssssssss::::::::::::' + moment(res.body.tarikh, 'YYYY-MM-DD'));
         if (res.body) {
             res.body.tarikh = res.body.tarikh != null ? moment(res.body.tarikh) : null;
         }
