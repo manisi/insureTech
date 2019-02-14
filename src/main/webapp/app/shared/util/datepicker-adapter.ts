@@ -4,7 +4,6 @@ import { Moment } from 'jalali-moment';
 import * as moment from 'jalali-moment';
 
 moment.locale('fa', { useGregorianParser: true });
-// let todayJalali = moment().locale('fa').format('YYYY/M/D');
 
 @Injectable()
 export class NgbDateMomentAdapter extends NgbDateAdapter<Moment> {

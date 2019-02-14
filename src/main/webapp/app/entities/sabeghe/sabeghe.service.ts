@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import * as moment from 'moment';
+import * as moment from 'jalali-moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { map } from 'rxjs/operators';
 
@@ -58,19 +58,25 @@ export class SabegheService {
     }
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
-        console.log(':::::::::sssssssssssssss::::::::::::' + moment(res.body.tarikh, 'YYYY-MM-DD'));
+        // console.log(':::::::::sssssssssssssss::::::::::::' + moment(res.body.tarikh, 'fa'));
+        // const m= moment();
+        // m.locale('en').format(DATE_FORMAT);
         if (res.body) {
-            res.body.tarikh = res.body.tarikh != null ? moment(res.body.tarikh) : null;
+            res.body.tarikh = res.body.tarikh != null ? moment(res.body.tarikh).locale('fa') : null;
         }
+        // m.locale('fa');
         return res;
     }
 
     protected convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
+        // const m= moment();
+        // m.locale('fa');
         if (res.body) {
             res.body.forEach((sabeghe: ISabeghe) => {
-                sabeghe.tarikh = sabeghe.tarikh != null ? moment(sabeghe.tarikh) : null;
+                sabeghe.tarikh = sabeghe.tarikh != null ? moment(sabeghe.tarikh).locale('fa') : null;
             });
         }
+
         return res;
     }
 }

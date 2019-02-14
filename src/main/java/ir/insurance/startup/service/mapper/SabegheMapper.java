@@ -53,7 +53,7 @@ public class SabegheMapper  {
         sabegheDTO.setFaal( arg0.isFaal() );
         if ( arg0.getTarikh() != null ) {
           // sabegheDTO.setTarikh( GregorianToJalali(arg0.getTarikh())); //error in ui for overflow date
-           sabegheDTO.setTarikh( DateTimeFormatter.ISO_LOCAL_DATE.format( arg0.getTarikh() ) );// need pipe jalali in ui
+           sabegheDTO.setTarikh( DateTimeFormatter.ISO_LOCAL_DATE.format( arg0.getTarikh()).toString() );// need pipe jalali in ui
         }
 
         return sabegheDTO;
@@ -104,7 +104,7 @@ public class SabegheMapper  {
     }
 
     private String GregorianToJalali(LocalDate tarikh) {
-        CalendarUtil codeCreationDate = new CalendarUtil(new GregorianCalendar(tarikh.getYear(), tarikh.getMonth().getValue(), tarikh.getDayOfMonth()));
+        CalendarUtil codeCreationDate = new CalendarUtil(new GregorianCalendar(tarikh.getYear(), tarikh.getMonth().getValue()-1, tarikh.getDayOfMonth()));
         return codeCreationDate.toString();
     }
 }
