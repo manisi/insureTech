@@ -50,7 +50,6 @@ export class SabegheService {
     }
 
     protected convertDateFromClient(sabeghe: ISabeghe): ISabeghe {
-        console.log(':::::::::::::::::::::' + 'hhhhhhhhhhh' + sabeghe.tarikh.format(DATE_FORMAT));
         const copy: ISabeghe = Object.assign({}, sabeghe, {
             tarikh: sabeghe.tarikh != null && sabeghe.tarikh.isValid() ? sabeghe.tarikh.format(DATE_FORMAT) : null
         });
@@ -58,25 +57,18 @@ export class SabegheService {
     }
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
-        // console.log(':::::::::sssssssssssssss::::::::::::' + moment(res.body.tarikh, 'fa'));
-        // const m= moment();
-        // m.locale('en').format(DATE_FORMAT);
         if (res.body) {
             res.body.tarikh = res.body.tarikh != null ? moment(res.body.tarikh).locale('fa') : null;
         }
-        // m.locale('fa');
         return res;
     }
 
     protected convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
-        // const m= moment();
-        // m.locale('fa');
         if (res.body) {
             res.body.forEach((sabeghe: ISabeghe) => {
                 sabeghe.tarikh = sabeghe.tarikh != null ? moment(sabeghe.tarikh).locale('fa') : null;
             });
         }
-
         return res;
     }
 }
