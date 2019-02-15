@@ -13,6 +13,7 @@ public interface KohnegiBadaneMapper extends EntityMapper<KohnegiBadaneDTO, Kohn
 
     @Mapping(source = "grouhKhodro.id", target = "grouhKhodroId")
     @Mapping(source = "grouhKhodro.code", target = "grouhKhodroCode")
+    @Mapping(source = "grouhKhodro.name", target = "grouhKhodroName")
     KohnegiBadaneDTO toDto(KohnegiBadane kohnegiBadane);
 
     @Mapping(source = "grouhKhodroId", target = "grouhKhodro")

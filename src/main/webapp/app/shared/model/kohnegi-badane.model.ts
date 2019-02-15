@@ -5,6 +5,7 @@ export interface IKohnegiBadane {
     sharh?: any;
     faal?: boolean;
     grouhKhodroCode?: string;
+    grouhKhodroName?: string;
     grouhKhodroId?: number;
 }
 
@@ -16,6 +17,7 @@ export class KohnegiBadane implements IKohnegiBadane {
         public sharh?: any,
         public faal?: boolean,
         public grouhKhodroCode?: string,
+        public grouhKhodroName?: string,
         public grouhKhodroId?: number
     ) {
         this.faal = this.faal || false;
