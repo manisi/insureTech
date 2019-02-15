@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import * as moment from 'moment';
+import * as moment from 'jalali-moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { SabegheService } from 'app/entities/sabeghe/sabeghe.service';
 import { ISabeghe, Sabeghe } from 'app/shared/model/sabeghe.model';

@@ -26,8 +26,8 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let kohnegi of kohnegis ;trackBy: trackId">
                 <td><a [routerLink]="['/kohnegi', kohnegi.id, 'view' ]">{{kohnegi.id}}</a></td>
-                <td>{{kohnegi.darsadHarSal}}</td>
-                <td>{{kohnegi.maxDarsad}}</td>
+                <td>{{kohnegi.darsadHarSal | percent}}</td>
+                <td>{{kohnegi.maxDarsad | percent}}</td>
                 <td>{{kohnegi.sharh}}</td>
                 <!--<td>{{kohnegi.faal}}</td>-->
                 <td>

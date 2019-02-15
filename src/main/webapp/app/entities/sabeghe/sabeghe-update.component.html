@@ -4,6 +4,7 @@
             <h2 id="jhi-sabeghe-heading" jhiTranslate="insurancestartApp.sabeghe.home.createOrEditLabel">Create or edit a Sabeghe</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
+                <hr/>
                 <div class="form-group" [hidden]="!sabeghe.id">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
@@ -21,22 +22,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.sabeghe.sharh" for="field_sharh">Sharh</label>
-                    <input type="text" class="form-control" name="sharh" id="field_sharh"
-                        [(ngModel)]="sabeghe.sharh" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.sabeghe.faal" for="field_faal">Faal</label>
-                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
-                        [(ngModel)]="sabeghe.faal" />
-                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.sabeghe.tarikh" for="field_tarikh">Tarikh</label>
                     <div class="input-group">
                         <input id="field_tarikh" type="text"  class="form-control"  [displayMonths]="1" [firstDayOfWeek]="6" name="tarikh"   ngbDatepicker placeholder="yyyy-mm-dd"  #tarikhDp="ngbDatepicker" [(ngModel)]="sabeghe.tarikh" />
@@ -45,6 +30,30 @@
                         </span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.sabeghe.sharh" for="field_sharh">Sharh</label>
+                    <input type="text" class="form-control" name="sharh" id="field_sharh"
+                        [(ngModel)]="sabeghe.sharh" />
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="insurancestartApp.sabeghe.faal" for="field_faal">Faal</label>-->
+                    <!--<input type="checkbox" class="form-check-input" name="faal" id="field_faal"-->
+                        <!--[(ngModel)]="sabeghe.faal" />-->
+                    <!--<div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">-->
+                        <!--<small class="form-text text-danger"-->
+                        <!--[hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">-->
+                        <!--This field is required.-->
+                        <!--</small>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-check">
+                    <label class="form-check-label" for="field_faal">
+                        <input class="form-check-input"  type="checkbox" id="field_faal" name="faal" [(ngModel)]="sabeghe.faal">
+                        <span jhiTranslate="userManagement.activated">Activated</span>
+                    </label>
+                </div>
+
 
             </div>
             <div>
@@ -54,7 +63,8 @@
 
                 <hr/>
 
-                <pre>Model: {{ model | json }}</pre>
+                <!--<pre>Model: {{ model | json }}</pre>-->
+
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>

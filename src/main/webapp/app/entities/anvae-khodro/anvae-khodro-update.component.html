@@ -85,17 +85,22 @@
                         </small>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.faal" for="field_faal">Faal</label>
-                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
-                        [(ngModel)]="anvaeKhodro.faal" />
-                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.faal" for="field_faal">Faal</label>-->
+                    <!--<input type="checkbox" class="form-control" name="faal" id="field_faal"-->
+                        <!--[(ngModel)]="anvaeKhodro.faal" />-->
+                    <!--<div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">-->
+                        <!--<small class="form-text text-danger"-->
+                        <!--[hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">-->
+                        <!--This field is required.-->
+                        <!--</small>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-check">
+                    <label class="form-check-label" for="field_faal">
+                        <input class="form-check-input"  type="checkbox" id="field_faal" name="faal" [(ngModel)]="anvaeKhodro.faal">
+                        <span jhiTranslate="userManagement.activated">Activated</span>
+                    </label>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.anvaeKhodro.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>

@@ -25,7 +25,7 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let adamKhesaratSarneshin of adamKhesaratSarneshins ;trackBy: trackId">
                 <td><a [routerLink]="['/adam-khesarat-sarneshin', adamKhesaratSarneshin.id, 'view' ]">{{adamKhesaratSarneshin.id}}</a></td>
-                <td>{{adamKhesaratSarneshin.sarneshin}}</td>
+                <td>{{adamKhesaratSarneshin.sarneshin | currency:'  % ':true:'1.0-0'}}</td>
                 <!--<td>{{adamKhesaratSarneshin.faal}}</td>-->
                 <!--<td>-->
                     <!--<fa-icon [icon]="adamKhesaratSarneshin.faal ? 'check' : 'times'" aria-hidden="true" class="{{adamKhesaratSarneshin.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->

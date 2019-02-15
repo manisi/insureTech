@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISabeghe } from 'app/shared/model/sabeghe.model';
+import { createSearchRequest } from 'app/shared/util/search-util';
 
 type EntityResponseType = HttpResponse<ISabeghe>;
 type EntityArrayResponseType = HttpResponse<ISabeghe[]>;
@@ -47,6 +48,17 @@ export class SabegheService {
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    //search
+    search(req: any[], pageable: any): Observable<EntityArrayResponseType> {
+        const options = createSearchRequest(req, pageable);
+        return this.http.get<ISabeghe[]>(this.resourceUrl, { params: options, observe: 'response' }).pipe(
+            map((res: EntityArrayResponseType) => {
+                // return  this.convertDateArrayFromServer(res);
+                return res;
+            })
+        );
     }
 
     protected convertDateFromClient(sabeghe: ISabeghe): ISabeghe {

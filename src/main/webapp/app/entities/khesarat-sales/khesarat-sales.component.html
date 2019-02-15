@@ -38,7 +38,7 @@
                     </div>
                 </td>
                 <td jhiTranslate="{{'insurancestartApp.SalesSarneshinEnum.' + khesaratSales.noe}}">{{khesaratSales.noe}}</td>
-                <td>{{khesaratSales.nerkhKhesarat}}</td>
+                <td>{{khesaratSales.nerkhKhesarat | currency:'  % ':true:'1.0-0'}}</td>
                 <!--<td>{{khesaratSales.faal}}</td>-->
                 <!--<td>-->
                     <!--<fa-icon [icon]="khesaratSales.faal ? 'check' : 'times'" aria-hidden="true" class="{{khesaratSales.faal ? 'text-success' : 'text-danger'}}"></fa-icon>-->

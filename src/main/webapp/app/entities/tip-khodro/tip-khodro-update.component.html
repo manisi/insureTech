@@ -19,10 +19,16 @@
                     <input type="text" class="form-control" name="model" id="field_model"
                         [(ngModel)]="tipKhodro.model" />
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.tipKhodro.faal" for="field_faal">Faal</label>
-                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
-                        [(ngModel)]="tipKhodro.faal" />
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="insurancestartApp.tipKhodro.faal" for="field_faal">Faal</label>-->
+                    <!--<input type="checkbox" class="form-control" name="faal" id="field_faal"-->
+                        <!--[(ngModel)]="tipKhodro.faal" />-->
+                <!--</div>-->
+                <div class="form-check">
+                    <label class="form-check-label" for="field_faal">
+                        <input class="form-check-input"  type="checkbox" id="field_faal" name="faal" [(ngModel)]="tipKhodro.faal">
+                        <span jhiTranslate="userManagement.activated">Activated</span>
+                    </label>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.tipKhodro.noe" for="field_noe">Noe</label>

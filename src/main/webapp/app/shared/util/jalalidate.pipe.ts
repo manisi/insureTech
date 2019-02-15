@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import moment = require('jalali-moment');
+// import moment = require('jalali-moment');
+import * as moment from 'jalali-moment';
 
 @Pipe({ name: 'jalali' })
 export class JalaliPipe implements PipeTransform {

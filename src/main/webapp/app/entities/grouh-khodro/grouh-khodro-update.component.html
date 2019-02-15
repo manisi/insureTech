@@ -25,18 +25,22 @@
                     <input type="number" class="form-control" name="code" id="field_code"
                            [(ngModel)]="grouhKhodro.code" />
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.grouhKhodro.faal" for="field_faal">Faal</label>
-                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
-                        [(ngModel)]="grouhKhodro.faal" />
-                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="insurancestartApp.grouhKhodro.faal" for="field_faal">Faal</label>-->
+                    <!--<input type="checkbox" class="form-control" name="faal" id="field_faal"-->
+                        <!--[(ngModel)]="grouhKhodro.faal" />-->
+                    <!--<div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">-->
+                        <!--<small class="form-text text-danger"-->
+                        <!--[hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">-->
+                        <!--This field is required.-->
+                        <!--</small>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-check">
+                    <label class="form-check-label" for="field_faal">
+                        <input class="form-check-input"  type="checkbox" id="field_faal" name="faal" [(ngModel)]="grouhKhodro.faal">
+                        <span jhiTranslate="userManagement.activated">Activated</span>
+                    </label>
 
             </div>
             <div>
