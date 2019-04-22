@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.salesSarneshinCalc.home.title">Sales Sarneshin Calcs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sales-sarneshin-calc" [routerLink]="['/sales-sarneshin-calc/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.salesSarneshinCalc.home.createLabel">
+            Create new Sales Sarneshin Calc
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="salesSarneshinCalcs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mablaghSalesMazad"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.mablaghSalesMazad">Mablagh Sales Mazad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tedadRooz"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.tedadRooz">Tedad Rooz</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mablaghHaghBime"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.mablaghHaghBime">Mablagh Hagh Bime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tarikhShoroo"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.tarikhShoroo">Tarikh Shoroo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tarikhPayan"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.tarikhPayan">Tarikh Payan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namesherkatName"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.namesherkat">Namesherkat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grouhKhodroName"><span jhiTranslate="insurancestartApp.salesSarneshinCalc.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let salesSarneshinCalc of salesSarneshinCalcs ;trackBy: trackId">
+                <td><a [routerLink]="['/sales-sarneshin-calc', salesSarneshinCalc.id, 'view' ]">{{salesSarneshinCalc.id}}</a></td>
+                <td>{{salesSarneshinCalc.mablaghSalesMazad}}</td>
+                <td>{{salesSarneshinCalc.tedadRooz}}</td>
+                <td>{{salesSarneshinCalc.mablaghHaghBime}}</td>
+                <td>{{salesSarneshinCalc.tarikhShoroo | date:'mediumDate'}}</td>
+                <td>{{salesSarneshinCalc.tarikhPayan | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="salesSarneshinCalc.namesherkatId">
+                        <a [routerLink]="['../sherkat-bime', salesSarneshinCalc.namesherkatId , 'view' ]" >{{salesSarneshinCalc.namesherkatName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="salesSarneshinCalc.grouhKhodroId">
+                        <a [routerLink]="['../grouh-khodro', salesSarneshinCalc.grouhKhodroId , 'view' ]" >{{salesSarneshinCalc.grouhKhodroName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/sales-sarneshin-calc', salesSarneshinCalc.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sales-sarneshin-calc', salesSarneshinCalc.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sales-sarneshin-calc', { outlets: { popup: salesSarneshinCalc.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

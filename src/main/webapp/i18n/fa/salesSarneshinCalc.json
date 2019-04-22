@@ -1,0 +1,27 @@
+{
+    "insurancestartApp": {
+        "salesSarneshinCalc": {
+            "home": {
+                "title": "ثالث سرنشین",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "A new Sales Sarneshin Calc is created with identifier {{ param }}",
+            "updated": "A Sales Sarneshin Calc is updated with identifier {{ param }}",
+            "deleted": "A Sales Sarneshin Calc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sales Sarneshin Calc {{ id }}?"
+            },
+            "detail": {
+                "title": "ثالث سرنشین"
+            },
+            "mablaghSalesMazad": "مبلغ",
+            "tedadRooz": "تعداد روز",
+            "mablaghHaghBime": "مبلغ حق بیمه",
+            "tarikhShoroo": "ازتاریخ",
+            "tarikhPayan": "تا تاریخ",
+            "namesherkat": "نام شرکت",
+            "grouhKhodro": "گروه خودرو"
+        }
+    }
+}

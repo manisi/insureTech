@@ -1,0 +1,29 @@
+{
+    "insurancestartApp": {
+        "salesJaniCalc": {
+            "home": {
+                "title": "Sales Jani Calcs",
+                "createLabel": "Create a new Sales Jani Calc",
+                "createOrEditLabel": "Create or edit a Sales Jani Calc"
+            },
+            "created": "A new Sales Jani Calc is created with identifier {{ param }}",
+            "updated": "A Sales Jani Calc is updated with identifier {{ param }}",
+            "deleted": "A Sales Jani Calc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sales Jani Calc {{ id }}?"
+            },
+            "detail": {
+                "title": "Sales Jani Calc"
+            },
+            "mablaghJani": "Mablagh Jani",
+            "mablaghMaliEjbari": "Mablagh Mali Ejbari",
+            "tedadRooz": "Tedad Rooz",
+            "tarikhShoroFaaliat": "Tarikh Shoro Faaliat",
+            "tarikhPayanFaaliat": "Tarikh Payan Faaliat",
+            "naamSherkat": "Naam Sherkat",
+            "haghbime": "Haghbime",
+            "bimename": "Bimename",
+            "grouhKhodro": "Grouh Khodro"
+        }
+    }
+}

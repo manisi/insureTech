@@ -147,6 +147,26 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'sabeghe',
                 loadChildren: './sabeghe/sabeghe.module#InsurancestartSabegheModule'
+            },
+            {
+                path: 'sales-jani-calc',
+                loadChildren: './sales-jani-calc/sales-jani-calc.module#InsurancestartSalesJaniCalcModule'
+            },
+            {
+                path: 'sales-sarneshin-calc',
+                loadChildren: './sales-sarneshin-calc/sales-sarneshin-calc.module#InsurancestartSalesSarneshinCalcModule'
+            },
+            {
+                path: 'sales-mazad-calc',
+                loadChildren: './sales-mazad-calc/sales-mazad-calc.module#InsurancestartSalesMazadCalcModule'
+            },
+            {
+                path: 'sales-sarneshin-calc',
+                loadChildren: './sales-sarneshin-calc/sales-sarneshin-calc.module#InsurancestartSalesSarneshinCalcModule'
+            },
+            {
+                path: 'sales-jani-calc',
+                loadChildren: './sales-jani-calc/sales-jani-calc.module#InsurancestartSalesJaniCalcModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

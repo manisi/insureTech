@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salesMazadCalc">
+            <h2><span jhiTranslate="insurancestartApp.salesMazadCalc.detail.title">Sales Mazad Calc</span> {{salesMazadCalc.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.mablaghSalesMazad">Mablagh Sales Mazad</span></dt>
+                <dd>
+                    <span>{{salesMazadCalc.mablaghSalesMazad}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.tedadRooz">Tedad Rooz</span></dt>
+                <dd>
+                    <span>{{salesMazadCalc.tedadRooz}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.haghBime">Hagh Bime</span></dt>
+                <dd>
+                    <span>{{salesMazadCalc.haghBime}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.tarikhShoroo">Tarikh Shoroo</span></dt>
+                <dd>
+                    <span>{{salesMazadCalc.tarikhShoroo}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.tarikhPayan">Tarikh Payan</span></dt>
+                <dd>
+                    <span>{{salesMazadCalc.tarikhPayan}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.namesherkat">Namesherkat</span></dt>
+                <dd>
+                    <div *ngIf="salesMazadCalc.namesherkatId">
+                        <a [routerLink]="['/sherkat-bime', salesMazadCalc.namesherkatId, 'view']">{{salesMazadCalc.namesherkatName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesMazadCalc.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="salesMazadCalc.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', salesMazadCalc.grouhKhodroId, 'view']">{{salesMazadCalc.grouhKhodroName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales-mazad-calc', salesMazadCalc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

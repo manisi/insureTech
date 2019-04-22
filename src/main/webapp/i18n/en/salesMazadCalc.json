@@ -1,0 +1,27 @@
+{
+    "insurancestartApp": {
+        "salesMazadCalc": {
+            "home": {
+                "title": "Sales Mazad Calcs",
+                "createLabel": "Create a new Sales Mazad Calc",
+                "createOrEditLabel": "Create or edit a Sales Mazad Calc"
+            },
+            "created": "A new Sales Mazad Calc is created with identifier {{ param }}",
+            "updated": "A Sales Mazad Calc is updated with identifier {{ param }}",
+            "deleted": "A Sales Mazad Calc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sales Mazad Calc {{ id }}?"
+            },
+            "detail": {
+                "title": "Sales Mazad Calc"
+            },
+            "mablaghSalesMazad": "Mablagh Sales Mazad",
+            "tedadRooz": "Tedad Rooz",
+            "haghBime": "Hagh Bime",
+            "tarikhShoroo": "Tarikh Shoroo",
+            "tarikhPayan": "Tarikh Payan",
+            "namesherkat": "Namesherkat",
+            "grouhKhodro": "Grouh Khodro"
+        }
+    }
+}

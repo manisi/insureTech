@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salesSarneshinCalc">
+            <h2><span jhiTranslate="insurancestartApp.salesSarneshinCalc.detail.title">Sales Sarneshin Calc</span> {{salesSarneshinCalc.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.mablaghSalesMazad">Mablagh Sales Mazad</span></dt>
+                <dd>
+                    <span>{{salesSarneshinCalc.mablaghSalesMazad}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.tedadRooz">Tedad Rooz</span></dt>
+                <dd>
+                    <span>{{salesSarneshinCalc.tedadRooz}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.mablaghHaghBime">Mablagh Hagh Bime</span></dt>
+                <dd>
+                    <span>{{salesSarneshinCalc.mablaghHaghBime}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.tarikhShoroo">Tarikh Shoroo</span></dt>
+                <dd>
+                    <span>{{salesSarneshinCalc.tarikhShoroo}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.tarikhPayan">Tarikh Payan</span></dt>
+                <dd>
+                    <span>{{salesSarneshinCalc.tarikhPayan}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.namesherkat">Namesherkat</span></dt>
+                <dd>
+                    <div *ngIf="salesSarneshinCalc.namesherkatId">
+                        <a [routerLink]="['/sherkat-bime', salesSarneshinCalc.namesherkatId, 'view']">{{salesSarneshinCalc.namesherkatName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesSarneshinCalc.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="salesSarneshinCalc.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', salesSarneshinCalc.grouhKhodroId, 'view']">{{salesSarneshinCalc.grouhKhodroName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales-sarneshin-calc', salesSarneshinCalc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salesJaniCalc">
+            <h2><span jhiTranslate="insurancestartApp.salesJaniCalc.detail.title">Sales Jani Calc</span> {{salesJaniCalc.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.mablaghJani">Mablagh Jani</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.mablaghJani}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.mablaghMaliEjbari">Mablagh Mali Ejbari</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.mablaghMaliEjbari}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.tedadRooz">Tedad Rooz</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.tedadRooz}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.tarikhShoroFaaliat">Tarikh Shoro Faaliat</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.tarikhShoroFaaliat}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.tarikhPayanFaaliat">Tarikh Payan Faaliat</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.tarikhPayanFaaliat}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.naamSherkat">Naam Sherkat</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.naamSherkat}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.haghbime">Haghbime</span></dt>
+                <dd>
+                    <span>{{salesJaniCalc.haghbime}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.bimename">Bimename</span></dt>
+                <dd>
+                    <div *ngIf="salesJaniCalc.bimenameId">
+                        <a [routerLink]="['/sherkat-bime', salesJaniCalc.bimenameId, 'view']">{{salesJaniCalc.bimenameName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.salesJaniCalc.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="salesJaniCalc.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', salesJaniCalc.grouhKhodroId, 'view']">{{salesJaniCalc.grouhKhodroName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales-jani-calc', salesJaniCalc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

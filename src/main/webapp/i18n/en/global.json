@@ -48,6 +48,9 @@
                 "adamKhesaratBadane": "Adam Khesarat Badane",
                 "anvaeKhodro": "Anvae Khodro",
                 "kohnegi": "Kohnegi",
+                "salesJaniCalc": "Sales Jani Calc",
+                "salesSarneshinCalc": "Sales Sarneshin Calc",
+                "salesMazadCalc": "Sales Mazad Calc",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

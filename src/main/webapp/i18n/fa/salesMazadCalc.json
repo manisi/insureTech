@@ -1,0 +1,27 @@
+{
+    "insurancestartApp": {
+        "salesMazadCalc": {
+            "home": {
+                "title": "ثالث مازاد",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "A new Sales Mazad Calc is created with identifier {{ param }}",
+            "updated": "A Sales Mazad Calc is updated with identifier {{ param }}",
+            "deleted": "A Sales Mazad Calc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sales Mazad Calc {{ id }}?"
+            },
+            "detail": {
+                "title": "ثالث مازاد"
+            },
+            "mablaghSalesMazad": "مبلغ",
+            "tedadRooz": "تعداد روز",
+            "haghBime": "حق بیمه",
+            "tarikhShoroo": "از تاریخ",
+            "tarikhPayan": "تا تاریح",
+            "namesherkat": "نام شرکت",
+            "grouhKhodro": "گروه خودرو"
+        }
+    }
+}

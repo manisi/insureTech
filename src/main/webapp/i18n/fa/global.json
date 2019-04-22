@@ -40,6 +40,9 @@
                 "adamKhesaratBadane": "عدم خسارت بدنه",
                 "adamKhesarat": "عدم خسارت ثالث",
                 "anvaeKhodro": "انواع خودرو",
+                "salesJaniCalc": "محاسبه ثالث جانی",
+                "salesSarneshinCalc": "محاسبه ثالث سرنشین",
+                "salesMazadCalc": "محاسبه ثالث مازاد",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,29 @@
+{
+    "insurancestartApp": {
+        "salesJaniCalc": {
+            "home": {
+                "title": "ثالث جانی",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش"
+            },
+            "created": "A new Sales Jani Calc is created with identifier {{ param }}",
+            "updated": "A Sales Jani Calc is updated with identifier {{ param }}",
+            "deleted": "A Sales Jani Calc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sales Jani Calc {{ id }}?"
+            },
+            "detail": {
+                "title": "ثالث جانی"
+            },
+            "mablaghJani": "مبلغ جانی",
+            "mablaghMaliEjbari": "مبلغ مالی اجباری",
+            "tedadRooz": "تعداد روز",
+            "tarikhShoroFaaliat": "از تاریخ",
+            "tarikhPayanFaaliat": "تا تاریخ",
+            "naamSherkat": "نام شرکت بیمه",
+            "haghbime": "حق بیمه",
+            "bimename": "شرکت بیمه",
+            "grouhKhodro": "گروه خودرو"
+        }
+    }
+}

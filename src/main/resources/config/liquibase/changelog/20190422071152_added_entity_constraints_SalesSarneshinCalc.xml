@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SalesSarneshinCalc.
+    -->
+    <changeSet id="20190422071152-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="namesherkat_id"
+                                 baseTableName="sales_sarneshin_calc"
+                                 constraintName="fk_sales_sarneshin_calc_namesherkat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sherkat_bime"/>
+
+        <addForeignKeyConstraint baseColumnNames="grouh_khodro_id"
+                                 baseTableName="sales_sarneshin_calc"
+                                 constraintName="fk_sales_sarneshin_calc_grouh_khodro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grouh_khodro"/>
+
+    </changeSet>
+</databaseChangeLog>

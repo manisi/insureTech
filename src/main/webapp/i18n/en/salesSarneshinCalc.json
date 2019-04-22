@@ -1,0 +1,27 @@
+{
+    "insurancestartApp": {
+        "salesSarneshinCalc": {
+            "home": {
+                "title": "Sales Sarneshin Calcs",
+                "createLabel": "Create a new Sales Sarneshin Calc",
+                "createOrEditLabel": "Create or edit a Sales Sarneshin Calc"
+            },
+            "created": "A new Sales Sarneshin Calc is created with identifier {{ param }}",
+            "updated": "A Sales Sarneshin Calc is updated with identifier {{ param }}",
+            "deleted": "A Sales Sarneshin Calc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sales Sarneshin Calc {{ id }}?"
+            },
+            "detail": {
+                "title": "Sales Sarneshin Calc"
+            },
+            "mablaghSalesMazad": "Mablagh Sales Mazad",
+            "tedadRooz": "Tedad Rooz",
+            "mablaghHaghBime": "Mablagh Hagh Bime",
+            "tarikhShoroo": "Tarikh Shoroo",
+            "tarikhPayan": "Tarikh Payan",
+            "namesherkat": "Namesherkat",
+            "grouhKhodro": "Grouh Khodro"
+        }
+    }
+}

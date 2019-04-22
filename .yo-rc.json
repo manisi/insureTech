@@ -36,5 +36,15 @@
         "herokuDeployType": "git",
         "entitySuffix": "",
         "dtoSuffix": "DTO"
+    },
+    "generator-jhipster-kutilang": {
+        "promptValues": {
+            "appsName": "fluterhipster",
+            "packageName": "ir.insurance.startup"
+        },
+        "appsName": "fluterhipster",
+        "packageName": "ir.insurance.startup",
+        "path": "../",
+        "packageFolder": "../fluterhipster"
     }
 }

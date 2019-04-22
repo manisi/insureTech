@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity SalesJaniCalc.
+    -->
+    <changeSet id="20190422065602-1" author="jhipster">
+        <createTable tableName="sales_jani_calc">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="mablagh_jani" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="mablagh_mali_ejbari" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="tedad_rooz" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="tarikh_shoro_faaliat" type="date">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="tarikh_payan_faaliat" type="date">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="naam_sherkat" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="haghbime" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="bimename_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="grouh_khodro_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>
