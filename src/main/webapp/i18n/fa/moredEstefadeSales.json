@@ -1,0 +1,26 @@
+{
+    "insurancestartApp": {
+        "moredEstefadeSales": {
+            "home": {
+                "title": "مورد استفاده ثالث",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Mored Estefade Sales is created with identifier {{ param }}",
+            "updated": "A Mored Estefade Sales is updated with identifier {{ param }}",
+            "deleted": "A Mored Estefade Sales is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mored Estefade Sales {{ id }}?"
+            },
+            "detail": {
+                "title": "مورد استفاده ثالث"
+            },
+            "darsadEzafeNerkh": "درصد اضافه نرخ",
+            "azTarikh": "از تاریخ",
+            "taTarikh": "تا تاریخ",
+            "faal": "فعال",
+            "grouhKhodro": "گروه خودرو",
+            "sherkatBime": "شرکت بیمه"
+        }
+    }
+}

@@ -24,7 +24,13 @@
             <tr *ngFor="let sherkatBime of sherkatBimes ;trackBy: trackId">
                 <td><a [routerLink]="['/sherkat-bime', sherkatBime.id, 'view' ]">{{sherkatBime.id}}</a></td>
                 <td>{{sherkatBime.name}}</td>
-                <td>{{sherkatBime.faal}}</td>
+                <!--<td>{{sherkatBime.faal}}</td>-->
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(sherkatBime, true)" *ngIf="!sherkatBime.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(sherkatBime, false)" *ngIf="sherkatBime.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

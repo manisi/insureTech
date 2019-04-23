@@ -18,10 +18,9 @@
             <th jhiSortBy="mablaghJani"><span jhiTranslate="insurancestartApp.salesJaniCalc.mablaghJani">Mablagh Jani</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mablaghMaliEjbari"><span jhiTranslate="insurancestartApp.salesJaniCalc.mablaghMaliEjbari">Mablagh Mali Ejbari</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="tedadRooz"><span jhiTranslate="insurancestartApp.salesJaniCalc.tedadRooz">Tedad Rooz</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="haghbime"><span jhiTranslate="insurancestartApp.salesJaniCalc.haghbime">Haghbime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="tarikhShoroFaaliat"><span jhiTranslate="insurancestartApp.salesJaniCalc.tarikhShoroFaaliat">Tarikh Shoro Faaliat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="tarikhPayanFaaliat"><span jhiTranslate="insurancestartApp.salesJaniCalc.tarikhPayanFaaliat">Tarikh Payan Faaliat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="naamSherkat"><span jhiTranslate="insurancestartApp.salesJaniCalc.naamSherkat">Naam Sherkat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="haghbime"><span jhiTranslate="insurancestartApp.salesJaniCalc.haghbime">Haghbime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="bimenameName"><span jhiTranslate="insurancestartApp.salesJaniCalc.bimename">Bimename</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="grouhKhodroName"><span jhiTranslate="insurancestartApp.salesJaniCalc.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -30,13 +29,13 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let salesJaniCalc of salesJaniCalcs ;trackBy: trackId">
                 <td><a [routerLink]="['/sales-jani-calc', salesJaniCalc.id, 'view' ]">{{salesJaniCalc.id}}</a></td>
-                <td>{{salesJaniCalc.mablaghJani}}</td>
-                <td>{{salesJaniCalc.mablaghMaliEjbari}}</td>
+                <td>{{salesJaniCalc.mablaghJani | currency:'  میلیون تومان ':true:'1.0-0'}}</td>
+                <td>{{salesJaniCalc.mablaghMaliEjbari | currency:'  میلیون تومان ':true:'1.0-0'}}</td>
                 <td>{{salesJaniCalc.tedadRooz}}</td>
-                <td>{{salesJaniCalc.tarikhShoroFaaliat | date:'mediumDate'}}</td>
-                <td>{{salesJaniCalc.tarikhPayanFaaliat | date:'mediumDate'}}</td>
-                <td>{{salesJaniCalc.naamSherkat}}</td>
-                <td>{{salesJaniCalc.haghbime}}</td>
+                <td>{{salesJaniCalc.haghbime | currency:'  ریال ':true:'1.0-0'}}</td>
+                <td>{{salesJaniCalc.tarikhShoroFaaliat | date:'shortDate'}}</td>
+                <td>{{salesJaniCalc.tarikhPayanFaaliat | date:'shortDate'}}</td>
+
                 <td>
                     <div *ngIf="salesJaniCalc.bimenameId">
                         <a [routerLink]="['../sherkat-bime', salesJaniCalc.bimenameId , 'view' ]" >{{salesJaniCalc.bimenameName}}</a>

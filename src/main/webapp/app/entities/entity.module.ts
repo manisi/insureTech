@@ -167,6 +167,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'sales-jani-calc',
                 loadChildren: './sales-jani-calc/sales-jani-calc.module#InsurancestartSalesJaniCalcModule'
+            },
+            {
+                path: 'mored-estefade-sales',
+                loadChildren: './mored-estefade-sales/mored-estefade-sales.module#InsurancestartMoredEstefadeSalesModule'
+            },
+            {
+                path: 'mored-estefade-sales',
+                loadChildren: './mored-estefade-sales/mored-estefade-sales.module#InsurancestartMoredEstefadeSalesModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

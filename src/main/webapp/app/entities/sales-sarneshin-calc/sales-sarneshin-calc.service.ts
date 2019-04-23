@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISalesSarneshinCalc } from 'app/shared/model/sales-sarneshin-calc.model';
+// import {JalaliDateValidatorService} from 'ngx-persian';
+// import {JalaliDateCalculatorService} from 'ngx-persian';
 
 type EntityResponseType = HttpResponse<ISalesSarneshinCalc>;
 type EntityArrayResponseType = HttpResponse<ISalesSarneshinCalc[]>;
@@ -16,7 +18,9 @@ type EntityArrayResponseType = HttpResponse<ISalesSarneshinCalc[]>;
 export class SalesSarneshinCalcService {
     public resourceUrl = SERVER_API_URL + 'api/sales-sarneshin-calcs';
 
-    constructor(protected http: HttpClient) {}
+    constructor(protected http: HttpClient) //   ,private JalaliDateValidatorService: JalaliDateValidatorService,
+    // private jalaliDateCalculatorService: JalaliDateCalculatorService
+    {}
 
     create(salesSarneshinCalc: ISalesSarneshinCalc): Observable<EntityResponseType> {
         const copy = this.convertDateFromClient(salesSarneshinCalc);
@@ -65,7 +69,9 @@ export class SalesSarneshinCalcService {
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
         if (res.body) {
+            // this.jalaliDateCalculatorService.convertToJalali();
             res.body.tarikhShoroo = res.body.tarikhShoroo != null ? moment(res.body.tarikhShoroo) : null;
+            //  res.body.tarikhShoroo = res.body.tarikhShoroo != null ? moment(this.jalaliDateCalculatorService.convertToJalali((moment(res.body.tarikhShoroo)).toDate()): null;
             res.body.tarikhPayan = res.body.tarikhPayan != null ? moment(res.body.tarikhPayan) : null;
         }
         return res;

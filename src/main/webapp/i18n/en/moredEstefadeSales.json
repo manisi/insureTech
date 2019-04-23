@@ -1,0 +1,26 @@
+{
+    "insurancestartApp": {
+        "moredEstefadeSales": {
+            "home": {
+                "title": "Mored Estefade Sales",
+                "createLabel": "Create a new Mored Estefade Sales",
+                "createOrEditLabel": "Create or edit a Mored Estefade Sales"
+            },
+            "created": "A new Mored Estefade Sales is created with identifier {{ param }}",
+            "updated": "A Mored Estefade Sales is updated with identifier {{ param }}",
+            "deleted": "A Mored Estefade Sales is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mored Estefade Sales {{ id }}?"
+            },
+            "detail": {
+                "title": "Mored Estefade Sales"
+            },
+            "darsadEzafeNerkh": "Darsad Ezafe Nerkh",
+            "azTarikh": "Az Tarikh",
+            "taTarikh": "Ta Tarikh",
+            "faal": "Faal",
+            "grouhKhodro": "Grouh Khodro",
+            "sherkatBime": "Sherkat Bime"
+        }
+    }
+}

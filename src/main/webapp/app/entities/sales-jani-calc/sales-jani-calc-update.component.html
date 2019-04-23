@@ -63,6 +63,21 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.haghbime" for="field_haghbime">Haghbime</label>
+                    <input type="number" class="form-control" name="haghbime" id="field_haghbime"
+                           [(ngModel)]="salesJaniCalc.haghbime" required/>
+                    <div [hidden]="!(editForm.controls.haghbime?.dirty && editForm.controls.haghbime?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.haghbime?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.haghbime?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.tarikhShoroFaaliat" for="field_tarikhShoroFaaliat">Tarikh Shoro Faaliat</label>
                     <div class="input-group">
                         <input id="field_tarikhShoroFaaliat" type="text" class="form-control" name="tarikhShoroFaaliat" ngbDatepicker  #tarikhShoroFaaliatDp="ngbDatepicker" [(ngModel)]="salesJaniCalc.tarikhShoroFaaliat"
@@ -94,26 +109,12 @@
                         </small>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.naamSherkat" for="field_naamSherkat">Naam Sherkat</label>
-                    <input type="text" class="form-control" name="naamSherkat" id="field_naamSherkat"
-                        [(ngModel)]="salesJaniCalc.naamSherkat" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.haghbime" for="field_haghbime">Haghbime</label>
-                    <input type="number" class="form-control" name="haghbime" id="field_haghbime"
-                        [(ngModel)]="salesJaniCalc.haghbime" required/>
-                    <div [hidden]="!(editForm.controls.haghbime?.dirty && editForm.controls.haghbime?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.haghbime?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.haghbime?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.naamSherkat" for="field_naamSherkat">Naam Sherkat</label>-->
+                    <!--<input type="text" class="form-control" name="naamSherkat" id="field_naamSherkat"-->
+                        <!--[(ngModel)]="salesJaniCalc.naamSherkat" />-->
+                <!--</div>-->
+
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.bimename" for="field_bimename">Bimename</label>

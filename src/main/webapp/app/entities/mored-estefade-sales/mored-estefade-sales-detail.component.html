@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="moredEstefadeSales">
+            <h2><span jhiTranslate="insurancestartApp.moredEstefadeSales.detail.title">Mored Estefade Sales</span> {{moredEstefadeSales.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh">Darsad Ezafe Nerkh</span></dt>
+                <dd>
+                    <span>{{moredEstefadeSales.darsadEzafeNerkh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh">Az Tarikh</span></dt>
+                <dd>
+                    <span>{{moredEstefadeSales.azTarikh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh">Ta Tarikh</span></dt>
+                <dd>
+                    <span>{{moredEstefadeSales.taTarikh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.faal">Faal</span></dt>
+                <dd>
+                    <span>{{moredEstefadeSales.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="moredEstefadeSales.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', moredEstefadeSales.grouhKhodroId, 'view']">{{moredEstefadeSales.grouhKhodroName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.sherkatBime">Sherkat Bime</span></dt>
+                <dd>
+                    <div *ngIf="moredEstefadeSales.sherkatBimeId">
+                        <a [routerLink]="['/sherkat-bime', moredEstefadeSales.sherkatBimeId, 'view']">{{moredEstefadeSales.sherkatBimeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mored-estefade-sales', moredEstefadeSales.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

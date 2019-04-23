@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.moredEstefadeSales.home.title">Mored Estefade Sales</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mored-estefade-sales" [routerLink]="['/mored-estefade-sales/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.moredEstefadeSales.home.createLabel">
+            Create new Mored Estefade Sales
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="moredEstefadeSales">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sherkatBimeName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.sherkatBime">Sherkat Bime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grouhKhodroName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="darsadEzafeNerkh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh">Darsad Ezafe Nerkh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="azTarikh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh">Az Tarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="taTarikh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh">Ta Tarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.moredEstefadeSales.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+
+
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let moredEstefadeSales of moredEstefadeSales ;trackBy: trackId">
+                <td><a [routerLink]="['/mored-estefade-sales', moredEstefadeSales.id, 'view' ]">{{moredEstefadeSales.id}}</a></td>
+                <td>
+                    <div *ngIf="moredEstefadeSales.sherkatBimeId">
+                        <a [routerLink]="['../sherkat-bime', moredEstefadeSales.sherkatBimeId , 'view' ]" >{{moredEstefadeSales.sherkatBimeName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="moredEstefadeSales.grouhKhodroId">
+                        <a [routerLink]="['../grouh-khodro', moredEstefadeSales.grouhKhodroId , 'view' ]" >{{moredEstefadeSales.grouhKhodroName}}</a>
+                    </div>
+                </td>
+                <td>{{moredEstefadeSales.darsadEzafeNerkh | currency:'  % ':true:'1.0-0'}}</td>
+                <td>{{moredEstefadeSales.azTarikh | date:'mediumDate'}}</td>
+                <td>{{moredEstefadeSales.taTarikh | date:'mediumDate'}}</td>
+                <!--<td>{{moredEstefadeSales.faal}}</td>-->
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(moredEstefadeSales, true)" *ngIf="!moredEstefadeSales.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(moredEstefadeSales, false)" *ngIf="moredEstefadeSales.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
+                </td>
+
+
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/mored-estefade-sales', moredEstefadeSales.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mored-estefade-sales', moredEstefadeSales.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'mored-estefade-sales', { outlets: { popup: moredEstefadeSales.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

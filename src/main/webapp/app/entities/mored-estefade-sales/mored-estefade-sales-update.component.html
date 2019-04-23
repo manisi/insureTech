@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mored-estefade-sales-heading" jhiTranslate="insurancestartApp.moredEstefadeSales.home.createOrEditLabel">Create or edit a Mored Estefade Sales</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!moredEstefadeSales.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="moredEstefadeSales.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
+                    <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="moredEstefadeSales.sherkatBimeId"  required>
+                        <option *ngIf="!editForm.value.sherkatBime" [ngValue]="null" selected></option>
+                        <option [ngValue]="sherkatBimeOption.id" *ngFor="let sherkatBimeOption of sherkatbimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.sherkatBime?.dirty && editForm.controls.sherkatBime?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.sherkatBime?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>
+                    <select class="form-control" id="field_grouhKhodro" name="grouhKhodro" [(ngModel)]="moredEstefadeSales.grouhKhodroId"  required>
+                        <option *ngIf="!editForm.value.grouhKhodro" [ngValue]="null" selected></option>
+                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.grouhKhodro?.dirty && editForm.controls.grouhKhodro?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.grouhKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh" for="field_darsadEzafeNerkh">Darsad Ezafe Nerkh</label>
+                    <input type="number" class="form-control" name="darsadEzafeNerkh" id="field_darsadEzafeNerkh"
+                        [(ngModel)]="moredEstefadeSales.darsadEzafeNerkh" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.darsadEzafeNerkh?.dirty && editForm.controls.darsadEzafeNerkh?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh" for="field_azTarikh">Az Tarikh</label>
+                    <div class="input-group">
+                        <input id="field_azTarikh" type="text" class="form-control" name="azTarikh" ngbDatepicker  #azTarikhDp="ngbDatepicker" [(ngModel)]="moredEstefadeSales.azTarikh"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="azTarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.azTarikh?.dirty && editForm.controls.azTarikh?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.azTarikh?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh" for="field_taTarikh">Ta Tarikh</label>
+                    <div class="input-group">
+                        <input id="field_taTarikh" type="text" class="form-control" name="taTarikh" ngbDatepicker  #taTarikhDp="ngbDatepicker" [(ngModel)]="moredEstefadeSales.taTarikh"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="taTarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.taTarikh?.dirty && editForm.controls.taTarikh?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.taTarikh?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.faal" for="field_faal">Faal</label>
+                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
+                        [(ngModel)]="moredEstefadeSales.faal" />
+                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

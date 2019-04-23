@@ -48,6 +48,20 @@ export class SherkatBimeComponent implements OnInit, OnDestroy {
         });
     }
 
+    setActive(sherkatBime, isActivated) {
+        sherkatBime.faal = isActivated;
+        this.sherkatBimeService.update(sherkatBime).subscribe(response => {
+            if (response.status === 200) {
+                this.error = null;
+                this.success = 'OK';
+                // this.loadAll();
+            } else {
+                this.success = null;
+                this.error = 'ERROR';
+            }
+        });
+    }
+
     loadAll() {
         this.sherkatBimeService
             .query({

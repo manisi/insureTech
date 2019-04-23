@@ -28,11 +28,11 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let salesMazadCalc of salesMazadCalcs ;trackBy: trackId">
                 <td><a [routerLink]="['/sales-mazad-calc', salesMazadCalc.id, 'view' ]">{{salesMazadCalc.id}}</a></td>
-                <td>{{salesMazadCalc.mablaghSalesMazad}}</td>
+                <td>{{salesMazadCalc.mablaghSalesMazad | currency:'  میلیون تومان ':true:'1.0-0'}}</td>
                 <td>{{salesMazadCalc.tedadRooz}}</td>
-                <td>{{salesMazadCalc.haghBime}}</td>
-                <td>{{salesMazadCalc.tarikhShoroo | date:'mediumDate'}}</td>
-                <td>{{salesMazadCalc.tarikhPayan | date:'mediumDate'}}</td>
+                <td>{{salesMazadCalc.haghBime | currency:'   ریال ':true:'1.0-0'}}</td>
+                <td>{{salesMazadCalc.tarikhShoroo | date:'shortDate'}}</td>
+                <td>{{salesMazadCalc.tarikhPayan | date:'shortDate'}}</td>
                 <td>
                     <div *ngIf="salesMazadCalc.namesherkatId">
                         <a [routerLink]="['../sherkat-bime', salesMazadCalc.namesherkatId , 'view' ]" >{{salesMazadCalc.namesherkatName}}</a>

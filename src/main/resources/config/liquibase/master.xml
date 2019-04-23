@@ -32,6 +32,7 @@
     <include file="config/liquibase/changelog/20190422065602_added_entity_SalesJaniCalc.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190422071152_added_entity_SalesSarneshinCalc.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190422072006_added_entity_SalesMazadCalc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190423174158_added_entity_MoredEstefadeSales.xml" relativeToChangelogFile="false"/>
     <!--&lt;!&ndash; jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here &ndash;&gt;-->
     <!--<include file="config/liquibase/changelog/20190116184640_added_entity_constraints_Pooshesh.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190116184642_added_entity_constraints_TipKhodro.xml" relativeToChangelogFile="false"/>-->
@@ -51,5 +52,6 @@
     <include file="config/liquibase/changelog/20190422065602_added_entity_constraints_SalesJaniCalc.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190422071152_added_entity_constraints_SalesSarneshinCalc.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190422072006_added_entity_constraints_SalesMazadCalc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190423174158_added_entity_constraints_MoredEstefadeSales.xml" relativeToChangelogFile="false"/>
     <!--&lt;!&ndash; jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here &ndash;&gt;-->
 </databaseChangeLog>
