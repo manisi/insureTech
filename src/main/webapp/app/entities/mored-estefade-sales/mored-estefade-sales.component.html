@@ -40,8 +40,8 @@
                     </div>
                 </td>
                 <td>{{moredEstefadeSales.darsadEzafeNerkh | currency:'  % ':true:'1.0-0'}}</td>
-                <td>{{moredEstefadeSales.azTarikh | date:'mediumDate'}}</td>
-                <td>{{moredEstefadeSales.taTarikh | date:'mediumDate'}}</td>
+                <td>{{moredEstefadeSales.azTarikh | jalali}}</td>
+                <td>{{moredEstefadeSales.taTarikh | jalali}}</td>
                 <!--<td>{{moredEstefadeSales.faal}}</td>-->
                 <td>
                     <button class="btn btn-danger btn-sm" (click)="setActive(moredEstefadeSales, true)" *ngIf="!moredEstefadeSales.faal"

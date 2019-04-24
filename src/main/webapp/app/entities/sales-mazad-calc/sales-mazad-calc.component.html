@@ -31,8 +31,8 @@
                 <td>{{salesMazadCalc.mablaghSalesMazad | currency:'  میلیون تومان ':true:'1.0-0'}}</td>
                 <td>{{salesMazadCalc.tedadRooz}}</td>
                 <td>{{salesMazadCalc.haghBime | currency:'   ریال ':true:'1.0-0'}}</td>
-                <td>{{salesMazadCalc.tarikhShoroo | date:'shortDate'}}</td>
-                <td>{{salesMazadCalc.tarikhPayan | date:'shortDate'}}</td>
+                <td>{{salesMazadCalc.tarikhShoroo | jalali}}</td>
+                <td>{{salesMazadCalc.tarikhPayan | jalali}}</td>
                 <td>
                     <div *ngIf="salesMazadCalc.namesherkatId">
                         <a [routerLink]="['../sherkat-bime', salesMazadCalc.namesherkatId , 'view' ]" >{{salesMazadCalc.namesherkatName}}</a>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import * as moment from 'moment';
+import * as moment from 'jalali-moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { map } from 'rxjs/operators';
 
@@ -53,11 +53,11 @@ export class SalesMazadCalcService {
         const copy: ISalesMazadCalc = Object.assign({}, salesMazadCalc, {
             tarikhShoroo:
                 salesMazadCalc.tarikhShoroo != null && salesMazadCalc.tarikhShoroo.isValid()
-                    ? salesMazadCalc.tarikhShoroo.format(DATE_FORMAT)
+                    ? salesMazadCalc.tarikhShoroo.locale('en').utc(true)
                     : null,
             tarikhPayan:
                 salesMazadCalc.tarikhPayan != null && salesMazadCalc.tarikhPayan.isValid()
-                    ? salesMazadCalc.tarikhPayan.format(DATE_FORMAT)
+                    ? salesMazadCalc.tarikhPayan.locale('en').utc(true)
                     : null
         });
         return copy;
@@ -65,8 +65,8 @@ export class SalesMazadCalcService {
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
         if (res.body) {
-            res.body.tarikhShoroo = res.body.tarikhShoroo != null ? moment(res.body.tarikhShoroo) : null;
-            res.body.tarikhPayan = res.body.tarikhPayan != null ? moment(res.body.tarikhPayan) : null;
+            res.body.tarikhShoroo = res.body.tarikhShoroo != null ? moment(res.body.tarikhShoroo).locale('fa') : null;
+            res.body.tarikhPayan = res.body.tarikhPayan != null ? moment(res.body.tarikhPayan).locale('fa') : null;
         }
         return res;
     }
@@ -74,8 +74,8 @@ export class SalesMazadCalcService {
     protected convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
         if (res.body) {
             res.body.forEach((salesMazadCalc: ISalesMazadCalc) => {
-                salesMazadCalc.tarikhShoroo = salesMazadCalc.tarikhShoroo != null ? moment(salesMazadCalc.tarikhShoroo) : null;
-                salesMazadCalc.tarikhPayan = salesMazadCalc.tarikhPayan != null ? moment(salesMazadCalc.tarikhPayan) : null;
+                salesMazadCalc.tarikhShoroo = salesMazadCalc.tarikhShoroo != null ? moment(salesMazadCalc.tarikhShoroo).locale('fa') : null;
+                salesMazadCalc.tarikhPayan = salesMazadCalc.tarikhPayan != null ? moment(salesMazadCalc.tarikhPayan).locale('fa') : null;
             });
         }
         return res;

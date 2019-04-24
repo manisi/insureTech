@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import * as moment from 'moment';
+import * as moment from 'jalali-moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { map } from 'rxjs/operators';
 
@@ -53,11 +53,11 @@ export class MoredEstefadeSalesService {
         const copy: IMoredEstefadeSales = Object.assign({}, moredEstefadeSales, {
             azTarikh:
                 moredEstefadeSales.azTarikh != null && moredEstefadeSales.azTarikh.isValid()
-                    ? moredEstefadeSales.azTarikh.format(DATE_FORMAT)
+                    ? moredEstefadeSales.azTarikh.locale('en').utc(true)
                     : null,
             taTarikh:
                 moredEstefadeSales.taTarikh != null && moredEstefadeSales.taTarikh.isValid()
-                    ? moredEstefadeSales.taTarikh.format(DATE_FORMAT)
+                    ? moredEstefadeSales.taTarikh.locale('en').utc(true)
                     : null
         });
         return copy;
@@ -65,8 +65,8 @@ export class MoredEstefadeSalesService {
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
         if (res.body) {
-            res.body.azTarikh = res.body.azTarikh != null ? moment(res.body.azTarikh) : null;
-            res.body.taTarikh = res.body.taTarikh != null ? moment(res.body.taTarikh) : null;
+            res.body.azTarikh = res.body.azTarikh != null ? moment(res.body.azTarikh).locale('fa') : null;
+            res.body.taTarikh = res.body.taTarikh != null ? moment(res.body.taTarikh).locale('fa') : null;
         }
         return res;
     }
@@ -74,8 +74,8 @@ export class MoredEstefadeSalesService {
     protected convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
         if (res.body) {
             res.body.forEach((moredEstefadeSales: IMoredEstefadeSales) => {
-                moredEstefadeSales.azTarikh = moredEstefadeSales.azTarikh != null ? moment(moredEstefadeSales.azTarikh) : null;
-                moredEstefadeSales.taTarikh = moredEstefadeSales.taTarikh != null ? moment(moredEstefadeSales.taTarikh) : null;
+                moredEstefadeSales.azTarikh = moredEstefadeSales.azTarikh != null ? moment(moredEstefadeSales.azTarikh).locale('fa') : null;
+                moredEstefadeSales.taTarikh = moredEstefadeSales.taTarikh != null ? moment(moredEstefadeSales.taTarikh).locale('fa') : null;
             });
         }
         return res;

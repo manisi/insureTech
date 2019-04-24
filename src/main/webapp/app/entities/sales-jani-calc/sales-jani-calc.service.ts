@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import * as moment from 'moment';
+import * as moment from 'jalali-moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { map } from 'rxjs/operators';
 
@@ -53,11 +53,11 @@ export class SalesJaniCalcService {
         const copy: ISalesJaniCalc = Object.assign({}, salesJaniCalc, {
             tarikhShoroFaaliat:
                 salesJaniCalc.tarikhShoroFaaliat != null && salesJaniCalc.tarikhShoroFaaliat.isValid()
-                    ? salesJaniCalc.tarikhShoroFaaliat.format(DATE_FORMAT)
+                    ? salesJaniCalc.tarikhShoroFaaliat.locale('en').utc(true)
                     : null,
             tarikhPayanFaaliat:
                 salesJaniCalc.tarikhPayanFaaliat != null && salesJaniCalc.tarikhPayanFaaliat.isValid()
-                    ? salesJaniCalc.tarikhPayanFaaliat.format(DATE_FORMAT)
+                    ? salesJaniCalc.tarikhPayanFaaliat.locale('en').utc(true)
                     : null
         });
         return copy;
@@ -65,8 +65,8 @@ export class SalesJaniCalcService {
 
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
         if (res.body) {
-            res.body.tarikhShoroFaaliat = res.body.tarikhShoroFaaliat != null ? moment(res.body.tarikhShoroFaaliat) : null;
-            res.body.tarikhPayanFaaliat = res.body.tarikhPayanFaaliat != null ? moment(res.body.tarikhPayanFaaliat) : null;
+            res.body.tarikhShoroFaaliat = res.body.tarikhShoroFaaliat != null ? moment(res.body.tarikhShoroFaaliat).locale('fa') : null;
+            res.body.tarikhPayanFaaliat = res.body.tarikhPayanFaaliat != null ? moment(res.body.tarikhPayanFaaliat).locale('fa') : null;
         }
         return res;
     }
@@ -75,9 +75,9 @@ export class SalesJaniCalcService {
         if (res.body) {
             res.body.forEach((salesJaniCalc: ISalesJaniCalc) => {
                 salesJaniCalc.tarikhShoroFaaliat =
-                    salesJaniCalc.tarikhShoroFaaliat != null ? moment(salesJaniCalc.tarikhShoroFaaliat) : null;
+                    salesJaniCalc.tarikhShoroFaaliat != null ? moment(salesJaniCalc.tarikhShoroFaaliat).locale('fa') : null;
                 salesJaniCalc.tarikhPayanFaaliat =
-                    salesJaniCalc.tarikhPayanFaaliat != null ? moment(salesJaniCalc.tarikhPayanFaaliat) : null;
+                    salesJaniCalc.tarikhPayanFaaliat != null ? moment(salesJaniCalc.tarikhPayanFaaliat).locale('fa') : null;
             });
         }
         return res;

@@ -31,8 +31,8 @@
                 <td>{{salesSarneshinCalc.mablaghSalesMazad | currency:'  میلیون تومان ':true:'1.0-0'}}</td>
                 <td>{{salesSarneshinCalc.tedadRooz}}</td>
                 <td>{{salesSarneshinCalc.mablaghHaghBime | currency:'   ریال ':true:'1.0-0'}}</td>
-                <td>{{salesSarneshinCalc.tarikhShoroo | date:'shortDate'}}</td>
-                <td>{{salesSarneshinCalc.tarikhPayan | date:'shortDate'}}</td>
+                <td>{{salesSarneshinCalc.tarikhShoroo | jalali}}</td>
+                <td>{{salesSarneshinCalc.tarikhPayan | jalali}}</td>
                 <td>
                     <div *ngIf="salesSarneshinCalc.namesherkatId">
                         <a [routerLink]="['../sherkat-bime', salesSarneshinCalc.namesherkatId , 'view' ]" >{{salesSarneshinCalc.namesherkatName}}</a>
