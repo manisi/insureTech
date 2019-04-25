@@ -52,18 +52,31 @@ export class SabegheService {
 
     //search
     search(req: any[], pageable: any): Observable<EntityArrayResponseType> {
+        if (req && req[0] == 'tarikh') {
+            req[2] = this.convertDateForSearch(req[2]);
+        }
         const options = createSearchRequest(req, pageable);
         return this.http.get<ISabeghe[]>(this.resourceUrl, { params: options, observe: 'response' }).pipe(
             map((res: EntityArrayResponseType) => {
-                // return  this.convertDateArrayFromServer(res);
+                return this.convertDateArrayFromServer(res);
                 return res;
             })
         );
     }
 
+    convertDateForSearch(req: any) {
+        req = moment
+            .from(req, 'fa', 'YYYY/MM/DD')
+            .locale('en')
+            .format(DATE_FORMAT);
+        //console.log("date..................." + req);
+        moment.locale('en');
+        return req;
+    }
+
     protected convertDateFromClient(sabeghe: ISabeghe): ISabeghe {
         const copy: ISabeghe = Object.assign({}, sabeghe, {
-            tarikh: sabeghe.tarikh != null && sabeghe.tarikh.isValid() ? sabeghe.tarikh.format(DATE_FORMAT) : null
+            tarikh: sabeghe.tarikh != null && sabeghe.tarikh.isValid() ? sabeghe.tarikh.locale('en').utc(true) : null
         });
         return copy;
     }

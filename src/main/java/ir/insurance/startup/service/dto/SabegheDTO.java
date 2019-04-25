@@ -1,11 +1,7 @@
 package ir.insurance.startup.service.dto;
-
-import ir.insurance.startup.service.util.CalendarUtil;
-
 import java.time.LocalDate;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-
 import java.util.Objects;
 
 /**
@@ -23,11 +19,11 @@ public class SabegheDTO implements Serializable {
     @NotNull
     private Boolean faal;
 
-    private String tarikh;
+   // private String tarikh; // for custom mapper
 
-    public SabegheDTO() {
-        // Empty constructor needed for Jackson.
-    }
+    private LocalDate tarikh;
+
+
     public Long getId() {
         return id;
     }
@@ -60,13 +56,11 @@ public class SabegheDTO implements Serializable {
         this.faal = faal;
     }
 
-    public String getTarikh() {
+    public LocalDate getTarikh() {
         return tarikh;
     }
 
-
-
-    public void setTarikh(String tarikh) {
+    public void setTarikh(LocalDate tarikh) {
         this.tarikh = tarikh;
     }
 
