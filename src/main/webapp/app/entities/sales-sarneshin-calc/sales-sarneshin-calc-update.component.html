@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.salesSarneshinCalc.tarikhPayan" for="field_tarikhPayan">Tarikh Payan</label>
                     <div class="input-group">
-                        <input id="field_tarikhPayan" type="text" class="form-control" name="tarikhPayan" ngbDatepicker  #tarikhPayanDp="ngbDatepicker" [(ngModel)]="salesSarneshinCalc.tarikhPayan"
+                        <input id="field_tarikhPayan" type="text" class="form-control" [displayMonths]="1" [firstDayOfWeek]="6"  name="tarikhPayan" ngbDatepicker  #tarikhPayanDp="ngbDatepicker" [(ngModel)]="salesSarneshinCalc.tarikhPayan"
                         />
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="tarikhPayanDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>

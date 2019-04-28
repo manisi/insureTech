@@ -80,7 +80,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.salesJaniCalc.tarikhShoroFaaliat" for="field_tarikhShoroFaaliat">Tarikh Shoro Faaliat</label>
                     <div class="input-group">
-                        <input id="field_tarikhShoroFaaliat" type="text" class="form-control" name="tarikhShoroFaaliat" ngbDatepicker  #tarikhShoroFaaliatDp="ngbDatepicker" [(ngModel)]="salesJaniCalc.tarikhShoroFaaliat"
+                        <input id="field_tarikhShoroFaaliat" type="text" class="form-control" [displayMonths]="1" [firstDayOfWeek]="6"  name="tarikhShoroFaaliat" ngbDatepicker  #tarikhShoroFaaliatDp="ngbDatepicker" [(ngModel)]="salesJaniCalc.tarikhShoroFaaliat"
                         required/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="tarikhShoroFaaliatDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>

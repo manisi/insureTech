@@ -69,7 +69,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.salesMazadCalc.tarikhShoroo" for="field_tarikhShoroo">Tarikh Shoroo</label>
                     <div class="input-group">
-                        <input id="field_tarikhShoroo" type="text" class="form-control" name="tarikhShoroo" ngbDatepicker  #tarikhShorooDp="ngbDatepicker" [(ngModel)]="salesMazadCalc.tarikhShoroo"
+                        <input id="field_tarikhShoroo" type="text" class="form-control" [displayMonths]="1" [firstDayOfWeek]="6"  name="tarikhShoroo" ngbDatepicker  #tarikhShorooDp="ngbDatepicker" [(ngModel)]="salesMazadCalc.tarikhShoroo"
                         required/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="tarikhShorooDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
