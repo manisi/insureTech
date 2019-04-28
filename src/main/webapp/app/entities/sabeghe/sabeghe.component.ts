@@ -128,7 +128,7 @@ export class SabegheComponent implements OnInit, OnDestroy {
                     sort: this.sort()
                 })
                 .subscribe((res: HttpResponse<ISabeghe[]>) => {
-                    console.log('red', res);
+                    //  console.log('red', res);
                     this.searchparams = [];
                     if (res.body) {
                         this.sabeghes = [];

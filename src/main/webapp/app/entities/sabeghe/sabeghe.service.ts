@@ -53,7 +53,7 @@ export class SabegheService {
     //search
     search(req: any[], pageable: any): Observable<EntityArrayResponseType> {
         if (req && req[0] == 'tarikh') {
-            req[2] = this.convertDateForSearch(req[2]);
+            req[2] = this.convertJalaliDateToGregorian(req[2]);
         }
         const options = createSearchRequest(req, pageable);
         return this.http.get<ISabeghe[]>(this.resourceUrl, { params: options, observe: 'response' }).pipe(
@@ -64,14 +64,11 @@ export class SabegheService {
         );
     }
 
-    convertDateForSearch(req: any) {
-        req = moment
-            .from(req, 'fa', 'YYYY/MM/DD')
-            .locale('en')
-            .format(DATE_FORMAT);
-        //console.log("date..................." + req);
-        moment.locale('en');
-        return req;
+    convertJalaliDateToGregorian(req: any) {
+        // parse jalali date
+        let m = moment(req, 'jYYYY/jMM/jDD');
+        //console.log("searchDate..................." + m.doAsGregorian().format(DATE_FORMAT));
+        return m.doAsGregorian().format(DATE_FORMAT);
     }
 
     protected convertDateFromClient(sabeghe: ISabeghe): ISabeghe {
