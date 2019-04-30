@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "onvanKhodro": {
+            "home": {
+                "title": "عنوان خودرو",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش/ایجاد"
+            },
+            "created": "A new Onvan Khodro is created with identifier {{ param }}",
+            "updated": "A Onvan Khodro is updated with identifier {{ param }}",
+            "deleted": "A Onvan Khodro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Onvan Khodro {{ id }}?"
+            },
+            "detail": {
+                "title": "عنوان خودرو"
+            },
+            "name": "نام",
+            "sharh": "شرح",
+            "azTarikh": "از تاریخ",
+            "taTarikh": "تا تاریخ",
+            "faal": "فعال"
+        }
+    }
+}

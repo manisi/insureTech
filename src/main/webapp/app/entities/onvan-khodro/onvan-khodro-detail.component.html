@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="onvanKhodro">
+            <h2><span jhiTranslate="insurancestartApp.onvanKhodro.detail.title">Onvan Khodro</span> {{onvanKhodro.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.onvanKhodro.name">Name</span></dt>
+                <dd>
+                    <span>{{onvanKhodro.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.onvanKhodro.sharh">Sharh</span></dt>
+                <dd>
+                    <span>{{onvanKhodro.sharh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.onvanKhodro.azTarikh">Az Tarikh</span></dt>
+                <dd>
+                    <span>{{onvanKhodro.azTarikh | jalali}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.onvanKhodro.taTarikh">Ta Tarikh</span></dt>
+                <dd>
+                    <span>{{onvanKhodro.taTarikh | jalali}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.onvanKhodro.faal">Faal</span></dt>
+                <dd>
+                    <span>{{onvanKhodro.faal}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/onvan-khodro', onvanKhodro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

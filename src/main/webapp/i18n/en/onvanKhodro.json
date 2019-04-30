@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "onvanKhodro": {
+            "home": {
+                "title": "Onvan Khodros",
+                "createLabel": "Create a new Onvan Khodro",
+                "createOrEditLabel": "Create or edit a Onvan Khodro"
+            },
+            "created": "A new Onvan Khodro is created with identifier {{ param }}",
+            "updated": "A Onvan Khodro is updated with identifier {{ param }}",
+            "deleted": "A Onvan Khodro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Onvan Khodro {{ id }}?"
+            },
+            "detail": {
+                "title": "Onvan Khodro"
+            },
+            "name": "Name",
+            "sharh": "Sharh",
+            "azTarikh": "Az Tarikh",
+            "taTarikh": "Ta Tarikh",
+            "faal": "Faal"
+        }
+    }
+}
