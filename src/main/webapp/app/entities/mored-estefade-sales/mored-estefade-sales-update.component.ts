@@ -11,6 +11,8 @@ import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
 import { GrouhKhodroService } from 'app/entities/grouh-khodro';
 import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 import { SherkatBimeService } from 'app/entities/sherkat-bime';
+import { IOnvanKhodro } from 'app/shared/model/onvan-khodro.model';
+import { OnvanKhodroService } from 'app/entities/onvan-khodro';
 
 @Component({
     selector: 'jhi-mored-estefade-sales-update',
@@ -23,6 +25,8 @@ export class MoredEstefadeSalesUpdateComponent implements OnInit {
     grouhkhodros: IGrouhKhodro[];
 
     sherkatbimes: ISherkatBime[];
+
+    onvankhodros: IOnvanKhodro[];
     azTarikhDp: any;
     taTarikhDp: any;
 
@@ -31,6 +35,7 @@ export class MoredEstefadeSalesUpdateComponent implements OnInit {
         protected moredEstefadeSalesService: MoredEstefadeSalesService,
         protected grouhKhodroService: GrouhKhodroService,
         protected sherkatBimeService: SherkatBimeService,
+        protected onvanKhodroService: OnvanKhodroService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -53,6 +58,13 @@ export class MoredEstefadeSalesUpdateComponent implements OnInit {
                 map((response: HttpResponse<ISherkatBime[]>) => response.body)
             )
             .subscribe((res: ISherkatBime[]) => (this.sherkatbimes = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.onvanKhodroService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IOnvanKhodro[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IOnvanKhodro[]>) => response.body)
+            )
+            .subscribe((res: IOnvanKhodro[]) => (this.onvankhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -90,6 +102,10 @@ export class MoredEstefadeSalesUpdateComponent implements OnInit {
     }
 
     trackSherkatBimeById(index: number, item: ISherkatBime) {
+        return item.id;
+    }
+
+    trackOnvanKhodroById(index: number, item: IOnvanKhodro) {
         return item.id;
     }
 }

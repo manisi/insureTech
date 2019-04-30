@@ -54,6 +54,11 @@ public class MoredEstefadeSales implements Serializable {
     @JsonIgnoreProperties("moredEstefadeSales")
     private SherkatBime sherkatBime;
 
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties("moredEstefadeSales")
+    private OnvanKhodro onvanKhodro;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -139,6 +144,19 @@ public class MoredEstefadeSales implements Serializable {
 
     public void setSherkatBime(SherkatBime sherkatBime) {
         this.sherkatBime = sherkatBime;
+    }
+
+    public OnvanKhodro getOnvanKhodro() {
+        return onvanKhodro;
+    }
+
+    public MoredEstefadeSales onvanKhodro(OnvanKhodro onvanKhodro) {
+        this.onvanKhodro = onvanKhodro;
+        return this;
+    }
+
+    public void setOnvanKhodro(OnvanKhodro onvanKhodro) {
+        this.onvanKhodro = onvanKhodro;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

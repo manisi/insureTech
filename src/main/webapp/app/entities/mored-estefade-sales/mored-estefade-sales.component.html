@@ -15,14 +15,13 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="sherkatBimeName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.sherkatBime">Sherkat Bime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="grouhKhodroName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="darsadEzafeNerkh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh">Darsad Ezafe Nerkh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="azTarikh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh">Az Tarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="taTarikh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh">Ta Tarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.moredEstefadeSales.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-
-
+                <th jhiSortBy="sherkatBimeName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.sherkatBime">Sherkat Bime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="grouhKhodroName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="onvanKhodroName"><span jhiTranslate="insurancestartApp.moredEstefadeSales.onvanKhodro">Onvan Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="darsadEzafeNerkh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh">Darsad Ezafe Nerkh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="azTarikh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh">Az Tarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="taTarikh"><span jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh">Ta Tarikh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.moredEstefadeSales.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -39,7 +38,12 @@
                         <a [routerLink]="['../grouh-khodro', moredEstefadeSales.grouhKhodroId , 'view' ]" >{{moredEstefadeSales.grouhKhodroName}}</a>
                     </div>
                 </td>
-                <td>{{moredEstefadeSales.darsadEzafeNerkh | currency:'  % ':true:'1.0-0'}}</td>
+                <td>
+                    <div *ngIf="moredEstefadeSales.onvanKhodroId">
+                        <a [routerLink]="['../onvan-khodro', moredEstefadeSales.onvanKhodroId , 'view' ]" >{{moredEstefadeSales.onvanKhodroName}}</a>
+                    </div>
+                </td>
+                <td>{{moredEstefadeSales.darsadEzafeNerkh}}</td>
                 <td>{{moredEstefadeSales.azTarikh | jalali}}</td>
                 <td>{{moredEstefadeSales.taTarikh | jalali}}</td>
                 <!--<td>{{moredEstefadeSales.faal}}</td>-->
@@ -49,8 +53,6 @@
                     <button class="btn btn-success btn-sm" (click)="setActive(moredEstefadeSales, false)" *ngIf="moredEstefadeSales.faal"
                             jhiTranslate="userManagement.activated">Activated</button>
                 </td>
-
-
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

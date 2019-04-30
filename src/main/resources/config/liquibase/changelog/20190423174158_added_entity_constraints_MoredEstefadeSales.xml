@@ -20,5 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="sherkat_bime"/>
 
+        <addForeignKeyConstraint baseColumnNames="onvan_khodro_id"
+                                 baseTableName="mored_estefade_sales"
+                                 constraintName="fk_mored_estefade_sales_onvan_khodro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="onvan_khodro"/>
+
     </changeSet>
 </databaseChangeLog>

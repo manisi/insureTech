@@ -10,6 +10,8 @@ export interface IMoredEstefadeSales {
     grouhKhodroId?: number;
     sherkatBimeName?: string;
     sherkatBimeId?: number;
+    onvanKhodroName?: string;
+    onvanKhodroId?: number;
 }
 
 export class MoredEstefadeSales implements IMoredEstefadeSales {
@@ -22,7 +24,9 @@ export class MoredEstefadeSales implements IMoredEstefadeSales {
         public grouhKhodroName?: string,
         public grouhKhodroId?: number,
         public sherkatBimeName?: string,
-        public sherkatBimeId?: number
+        public sherkatBimeId?: number,
+        public onvanKhodroName?: string,
+        public onvanKhodroId?: number
     ) {
         this.faal = this.faal || false;
     }

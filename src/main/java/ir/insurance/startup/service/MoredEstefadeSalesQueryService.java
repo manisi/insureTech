@@ -109,6 +109,10 @@ public class MoredEstefadeSalesQueryService extends QueryService<MoredEstefadeSa
                 specification = specification.and(buildSpecification(criteria.getSherkatBimeId(),
                     root -> root.join(MoredEstefadeSales_.sherkatBime, JoinType.LEFT).get(SherkatBime_.id)));
             }
+            if (criteria.getOnvanKhodroId() != null) {
+                specification = specification.and(buildSpecification(criteria.getOnvanKhodroId(),
+                    root -> root.join(MoredEstefadeSales_.onvanKhodro, JoinType.LEFT).get(OnvanKhodro_.id)));
+            }
         }
         return specification;
     }

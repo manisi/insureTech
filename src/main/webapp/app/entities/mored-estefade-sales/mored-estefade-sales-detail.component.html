@@ -5,33 +5,40 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh">Darsad Ezafe Nerkh</span></dt>
-                <dd>
-                    <span>{{moredEstefadeSales.darsadEzafeNerkh}}</span>
-                </dd>
-                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh">Az Tarikh</span></dt>
-                <dd>
-                    <span>{{moredEstefadeSales.azTarikh | jalali}}</span>
-                </dd>
-                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh">Ta Tarikh</span></dt>
-                <dd>
-                    <span>{{moredEstefadeSales.taTarikh | jalali}}</span>
-                </dd>
-                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.faal">Faal</span></dt>
-                <dd>
-                    <span>{{moredEstefadeSales.faal}}</span>
-                </dd>
-                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro">Grouh Khodro</span></dt>
-                <dd>
-                    <div *ngIf="moredEstefadeSales.grouhKhodroId">
-                        <a [routerLink]="['/grouh-khodro', moredEstefadeSales.grouhKhodroId, 'view']">{{moredEstefadeSales.grouhKhodroName}}</a>
-                    </div>
-                </dd>
                 <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.sherkatBime">Sherkat Bime</span></dt>
                 <dd>
                     <div *ngIf="moredEstefadeSales.sherkatBimeId">
                         <a [routerLink]="['/sherkat-bime', moredEstefadeSales.sherkatBimeId, 'view']">{{moredEstefadeSales.sherkatBimeName}}</a>
                     </div>
+                </dd>
+
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                <div *ngIf="moredEstefadeSales.grouhKhodroId">
+                <a [routerLink]="['/grouh-khodro', moredEstefadeSales.grouhKhodroId, 'view']">{{moredEstefadeSales.grouhKhodroName}}</a>
+        </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.onvanKhodro">Onvan Khodro</span></dt>
+                <dd>
+                    <div *ngIf="moredEstefadeSales.onvanKhodroId">
+                        <a [routerLink]="['/onvan-khodro', moredEstefadeSales.onvanKhodroId, 'view']">{{moredEstefadeSales.onvanKhodroName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh">Darsad Ezafe Nerkh</span></dt>
+                <dd>
+                <span>{{moredEstefadeSales.darsadEzafeNerkh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh">Az Tarikh</span></dt>
+                <dd>
+                <span>{{moredEstefadeSales.azTarikh | jalali}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh">Ta Tarikh</span></dt>
+                <dd>
+                <span>{{moredEstefadeSales.taTarikh | jalali}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.moredEstefadeSales.faal">Faal</span></dt>
+                <dd>
+                <span>{{moredEstefadeSales.faal}}</span>
                 </dd>
             </dl>
 

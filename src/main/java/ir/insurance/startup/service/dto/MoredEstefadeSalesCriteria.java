@@ -37,6 +37,8 @@ public class MoredEstefadeSalesCriteria implements Serializable {
 
     private LongFilter sherkatBimeId;
 
+    private LongFilter onvanKhodroId;
+
     public LongFilter getId() {
         return id;
     }
@@ -93,6 +95,14 @@ public class MoredEstefadeSalesCriteria implements Serializable {
         this.sherkatBimeId = sherkatBimeId;
     }
 
+    public LongFilter getOnvanKhodroId() {
+        return onvanKhodroId;
+    }
+
+    public void setOnvanKhodroId(LongFilter onvanKhodroId) {
+        this.onvanKhodroId = onvanKhodroId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -110,7 +120,8 @@ public class MoredEstefadeSalesCriteria implements Serializable {
             Objects.equals(taTarikh, that.taTarikh) &&
             Objects.equals(faal, that.faal) &&
             Objects.equals(grouhKhodroId, that.grouhKhodroId) &&
-            Objects.equals(sherkatBimeId, that.sherkatBimeId);
+            Objects.equals(sherkatBimeId, that.sherkatBimeId) &&
+            Objects.equals(onvanKhodroId, that.onvanKhodroId);
     }
 
     @Override
@@ -122,7 +133,8 @@ public class MoredEstefadeSalesCriteria implements Serializable {
         taTarikh,
         faal,
         grouhKhodroId,
-        sherkatBimeId
+        sherkatBimeId,
+        onvanKhodroId
         );
     }
 
@@ -136,6 +148,7 @@ public class MoredEstefadeSalesCriteria implements Serializable {
                 (faal != null ? "faal=" + faal + ", " : "") +
                 (grouhKhodroId != null ? "grouhKhodroId=" + grouhKhodroId + ", " : "") +
                 (sherkatBimeId != null ? "sherkatBimeId=" + sherkatBimeId + ", " : "") +
+                (onvanKhodroId != null ? "onvanKhodroId=" + onvanKhodroId + ", " : "") +
             "}";
     }
 

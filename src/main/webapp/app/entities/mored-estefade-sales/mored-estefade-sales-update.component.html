@@ -31,26 +31,39 @@
                 </div>
                 <div [hidden]="!(editForm.controls.grouhKhodro?.dirty && editForm.controls.grouhKhodro?.invalid)">
                     <small class="form-text text-danger"
-                           [hidden]="!editForm.controls.grouhKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.grouhKhodro?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                     </small>
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.onvanKhodro" for="field_onvanKhodro">Onvan Khodro</label>
+                    <select class="form-control" id="field_onvanKhodro" name="onvanKhodro" [(ngModel)]="moredEstefadeSales.onvanKhodroId"  required>
+                        <option *ngIf="!editForm.value.onvanKhodro" [ngValue]="null" selected></option>
+                        <option [ngValue]="onvanKhodroOption.id" *ngFor="let onvanKhodroOption of onvankhodros; trackBy: trackOnvanKhodroById">{{onvanKhodroOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.onvanKhodro?.dirty && editForm.controls.onvanKhodro?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.onvanKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.darsadEzafeNerkh" for="field_darsadEzafeNerkh">Darsad Ezafe Nerkh</label>
                     <input type="number" class="form-control" name="darsadEzafeNerkh" id="field_darsadEzafeNerkh"
-                        [(ngModel)]="moredEstefadeSales.darsadEzafeNerkh" required min="0" jhiMin="0"/>
+                           [(ngModel)]="moredEstefadeSales.darsadEzafeNerkh" required min="0" jhiMin="0"/>
                     <div [hidden]="!(editForm.controls.darsadEzafeNerkh?.dirty && editForm.controls.darsadEzafeNerkh?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                               [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
                             This field should be at least 0.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.number" jhiTranslate="entity.validation.number">
+                               [hidden]="!editForm.controls.darsadEzafeNerkh?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -58,48 +71,46 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.azTarikh" for="field_azTarikh">Az Tarikh</label>
                     <div class="input-group">
-                        <input id="field_azTarikh" type="text" class="form-control" name="azTarikh" ngbDatepicker  #azTarikhDp="ngbDatepicker" [(ngModel)]="moredEstefadeSales.azTarikh"
-                        required/>
+                        <input id="field_azTarikh" type="text" class="form-control" [displayMonths]="1" [firstDayOfWeek]="6" name="azTarikh" ngbDatepicker  #azTarikhDp="ngbDatepicker" [(ngModel)]="moredEstefadeSales.azTarikh"
+                               required/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="azTarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
                     </div>
                     <div [hidden]="!(editForm.controls.azTarikh?.dirty && editForm.controls.azTarikh?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.azTarikh?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.azTarikh?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.taTarikh" for="field_taTarikh">Ta Tarikh</label>
                     <div class="input-group">
-                        <input id="field_taTarikh" type="text" class="form-control" name="taTarikh" ngbDatepicker  #taTarikhDp="ngbDatepicker" [(ngModel)]="moredEstefadeSales.taTarikh"
-                        required/>
+                        <input id="field_taTarikh" type="text" class="form-control" [displayMonths]="1" [firstDayOfWeek]="6" name="taTarikh" ngbDatepicker  #taTarikhDp="ngbDatepicker" [(ngModel)]="moredEstefadeSales.taTarikh"
+                               required/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="taTarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
                     </div>
                     <div [hidden]="!(editForm.controls.taTarikh?.dirty && editForm.controls.taTarikh?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.taTarikh?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.taTarikh?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.moredEstefadeSales.faal" for="field_faal">Faal</label>
                     <input type="checkbox" class="form-control" name="faal" id="field_faal"
-                        [(ngModel)]="moredEstefadeSales.faal" />
+                           [(ngModel)]="moredEstefadeSales.faal" />
                     <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
                         </small>
                     </div>
                 </div>
-
-
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

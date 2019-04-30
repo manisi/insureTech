@@ -33,6 +33,10 @@ public class MoredEstefadeSalesDTO implements Serializable {
 
     private String sherkatBimeName;
 
+    private Long onvanKhodroId;
+
+    private String onvanKhodroName;
+
     public Long getId() {
         return id;
     }
@@ -105,6 +109,22 @@ public class MoredEstefadeSalesDTO implements Serializable {
         this.sherkatBimeName = sherkatBimeName;
     }
 
+    public Long getOnvanKhodroId() {
+        return onvanKhodroId;
+    }
+
+    public void setOnvanKhodroId(Long onvanKhodroId) {
+        this.onvanKhodroId = onvanKhodroId;
+    }
+
+    public String getOnvanKhodroName() {
+        return onvanKhodroName;
+    }
+
+    public void setOnvanKhodroName(String onvanKhodroName) {
+        this.onvanKhodroName = onvanKhodroName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -138,6 +158,8 @@ public class MoredEstefadeSalesDTO implements Serializable {
             ", grouhKhodro='" + getGrouhKhodroName() + "'" +
             ", sherkatBime=" + getSherkatBimeId() +
             ", sherkatBime='" + getSherkatBimeName() + "'" +
+            ", onvanKhodro=" + getOnvanKhodroId() +
+            ", onvanKhodro='" + getOnvanKhodroName() + "'" +
             "}";
     }
 }

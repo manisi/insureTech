@@ -5,6 +5,7 @@ import ir.insurance.startup.InsurancestartApp;
 import ir.insurance.startup.domain.MoredEstefadeSales;
 import ir.insurance.startup.domain.GrouhKhodro;
 import ir.insurance.startup.domain.SherkatBime;
+import ir.insurance.startup.domain.OnvanKhodro;
 import ir.insurance.startup.repository.MoredEstefadeSalesRepository;
 import ir.insurance.startup.service.MoredEstefadeSalesService;
 import ir.insurance.startup.service.dto.MoredEstefadeSalesDTO;
@@ -126,6 +127,11 @@ public class MoredEstefadeSalesResourceIntTest {
         em.persist(sherkatBime);
         em.flush();
         moredEstefadeSales.setSherkatBime(sherkatBime);
+        // Add required entity
+        OnvanKhodro onvanKhodro = OnvanKhodroResourceIntTest.createEntity(em);
+        em.persist(onvanKhodro);
+        em.flush();
+        moredEstefadeSales.setOnvanKhodro(onvanKhodro);
         return moredEstefadeSales;
     }
 
@@ -531,6 +537,25 @@ public class MoredEstefadeSalesResourceIntTest {
 
         // Get all the moredEstefadeSalesList where sherkatBime equals to sherkatBimeId + 1
         defaultMoredEstefadeSalesShouldNotBeFound("sherkatBimeId.equals=" + (sherkatBimeId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllMoredEstefadeSalesByOnvanKhodroIsEqualToSomething() throws Exception {
+        // Initialize the database
+        OnvanKhodro onvanKhodro = OnvanKhodroResourceIntTest.createEntity(em);
+        em.persist(onvanKhodro);
+        em.flush();
+        moredEstefadeSales.setOnvanKhodro(onvanKhodro);
+        moredEstefadeSalesRepository.saveAndFlush(moredEstefadeSales);
+        Long onvanKhodroId = onvanKhodro.getId();
+
+        // Get all the moredEstefadeSalesList where onvanKhodro equals to onvanKhodroId
+        defaultMoredEstefadeSalesShouldBeFound("onvanKhodroId.equals=" + onvanKhodroId);
+
+        // Get all the moredEstefadeSalesList where onvanKhodro equals to onvanKhodroId + 1
+        defaultMoredEstefadeSalesShouldNotBeFound("onvanKhodroId.equals=" + (onvanKhodroId + 1));
     }
 
     /**

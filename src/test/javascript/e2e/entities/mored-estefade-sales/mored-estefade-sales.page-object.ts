@@ -32,6 +32,7 @@ export class MoredEstefadeSalesUpdatePage {
     faalInput = element(by.id('field_faal'));
     grouhKhodroSelect = element(by.id('field_grouhKhodro'));
     sherkatBimeSelect = element(by.id('field_sherkatBime'));
+    onvanKhodroSelect = element(by.id('field_onvanKhodro'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -101,6 +102,25 @@ export class MoredEstefadeSalesUpdatePage {
 
     async getSherkatBimeSelectedOption() {
         return this.sherkatBimeSelect.element(by.css('option:checked')).getText();
+    }
+
+    async onvanKhodroSelectLastOption() {
+        await this.onvanKhodroSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async onvanKhodroSelectOption(option) {
+        await this.onvanKhodroSelect.sendKeys(option);
+    }
+
+    getOnvanKhodroSelect(): ElementFinder {
+        return this.onvanKhodroSelect;
+    }
+
+    async getOnvanKhodroSelectedOption() {
+        return this.onvanKhodroSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

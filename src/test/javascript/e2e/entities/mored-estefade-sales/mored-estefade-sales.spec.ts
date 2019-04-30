@@ -49,6 +49,7 @@ describe('MoredEstefadeSales e2e test', () => {
             moredEstefadeSalesUpdatePage.setTaTarikhInput('2000-12-31'),
             moredEstefadeSalesUpdatePage.grouhKhodroSelectLastOption(),
             moredEstefadeSalesUpdatePage.sherkatBimeSelectLastOption(),
+            moredEstefadeSalesUpdatePage.onvanKhodroSelectLastOption(),
         ]);
         expect(await moredEstefadeSalesUpdatePage.getDarsadEzafeNerkhInput()).to.eq('5');
         expect(await moredEstefadeSalesUpdatePage.getAzTarikhInput()).to.eq('2000-12-31');
