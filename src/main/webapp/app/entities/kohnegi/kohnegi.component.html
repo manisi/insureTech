@@ -15,17 +15,28 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="darsadHarSal"><span jhiTranslate="insurancestartApp.kohnegi.darsadHarSal">Darsad Har Sal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="maxDarsad"><span jhiTranslate="insurancestartApp.kohnegi.maxDarsad">Max Darsad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="sharh"><span jhiTranslate="insurancestartApp.kohnegi.sharh">Sharh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.kohnegi.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.kohnegi.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sherkatBimeName"><span jhiTranslate="insurancestartApp.kohnegi.sherkatBime">Sherkat Bime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.kohnegi.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="darsadHarSal"><span jhiTranslate="insurancestartApp.kohnegi.darsadHarSal">Darsad Har Sal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="maxDarsad"><span jhiTranslate="insurancestartApp.kohnegi.maxDarsad">Max Darsad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sharh"><span jhiTranslate="insurancestartApp.kohnegi.sharh">Sharh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.kohnegi.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let kohnegi of kohnegis ;trackBy: trackId">
                 <td><a [routerLink]="['/kohnegi', kohnegi.id, 'view' ]">{{kohnegi.id}}</a></td>
+                <td>
+                <div *ngIf="kohnegi.sherkatBimeId">
+                <a [routerLink]="['../sherkat-bime', kohnegi.sherkatBimeId , 'view' ]" >{{kohnegi.sherkatBimeName}}</a>
+    </div>
+                <td>
+                    <div *ngIf="kohnegi.grouhKhodroId">
+                        <a [routerLink]="['../grouh-khodro', kohnegi.grouhKhodroId , 'view' ]" >({{kohnegi.grouhKhodroCode}}) {{kohnegi.grouhKhodroName}}</a>
+                    </div>
+                </td>
+                </td>
                 <td>{{kohnegi.darsadHarSal | currency:'  % ':true:'1.0-0'}}</td>
                 <td>{{kohnegi.maxDarsad |currency:'  % ':true:'1.0-0'}}</td>
                 <td>{{kohnegi.sharh}}</td>
@@ -36,11 +47,7 @@
                     <button class="btn btn-success btn-sm" (click)="setActive(kohnegi, false)" *ngIf="kohnegi.faal"
                             jhiTranslate="userManagement.activated">Activated</button>
                 </td>
-                <td>
-                    <div *ngIf="kohnegi.grouhKhodroId">
-                        <a [routerLink]="['../grouh-khodro', kohnegi.grouhKhodroId , 'view' ]" >{{kohnegi.grouhKhodroCode}}</a>
-                    </div>
-                </td>
+
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -78,6 +78,7 @@ public class KohnegiBadaneService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete KohnegiBadane : {}", id);        kohnegiBadaneRepository.deleteById(id);
+        log.debug("Request to delete KohnegiBadane : {}", id);
+        kohnegiBadaneRepository.deleteById(id);
     }
 }

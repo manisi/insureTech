@@ -4,6 +4,7 @@ import ir.insurance.startup.InsurancestartApp;
 
 import ir.insurance.startup.domain.JarimeDirkard;
 import ir.insurance.startup.domain.GrouhKhodro;
+import ir.insurance.startup.domain.SherkatBime;
 import ir.insurance.startup.repository.JarimeDirkardRepository;
 import ir.insurance.startup.service.JarimeDirkardService;
 import ir.insurance.startup.service.dto.JarimeDirkardDTO;
@@ -110,6 +111,11 @@ public class JarimeDirkardResourceIntTest {
         em.persist(grouhKhodro);
         em.flush();
         jarimeDirkard.setGrouhKhodro(grouhKhodro);
+        // Add required entity
+        SherkatBime sherkatBime = SherkatBimeResourceIntTest.createEntity(em);
+        em.persist(sherkatBime);
+        em.flush();
+        jarimeDirkard.setSherkatBime(sherkatBime);
         return jarimeDirkard;
     }
 
@@ -320,6 +326,25 @@ public class JarimeDirkardResourceIntTest {
 
         // Get all the jarimeDirkardList where grouhKhodro equals to grouhKhodroId + 1
         defaultJarimeDirkardShouldNotBeFound("grouhKhodroId.equals=" + (grouhKhodroId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllJarimeDirkardsBySherkatBimeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        SherkatBime sherkatBime = SherkatBimeResourceIntTest.createEntity(em);
+        em.persist(sherkatBime);
+        em.flush();
+        jarimeDirkard.setSherkatBime(sherkatBime);
+        jarimeDirkardRepository.saveAndFlush(jarimeDirkard);
+        Long sherkatBimeId = sherkatBime.getId();
+
+        // Get all the jarimeDirkardList where sherkatBime equals to sherkatBimeId
+        defaultJarimeDirkardShouldBeFound("sherkatBimeId.equals=" + sherkatBimeId);
+
+        // Get all the jarimeDirkardList where sherkatBime equals to sherkatBimeId + 1
+        defaultJarimeDirkardShouldNotBeFound("sherkatBimeId.equals=" + (sherkatBimeId + 1));
     }
 
     /**

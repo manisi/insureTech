@@ -10,6 +10,33 @@
                         [(ngModel)]="jarimeDirkard.id" readonly />
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
+                    <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="jarimeDirkard.sherkatBimeId"  required>
+                        <option *ngIf="!editForm.value.sherkatBime" [ngValue]="null" selected></option>
+                        <option [ngValue]="sherkatBimeOption.id" *ngFor="let sherkatBimeOption of sherkatbimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.sherkatBime?.dirty && editForm.controls.sherkatBime?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.sherkatBime?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>
+                    <select class="form-control" id="field_grouhKhodro" name="grouhKhodro" [(ngModel)]="jarimeDirkard.grouhKhodroId"  required>
+                        <option *ngIf="!editForm.value.grouhKhodro" [ngValue]="null" selected></option>
+                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.grouhKhodro?.dirty && editForm.controls.grouhKhodro?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.grouhKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.roozane" for="field_roozane">Roozane</label>
                     <input type="number" class="form-control" name="roozane" id="field_roozane"
                         [(ngModel)]="jarimeDirkard.roozane" required min="0" jhiMin="0"/>
@@ -40,19 +67,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="insurancestartApp.jarimeDirkard.grouhKhodro" for="field_grouhKhodro">Grouh Khodro</label>
-                    <select class="form-control" id="field_grouhKhodro" name="grouhKhodro" [(ngModel)]="jarimeDirkard.grouhKhodroId"  required>
-                        <option *ngIf="!editForm.value.grouhKhodro" [ngValue]="null" selected></option>
-                        <option [ngValue]="grouhKhodroOption.id" *ngFor="let grouhKhodroOption of grouhkhodros; trackBy: trackGrouhKhodroById">{{grouhKhodroOption.name}}</option>
-                    </select>
-                </div>
-                <div [hidden]="!(editForm.controls.grouhKhodro?.dirty && editForm.controls.grouhKhodro?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.grouhKhodro?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
+
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

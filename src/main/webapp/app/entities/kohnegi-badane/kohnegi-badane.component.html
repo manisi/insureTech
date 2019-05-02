@@ -15,33 +15,39 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="darsadHarSal"><span jhiTranslate="insurancestartApp.kohnegiBadane.darsadHarSal">Darsad Har Sal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="maxDarsad"><span jhiTranslate="insurancestartApp.kohnegiBadane.maxDarsad">Max Darsad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="sharh"><span jhiTranslate="insurancestartApp.kohnegiBadane.sharh">Sharh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.kohnegiBadane.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.kohnegiBadane.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sherkatBimeName"><span jhiTranslate="insurancestartApp.kohnegiBadane.sherkatBime">Sherkat Bime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="grouhKhodroCode"><span jhiTranslate="insurancestartApp.kohnegiBadane.grouhKhodro">Grouh Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="darsadHarSal"><span jhiTranslate="insurancestartApp.kohnegiBadane.darsadHarSal">Darsad Har Sal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="maxDarsad"><span jhiTranslate="insurancestartApp.kohnegiBadane.maxDarsad">Max Darsad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sharh"><span jhiTranslate="insurancestartApp.kohnegiBadane.sharh">Sharh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.kohnegiBadane.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let kohnegiBadane of kohnegiBadanes ;trackBy: trackId">
                 <td><a [routerLink]="['/kohnegi-badane', kohnegiBadane.id, 'view' ]">{{kohnegiBadane.id}}</a></td>
-                <td>{{kohnegiBadane.darsadHarSal | currency:'  % ':true:'1.0-0'}}</td>
-                <td>{{kohnegiBadane.maxDarsad | currency:'  % ':true:'1.0-0'}}</td>
-                <td>{{kohnegiBadane.sharh}}</td>
-                <!--<td>{{kohnegiBadane.faal}}</td>-->
                 <td>
-                    <button class="btn btn-danger btn-sm" (click)="setActive(kohnegiBadane, true)" *ngIf="!kohnegiBadane.faal"
-                            jhiTranslate="userManagement.deactivated">Deactivated</button>
-                    <button class="btn btn-success btn-sm" (click)="setActive(kohnegiBadane, false)" *ngIf="kohnegiBadane.faal"
-                            jhiTranslate="userManagement.activated">Activated</button>
+                    <div *ngIf="kohnegiBadane.sherkatBimeId">
+                        <a [routerLink]="['../sherkat-bime', kohnegiBadane.sherkatBimeId , 'view' ]" >{{kohnegiBadane.sherkatBimeName}}</a>
+                    </div>
                 </td>
-
                 <td>
                     <div *ngIf="kohnegiBadane.grouhKhodroId">
                         <a [routerLink]="['../grouh-khodro', kohnegiBadane.grouhKhodroId , 'view' ]" >({{kohnegiBadane.grouhKhodroCode}}) {{kohnegiBadane.grouhKhodroName}}</a>
                     </div>
                 </td>
+                <td>{{kohnegiBadane.darsadHarSal | currency:'  % ':true:'1.0-0'}}</td>
+                <td>{{kohnegiBadane.maxDarsad | currency:'  % ':true:'1.0-0'}}</td>
+                <td>{{kohnegiBadane.sharh}}</td>
+                <!--<td>{{kohnegiBadane.faal}}</td>-->
+                <td>
+                <button class="btn btn-danger btn-sm" (click)="setActive(kohnegiBadane, true)" *ngIf="!kohnegiBadane.faal"
+                jhiTranslate="userManagement.deactivated">Deactivated</button>
+                <button class="btn btn-success btn-sm" (click)="setActive(kohnegiBadane, false)" *ngIf="kohnegiBadane.faal"
+                jhiTranslate="userManagement.activated">Activated</button>
+                </td>
+
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

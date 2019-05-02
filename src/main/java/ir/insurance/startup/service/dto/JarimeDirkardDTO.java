@@ -22,6 +22,10 @@ public class JarimeDirkardDTO implements Serializable {
 
     private String grouhKhodroName;
 
+    private Long sherkatBimeId;
+
+    private String sherkatBimeName;
+
     public Long getId() {
         return id;
     }
@@ -62,6 +66,22 @@ public class JarimeDirkardDTO implements Serializable {
         this.grouhKhodroName = grouhKhodroName;
     }
 
+    public Long getSherkatBimeId() {
+        return sherkatBimeId;
+    }
+
+    public void setSherkatBimeId(Long sherkatBimeId) {
+        this.sherkatBimeId = sherkatBimeId;
+    }
+
+    public String getSherkatBimeName() {
+        return sherkatBimeName;
+    }
+
+    public void setSherkatBimeName(String sherkatBimeName) {
+        this.sherkatBimeName = sherkatBimeName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -91,6 +111,8 @@ public class JarimeDirkardDTO implements Serializable {
             ", faal='" + isFaal() + "'" +
             ", grouhKhodro=" + getGrouhKhodroId() +
             ", grouhKhodro='" + getGrouhKhodroName() + "'" +
+            ", sherkatBime=" + getSherkatBimeId() +
+            ", sherkatBime='" + getSherkatBimeName() + "'" +
             "}";
     }
 }

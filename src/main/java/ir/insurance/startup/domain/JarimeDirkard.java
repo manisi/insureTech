@@ -40,6 +40,11 @@ public class JarimeDirkard implements Serializable {
     @JsonIgnoreProperties("jarimeDirkards")
     private GrouhKhodro grouhKhodro;
 
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties("jarimeDirkards")
+    private SherkatBime sherkatBime;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -86,6 +91,19 @@ public class JarimeDirkard implements Serializable {
 
     public void setGrouhKhodro(GrouhKhodro grouhKhodro) {
         this.grouhKhodro = grouhKhodro;
+    }
+
+    public SherkatBime getSherkatBime() {
+        return sherkatBime;
+    }
+
+    public JarimeDirkard sherkatBime(SherkatBime sherkatBime) {
+        this.sherkatBime = sherkatBime;
+        return this;
+    }
+
+    public void setSherkatBime(SherkatBime sherkatBime) {
+        this.sherkatBime = sherkatBime;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -44,6 +44,7 @@ describe('Kohnegi e2e test', () => {
             kohnegiUpdatePage.setMaxDarsadInput('5'),
             kohnegiUpdatePage.setSharhInput('sharh'),
             kohnegiUpdatePage.grouhKhodroSelectLastOption(),
+            kohnegiUpdatePage.sherkatBimeSelectLastOption(),
         ]);
         expect(await kohnegiUpdatePage.getDarsadHarSalInput()).to.eq('5');
         expect(await kohnegiUpdatePage.getMaxDarsadInput()).to.eq('5');

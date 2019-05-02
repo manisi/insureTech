@@ -8,14 +8,17 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity JarimeDirkard and its DTO JarimeDirkardDTO.
  */
-@Mapper(componentModel = "spring", uses = {GrouhKhodroMapper.class})
+@Mapper(componentModel = "spring", uses = {GrouhKhodroMapper.class, SherkatBimeMapper.class})
 public interface JarimeDirkardMapper extends EntityMapper<JarimeDirkardDTO, JarimeDirkard> {
 
     @Mapping(source = "grouhKhodro.id", target = "grouhKhodroId")
     @Mapping(source = "grouhKhodro.name", target = "grouhKhodroName")
+    @Mapping(source = "sherkatBime.id", target = "sherkatBimeId")
+    @Mapping(source = "sherkatBime.name", target = "sherkatBimeName")
     JarimeDirkardDTO toDto(JarimeDirkard jarimeDirkard);
 
     @Mapping(source = "grouhKhodroId", target = "grouhKhodro")
+    @Mapping(source = "sherkatBimeId", target = "sherkatBime")
     JarimeDirkard toEntity(JarimeDirkardDTO jarimeDirkardDTO);
 
     default JarimeDirkard fromId(Long id) {

@@ -4,6 +4,7 @@ import ir.insurance.startup.InsurancestartApp;
 
 import ir.insurance.startup.domain.KohnegiBadane;
 import ir.insurance.startup.domain.GrouhKhodro;
+import ir.insurance.startup.domain.SherkatBime;
 import ir.insurance.startup.repository.KohnegiBadaneRepository;
 import ir.insurance.startup.service.KohnegiBadaneService;
 import ir.insurance.startup.service.dto.KohnegiBadaneDTO;
@@ -119,6 +120,11 @@ public class KohnegiBadaneResourceIntTest {
         em.persist(grouhKhodro);
         em.flush();
         kohnegiBadane.setGrouhKhodro(grouhKhodro);
+        // Add required entity
+        SherkatBime sherkatBime = SherkatBimeResourceIntTest.createEntity(em);
+        em.persist(sherkatBime);
+        em.flush();
+        kohnegiBadane.setSherkatBime(sherkatBime);
         return kohnegiBadane;
     }
 
@@ -393,6 +399,25 @@ public class KohnegiBadaneResourceIntTest {
 
         // Get all the kohnegiBadaneList where grouhKhodro equals to grouhKhodroId + 1
         defaultKohnegiBadaneShouldNotBeFound("grouhKhodroId.equals=" + (grouhKhodroId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllKohnegiBadanesBySherkatBimeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        SherkatBime sherkatBime = SherkatBimeResourceIntTest.createEntity(em);
+        em.persist(sherkatBime);
+        em.flush();
+        kohnegiBadane.setSherkatBime(sherkatBime);
+        kohnegiBadaneRepository.saveAndFlush(kohnegiBadane);
+        Long sherkatBimeId = sherkatBime.getId();
+
+        // Get all the kohnegiBadaneList where sherkatBime equals to sherkatBimeId
+        defaultKohnegiBadaneShouldBeFound("sherkatBimeId.equals=" + sherkatBimeId);
+
+        // Get all the kohnegiBadaneList where sherkatBime equals to sherkatBimeId + 1
+        defaultKohnegiBadaneShouldNotBeFound("sherkatBimeId.equals=" + (sherkatBimeId + 1));
     }
 
     /**

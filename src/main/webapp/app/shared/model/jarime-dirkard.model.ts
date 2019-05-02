@@ -4,6 +4,8 @@ export interface IJarimeDirkard {
     faal?: boolean;
     grouhKhodroName?: string;
     grouhKhodroId?: number;
+    sherkatBimeName?: string;
+    sherkatBimeId?: number;
 }
 
 export class JarimeDirkard implements IJarimeDirkard {
@@ -12,7 +14,9 @@ export class JarimeDirkard implements IJarimeDirkard {
         public roozane?: number,
         public faal?: boolean,
         public grouhKhodroName?: string,
-        public grouhKhodroId?: number
+        public grouhKhodroId?: number,
+        public sherkatBimeName?: string,
+        public sherkatBimeId?: number
     ) {
         this.faal = this.faal || false;
     }

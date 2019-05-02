@@ -183,6 +183,18 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'mored-estefade-sales',
                 loadChildren: './mored-estefade-sales/mored-estefade-sales.module#InsurancestartMoredEstefadeSalesModule'
+            },
+            {
+                path: 'jarime-dirkard',
+                loadChildren: './jarime-dirkard/jarime-dirkard.module#InsurancestartJarimeDirkardModule'
+            },
+            {
+                path: 'kohnegi-badane',
+                loadChildren: './kohnegi-badane/kohnegi-badane.module#InsurancestartKohnegiBadaneModule'
+            },
+            {
+                path: 'kohnegi',
+                loadChildren: './kohnegi/kohnegi.module#InsurancestartKohnegiModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

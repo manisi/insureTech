@@ -42,6 +42,7 @@ describe('JarimeDirkard e2e test', () => {
         await promise.all([
             jarimeDirkardUpdatePage.setRoozaneInput('5'),
             jarimeDirkardUpdatePage.grouhKhodroSelectLastOption(),
+            jarimeDirkardUpdatePage.sherkatBimeSelectLastOption(),
         ]);
         expect(await jarimeDirkardUpdatePage.getRoozaneInput()).to.eq('5');
         const selectedFaal = jarimeDirkardUpdatePage.getFaalInput();

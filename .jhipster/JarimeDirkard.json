@@ -9,7 +9,20 @@
             "relationshipValidateRules": [
                 "required"
             ],
-            "otherEntityField": "name"
+            "otherEntityField": "name",
+            "otherEntityRelationshipNameUndefined": true,
+            "otherEntityRelationshipName": "jarimeDirkard"
+        },
+        {
+            "relationshipName": "sherkatBime",
+            "otherEntityName": "sherkatBime",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "jarimeDirkard",
+            "otherEntityRelationshipNameUndefined": true
         }
     ],
     "fields": [
@@ -35,6 +48,7 @@
     "searchEngine": false,
     "service": "serviceClass",
     "entityTableName": "jarime_dirkard",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": true,
     "pagination": "infinite-scroll"
 }

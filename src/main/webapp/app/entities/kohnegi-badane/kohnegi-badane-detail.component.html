@@ -5,6 +5,19 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.kohnegiBadane.sherkatBime">Sherkat Bime</span></dt>
+                <dd>
+                    <div *ngIf="kohnegiBadane.sherkatBimeId">
+                        <a [routerLink]="['/sherkat-bime', kohnegiBadane.sherkatBimeId, 'view']">{{kohnegiBadane.sherkatBimeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.kohnegiBadane.grouhKhodro">Grouh Khodro</span></dt>
+                <dd>
+                    <div *ngIf="kohnegiBadane.grouhKhodroId">
+                        <a [routerLink]="['/grouh-khodro', kohnegiBadane.grouhKhodroId, 'view']">{{kohnegiBadane.grouhKhodroName}}</a>
+                    </div>
+                </dd>
+
                 <dt><span jhiTranslate="insurancestartApp.kohnegiBadane.darsadHarSal">Darsad Har Sal</span></dt>
                 <dd>
                     <span>{{kohnegiBadane.darsadHarSal | currency:'  % ':true:'1.0-0'}}</span>
@@ -19,14 +32,9 @@
                 </dd>
                 <dt><span jhiTranslate="insurancestartApp.kohnegiBadane.faal">Faal</span></dt>
                 <dd>
-                    <span>{{kohnegiBadane.faal}}</span>
+                    <span class="badge badge-primary">{{kohnegiBadane.faal}}</span>
                 </dd>
-                <dt><span jhiTranslate="insurancestartApp.kohnegiBadane.grouhKhodro">Grouh Khodro</span></dt>
-                <dd>
-                    <div *ngIf="kohnegiBadane.grouhKhodroId">
-                        <a [routerLink]="['/grouh-khodro', kohnegiBadane.grouhKhodroId, 'view']">{{kohnegiBadane.grouhKhodroCode}}</a>
-                    </div>
-                </dd>
+
             </dl>
 
             <button type="submit"

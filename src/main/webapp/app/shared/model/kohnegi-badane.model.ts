@@ -7,6 +7,8 @@ export interface IKohnegiBadane {
     grouhKhodroCode?: string;
     grouhKhodroName?: string;
     grouhKhodroId?: number;
+    sherkatBimeName?: string;
+    sherkatBimeId?: number;
 }
 
 export class KohnegiBadane implements IKohnegiBadane {
@@ -18,7 +20,9 @@ export class KohnegiBadane implements IKohnegiBadane {
         public faal?: boolean,
         public grouhKhodroCode?: string,
         public grouhKhodroName?: string,
-        public grouhKhodroId?: number
+        public grouhKhodroId?: number,
+        public sherkatBimeName?: string,
+        public sherkatBimeId?: number
     ) {
         this.faal = this.faal || false;
     }

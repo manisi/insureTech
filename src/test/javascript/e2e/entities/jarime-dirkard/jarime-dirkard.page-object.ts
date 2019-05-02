@@ -29,6 +29,7 @@ export class JarimeDirkardUpdatePage {
     roozaneInput = element(by.id('field_roozane'));
     faalInput = element(by.id('field_faal'));
     grouhKhodroSelect = element(by.id('field_grouhKhodro'));
+    sherkatBimeSelect = element(by.id('field_sherkatBime'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -63,6 +64,25 @@ export class JarimeDirkardUpdatePage {
 
     async getGrouhKhodroSelectedOption() {
         return this.grouhKhodroSelect.element(by.css('option:checked')).getText();
+    }
+
+    async sherkatBimeSelectLastOption() {
+        await this.sherkatBimeSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async sherkatBimeSelectOption(option) {
+        await this.sherkatBimeSelect.sendKeys(option);
+    }
+
+    getSherkatBimeSelect(): ElementFinder {
+        return this.sherkatBimeSelect;
+    }
+
+    async getSherkatBimeSelectedOption() {
+        return this.sherkatBimeSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

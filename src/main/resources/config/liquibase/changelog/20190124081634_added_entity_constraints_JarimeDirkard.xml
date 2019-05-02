@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="grouh_khodro"/>
 
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id"
+                                 baseTableName="jarime_dirkard"
+                                 constraintName="fk_jarime_dirkard_sherkat_bime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sherkat_bime"/>
+
     </changeSet>
 </databaseChangeLog>

@@ -1,5 +1,4 @@
 package ir.insurance.startup.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -28,11 +27,16 @@ public class KohnegiBadaneDTO implements Serializable {
     @NotNull
     private Boolean faal;
 
+
     private Long grouhKhodroId;
 
     private String grouhKhodroCode;
 
     private String grouhKhodroName;
+
+    private Long sherkatBimeId;
+
+    private String sherkatBimeName;
 
     public Long getId() {
         return id;
@@ -90,6 +94,22 @@ public class KohnegiBadaneDTO implements Serializable {
         this.grouhKhodroCode = grouhKhodroCode;
     }
 
+    public Long getSherkatBimeId() {
+        return sherkatBimeId;
+    }
+
+    public void setSherkatBimeId(Long sherkatBimeId) {
+        this.sherkatBimeId = sherkatBimeId;
+    }
+
+    public String getSherkatBimeName() {
+        return sherkatBimeName;
+    }
+
+    public void setSherkatBimeName(String sherkatBimeName) {
+        this.sherkatBimeName = sherkatBimeName;
+    }
+
     public String getGrouhKhodroName() {
         return grouhKhodroName;
     }
@@ -97,7 +117,6 @@ public class KohnegiBadaneDTO implements Serializable {
     public void setGrouhKhodroName(String grouhKhodroName) {
         this.grouhKhodroName = grouhKhodroName;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -129,6 +148,8 @@ public class KohnegiBadaneDTO implements Serializable {
             ", faal='" + isFaal() + "'" +
             ", grouhKhodro=" + getGrouhKhodroId() +
             ", grouhKhodro='" + getGrouhKhodroCode() + "'" +
+            ", sherkatBime=" + getSherkatBimeId() +
+            ", sherkatBime='" + getSherkatBimeName() + "'" +
             "}";
     }
 }

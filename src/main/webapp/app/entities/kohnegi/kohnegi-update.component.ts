@@ -8,6 +8,8 @@ import { IKohnegi } from 'app/shared/model/kohnegi.model';
 import { KohnegiService } from './kohnegi.service';
 import { IGrouhKhodro } from 'app/shared/model/grouh-khodro.model';
 import { GrouhKhodroService } from 'app/entities/grouh-khodro';
+import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
+import { SherkatBimeService } from 'app/entities/sherkat-bime';
 
 @Component({
     selector: 'jhi-kohnegi-update',
@@ -19,11 +21,14 @@ export class KohnegiUpdateComponent implements OnInit {
 
     grouhkhodros: IGrouhKhodro[];
 
+    sherkatbimes: ISherkatBime[];
+
     constructor(
         protected dataUtils: JhiDataUtils,
         protected jhiAlertService: JhiAlertService,
         protected kohnegiService: KohnegiService,
         protected grouhKhodroService: GrouhKhodroService,
+        protected sherkatBimeService: SherkatBimeService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -39,6 +44,13 @@ export class KohnegiUpdateComponent implements OnInit {
                 map((response: HttpResponse<IGrouhKhodro[]>) => response.body)
             )
             .subscribe((res: IGrouhKhodro[]) => (this.grouhkhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.sherkatBimeService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ISherkatBime[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ISherkatBime[]>) => response.body)
+            )
+            .subscribe((res: ISherkatBime[]) => (this.sherkatbimes = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -84,6 +96,10 @@ export class KohnegiUpdateComponent implements OnInit {
     }
 
     trackGrouhKhodroById(index: number, item: IGrouhKhodro) {
+        return item.id;
+    }
+
+    trackSherkatBimeById(index: number, item: ISherkatBime) {
         return item.id;
     }
 }

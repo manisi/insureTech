@@ -5,13 +5,11 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="insurancestartApp.jarimeDirkard.roozane">Roozane</span></dt>
+                <dt><span jhiTranslate="insurancestartApp.jarimeDirkard.sherkatBime">Sherkat Bime</span></dt>
                 <dd>
-                    <span>{{jarimeDirkard.roozane | currency:'  ریال ':true:'1.0-0'}}</span>
-                </dd>
-                <dt><span jhiTranslate="insurancestartApp.jarimeDirkard.faal">Faal</span></dt>
-                <dd>
-                    <span>{{jarimeDirkard.faal}}</span>
+                    <div *ngIf="jarimeDirkard.sherkatBimeId">
+                        <a [routerLink]="['/sherkat-bime', jarimeDirkard.sherkatBimeId, 'view']">{{jarimeDirkard.sherkatBimeName}}</a>
+                    </div>
                 </dd>
                 <dt><span jhiTranslate="insurancestartApp.jarimeDirkard.grouhKhodro">Grouh Khodro</span></dt>
                 <dd>
@@ -19,6 +17,16 @@
                         <a [routerLink]="['/grouh-khodro', jarimeDirkard.grouhKhodroId, 'view']">{{jarimeDirkard.grouhKhodroName}}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="insurancestartApp.jarimeDirkard.roozane">Roozane</span></dt>
+                <dd>
+                    <span>{{jarimeDirkard.roozane | currency:'  ریال ':true:'1.0-0'}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.jarimeDirkard.faal">Faal</span></dt>
+                <dd>
+                    <span class="badge badge-primary">{{jarimeDirkard.faal}}</span>
+                </dd>
+
+
             </dl>
 
             <button type="submit"

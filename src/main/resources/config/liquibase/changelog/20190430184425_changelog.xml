@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="developer (generated)" id="1556649871582-1">
+        <addColumn tableName="jarime_dirkard">
+            <column name="sherkat_bime_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1556649871582-2">
+        <addColumn tableName="kohnegi">
+            <column name="sherkat_bime_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1556649871582-3">
+        <addColumn tableName="kohnegi_badane">
+            <column name="sherkat_bime_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1556649871582-4">
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id" baseTableName="kohnegi_badane" constraintName="FK1bu9c2o2dr3229027fgc5k7cx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sherkat_bime"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1556649871582-5">
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id" baseTableName="jarime_dirkard" constraintName="FKavk5nj6fqmkwgxq11g9hxbxs" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sherkat_bime"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1556649871582-6">
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id" baseTableName="kohnegi" constraintName="FKbjq9duuf9gneibxi87uoq6ltw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sherkat_bime"/>
+    </changeSet>
+</databaseChangeLog>

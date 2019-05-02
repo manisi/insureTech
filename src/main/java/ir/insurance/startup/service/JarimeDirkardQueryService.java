@@ -99,6 +99,10 @@ public class JarimeDirkardQueryService extends QueryService<JarimeDirkard> {
                 specification = specification.and(buildSpecification(criteria.getGrouhKhodroId(),
                     root -> root.join(JarimeDirkard_.grouhKhodro, JoinType.LEFT).get(GrouhKhodro_.id)));
             }
+            if (criteria.getSherkatBimeId() != null) {
+                specification = specification.and(buildSpecification(criteria.getSherkatBimeId(),
+                    root -> root.join(JarimeDirkard_.sherkatBime, JoinType.LEFT).get(SherkatBime_.id)));
+            }
         }
         return specification;
     }
