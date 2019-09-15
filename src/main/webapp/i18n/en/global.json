@@ -53,6 +53,7 @@
                 "salesMazadCalc": "Sales Mazad Calc",
                 "moredEstefadeSales": "Mored Estefade Sales",
                 "onvanKhodro": "Onvan Khodro",
+                "groupOperationsData": "Group Operations Data",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -144,7 +145,8 @@
             "edit": "Edit",
             "open": "Open",
             "save": "Save",
-            "view": "View"
+            "view": "View",
+            "applyfile": "ApplyFile"
         },
         "detail": {
             "field": "Field",

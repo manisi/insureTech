@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-group-operations-data-heading" jhiTranslate="insurancestartApp.groupOperationsData.home.createOrEditLabel">Create or edit a Group Operations Data</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!groupOperationsData.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="groupOperationsData.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.groupOperationsData.entityName" for="field_entityName">Entity Name</label>
+                    <select class="form-control" name="entityName" [(ngModel)]="groupOperationsData.entityName" id="field_entityName"  required>
+                        <option value="CARGROUP">{{'insurancestartApp.EntityEnumName.CARGROUP' | translate}}</option>
+                        <option value="CARKIND">{{'insurancestartApp.EntityEnumName.CARKIND' | translate}}</option>
+                        <option value="CARSYSTEM">{{'insurancestartApp.EntityEnumName.CARSYSTEM' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.entityName?.dirty && editForm.controls.entityName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.entityName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.groupOperationsData.acting" for="field_acting">Acting</label>
+                    <input type="checkbox" class="form-control" name="acting" id="field_acting"
+                        [(ngModel)]="groupOperationsData.acting" />
+                    <div [hidden]="!(editForm.controls.acting?.dirty && editForm.controls.acting?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.acting?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.groupOperationsData.estate" for="field_estate">Estate</label>
+                    <select class="form-control" name="estate" [(ngModel)]="groupOperationsData.estate" id="field_estate"  required>
+                        <option value="UPLOADED">{{'insurancestartApp.EstateFileItem.UPLOADED' | translate}}</option>
+                        <option value="CONFIRMED">{{'insurancestartApp.EstateFileItem.CONFIRMED' | translate}}</option>
+                        <option value="APPLIED">{{'insurancestartApp.EstateFileItem.APPLIED' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.estate?.dirty && editForm.controls.estate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.estate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.groupOperationsData.uploadfile" for="field_uploadfile">Uploadfile</label>
+                    <div>
+                        <div *ngIf="groupOperationsData.uploadfile" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(groupOperationsData.uploadfileContentType, groupOperationsData.uploadfile)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{groupOperationsData.uploadfileContentType}}, {{byteSize(groupOperationsData.uploadfile)}}</span>
+                            <button type="button" (click)="groupOperationsData.uploadfile=null;groupOperationsData.uploadfileContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_uploadfile" (change)="setFileData($event, groupOperationsData, 'uploadfile', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="uploadfile" id="field_uploadfile"
+                        [(ngModel)]="groupOperationsData.uploadfile" required/>
+                    <input type="hidden" class="form-control" name="uploadfileContentType" id="field_uploadfileContentType"
+                        [(ngModel)]="groupOperationsData.uploadfileContentType" />
+                    <div [hidden]="!(editForm.controls.uploadfile?.dirty && editForm.controls.uploadfile?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.uploadfile?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

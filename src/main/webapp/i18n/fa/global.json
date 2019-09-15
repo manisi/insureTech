@@ -45,6 +45,7 @@
                 "salesMazadCalc": "محاسبه ثالث مازاد",
                 "moredEstefadeSales": "مورد استفاده ثالث",
                 "onvanKhodro": "عنوان خودرو",
+                "groupOperationsData": "عملیات گروهی فایل",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -136,7 +137,8 @@
             "edit": "ویرایش",
             "open": "باز",
             "save": "ذخیره",
-            "view": "مشاهده"
+            "view": "مشاهده",
+            "applyfile": "اعمال فایل"
         },
         "detail": {
             "field": "فیلد",

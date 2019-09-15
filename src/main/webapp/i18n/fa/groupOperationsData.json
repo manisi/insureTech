@@ -1,0 +1,28 @@
+{
+    "insurancestartApp": {
+        "groupOperationsData": {
+            "home": {
+                "title": "عملیات گروهی",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "مورد جدید ایجاد شد {{ param }}",
+            "updated": "این مورد ویرایش شد {{ param }}",
+            "deleted": "این مورد حذف شد {{ param }}",
+            "applyfile": "این مورد اعمال گردد {{ param }}",
+            "delete": {
+                "question": "آیا از حذف این مورد اطمینان دارید {{ id }}?"
+            },
+            "applyfile": {
+                "question": "آیا از اعمال این مورد اطمینان دارید {{ id }}?"
+            },
+            "detail": {
+                "title": "عملیات گروهی فایل"
+            },
+            "entityName": "نام موجودیت",
+            "acting": "فعال",
+            "estate": "وضعیت",
+            "uploadfile": "فایل"
+        }
+    }
+}

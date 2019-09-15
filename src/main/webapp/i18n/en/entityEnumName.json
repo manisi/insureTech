@@ -1,0 +1,10 @@
+{
+    "insurancestartApp": {
+        "EntityEnumName": {
+            "null": "",
+            "CARGROUP": "CARGROUP",
+            "CARKIND": "CARKIND",
+            "CARSYSTEM": "CARSYSTEM"
+        }
+    }
+}

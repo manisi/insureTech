@@ -1,0 +1,10 @@
+{
+    "insurancestartApp": {
+        "EstateFileItem": {
+            "null": "",
+            "UPLOADED": "بارگذاری شده",
+            "CONFIRMED": "تایید شده",
+            "APPLIED": "اعمال شده"
+        }
+    }
+}

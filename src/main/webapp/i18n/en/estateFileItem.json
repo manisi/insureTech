@@ -1,0 +1,10 @@
+{
+    "insurancestartApp": {
+        "EstateFileItem": {
+            "null": "",
+            "UPLOADED": "UPLOADED",
+            "CONFIRMED": "CONFIRMED",
+            "APPLIED": "APPLIED"
+        }
+    }
+}

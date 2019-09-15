@@ -195,6 +195,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'kohnegi',
                 loadChildren: './kohnegi/kohnegi.module#InsurancestartKohnegiModule'
+            },
+            {
+                path: 'group-operations-data',
+                loadChildren: './group-operations-data/group-operations-data.module#InsurancestartGroupOperationsDataModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

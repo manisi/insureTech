@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupOperationsData">
+            <h2><span jhiTranslate="insurancestartApp.groupOperationsData.detail.title">Group Operations Data</span> {{groupOperationsData.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.groupOperationsData.entityName">Entity Name</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'insurancestartApp.EntityEnumName.' + groupOperationsData.entityName}}">{{groupOperationsData.entityName}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.groupOperationsData.acting">Acting</span></dt>
+                <dd>
+                    <span>{{groupOperationsData.acting}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.groupOperationsData.estate">Estate</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'insurancestartApp.EstateFileItem.' + groupOperationsData.estate}}">{{groupOperationsData.estate}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.groupOperationsData.uploadfile">Uploadfile</span></dt>
+                <dd>
+                    <div *ngIf="groupOperationsData.uploadfile">
+                        <a (click)="openFile(groupOperationsData.uploadfileContentType, groupOperationsData.uploadfile)" jhiTranslate="entity.action.open">open</a>
+                        {{groupOperationsData.uploadfileContentType}}, {{byteSize(groupOperationsData.uploadfile)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/group-operations-data', groupOperationsData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

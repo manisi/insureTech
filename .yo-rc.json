@@ -4,7 +4,7 @@
             "packageName": "ir.insurance.startup",
             "nativeLanguage": "en"
         },
-        "jhipsterVersion": "5.8.1",
+        "jhipsterVersion": "5.8.2",
         "applicationType": "monolith",
         "baseName": "insurancestart",
         "packageName": "ir.insurance.startup",
@@ -36,15 +36,5 @@
         "herokuDeployType": "git",
         "entitySuffix": "",
         "dtoSuffix": "DTO"
-    },
-    "generator-jhipster-kutilang": {
-        "promptValues": {
-            "appsName": "fluterhipster",
-            "packageName": "ir.insurance.startup"
-        },
-        "appsName": "fluterhipster",
-        "packageName": "ir.insurance.startup",
-        "path": "../",
-        "packageFolder": "../fluterhipster"
     }
 }
