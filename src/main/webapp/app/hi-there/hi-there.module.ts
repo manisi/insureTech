@@ -9,6 +9,7 @@ import { PageTwoComponent } from './page-two/page-two.component';
 
 @NgModule({
     imports: [InsurancestartSharedModule, RouterModule.forRoot([HI_THERE_ROUTE], { useHash: true })],
+
     declarations: [HiThereComponent, PageOneComponent, PageTwoComponent],
     entryComponents: [],
     providers: [],

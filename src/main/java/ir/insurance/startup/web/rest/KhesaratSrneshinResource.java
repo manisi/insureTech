@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.KhesaratSrneshinService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,6 +53,7 @@ public class KhesaratSrneshinResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/khesarat-srneshins")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSrneshinDTO> createKhesaratSrneshin(@Valid @RequestBody KhesaratSrneshinDTO khesaratSrneshinDTO) throws URISyntaxException {
         log.debug("REST request to save KhesaratSrneshin : {}", khesaratSrneshinDTO);
         if (khesaratSrneshinDTO.getId() != null) {
@@ -72,6 +75,7 @@ public class KhesaratSrneshinResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/khesarat-srneshins")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSrneshinDTO> updateKhesaratSrneshin(@Valid @RequestBody KhesaratSrneshinDTO khesaratSrneshinDTO) throws URISyntaxException {
         log.debug("REST request to update KhesaratSrneshin : {}", khesaratSrneshinDTO);
         if (khesaratSrneshinDTO.getId() == null) {
@@ -130,6 +134,7 @@ public class KhesaratSrneshinResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/khesarat-srneshins/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteKhesaratSrneshin(@PathVariable Long id) {
         log.debug("REST request to delete KhesaratSrneshin : {}", id);
         khesaratSrneshinService.delete(id);

@@ -1,0 +1,102 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.estelaamSalesNerkh.home.title">Estelaam Sales Nerkhs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-estelaam-sales-nerkh" [routerLink]="['/estelaam-sales-nerkh/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.estelaamSalesNerkh.home.createLabel">
+            Create new Estelaam Sales Nerkh
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="estelaamSalesNerkhs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anvaeKhodroOnvan"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro">Anvae Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="saalSakhtSaalShamsi"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht">Saal Sakht</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="onvanKhodroName"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro">Onvan Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adamKhesaratSales"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat">Adam Khesarat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adamKhesaratSarneshinSarneshin"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin">Adam Khesarat Sarneshin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="khesaratSrneshinNerkhKhesarat"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin">Khesarat Srneshin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="khesaratSalesNerkhKhesarat"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales">Khesarat Sales</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let estelaamSalesNerkh of estelaamSalesNerkhs ;trackBy: trackId">
+                <td><a [routerLink]="['/estelaam-sales-nerkh', estelaamSalesNerkh.id, 'view' ]">{{estelaamSalesNerkh.id}}</a></td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.anvaeKhodroId">
+                        <a [routerLink]="['../anvae-khodro', estelaamSalesNerkh.anvaeKhodroId , 'view' ]" >{{estelaamSalesNerkh.anvaeKhodroOnvan}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.saalSakhtId">
+                        <a [routerLink]="['../saal-sakht', estelaamSalesNerkh.saalSakhtId , 'view' ]" >{{estelaamSalesNerkh.saalSakhtSaalShamsi}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.onvanKhodroId">
+                        <a [routerLink]="['../onvan-khodro', estelaamSalesNerkh.onvanKhodroId , 'view' ]" >{{estelaamSalesNerkh.onvanKhodroName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.adamKhesaratId">
+                        <a [routerLink]="['../adam-khesarat', estelaamSalesNerkh.adamKhesaratId , 'view' ]" >{{estelaamSalesNerkh.adamKhesaratSales}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.adamKhesaratSarneshinId">
+                        <a [routerLink]="['../adam-khesarat-sarneshin', estelaamSalesNerkh.adamKhesaratSarneshinId , 'view' ]" >{{estelaamSalesNerkh.adamKhesaratSarneshinSarneshin}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.khesaratSrneshinId">
+                        <a [routerLink]="['../khesarat-srneshin', estelaamSalesNerkh.khesaratSrneshinId , 'view' ]" >{{estelaamSalesNerkh.khesaratSrneshinNerkhKhesarat}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="estelaamSalesNerkh.khesaratSalesId">
+                        <a [routerLink]="['../khesarat-sales', estelaamSalesNerkh.khesaratSalesId , 'view' ]" >{{estelaamSalesNerkh.khesaratSalesNerkhKhesarat}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/estelaam-sales-nerkh', estelaamSalesNerkh.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/estelaam-sales-nerkh', estelaamSalesNerkh.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'estelaam-sales-nerkh', { outlets: { popup: estelaamSalesNerkh.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="estelaamSalesNerkhs && estelaamSalesNerkhs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

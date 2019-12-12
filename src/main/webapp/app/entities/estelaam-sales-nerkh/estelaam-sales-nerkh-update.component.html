@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-estelaam-sales-nerkh-heading" jhiTranslate="insurancestartApp.estelaamSalesNerkh.home.createOrEditLabel">Create or edit a Estelaam Sales Nerkh</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!estelaamSalesNerkh.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="estelaamSalesNerkh.id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro" for="field_anvaeKhodro">Anvae Khodro</label>
+                    <select class="form-control" id="field_anvaeKhodro" name="anvaeKhodro" [(ngModel)]="estelaamSalesNerkh.anvaeKhodroId"  required>
+                        <option *ngIf="!editForm.value.anvaeKhodro" [ngValue]="null" selected></option>
+                        <option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.anvaeKhodro?.dirty && editForm.controls.anvaeKhodro?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.anvaeKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht" for="field_saalSakht">Saal Sakht</label>
+                    <select class="form-control" id="field_saalSakht" name="saalSakht" [(ngModel)]="estelaamSalesNerkh.saalSakhtId"  required>
+                        <option *ngIf="!editForm.value.saalSakht" [ngValue]="null" selected></option>
+                        <option [ngValue]="saalSakhtOption.id" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.saalShamsi}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.saalSakht?.dirty && editForm.controls.saalSakht?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.saalSakht?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro" for="field_onvanKhodro">Onvan Khodro</label>
+                    <select class="form-control" id="field_onvanKhodro" name="onvanKhodro" [(ngModel)]="estelaamSalesNerkh.onvanKhodroId"  required>
+                        <option *ngIf="!editForm.value.onvanKhodro" [ngValue]="null" selected></option>
+                        <option [ngValue]="onvanKhodroOption.id" *ngFor="let onvanKhodroOption of onvankhodros; trackBy: trackOnvanKhodroById">{{onvanKhodroOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.onvanKhodro?.dirty && editForm.controls.onvanKhodro?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.onvanKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
+                    <select class="form-control" id="field_adamKhesarat" name="adamKhesarat" [(ngModel)]="estelaamSalesNerkh.adamKhesaratId"  required>
+                        <option *ngIf="!editForm.value.adamKhesarat" [ngValue]="null" selected></option>
+                        <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">{{adamKhesaratOption.sales}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.adamKhesarat?.dirty && editForm.controls.adamKhesarat?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.adamKhesarat?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
+                    <select class="form-control" id="field_adamKhesaratSarneshin" name="adamKhesaratSarneshin" [(ngModel)]="estelaamSalesNerkh.adamKhesaratSarneshinId"  required>
+                        <option *ngIf="!editForm.value.adamKhesaratSarneshin" [ngValue]="null" selected></option>
+                        <option [ngValue]="adamKhesaratSarneshinOption.id" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">{{adamKhesaratSarneshinOption.sarneshin}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.adamKhesaratSarneshin?.dirty && editForm.controls.adamKhesaratSarneshin?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.adamKhesaratSarneshin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
+                    <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin" [(ngModel)]="estelaamSalesNerkh.khesaratSrneshinId"  required>
+                        <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>
+                        <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">{{khesaratSrneshinOption.nerkhKhesarat}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.khesaratSrneshin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales" for="field_khesaratSales">Khesarat Sales</label>
+                    <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="estelaamSalesNerkh.khesaratSalesId"  required>
+                        <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
+                        <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">{{khesaratSalesOption.nerkhKhesarat}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

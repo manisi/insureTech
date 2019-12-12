@@ -1,67 +1,222 @@
+
+
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <!--<h6 class="text-right">{{message}}</h6>-->
-    <!--<h1 class="text-capitalize text-center" jhiTranslate="hi-there.title">Title</h1>-->
-    <!--<h5 class="text-center" jhiTranslate="hi-there.subtitle">Subtitle</h5>-->
-    <hr/>
+<div class="col-md-1"></div>
+ <div class="col-md-10">
+     <div class="row justify-content-center">
+         <div class="col-8">
+             <form name="editForm" role="form" novalidate (ngSubmit)="transition()" #editForm="ngForm">
+                 <h2 id="jhi-estelaam-sales-nerkh-heading" jhiTranslate="insurancestartApp.estelaamSalesNerkh.home.title">Create or edit a Estelaam Sales Nerkh</h2>
+                 <div>
+                     <jhi-alert-error></jhi-alert-error>
 
-<!--    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a routerLinkActive="active" class="nav-link" routerLink="/hi-there/page-one" jhiTranslate="global.menu.page-one">Page One</a>
-      </li>
-      <li class="nav-item">
-        <a routerLinkActive="active" class="nav-link" routerLink="/hi-there/page-two" jhiTranslate="global.menu.page-two">Page Two</a>
-      </li>
-    </ul>-->
-
-
-
-
-      <ngb-tabset>
-          <!--<ngb-tab title="Simple">-->
-          <ngb-tab >
-              <ng-template ngbTabTitle><h5 jhiTranslate="page-one.title">Title</h5></ng-template>
-              <ng-template ngbTabContent>
-                  <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
-                          <!--<h6 class="text-right">{{message}}</h6>-->
-                          <h1 class="text-capitalize text-center" jhiTranslate="page-one.title">Title</h1>
-                          <!--<h5 class="text-center" jhiTranslate="page-two.subtitle">Subtitle</h5>-->
-                          <hr/>
-                          <!--<p class="text-justify" jhiTranslate="page-two.content">Content</p>-->
-                      </div>
-                      <div class="col-md-1"></div>
-                  </div>
-              </ng-template>
-          </ngb-tab>
-
-          <ngb-tab>
-              <ng-template ngbTabTitle><h5 jhiTranslate="page-two.title">Title</h5></ng-template>
-              <ng-template ngbTabContent>
-                  <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
-                          <!--<h6 class="text-right">{{message}}</h6>-->
-                          <h1 class="text-capitalize text-center" jhiTranslate="page-two.title">Title</h1>
-                          <!--<h5 class="text-center" jhiTranslate="page-two.subtitle">Subtitle</h5>-->
-                          <hr/>
-                          <!--<p class="text-justify" jhiTranslate="page-two.content">Content</p>-->
-                      </div>
-                      <div class="col-md-1"></div>
-                  </div>
-              </ng-template>
-          </ngb-tab>
-
-          <ngb-tab title="Disabled" [disabled]="true">
-              <ng-template ngbTabContent>
-                  <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
-              </ng-template>
-          </ngb-tab>
-      </ngb-tabset>
-
-    <router-outlet></router-outlet>
-  </div>
-  <div class="col-md-1"></div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro" for="field_anvaeKhodro">Anvae Khodro</label>
+                         <select class="form-control" id="field_anvaeKhodro" name="anvaeKhodro" [(ngModel)]="anvaeKhodro" required>
+                             <option *ngIf="!editForm.value.anvaeKhodro" [ngValue]="null" selected></option>
+                             <option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.anvaeKhodro?.dirty && editForm.controls.anvaeKhodro?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.anvaeKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht" for="field_saalSakht">Saal Sakht</label>
+                         <select class="form-control" id="field_saalSakht" name="saalSakht"  [(ngModel)]="saalSakht" required>
+                             <option *ngIf="!editForm.value.saalSakht" [ngValue]="null" selected></option>
+                             <option [ngValue]="saalSakhtOption.id" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.saalShamsi}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.saalSakht?.dirty && editForm.controls.saalSakht?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.saalSakht?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro" for="field_onvanKhodro">Onvan Khodro</label>
+                         <select class="form-control" id="field_onvanKhodro" name="onvanKhodro" [(ngModel)]="onvanKhodro"  required>
+                             <option *ngIf="!editForm.value.onvanKhodro" [ngValue]="null" selected></option>
+                             <option [ngValue]="onvanKhodroOption.id" *ngFor="let onvanKhodroOption of onvankhodros; trackBy: trackOnvanKhodroById">{{onvanKhodroOption.name}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.onvanKhodro?.dirty && editForm.controls.onvanKhodro?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.onvanKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
+                         <select class="form-control" id="field_adamKhesarat" name="adamKhesarat"  [(ngModel)]="adamKhesarat" required>
+                             <option *ngIf="!editForm.value.adamKhesarat" [ngValue]="null" selected></option>
+                             <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">{{adamKhesaratOption.sales}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.adamKhesarat?.dirty && editForm.controls.adamKhesarat?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.adamKhesarat?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
+                         <select class="form-control" id="field_adamKhesaratSarneshin" name="adamKhesaratSarneshin" [(ngModel)]="adamKhesaratSarneshin" required>
+                             <option *ngIf="!editForm.value.adamKhesaratSarneshin" [ngValue]="null" selected></option>
+                             <option [ngValue]="adamKhesaratSarneshinOption.id" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">{{adamKhesaratSarneshinOption.sarneshin}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.adamKhesaratSarneshin?.dirty && editForm.controls.adamKhesaratSarneshin?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.adamKhesaratSarneshin?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
+                         <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>
+                             <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">{{khesaratSrneshinOption.nerkhKhesarat}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.khesaratSrneshin?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="form-group">
+                         <label class="form-control-label" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales" for="field_khesaratSales">Khesarat Sales</label>
+                         <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
+                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">{{khesaratSalesOption.nerkhKhesarat}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                 </div>
+                 <div>
+                     <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                         <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                     </button>
+                     <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                         <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.estelam">Save</span>
+                     </button>
+                 </div>
+             </form>
+         </div>
+     </div>
+ </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="row">-->
+  <!--<div class="col-md-1"></div>-->
+  <!--<div class="col-md-10">-->
+    <!--&lt;!&ndash;<h6 class="text-right">{{message}}</h6>&ndash;&gt;-->
+    <!--&lt;!&ndash;<h1 class="text-capitalize text-center" jhiTranslate="hi-there.title">Title</h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;<h5 class="text-center" jhiTranslate="hi-there.subtitle">Subtitle</h5>&ndash;&gt;-->
+    <!--<hr/>-->
+
+<!--&lt;!&ndash;    <ul class="nav nav-tabs" role="tablist">-->
+      <!--<li class="nav-item">-->
+        <!--<a routerLinkActive="active" class="nav-link" routerLink="/hi-there/page-one" jhiTranslate="global.menu.page-one">Page One</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a routerLinkActive="active" class="nav-link" routerLink="/hi-there/page-two" jhiTranslate="global.menu.page-two">Page Two</a>-->
+      <!--</li>-->
+    <!--</ul>&ndash;&gt;-->
+
+      <!--&lt;!&ndash;<ngb-tabset activeId="registered" (tabChange)="beforeChange($event)" type="pills">&ndash;&gt;-->
+          <!--&lt;!&ndash;<ngb-tab id="registered" title="Last registered leases">&ndash;&gt;-->
+              <!--&lt;!&ndash;<ng-template ngbTabContent></ng-template>&ndash;&gt;-->
+          <!--&lt;!&ndash;</ngb-tab>&ndash;&gt;-->
+          <!--&lt;!&ndash;<ngb-tab id="canceled" title="Last canceled leases">&ndash;&gt;-->
+              <!--&lt;!&ndash;<ng-template ngbTabContent></ng-template>&ndash;&gt;-->
+          <!--&lt;!&ndash;</ngb-tab>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ngb-tabset>&ndash;&gt;-->
+
+
+      <!--<ngb-tabset activeId="registered" >-->
+          <!--&lt;!&ndash;<ngb-tab title="Simple">&ndash;&gt;-->
+          <!--<ngb-tab id="registered">-->
+              <!--<ng-template ngbTabTitle ><h5 jhiTranslate="page-one.title">Title</h5></ng-template>-->
+              <!--<ng-template ngbTabContent>-->
+                  <!--<div class="row">-->
+                      <!--<div class="col-md-1"></div>-->
+                      <!--<div class="col-md-10">-->
+                          <!--&lt;!&ndash;<h6 class="text-right">{{message}}</h6>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<h1 class="text-capitalize text-center" jhiTranslate="page-one.title">Title</h1>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<h5 class="text-center" jhiTranslate="page-two.subtitle">Subtitle</h5>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<p class="text-justify" jhiTranslate="page-two.content">Content</p>&ndash;&gt;-->
+                          <!--<div>-->
+                     <!--<jhi-estelaam-sales-nerkh-update></jhi-estelaam-sales-nerkh-update>-->
+
+
+                          <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="col-md-1"></div>-->
+                  <!--</div>-->
+              <!--</ng-template>-->
+          <!--</ngb-tab>-->
+
+          <!--<ngb-tab id="canceled">-->
+              <!--<ng-template ngbTabTitle><h5 jhiTranslate="page-two.title">Title</h5></ng-template>-->
+              <!--<ng-template ngbTabContent>-->
+                  <!--<div class="row">-->
+                      <!--<div class="col-md-1"></div>-->
+                      <!--<div class="col-md-10">-->
+                          <!--&lt;!&ndash;<h6 class="text-right">{{message}}</h6>&ndash;&gt;-->
+                          <!--<h1 class="text-capitalize text-center" jhiTranslate="page-two.title">Title</h1>-->
+                          <!--&lt;!&ndash;<h5 class="text-center" jhiTranslate="page-two.subtitle">Subtitle</h5>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<p class="text-justify">[fa] Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>&ndash;&gt;-->
+
+
+                          <!--<div class="alert alert-info">-->
+                              <!--<a class="alert-link" (click)="requestResetPassword()" jhiTranslate="login.password.forgot">Did you forget your password?</a>-->
+                          <!--</div>-->
+
+
+                      <!--</div>-->
+                      <!--<div class="col-md-1"></div>-->
+                  <!--</div>-->
+              <!--</ng-template>-->
+          <!--</ngb-tab>-->
+
+          <!--<ngb-tab title="Disabled" [disabled]="false">-->
+              <!--<ng-template ngbTabContent>-->
+                  <!--<p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>-->
+              <!--</ng-template>-->
+             <!--<jhi-estelaam-sales-nerkh></jhi-estelaam-sales-nerkh>-->
+          <!--</ngb-tab>-->
+      <!--</ngb-tabset>-->
+
+    <!--<router-outlet></router-outlet>-->
+  <!--</div>-->
+  <!--<div class="col-md-1"></div>-->
+<!--</div>-->

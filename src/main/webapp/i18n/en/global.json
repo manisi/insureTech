@@ -54,6 +54,8 @@
                 "moredEstefadeSales": "Mored Estefade Sales",
                 "onvanKhodro": "Onvan Khodro",
                 "groupOperationsData": "Group Operations Data",
+                "saalSakht": "Saal Sakht",
+                "estelaamSalesNerkh": "Estelaam Sales Nerkh",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -146,7 +148,8 @@
             "open": "Open",
             "save": "Save",
             "view": "View",
-            "applyfile": "ApplyFile"
+            "applyfile": "ApplyFile",
+            "estelam": "Inquiry"
         },
         "detail": {
             "field": "Field",

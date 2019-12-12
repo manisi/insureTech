@@ -1,0 +1,27 @@
+{
+    "insurancestartApp": {
+        "estelaamSalesNerkh": {
+            "home": {
+                "title": "استعلام ثالث",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Estelaam Sales Nerkh is created with identifier {{ param }}",
+            "updated": "A Estelaam Sales Nerkh is updated with identifier {{ param }}",
+            "deleted": "A Estelaam Sales Nerkh is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Estelaam Sales Nerkh {{ id }}?"
+            },
+            "detail": {
+                "title": "استعلام ثالث"
+            },
+            "anvaeKhodro": "خودرو",
+            "saalSakht": "سال ساخت",
+            "onvanKhodro": "کاربری",
+            "adamKhesarat": "تخفیف ثالث",
+            "adamKhesaratSarneshin": "تخفیف سرنشین",
+            "khesaratSrneshin": "خسارت سرنشین",
+            "khesaratSales": "خسارت ثالث"
+        }
+    }
+}

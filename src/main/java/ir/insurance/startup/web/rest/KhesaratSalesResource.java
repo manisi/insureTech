@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.KhesaratSalesService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,6 +53,7 @@ public class KhesaratSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/khesarat-sales")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSalesDTO> createKhesaratSales(@Valid @RequestBody KhesaratSalesDTO khesaratSalesDTO) throws URISyntaxException {
         log.debug("REST request to save KhesaratSales : {}", khesaratSalesDTO);
         if (khesaratSalesDTO.getId() != null) {
@@ -72,6 +75,7 @@ public class KhesaratSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/khesarat-sales")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSalesDTO> updateKhesaratSales(@Valid @RequestBody KhesaratSalesDTO khesaratSalesDTO) throws URISyntaxException {
         log.debug("REST request to update KhesaratSales : {}", khesaratSalesDTO);
         if (khesaratSalesDTO.getId() == null) {
@@ -117,6 +121,7 @@ public class KhesaratSalesResource {
      * @return the ResponseEntity with status 200 (OK) and with body the khesaratSalesDTO, or with status 404 (Not Found)
      */
     @GetMapping("/khesarat-sales/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSalesDTO> getKhesaratSales(@PathVariable Long id) {
         log.debug("REST request to get KhesaratSales : {}", id);
         Optional<KhesaratSalesDTO> khesaratSalesDTO = khesaratSalesService.findOne(id);

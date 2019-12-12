@@ -62,7 +62,9 @@ public class AuditResource {
             pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/management/audits");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+       // return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+
 
     /**
      * GET  /audits/:id : get an AuditEvent by id.

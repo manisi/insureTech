@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.AdamKhesaratService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,6 +53,7 @@ public class AdamKhesaratResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/adam-khesarats")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AdamKhesaratDTO> createAdamKhesarat(@Valid @RequestBody AdamKhesaratDTO adamKhesaratDTO) throws URISyntaxException {
         log.debug("REST request to save AdamKhesarat : {}", adamKhesaratDTO);
         if (adamKhesaratDTO.getId() != null) {
@@ -72,6 +75,7 @@ public class AdamKhesaratResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/adam-khesarats")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AdamKhesaratDTO> updateAdamKhesarat(@Valid @RequestBody AdamKhesaratDTO adamKhesaratDTO) throws URISyntaxException {
         log.debug("REST request to update AdamKhesarat : {}", adamKhesaratDTO);
         if (adamKhesaratDTO.getId() == null) {
@@ -130,6 +134,7 @@ public class AdamKhesaratResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/adam-khesarats/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteAdamKhesarat(@PathVariable Long id) {
         log.debug("REST request to delete AdamKhesarat : {}", id);
         adamKhesaratService.delete(id);

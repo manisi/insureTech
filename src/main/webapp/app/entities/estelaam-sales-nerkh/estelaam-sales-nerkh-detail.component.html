@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="estelaamSalesNerkh">
+            <h2><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.detail.title">Estelaam Sales Nerkh</span> {{estelaamSalesNerkh.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro">Anvae Khodro</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.anvaeKhodroId">
+                        <a [routerLink]="['/anvae-khodro', estelaamSalesNerkh.anvaeKhodroId, 'view']">{{estelaamSalesNerkh.anvaeKhodroOnvan}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht">Saal Sakht</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.saalSakhtId">
+                        <a [routerLink]="['/saal-sakht', estelaamSalesNerkh.saalSakhtId, 'view']">{{estelaamSalesNerkh.saalSakhtSaalShamsi}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro">Onvan Khodro</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.onvanKhodroId">
+                        <a [routerLink]="['/onvan-khodro', estelaamSalesNerkh.onvanKhodroId, 'view']">{{estelaamSalesNerkh.onvanKhodroName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat">Adam Khesarat</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.adamKhesaratId">
+                        <a [routerLink]="['/adam-khesarat', estelaamSalesNerkh.adamKhesaratId, 'view']">{{estelaamSalesNerkh.adamKhesaratSales}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin">Adam Khesarat Sarneshin</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.adamKhesaratSarneshinId">
+                        <a [routerLink]="['/adam-khesarat-sarneshin', estelaamSalesNerkh.adamKhesaratSarneshinId, 'view']">{{estelaamSalesNerkh.adamKhesaratSarneshinSarneshin}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin">Khesarat Srneshin</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.khesaratSrneshinId">
+                        <a [routerLink]="['/khesarat-srneshin', estelaamSalesNerkh.khesaratSrneshinId, 'view']">{{estelaamSalesNerkh.khesaratSrneshinNerkhKhesarat}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales">Khesarat Sales</span></dt>
+                <dd>
+                    <div *ngIf="estelaamSalesNerkh.khesaratSalesId">
+                        <a [routerLink]="['/khesarat-sales', estelaamSalesNerkh.khesaratSalesId, 'view']">{{estelaamSalesNerkh.khesaratSalesNerkhKhesarat}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/estelaam-sales-nerkh', estelaamSalesNerkh.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

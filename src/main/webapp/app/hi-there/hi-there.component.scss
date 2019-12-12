@@ -1,1 +1,26 @@
 /* hi-there.component.scss */
+//#registered,
+//#staffTab,
+//#taskHoursTab {
+//    margin-right: 0.25em;
+//    color: #fff;
+//    background-color: #18BC9C;
+//    border-color: #18BC9C;
+//    &.active {
+//        border-color: #18BC9C;
+//        color: #18BC9C;
+//        background-color: #fff;
+//    }
+//}
+
+::ng-deep .nav-fill .nav-link.active {
+    margin-top: -1px;
+    border-top: 2px solid #fff;
+}
+
+::ng-deep .nav-pills .nav-link.active,
+::ng-deep .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #18bc9c;
+    border-color: #18bc9c;
+}

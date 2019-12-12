@@ -1,0 +1,22 @@
+{
+    "insurancestartApp": {
+        "saalSakht": {
+            "home": {
+                "title": "سال ساخت",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Saal Sakht is created with identifier {{ param }}",
+            "updated": "A Saal Sakht is updated with identifier {{ param }}",
+            "deleted": "A Saal Sakht is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Saal Sakht {{ id }}?"
+            },
+            "detail": {
+                "title": "سال ساخت"
+            },
+            "saalShamsi": "سال شمسی",
+            "saalMiladi": "سال میلادی"
+        }
+    }
+}

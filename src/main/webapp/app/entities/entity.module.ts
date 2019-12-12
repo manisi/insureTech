@@ -199,6 +199,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'group-operations-data',
                 loadChildren: './group-operations-data/group-operations-data.module#InsurancestartGroupOperationsDataModule'
+            },
+            {
+                path: 'saal-sakht',
+                loadChildren: './saal-sakht/saal-sakht.module#InsurancestartSaalSakhtModule'
+            },
+            {
+                path: 'estelaam-sales-nerkh',
+                loadChildren: './estelaam-sales-nerkh/estelaam-sales-nerkh.module#InsurancestartEstelaamSalesNerkhModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

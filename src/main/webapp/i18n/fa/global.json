@@ -46,6 +46,9 @@
                 "moredEstefadeSales": "مورد استفاده ثالث",
                 "onvanKhodro": "عنوان خودرو",
                 "groupOperationsData": "عملیات گروهی فایل",
+                "saalSakht": "سال ساخت",
+                "estelaamSalesNerkh": "استعلام ثالث",
+                "estelaamSalesNerkh": "استعلام نرخ ثالث",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -138,7 +141,8 @@
             "open": "باز",
             "save": "ذخیره",
             "view": "مشاهده",
-            "applyfile": "اعمال فایل"
+            "applyfile": "اعمال فایل",
+            "estelam": "استعلام"
         },
         "detail": {
             "field": "فیلد",

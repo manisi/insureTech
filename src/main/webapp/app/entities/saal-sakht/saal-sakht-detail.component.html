@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="saalSakht">
+            <h2><span jhiTranslate="insurancestartApp.saalSakht.detail.title">Saal Sakht</span> {{saalSakht.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.saalSakht.saalShamsi">Saal Shamsi</span></dt>
+                <dd>
+                    <span>{{saalSakht.saalShamsi}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.saalSakht.saalMiladi">Saal Miladi</span></dt>
+                <dd>
+                    <span>{{saalSakht.saalMiladi}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/saal-sakht', saalSakht.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
