@@ -19,7 +19,7 @@
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro" for="field_anvaeKhodro">Anvae Khodro</label>
                          <select class="form-control" id="field_anvaeKhodro" name="anvaeKhodro" [(ngModel)]="anvaeKhodro" required>
                              <option *ngIf="!editForm.value.anvaeKhodro" [ngValue]="null" selected></option>
-                             <option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}</option>
+                             <option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}-{{anvaeKhodroOption.systemVasile}}-{{anvaeKhodroOption.grouhVasile}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.anvaeKhodro?.dirty && editForm.controls.anvaeKhodro?.invalid)">
@@ -32,7 +32,7 @@
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht" for="field_saalSakht">Saal Sakht</label>
                          <select class="form-control" id="field_saalSakht" name="saalSakht"  [(ngModel)]="saalSakht" required>
                              <option *ngIf="!editForm.value.saalSakht" [ngValue]="null" selected></option>
-                             <option [ngValue]="saalSakhtOption.id" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.saalShamsi}}</option>
+                             <option [ngValue]="saalSakhtOption.id" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.saalShamsi}} - {{saalSakhtOption.saalMiladi}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.saalSakht?.dirty && editForm.controls.saalSakht?.invalid)">
@@ -89,7 +89,7 @@
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
                          <select class="form-control" id="field_adamKhesarat" name="adamKhesarat"  [(ngModel)]="adamKhesarat" required>
                              <option *ngIf="!editForm.value.adamKhesarat" [ngValue]="null" selected></option>
-                             <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">{{adamKhesaratOption.sales}}</option>
+                             <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">({{adamKhesaratOption.sales}}%) {{adamKhesaratOption.sabegheName}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.adamKhesarat?.dirty && editForm.controls.adamKhesarat?.invalid)">
@@ -99,10 +99,23 @@
                          </small>
                      </div>
                      <div class="input-group-append">
+                         <label class="input-group-text" style="width:30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales" for="field_khesaratSales">Khesarat Sales</label>
+                         <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
+                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">({{khesaratSalesOption.nerkhKhesarat}}%){{khesaratSalesOption.sabegheName}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="input-group-append">
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
                          <select class="form-control" id="field_adamKhesaratSarneshin" name="adamKhesaratSarneshin" [(ngModel)]="adamKhesaratSarneshin" required>
                              <option *ngIf="!editForm.value.adamKhesaratSarneshin" [ngValue]="null" selected></option>
-                             <option [ngValue]="adamKhesaratSarneshinOption.id" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">{{adamKhesaratSarneshinOption.sarneshin}}</option>
+                             <option [ngValue]="adamKhesaratSarneshinOption.id" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">({{adamKhesaratSarneshinOption.sarneshin}}%){{adamKhesaratSarneshinOption.sabegheName}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.adamKhesaratSarneshin?.dirty && editForm.controls.adamKhesaratSarneshin?.invalid)">
@@ -115,7 +128,7 @@
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
                          <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>
                              <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">{{khesaratSrneshinOption.nerkhKhesarat}}</option>
+                             <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">({{khesaratSrneshinOption.nerkhKhesarat}}%){{khesaratSrneshinOption.sabegheName}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">
@@ -124,19 +137,7 @@
                              This field is required.
                          </small>
                      </div>
-                     <div class="input-group-append">
-                         <label class="input-group-text" style="width:30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales" for="field_khesaratSales">Khesarat Sales</label>
-                         <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
-                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">{{khesaratSalesOption.nerkhKhesarat}}</option>
-                         </select>
-                     </div>
-                     <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
-                         <small class="form-text text-danger"
-                                [hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">
-                             This field is required.
-                         </small>
-                     </div>
+
                  </div>
                  <div>
                     <br>

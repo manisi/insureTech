@@ -40,11 +40,29 @@ export class SabegheService {
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {
+        if (!req) {
+            req = {
+                //for morethan 20 item in dropdownlist sabeghe
+                page: 0,
+                size: 30
+                // ,sort: ['name,asc', 'id']
+            };
+        }
         const options = createRequestOption(req);
         return this.http
             .get<ISabeghe[]>(this.resourceUrl, { params: options, observe: 'response' })
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
+
+    //
+    // query(req?: any): Observable<ResponseWrapper> {
+    //     if (!req) {
+    //         req = {
+    //             page: 0,
+    //             size: MAX_PAGE_SIZE,
+    //             sort: ['name,asc', 'id']
+    //         };
+    //     }
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
