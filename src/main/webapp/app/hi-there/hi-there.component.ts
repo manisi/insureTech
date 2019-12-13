@@ -219,6 +219,10 @@ export class HiThereComponent implements OnInit {
         this.router.navigate(['/reset', 'request']);
     }
 
+    previousState() {
+        window.history.back();
+    }
+
     save() {
         this.isSaving = true;
         // if (this.estelaamSalesNerkh.id !== undefined) {
