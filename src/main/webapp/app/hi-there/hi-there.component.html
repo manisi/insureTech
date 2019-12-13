@@ -57,14 +57,30 @@
 
                      <div class="input-group-append">
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.nerkh.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
-                         <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="sherkatebime"  required>
-                             <option *ngIf="!editForm.value.sherkatebime" [ngValue]="null" selected></option>
+                         <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="sherkatBime"  required>
+                             <option *ngIf="!editForm.value.sherkatBime" [ngValue]="null" selected></option>
                              <option [ngValue]="sherkatBimeOption.id" *ngFor="let sherkatBimeOption of sherkatebimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
                          </select>
                      </div>
-                     <div [hidden]="!(editForm.controls.onvanKhodro?.dirty && editForm.controls.onvanKhodro?.invalid)">
+                     <div [hidden]="!(editForm.controls.sherkatBime?.dirty && editForm.controls.sherkatBime?.invalid)">
                          <small class="form-text text-danger"
-                                [hidden]="!editForm.controls.onvanKhodro?.errors?.required" jhiTranslate="entity.validation.required">
+                                [hidden]="!editForm.controls.sherkatebime?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+
+                     <div class="input-group-append">
+                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.sabeghe.tarikhEtebar" for="field_tarikh">Tarikh</label>
+                         <div class="input-group">
+                             <input id="field_tarikh" type="text"  class="form-control"  [displayMonths]="1" [firstDayOfWeek]="6" name="tarikh"   ngbDatepicker placeholder="yyyy-mm-dd"  #tarikhDp="ngbDatepicker" [(ngModel)]="tarikhEtebar" required />
+                             <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="tarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                         </div>
+                     </div>
+                     <div [hidden]="!(editForm.controls.tarikh?.dirty && editForm.controls.tarikh?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.tarikh?.errors?.required" jhiTranslate="entity.validation.required">
                              This field is required.
                          </small>
                      </div>

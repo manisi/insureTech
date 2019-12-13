@@ -19,7 +19,8 @@
             "name": "Name",
             "sharh": "Sharh",
             "faal": "Faal",
-            "tarikh": "Tarikh"
+            "tarikh": "Tarikh",
+            "tarikhEtebar": "TarikhEtebar"
         }
     }
 }

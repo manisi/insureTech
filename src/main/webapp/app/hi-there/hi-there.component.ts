@@ -24,6 +24,7 @@ import { NerkhSalesService } from 'app/hi-there/nerkhsales.service';
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { SherkatBimeService } from 'app/entities/sherkat-bime/sherkat-bime.service';
 import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
+import { Moment } from 'jalali-moment';
 
 @Component({
     selector: 'jhi-hi-there',
@@ -44,7 +45,8 @@ export class HiThereComponent implements OnInit {
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
     anvaeKhodro: string;
-    sherkatebime: string;
+    sherkatBime: string;
+    tarikhEtebar: Moment;
     saalSakht: string;
     onvanKhodro: string;
     adamKhesarat: string;
@@ -168,7 +170,9 @@ export class HiThereComponent implements OnInit {
                 adamKhesarat: this.adamKhesarat,
                 adamKhesaratSarneshin: this.adamKhesaratSarneshin,
                 khesaratSrneshin: this.khesaratSrneshin,
-                khesaratSales: this.khesaratSales
+                khesaratSales: this.khesaratSales,
+                sherkatBime: this.sherkatBime,
+                tarikhEtebar: this.tarikhEtebar
             })
             .subscribe(
                 (res: HttpResponse<SalesNerkhData[]>) => this.onSuccess(res.body, res.headers),

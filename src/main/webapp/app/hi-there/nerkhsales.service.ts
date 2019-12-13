@@ -21,6 +21,8 @@ export class NerkhSalesService {
         params.set('adamKhesaratSarneshin', req.adamKhesaratSarneshin);
         params.set('khesaratSrneshin', req.khesaratSrneshin);
         params.set('khesaratSales', req.khesaratSales);
+        params.set('sherkatBime', req.sherkatBime);
+        params.set('tarikhEtebar', req.tarikhEtebar);
 
         // const requestURL = SERVER_API_URL + 'management/audits';
         const requestURL = SERVER_API_URL + 'api/hi-there';
