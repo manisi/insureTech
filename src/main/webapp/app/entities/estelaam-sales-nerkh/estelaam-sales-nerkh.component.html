@@ -15,54 +15,12 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="anvaeKhodroOnvan"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro">Anvae Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="saalSakhtSaalShamsi"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht">Saal Sakht</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="onvanKhodroName"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro">Onvan Khodro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="adamKhesaratSales"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat">Adam Khesarat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="adamKhesaratSarneshinSarneshin"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin">Adam Khesarat Sarneshin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="khesaratSrneshinNerkhKhesarat"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin">Khesarat Srneshin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="khesaratSalesNerkhKhesarat"><span jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales">Khesarat Sales</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let estelaamSalesNerkh of estelaamSalesNerkhs ;trackBy: trackId">
                 <td><a [routerLink]="['/estelaam-sales-nerkh', estelaamSalesNerkh.id, 'view' ]">{{estelaamSalesNerkh.id}}</a></td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.anvaeKhodroId">
-                        <a [routerLink]="['../anvae-khodro', estelaamSalesNerkh.anvaeKhodroId , 'view' ]" >{{estelaamSalesNerkh.anvaeKhodroOnvan}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.saalSakhtId">
-                        <a [routerLink]="['../saal-sakht', estelaamSalesNerkh.saalSakhtId , 'view' ]" >{{estelaamSalesNerkh.saalSakhtSaalShamsi}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.onvanKhodroId">
-                        <a [routerLink]="['../onvan-khodro', estelaamSalesNerkh.onvanKhodroId , 'view' ]" >{{estelaamSalesNerkh.onvanKhodroName}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.adamKhesaratId">
-                        <a [routerLink]="['../adam-khesarat', estelaamSalesNerkh.adamKhesaratId , 'view' ]" >{{estelaamSalesNerkh.adamKhesaratSales}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.adamKhesaratSarneshinId">
-                        <a [routerLink]="['../adam-khesarat-sarneshin', estelaamSalesNerkh.adamKhesaratSarneshinId , 'view' ]" >{{estelaamSalesNerkh.adamKhesaratSarneshinSarneshin}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.khesaratSrneshinId">
-                        <a [routerLink]="['../khesarat-srneshin', estelaamSalesNerkh.khesaratSrneshinId , 'view' ]" >{{estelaamSalesNerkh.khesaratSrneshinNerkhKhesarat}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="estelaamSalesNerkh.khesaratSalesId">
-                        <a [routerLink]="['../khesarat-sales', estelaamSalesNerkh.khesaratSalesId , 'view' ]" >{{estelaamSalesNerkh.khesaratSalesNerkhKhesarat}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

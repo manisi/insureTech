@@ -49,6 +49,7 @@
                 "saalSakht": "سال ساخت",
                 "estelaamSalesNerkh": "استعلام ثالث",
                 "estelaamSalesNerkh": "استعلام نرخ ثالث",
+                "estelaamSalesNerkh": "Estelaam Sales Nerkh",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

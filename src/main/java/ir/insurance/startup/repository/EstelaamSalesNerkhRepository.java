@@ -1,4 +1,5 @@
 package ir.insurance.startup.repository;
+
 import ir.insurance.startup.domain.EstelaamSalesNerkh;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

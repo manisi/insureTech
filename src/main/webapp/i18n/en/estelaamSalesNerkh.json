@@ -4,8 +4,7 @@
             "home": {
                 "title": "Estelaam Sales Nerkhs",
                 "createLabel": "Create a new Estelaam Sales Nerkh",
-                "createOrEditLabel": "Create or edit a Estelaam Sales Nerkh",
-                "notFound": "No Estelaam Sales Nerkhs found"
+                "createOrEditLabel": "Create or edit a Estelaam Sales Nerkh"
             },
             "created": "A new Estelaam Sales Nerkh is created with identifier {{ param }}",
             "updated": "A Estelaam Sales Nerkh is updated with identifier {{ param }}",
@@ -15,14 +14,7 @@
             },
             "detail": {
                 "title": "Estelaam Sales Nerkh"
-            },
-            "anvaeKhodro": "Anvae Khodro",
-            "saalSakht": "Saal Sakht",
-            "onvanKhodro": "Onvan Khodro",
-            "adamKhesarat": "Adam Khesarat",
-            "adamKhesaratSarneshin": "Adam Khesarat Sarneshin",
-            "khesaratSrneshin": "Khesarat Srneshin",
-            "khesaratSales": "Khesarat Sales"
+            }
         }
     }
 }

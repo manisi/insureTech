@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * Service Implementation for managing {@link EstelaamSalesNerkh}.
+ * Service Implementation for managing EstelaamSalesNerkh.
  */
 @Service
 @Transactional
@@ -36,8 +36,8 @@ public class EstelaamSalesNerkhServiceImpl implements EstelaamSalesNerkhService 
     /**
      * Save a estelaamSalesNerkh.
      *
-     * @param estelaamSalesNerkhDTO the entity to save.
-     * @return the persisted entity.
+     * @param estelaamSalesNerkhDTO the entity to save
+     * @return the persisted entity
      */
     @Override
     public EstelaamSalesNerkhDTO save(EstelaamSalesNerkhDTO estelaamSalesNerkhDTO) {
@@ -50,8 +50,8 @@ public class EstelaamSalesNerkhServiceImpl implements EstelaamSalesNerkhService 
     /**
      * Get all the estelaamSalesNerkhs.
      *
-     * @param pageable the pagination information.
-     * @return the list of entities.
+     * @param pageable the pagination information
+     * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
@@ -65,8 +65,8 @@ public class EstelaamSalesNerkhServiceImpl implements EstelaamSalesNerkhService 
     /**
      * Get one estelaamSalesNerkh by id.
      *
-     * @param id the id of the entity.
-     * @return the entity.
+     * @param id the id of the entity
+     * @return the entity
      */
     @Override
     @Transactional(readOnly = true)
@@ -79,7 +79,7 @@ public class EstelaamSalesNerkhServiceImpl implements EstelaamSalesNerkhService 
     /**
      * Delete the estelaamSalesNerkh by id.
      *
-     * @param id the id of the entity.
+     * @param id the id of the entity
      */
     @Override
     public void delete(Long id) {

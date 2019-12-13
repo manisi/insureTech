@@ -1,0 +1,45 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="developer (generated)" id="1576260389574-1">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_adam_khesarat_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-2">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_adam_khesarat_sarneshin_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-3">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_anvae_khodro_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-4">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_khesarat_sales_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-5">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_khesarat_srneshin_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-6">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_onvan_khodro_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-7">
+        <dropForeignKeyConstraint baseTableName="estelaam_sales_nerkh" constraintName="fk_estelaam_sales_nerkh_saal_sakht_id"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-8">
+        <dropColumn columnName="adam_khesarat_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-9">
+        <dropColumn columnName="adam_khesarat_sarneshin_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-10">
+        <dropColumn columnName="anvae_khodro_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-11">
+        <dropColumn columnName="khesarat_sales_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-12">
+        <dropColumn columnName="khesarat_srneshin_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-13">
+        <dropColumn columnName="onvan_khodro_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1576260389574-14">
+        <dropColumn columnName="saal_sakht_id" tableName="estelaam_sales_nerkh"/>
+    </changeSet>
+</databaseChangeLog>

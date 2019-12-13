@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -46,7 +45,7 @@ public class EstelaamSalesNerkhResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/estelaam-sales-nerkhs")
-    public ResponseEntity<EstelaamSalesNerkhDTO> createEstelaamSalesNerkh(@Valid @RequestBody EstelaamSalesNerkhDTO estelaamSalesNerkhDTO) throws URISyntaxException {
+    public ResponseEntity<EstelaamSalesNerkhDTO> createEstelaamSalesNerkh(@RequestBody EstelaamSalesNerkhDTO estelaamSalesNerkhDTO) throws URISyntaxException {
         log.debug("REST request to save EstelaamSalesNerkh : {}", estelaamSalesNerkhDTO);
         if (estelaamSalesNerkhDTO.getId() != null) {
             throw new BadRequestAlertException("A new estelaamSalesNerkh cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,7 +66,7 @@ public class EstelaamSalesNerkhResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/estelaam-sales-nerkhs")
-    public ResponseEntity<EstelaamSalesNerkhDTO> updateEstelaamSalesNerkh(@Valid @RequestBody EstelaamSalesNerkhDTO estelaamSalesNerkhDTO) throws URISyntaxException {
+    public ResponseEntity<EstelaamSalesNerkhDTO> updateEstelaamSalesNerkh(@RequestBody EstelaamSalesNerkhDTO estelaamSalesNerkhDTO) throws URISyntaxException {
         log.debug("REST request to update EstelaamSalesNerkh : {}", estelaamSalesNerkhDTO);
         if (estelaamSalesNerkhDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

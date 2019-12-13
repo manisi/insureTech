@@ -207,6 +207,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'estelaam-sales-nerkh',
                 loadChildren: './estelaam-sales-nerkh/estelaam-sales-nerkh.module#InsurancestartEstelaamSalesNerkhModule'
+            },
+            {
+                path: 'estelaam-sales-nerkh',
+                loadChildren: './estelaam-sales-nerkh/estelaam-sales-nerkh.module#InsurancestartEstelaamSalesNerkhModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])
