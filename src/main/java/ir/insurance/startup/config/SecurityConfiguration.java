@@ -107,6 +107,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/adam-khesarats").permitAll()
             .antMatchers("/api/khesarat-sales").permitAll()
             .antMatchers("/api/anvae-khodros").permitAll()
+            .antMatchers("/api/sherkat-bimes").permitAll()
             .antMatchers("/api/adam-khesarat-sarneshins").permitAll()
             .antMatchers("/api/khesarat-srneshins").permitAll()
 

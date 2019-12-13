@@ -22,6 +22,8 @@ import { IEstelaamSalesNerkh } from 'app/shared/model/estelaam-sales-nerkh.model
 import { SalesNerkhData } from 'app/hi-there/nerkhSales.model';
 import { NerkhSalesService } from 'app/hi-there/nerkhsales.service';
 import { ITEMS_PER_PAGE } from 'app/shared';
+import { SherkatBimeService } from 'app/entities/sherkat-bime/sherkat-bime.service';
+import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 
 @Component({
     selector: 'jhi-hi-there',
@@ -34,6 +36,7 @@ export class HiThereComponent implements OnInit {
     anvaekhodros: IAnvaeKhodro[];
     saalsakhts: ISaalSakht[];
     onvankhodros: IOnvanKhodro[];
+    sherkatebimes: ISherkatBime[];
     adamkhesarats: IAdamKhesarat[];
     adamkhesaratsarneshins: IAdamKhesaratSarneshin[];
     khesaratsrneshins: IKhesaratSrneshin[];
@@ -41,6 +44,7 @@ export class HiThereComponent implements OnInit {
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
     anvaeKhodro: string;
+    sherkatebime: string;
     saalSakht: string;
     onvanKhodro: string;
     adamKhesarat: string;
@@ -64,6 +68,7 @@ export class HiThereComponent implements OnInit {
         private parseLinks: JhiParseLinks,
         protected saalSakhtService: SaalSakhtService,
         protected onvanKhodroService: OnvanKhodroService,
+        protected sherkatBimeService: SherkatBimeService,
         protected adamKhesaratService: AdamKhesaratService,
         protected adamKhesaratSarneshinService: AdamKhesaratSarneshinService,
         protected khesaratSrneshinService: KhesaratSrneshinService,
@@ -109,6 +114,13 @@ export class HiThereComponent implements OnInit {
                 map((response: HttpResponse<IOnvanKhodro[]>) => response.body)
             )
             .subscribe((res: IOnvanKhodro[]) => (this.onvankhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.sherkatBimeService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ISherkatBime[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ISherkatBime[]>) => response.body)
+            )
+            .subscribe((res: ISherkatBime[]) => (this.sherkatebimes = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.adamKhesaratService
             .query()
             .pipe(
@@ -236,6 +248,10 @@ export class HiThereComponent implements OnInit {
     }
 
     trackKhesaratSalesById(index: number, item: IKhesaratSales) {
+        return item.id;
+    }
+
+    trackSherkatBimeById(index: number, item: ISherkatBime) {
         return item.id;
     }
 }

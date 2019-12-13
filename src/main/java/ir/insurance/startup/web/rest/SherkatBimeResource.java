@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.SherkatBimeService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -45,6 +47,7 @@ public class SherkatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/sherkat-bimes")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SherkatBimeDTO> createSherkatBime(@RequestBody SherkatBimeDTO sherkatBimeDTO) throws URISyntaxException {
         log.debug("REST request to save SherkatBime : {}", sherkatBimeDTO);
         if (sherkatBimeDTO.getId() != null) {
@@ -66,6 +69,7 @@ public class SherkatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/sherkat-bimes")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SherkatBimeDTO> updateSherkatBime(@RequestBody SherkatBimeDTO sherkatBimeDTO) throws URISyntaxException {
         log.debug("REST request to update SherkatBime : {}", sherkatBimeDTO);
         if (sherkatBimeDTO.getId() == null) {
@@ -111,6 +115,7 @@ public class SherkatBimeResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/sherkat-bimes/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteSherkatBime(@PathVariable Long id) {
         log.debug("REST request to delete SherkatBime : {}", id);
         sherkatBimeService.delete(id);
