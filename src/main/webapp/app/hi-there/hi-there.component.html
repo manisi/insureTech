@@ -56,7 +56,27 @@
                      </div>
 
                      <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.nerkh.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
+                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.vaziatBime.lable" for="field_vaziatbime">title</label>
+                         <select class="form-control" id="field_vaziatbime" name="vaziatBime" [(ngModel)]="vaziatBime"  required>
+                             <option *ngIf="!editForm.value.vaziatBime" [ngValue]="null" selected></option>
+                             <option [ngValue]="vaziatBimeOption.id" *ngFor="let vaziatBimeOption of vaziatBimes; trackBy: trackVaziatBimeById">{{vaziatBimeOption.title}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.vaziatBime?.dirty && editForm.controls.vaziatBime?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.vaziatBime?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
+                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.codeyekta" for="field_codeyekta">Code Yekta</label>
+                         <input class="form-control" id="field_codeyekta" name="codeyekta" [(ngModel)]="codeyekta" />
+
+                     </div>
+
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
+                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
                          <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="sherkatBime"  required>
                              <option *ngIf="!editForm.value.sherkatBime" [ngValue]="null" selected></option>
                              <option [ngValue]="sherkatBimeOption.id" *ngFor="let sherkatBimeOption of sherkatebimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
@@ -69,8 +89,8 @@
                          </small>
                      </div>
 
-                     <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.sabeghe.tarikhEtebar" for="field_tarikh">Tarikh</label>
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
+                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.tarikhEtebar" for="field_tarikh">Tarikh</label>
                          <div class="input-group">
                              <input id="field_tarikh" type="text"  class="form-control"  [displayMonths]="1" [firstDayOfWeek]="6" name="tarikh"   ngbDatepicker placeholder="yyyy-mm-dd"  #tarikhDp="ngbDatepicker" [(ngModel)]="tarikhEtebar" required />
                              <span class="input-group-append">
@@ -85,8 +105,8 @@
                          </small>
                      </div>
 
-                     <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
+                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
                          <select class="form-control" id="field_adamKhesarat" name="adamKhesarat"  [(ngModel)]="adamKhesarat" required>
                              <option *ngIf="!editForm.value.adamKhesarat" [ngValue]="null" selected></option>
                              <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">({{adamKhesaratOption.sales}}%) {{adamKhesaratOption.sabegheName}}</option>
@@ -98,7 +118,7 @@
                              This field is required.
                          </small>
                      </div>
-                     <div class="input-group-append">
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
                          <label class="input-group-text" style="width:30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales" for="field_khesaratSales">Khesarat Sales</label>
                          <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
                              <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
@@ -111,7 +131,7 @@
                              This field is required.
                          </small>
                      </div>
-                     <div class="input-group-append">
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
                          <select class="form-control" id="field_adamKhesaratSarneshin" name="adamKhesaratSarneshin" [(ngModel)]="adamKhesaratSarneshin" required>
                              <option *ngIf="!editForm.value.adamKhesaratSarneshin" [ngValue]="null" selected></option>
@@ -124,7 +144,7 @@
                              This field is required.
                          </small>
                      </div>
-                     <div class="input-group-append">
+                     <div class="input-group-append" [hidden]="vaziatBime == '13602' || vaziatBime == '13603'">
                          <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
                          <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>
                              <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>

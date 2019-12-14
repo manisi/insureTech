@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "vaziatBime": {
+            "home": {
+                "title": "Vaziat Bimes",
+                "createLabel": "Create a new Vaziat Bime",
+                "createOrEditLabel": "Create or edit a Vaziat Bime"
+            },
+            "created": "A new Vaziat Bime is created with identifier {{ param }}",
+            "updated": "A Vaziat Bime is updated with identifier {{ param }}",
+            "deleted": "A Vaziat Bime is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vaziat Bime {{ id }}?"
+            },
+            "detail": {
+                "title": "Vaziat Bime"
+            },
+            "title": "Title",
+            "faal": "Faal",
+            "lable": "lable"
+        }
+    }
+}

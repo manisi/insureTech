@@ -25,6 +25,8 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { SherkatBimeService } from 'app/entities/sherkat-bime/sherkat-bime.service';
 import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 import { Moment } from 'jalali-moment';
+import { VaziatBimeService } from 'app/entities/vaziat-bime/vaziat-bime.service';
+import { IVaziatBime } from 'app/shared/model/vaziat-bime.model';
 
 @Component({
     selector: 'jhi-hi-there',
@@ -36,6 +38,7 @@ export class HiThereComponent implements OnInit {
     estelaamSalesNerkh: IEstelaamSalesNerkh;
     anvaekhodros: IAnvaeKhodro[];
     saalsakhts: ISaalSakht[];
+    vaziatBimes: IVaziatBime[];
     onvankhodros: IOnvanKhodro[];
     sherkatebimes: ISherkatBime[];
     adamkhesarats: IAdamKhesarat[];
@@ -47,7 +50,9 @@ export class HiThereComponent implements OnInit {
     anvaeKhodro: string;
     sherkatBime: string;
     tarikhEtebar: Moment;
+    vaziatBime: string;
     saalSakht: string;
+    codeyekta: string;
     onvanKhodro: string;
     adamKhesarat: string;
     adamKhesaratSarneshin: string;
@@ -61,6 +66,7 @@ export class HiThereComponent implements OnInit {
     predicate: any;
     previousPage: any;
     reverse: boolean;
+    requiredtext: string;
 
     constructor(
         config: NgbTabsetConfig,
@@ -70,6 +76,7 @@ export class HiThereComponent implements OnInit {
         private parseLinks: JhiParseLinks,
         protected saalSakhtService: SaalSakhtService,
         protected onvanKhodroService: OnvanKhodroService,
+        protected vaziatBimeService: VaziatBimeService,
         protected sherkatBimeService: SherkatBimeService,
         protected adamKhesaratService: AdamKhesaratService,
         protected adamKhesaratSarneshinService: AdamKhesaratSarneshinService,
@@ -116,6 +123,13 @@ export class HiThereComponent implements OnInit {
                 map((response: HttpResponse<IOnvanKhodro[]>) => response.body)
             )
             .subscribe((res: IOnvanKhodro[]) => (this.onvankhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.vaziatBimeService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IVaziatBime[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IVaziatBime[]>) => response.body)
+            )
+            .subscribe((res: IVaziatBime[]) => (this.vaziatBimes = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.sherkatBimeService
             .query()
             .pipe(
@@ -166,13 +180,15 @@ export class HiThereComponent implements OnInit {
                 // toDate: this.toDate
                 anvaeKhodro: this.anvaeKhodro,
                 saalSakht: this.saalSakht,
+                vaziatBime: this.vaziatBime,
                 onvanKhodro: this.onvanKhodro,
                 adamKhesarat: this.adamKhesarat,
                 adamKhesaratSarneshin: this.adamKhesaratSarneshin,
                 khesaratSrneshin: this.khesaratSrneshin,
                 khesaratSales: this.khesaratSales,
                 sherkatBime: this.sherkatBime,
-                tarikhEtebar: this.tarikhEtebar
+                tarikhEtebar: this.tarikhEtebar,
+                codeyekta: this.codeyekta
             })
             .subscribe(
                 (res: HttpResponse<SalesNerkhData[]>) => this.onSuccess(res.body, res.headers),
@@ -222,6 +238,19 @@ export class HiThereComponent implements OnInit {
     previousState() {
         window.history.back();
     }
+    //
+    //
+    // changeRequiredType() {
+    //     // server port
+    //     if (this.vaziatBime === '13601') {
+    //         this.requiredtext = 'required';
+    //     // } else if (this.vaziatBime === 'uaa') {
+    //     //    // this.vaziatBime= 9999;
+    //     } else {
+    //        this.requiredtext= '';
+    //         }
+    //
+    // }
 
     save() {
         this.isSaving = true;
@@ -260,6 +289,9 @@ export class HiThereComponent implements OnInit {
     }
 
     trackSherkatBimeById(index: number, item: ISherkatBime) {
+        return item.id;
+    }
+    trackVaziatBimeById(index: number, item: IVaziatBime) {
         return item.id;
     }
 }

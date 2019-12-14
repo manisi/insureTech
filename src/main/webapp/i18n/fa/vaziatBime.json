@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "vaziatBime": {
+            "home": {
+                "title": "وضعیت بیمه",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Vaziat Bime is created with identifier {{ param }}",
+            "updated": "A Vaziat Bime is updated with identifier {{ param }}",
+            "deleted": "A Vaziat Bime is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vaziat Bime {{ id }}?"
+            },
+            "detail": {
+                "title": "وضعیت بیمه"
+            },
+            "title": "عنوان",
+            "faal": "فعال",
+            "lable": "آیا سابقه بیمه دارید؟"
+        }
+    }
+}

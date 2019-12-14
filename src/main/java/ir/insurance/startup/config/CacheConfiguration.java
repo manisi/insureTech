@@ -72,6 +72,7 @@ public class CacheConfiguration {
             cm.createCache(ir.insurance.startup.domain.GroupOperationsData.class.getName(), jcacheConfiguration);
             cm.createCache(ir.insurance.startup.domain.SaalSakht.class.getName(), jcacheConfiguration);
             cm.createCache(ir.insurance.startup.domain.EstelaamSalesNerkh.class.getName(), jcacheConfiguration);
+            cm.createCache(ir.insurance.startup.domain.VaziatBime.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
