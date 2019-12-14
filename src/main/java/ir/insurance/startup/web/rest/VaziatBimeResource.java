@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.VaziatBimeService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -46,6 +48,7 @@ public class VaziatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/vaziat-bimes")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<VaziatBimeDTO> createVaziatBime(@Valid @RequestBody VaziatBimeDTO vaziatBimeDTO) throws URISyntaxException {
         log.debug("REST request to save VaziatBime : {}", vaziatBimeDTO);
         if (vaziatBimeDTO.getId() != null) {
@@ -67,6 +70,7 @@ public class VaziatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/vaziat-bimes")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<VaziatBimeDTO> updateVaziatBime(@Valid @RequestBody VaziatBimeDTO vaziatBimeDTO) throws URISyntaxException {
         log.debug("REST request to update VaziatBime : {}", vaziatBimeDTO);
         if (vaziatBimeDTO.getId() == null) {
@@ -112,6 +116,7 @@ public class VaziatBimeResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/vaziat-bimes/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteVaziatBime(@PathVariable Long id) {
         log.debug("REST request to delete VaziatBime : {}", id);
         vaziatBimeService.delete(id);
