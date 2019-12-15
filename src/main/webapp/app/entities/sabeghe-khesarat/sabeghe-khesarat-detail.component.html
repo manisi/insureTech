@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sabegheKhesarat">
+            <h2><span jhiTranslate="insurancestartApp.sabegheKhesarat.detail.title">Sabeghe Khesarat</span> {{sabegheKhesarat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.sabegheKhesarat.name">Name</span></dt>
+                <dd>
+                    <span>{{sabegheKhesarat.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.sabegheKhesarat.sharh">Sharh</span></dt>
+                <dd>
+                    <span>{{sabegheKhesarat.sharh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.sabegheKhesarat.faal">Faal</span></dt>
+                <dd>
+                    <span>{{sabegheKhesarat.faal}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sabeghe-khesarat', sabegheKhesarat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

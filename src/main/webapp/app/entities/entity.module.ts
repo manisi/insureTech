@@ -215,6 +215,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'vaziat-bime',
                 loadChildren: './vaziat-bime/vaziat-bime.module#InsurancestartVaziatBimeModule'
+            },
+            {
+                path: 'modate-bimename',
+                loadChildren: './modate-bimename/modate-bimename.module#InsurancestartModateBimenameModule'
+            },
+            {
+                path: 'sabeghe-khesarat',
+                loadChildren: './sabeghe-khesarat/sabeghe-khesarat.module#InsurancestartSabegheKhesaratModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

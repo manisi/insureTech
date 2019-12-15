@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="modateBimename">
+            <h2><span jhiTranslate="insurancestartApp.modateBimename.detail.title">Modate Bimename</span> {{modateBimename.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.modateBimename.name">Name</span></dt>
+                <dd>
+                    <span>{{modateBimename.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.modateBimename.sharh">Sharh</span></dt>
+                <dd>
+                    <span>{{modateBimename.sharh}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.modateBimename.faal">Faal</span></dt>
+                <dd>
+                    <span>{{modateBimename.faal}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/modate-bimename', modateBimename.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

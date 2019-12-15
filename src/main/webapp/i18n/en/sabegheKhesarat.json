@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "sabegheKhesarat": {
+            "home": {
+                "title": "Sabeghe Khesarats",
+                "createLabel": "Create a new Sabeghe Khesarat",
+                "createOrEditLabel": "Create or edit a Sabeghe Khesarat"
+            },
+            "created": "A new Sabeghe Khesarat is created with identifier {{ param }}",
+            "updated": "A Sabeghe Khesarat is updated with identifier {{ param }}",
+            "deleted": "A Sabeghe Khesarat is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sabeghe Khesarat {{ id }}?"
+            },
+            "detail": {
+                "title": "Sabeghe Khesarat"
+            },
+            "name": "Name",
+            "sharh": "Sharh",
+            "faal": "Faal"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "modateBimename": {
+            "home": {
+                "title": "Modate Bimenames",
+                "createLabel": "Create a new Modate Bimename",
+                "createOrEditLabel": "Create or edit a Modate Bimename"
+            },
+            "created": "A new Modate Bimename is created with identifier {{ param }}",
+            "updated": "A Modate Bimename is updated with identifier {{ param }}",
+            "deleted": "A Modate Bimename is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Modate Bimename {{ id }}?"
+            },
+            "detail": {
+                "title": "Modate Bimename"
+            },
+            "name": "Name",
+            "sharh": "Sharh",
+            "faal": "Faal"
+        }
+    }
+}

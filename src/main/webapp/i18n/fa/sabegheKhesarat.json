@@ -1,0 +1,23 @@
+{
+    "insurancestartApp": {
+        "sabegheKhesarat": {
+            "home": {
+                "title": "سابقه خسارت",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Sabeghe Khesarat is created with identifier {{ param }}",
+            "updated": "A Sabeghe Khesarat is updated with identifier {{ param }}",
+            "deleted": "A Sabeghe Khesarat is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sabeghe Khesarat {{ id }}?"
+            },
+            "detail": {
+                "title": "سابقه خسارت"
+            },
+            "name": "عنوان",
+            "sharh": "شرح",
+            "faal": "فعال"
+        }
+    }
+}

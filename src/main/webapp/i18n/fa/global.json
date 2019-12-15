@@ -51,6 +51,8 @@
                 "estelaamSalesNerkh": "استعلام نرخ ثالث",
                 "estelaamSalesNerkh": "Estelaam Sales Nerkh",
                 "vaziatBime": "وضعیت بیمه",
+                "modateBimename": "مدت اعتبار بیمه نامه ",
+                "sabegheKhesarat": "سابقه خسارت",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

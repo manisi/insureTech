@@ -27,6 +27,10 @@ import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 import { Moment } from 'jalali-moment';
 import { VaziatBimeService } from 'app/entities/vaziat-bime/vaziat-bime.service';
 import { IVaziatBime } from 'app/shared/model/vaziat-bime.model';
+import { ModateBimenameService } from 'app/entities/modate-bimename/modate-bimename.service';
+import { IModateBimename } from 'app/shared/model/modate-bimename.model';
+import { SabegheKhesaratService } from 'app/entities/sabeghe-khesarat/sabeghe-khesarat.service';
+import { ISabegheKhesarat } from 'app/shared/model/sabeghe-khesarat.model';
 
 @Component({
     selector: 'jhi-hi-there',
@@ -41,10 +45,13 @@ export class HiThereComponent implements OnInit {
     vaziatBimes: IVaziatBime[];
     onvankhodros: IOnvanKhodro[];
     sherkatebimes: ISherkatBime[];
+    modateBimenames: IModateBimename[];
+    sabegheKhesarats: ISabegheKhesarat[];
     adamkhesarats: IAdamKhesarat[];
     adamkhesaratsarneshins: IAdamKhesaratSarneshin[];
     khesaratsrneshins: IKhesaratSrneshin[];
     khesaratsales: IKhesaratSales[];
+    khesaratSalesmalis: IKhesaratSales[];
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
     anvaeKhodro: string;
@@ -52,12 +59,15 @@ export class HiThereComponent implements OnInit {
     tarikhEtebar: Moment;
     vaziatBime: string;
     saalSakht: string;
+    modateBimename: string;
+    sabegheKhesarat: string;
     codeyekta: string;
     onvanKhodro: string;
     adamKhesarat: string;
     adamKhesaratSarneshin: string;
     khesaratSrneshin: string;
     khesaratSales: string;
+    khesaratSalesmali: string;
     itemsPerPage: any;
     links: any;
     totalItems: number;
@@ -77,6 +87,8 @@ export class HiThereComponent implements OnInit {
         protected saalSakhtService: SaalSakhtService,
         protected onvanKhodroService: OnvanKhodroService,
         protected vaziatBimeService: VaziatBimeService,
+        protected modateBimenameService: ModateBimenameService,
+        protected sabegheKhesaratService: SabegheKhesaratService,
         protected sherkatBimeService: SherkatBimeService,
         protected adamKhesaratService: AdamKhesaratService,
         protected adamKhesaratSarneshinService: AdamKhesaratSarneshinService,
@@ -130,6 +142,20 @@ export class HiThereComponent implements OnInit {
                 map((response: HttpResponse<IVaziatBime[]>) => response.body)
             )
             .subscribe((res: IVaziatBime[]) => (this.vaziatBimes = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.modateBimenameService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IModateBimename[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IModateBimename[]>) => response.body)
+            )
+            .subscribe((res: IModateBimename[]) => (this.modateBimenames = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.sabegheKhesaratService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<ISabegheKhesarat[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ISabegheKhesarat[]>) => response.body)
+            )
+            .subscribe((res: ISabegheKhesarat[]) => (this.sabegheKhesarats = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.sherkatBimeService
             .query()
             .pipe(
@@ -168,6 +194,13 @@ export class HiThereComponent implements OnInit {
                 map((response: HttpResponse<IKhesaratSales[]>) => response.body)
             )
             .subscribe((res: IKhesaratSales[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.khesaratSalesService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IKhesaratSales[]>) => response.body)
+            )
+            .subscribe((res: IKhesaratSales[]) => (this.khesaratSalesmalis = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     loadAll() {
@@ -188,7 +221,9 @@ export class HiThereComponent implements OnInit {
                 khesaratSales: this.khesaratSales,
                 sherkatBime: this.sherkatBime,
                 tarikhEtebar: this.tarikhEtebar,
-                codeyekta: this.codeyekta
+                codeyekta: this.codeyekta,
+                modateBimename: this.modateBimename,
+                sabegheKhesarat: this.sabegheKhesarat
             })
             .subscribe(
                 (res: HttpResponse<SalesNerkhData[]>) => this.onSuccess(res.body, res.headers),
@@ -292,6 +327,12 @@ export class HiThereComponent implements OnInit {
         return item.id;
     }
     trackVaziatBimeById(index: number, item: IVaziatBime) {
+        return item.id;
+    }
+    trackModateBimenameById(index: number, item: IModateBimename) {
+        return item.id;
+    }
+    trackSabegheKhesaratById(index: number, item: ISabegheKhesarat) {
         return item.id;
     }
 }

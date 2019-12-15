@@ -16,7 +16,7 @@
 
 
                      <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro" for="field_anvaeKhodro">Anvae Khodro</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro" for="field_anvaeKhodro">Anvae Khodro</label>
                          <select class="form-control" id="field_anvaeKhodro" name="anvaeKhodro" [(ngModel)]="anvaeKhodro" required>
                              <option *ngIf="!editForm.value.anvaeKhodro" [ngValue]="null" selected></option>
                              <option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}-{{anvaeKhodroOption.systemVasile}}-{{anvaeKhodroOption.grouhVasile}}</option>
@@ -29,7 +29,7 @@
                          </small>
                      </div>
                      <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht" for="field_saalSakht">Saal Sakht</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht" for="field_saalSakht">Saal Sakht</label>
                          <select class="form-control" id="field_saalSakht" name="saalSakht"  [(ngModel)]="saalSakht" required>
                              <option *ngIf="!editForm.value.saalSakht" [ngValue]="null" selected></option>
                              <option [ngValue]="saalSakhtOption.id" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.saalShamsi}} - {{saalSakhtOption.saalMiladi}}</option>
@@ -42,7 +42,7 @@
                          </small>
                      </div>
                      <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro" for="field_onvanKhodro">Onvan Khodro</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro" for="field_onvanKhodro">Onvan Khodro</label>
                          <select class="form-control" id="field_onvanKhodro" name="onvanKhodro" [(ngModel)]="onvanKhodro"  required>
                              <option *ngIf="!editForm.value.onvanKhodro" [ngValue]="null" selected></option>
                              <option [ngValue]="onvanKhodroOption.id" *ngFor="let onvanKhodroOption of onvankhodros; trackBy: trackOnvanKhodroById">{{onvanKhodroOption.name}}</option>
@@ -56,7 +56,7 @@
                      </div>
 
                      <div class="input-group-append">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.vaziatBime.lable" for="field_vaziatbime">title</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.vaziatBime.lable" for="field_vaziatbime">title</label>
                          <select class="form-control" id="field_vaziatbime" name="vaziatBime" [(ngModel)]="vaziatBime"  required>
                              <option *ngIf="!editForm.value.vaziatBime" [ngValue]="null" selected></option>
                              <option [ngValue]="vaziatBimeOption.id" *ngFor="let vaziatBimeOption of vaziatBimes; trackBy: trackVaziatBimeById">{{vaziatBimeOption.title}}</option>
@@ -70,13 +70,13 @@
                      </div>
 
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.codeyekta" for="field_codeyekta">Code Yekta</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.codeyekta" for="field_codeyekta">Code Yekta</label>
                          <input class="form-control" id="field_codeyekta" name="codeyekta" [(ngModel)]="codeyekta" />
 
                      </div>
 
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
                          <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="sherkatBime"  required>
                              <option *ngIf="!editForm.value.sherkatBime" [ngValue]="null" selected></option>
                              <option [ngValue]="sherkatBimeOption.id" *ngFor="let sherkatBimeOption of sherkatebimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
@@ -90,9 +90,9 @@
                      </div>
 
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.tarikhEtebar" for="field_tarikh">Tarikh</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.tarikhEtebar" for="field_tarikh">Tarikh</label>
                          <div class="input-group">
-                             <input id="field_tarikh" type="text"  class="form-control"  [displayMonths]="1" [firstDayOfWeek]="6" name="tarikh"   ngbDatepicker placeholder="yyyy-mm-dd"  #tarikhDp="ngbDatepicker" [(ngModel)]="tarikhEtebar" required />
+                             <input id="field_tarikh" type="text"  class="form-control"  [displayMonths]="1" [firstDayOfWeek]="6" name="tarikh"  (focus)="tarikhDp.open()" (click)="tarikhDp.open()" ngbDatepicker placeholder="yyyy-mm-dd"  #tarikhDp="ngbDatepicker" [(ngModel)]="tarikhEtebar" required />
                              <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="tarikhDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
@@ -106,7 +106,21 @@
                      </div>
 
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="hi-there.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.modateBimename" for="field_name">Name</label>
+                         <select class="form-control" id="field_name" name="name" [(ngModel)]="modateBimename"  required>
+                             <option *ngIf="!editForm.value.modateBimename" [ngValue]="null" selected></option>
+                             <option [ngValue]="modateBimenameOption.id" *ngFor="let modateBimenameOption of modateBimenames; trackBy: trackModateBimenameById">{{modateBimenameOption.name}}</option>
+                         </select>
+                         <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                             <small class="form-text text-danger"
+                                    [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                                 This field is required.
+                             </small>
+                         </div>
+                     </div>
+
+                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
                          <select class="form-control" id="field_adamKhesarat" name="adamKhesarat"  [(ngModel)]="adamKhesarat" required>
                              <option *ngIf="!editForm.value.adamKhesarat" [ngValue]="null" selected></option>
                              <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">({{adamKhesaratOption.sales}}%) {{adamKhesaratOption.sabegheName}}</option>
@@ -119,20 +133,7 @@
                          </small>
                      </div>
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width:30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSales" for="field_khesaratSales">Khesarat Sales</label>
-                         <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
-                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">({{khesaratSalesOption.nerkhKhesarat}}%){{khesaratSalesOption.sabegheName}}</option>
-                         </select>
-                     </div>
-                     <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
-                         <small class="form-text text-danger"
-                                [hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">
-                             This field is required.
-                         </small>
-                     </div>
-                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
                          <select class="form-control" id="field_adamKhesaratSarneshin" name="adamKhesaratSarneshin" [(ngModel)]="adamKhesaratSarneshin" required>
                              <option *ngIf="!editForm.value.adamKhesaratSarneshin" [ngValue]="null" selected></option>
                              <option [ngValue]="adamKhesaratSarneshinOption.id" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">({{adamKhesaratSarneshinOption.sarneshin}}%){{adamKhesaratSarneshinOption.sabegheName}}</option>
@@ -145,7 +146,46 @@
                          </small>
                      </div>
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153'">
-                         <label class="input-group-text" style="width: 30%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
+                         <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.sabegheKhesarat" for="field_sabeghename">Name</label>
+                         <select class="form-control" id="field_sabeghename" name="sabeghename" [(ngModel)]="sabegheKhesarat" required>
+                             <option *ngIf="!editForm.value.sabeghename" [ngValue]="null" selected></option>
+                             <option [ngValue]="sabegheKhesaratOption.id" *ngFor="let sabegheKhesaratOption of sabegheKhesarats; trackBy: trackSabegheKhesaratById">{{sabegheKhesaratOption.name}}</option>
+                         </select>
+                         <div [hidden]="!(editForm.controls.sabeghename?.dirty && editForm.controls.sabeghename?.invalid)">
+                             <small class="form-text text-danger"
+                                    [hidden]="!editForm.controls.sabeghename?.errors?.required" jhiTranslate="entity.validation.required">
+                                 This field is required.
+                             </small>
+                         </div>
+                     </div>
+                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='14002'">
+                         <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Khesarat Sales</label>
+                         <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
+                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">({{khesaratSalesOption.nerkhKhesarat}}%){{khesaratSalesOption.sabegheName}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='14002'">
+                         <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesmali" for="field_khesaratSalesmali">Khesarat Sales</label>
+                         <select class="form-control" id="field_khesaratSalesmali" name="khesaratSalesMali" [(ngModel)]="khesaratSalesmali" required>
+                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">({{khesaratSalesOption.nerkhKhesarat}}%){{khesaratSalesOption.sabegheName}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.khesaratSalesMali?.dirty && editForm.controls.khesaratSalesMali?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.khesaratSalesMali?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='14002'">
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
                          <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>
                              <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>
                              <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">({{khesaratSrneshinOption.nerkhKhesarat}}%){{khesaratSrneshinOption.sabegheName}}</option>
