@@ -223,6 +223,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'sabeghe-khesarat',
                 loadChildren: './sabeghe-khesarat/sabeghe-khesarat.module#InsurancestartSabegheKhesaratModule'
+            },
+            {
+                path: 'takhfif-tavafoghi',
+                loadChildren: './takhfif-tavafoghi/takhfif-tavafoghi.module#InsurancestartTakhfifTavafoghiModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

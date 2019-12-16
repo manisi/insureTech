@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "takhfifTavafoghi": {
+            "home": {
+                "title": "تخفیف توافقی",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Takhfif Tavafoghi is created with identifier {{ param }}",
+            "updated": "A Takhfif Tavafoghi is updated with identifier {{ param }}",
+            "deleted": "A Takhfif Tavafoghi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Takhfif Tavafoghi {{ id }}?"
+            },
+            "detail": {
+                "title": "تخفیف توافقی"
+            },
+            "name": "نام",
+            "darsadTakhfif": "درصد تخفیف",
+            "azTarikh": "ازتاریخ",
+            "faal": "فعال",
+            "sherkatBime": "نام شرکت بیمه"
+        }
+    }
+}

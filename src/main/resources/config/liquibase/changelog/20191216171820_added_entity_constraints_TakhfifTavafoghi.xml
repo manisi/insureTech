@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TakhfifTavafoghi.
+    -->
+    <changeSet id="20191216171820-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="sherkat_bime_id"
+                                 baseTableName="takhfif_tavafoghi"
+                                 constraintName="fk_takhfif_tavafoghi_sherkat_bime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sherkat_bime"/>
+
+    </changeSet>
+</databaseChangeLog>

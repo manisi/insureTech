@@ -49,9 +49,9 @@ export class HiThereComponent implements OnInit {
     sabegheKhesarats: ISabegheKhesarat[];
     adamkhesarats: IAdamKhesarat[];
     adamkhesaratsarneshins: IAdamKhesaratSarneshin[];
-    khesaratsrneshins: IKhesaratSrneshin[];
+    // khesaratsrneshins: IKhesaratSrneshin[];
     khesaratsales: IKhesaratSales[];
-    khesaratSalesmalis: IKhesaratSales[];
+    // khesaratSalesmalis: IKhesaratSales[];
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
     anvaeKhodro: string;
@@ -65,9 +65,9 @@ export class HiThereComponent implements OnInit {
     onvanKhodro: string;
     adamKhesarat: string;
     adamKhesaratSarneshin: string;
-    khesaratSrneshin: string;
-    khesaratSales: string;
-    khesaratSalesmali: string;
+    khesaratSrneshin: KhesaratStateItem;
+    khesaratSales: KhesaratStateItem;
+    khesaratSalesmali: KhesaratStateItem;
     itemsPerPage: any;
     links: any;
     totalItems: number;
@@ -92,8 +92,8 @@ export class HiThereComponent implements OnInit {
         protected sherkatBimeService: SherkatBimeService,
         protected adamKhesaratService: AdamKhesaratService,
         protected adamKhesaratSarneshinService: AdamKhesaratSarneshinService,
-        protected khesaratSrneshinService: KhesaratSrneshinService,
-        protected khesaratSalesService: KhesaratSalesService,
+        // protected khesaratSrneshinService: KhesaratSrneshinService,
+        // protected khesaratSalesService: KhesaratSalesService,
         private nerkhsalesService: NerkhSalesService,
         private activatedRoute: ActivatedRoute
     ) {
@@ -180,27 +180,27 @@ export class HiThereComponent implements OnInit {
                 (res: IAdamKhesaratSarneshin[]) => (this.adamkhesaratsarneshins = res),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
-        this.khesaratSrneshinService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IKhesaratSrneshin[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IKhesaratSrneshin[]>) => response.body)
-            )
-            .subscribe((res: IKhesaratSrneshin[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.khesaratSalesService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IKhesaratSales[]>) => response.body)
-            )
-            .subscribe((res: IKhesaratSales[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.khesaratSalesService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IKhesaratSales[]>) => response.body)
-            )
-            .subscribe((res: IKhesaratSales[]) => (this.khesaratSalesmalis = res), (res: HttpErrorResponse) => this.onError(res.message));
+        // this.khesaratSrneshinService
+        //     .query()
+        //     .pipe(
+        //         filter((mayBeOk: HttpResponse<IKhesaratSrneshin[]>) => mayBeOk.ok),
+        //         map((response: HttpResponse<IKhesaratSrneshin[]>) => response.body)
+        //     )
+        //     .subscribe((res: IKhesaratSrneshin[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
+        // this.khesaratSalesService
+        //     .query()
+        //     .pipe(
+        //         filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
+        //         map((response: HttpResponse<IKhesaratSales[]>) => response.body)
+        //     )
+        //     .subscribe((res: IKhesaratSales[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
+        // this.khesaratSalesService
+        //     .query()
+        //     .pipe(
+        //         filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
+        //         map((response: HttpResponse<IKhesaratSales[]>) => response.body)
+        //     )
+        //     .subscribe((res: IKhesaratSales[]) => (this.khesaratSalesmalis = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     loadAll() {
@@ -219,6 +219,7 @@ export class HiThereComponent implements OnInit {
                 adamKhesaratSarneshin: this.adamKhesaratSarneshin,
                 khesaratSrneshin: this.khesaratSrneshin,
                 khesaratSales: this.khesaratSales,
+                khesaratSalesmali: this.khesaratSalesmali,
                 sherkatBime: this.sherkatBime,
                 tarikhEtebar: this.tarikhEtebar,
                 codeyekta: this.codeyekta,
@@ -315,13 +316,13 @@ export class HiThereComponent implements OnInit {
         return item.id;
     }
 
-    trackKhesaratSrneshinById(index: number, item: IKhesaratSrneshin) {
-        return item.id;
-    }
-
-    trackKhesaratSalesById(index: number, item: IKhesaratSales) {
-        return item.id;
-    }
+    // trackKhesaratSrneshinById(index: number, item: IKhesaratSrneshin) {
+    //     return item.id;
+    // }
+    //
+    // trackKhesaratSalesById(index: number, item: IKhesaratSales) {
+    //     return item.id;
+    // }
 
     trackSherkatBimeById(index: number, item: ISherkatBime) {
         return item.id;
@@ -335,4 +336,11 @@ export class HiThereComponent implements OnInit {
     trackSabegheKhesaratById(index: number, item: ISabegheKhesarat) {
         return item.id;
     }
+}
+
+export const enum KhesaratStateItem {
+    ZERO = 'ZERO',
+    ONE = 'ONE',
+    TWO = 'TWO',
+    THREE = 'THREE'
 }

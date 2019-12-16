@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "takhfifTavafoghi": {
+            "home": {
+                "title": "Takhfif Tavafoghis",
+                "createLabel": "Create a new Takhfif Tavafoghi",
+                "createOrEditLabel": "Create or edit a Takhfif Tavafoghi"
+            },
+            "created": "A new Takhfif Tavafoghi is created with identifier {{ param }}",
+            "updated": "A Takhfif Tavafoghi is updated with identifier {{ param }}",
+            "deleted": "A Takhfif Tavafoghi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Takhfif Tavafoghi {{ id }}?"
+            },
+            "detail": {
+                "title": "Takhfif Tavafoghi"
+            },
+            "name": "Name",
+            "darsadTakhfif": "Darsad Takhfif",
+            "azTarikh": "Az Tarikh",
+            "faal": "Faal",
+            "sherkatBime": "Sherkat Bime"
+        }
+    }
+}

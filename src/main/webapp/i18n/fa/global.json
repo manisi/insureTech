@@ -53,6 +53,7 @@
                 "vaziatBime": "وضعیت بیمه",
                 "modateBimename": "مدت اعتبار بیمه نامه ",
                 "sabegheKhesarat": "سابقه خسارت",
+                "takhfifTavafoghi": "تخفیف توافقی",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
