@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-khesarat-sales-mali-heading" jhiTranslate="insurancestartApp.khesaratSalesMali.home.createOrEditLabel">Create or edit a Khesarat Sales Mali</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!khesaratSalesMali.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="khesaratSalesMali.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.khesaratSalesMali.sabeghe" for="field_sabeghe">Sabeghe</label>
+                    <select class="form-control" id="field_sabeghe" name="sabeghe" [(ngModel)]="khesaratSalesMali.sabegheId"  required>
+                        <option *ngIf="!editForm.value.sabeghe" [ngValue]="null" selected></option>
+                        <option [ngValue]="sabegheOption.id" *ngFor="let sabegheOption of sabeghes; trackBy: trackSabegheById">{{sabegheOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.sabeghe?.dirty && editForm.controls.sabeghe?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.sabeghe?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.khesaratSalesMali.noeSabeghe" for="field_noeSabeghe">Noe Sabeghe</label>
+                    <select class="form-control" id="field_noeSabeghe" name="noeSabeghe" [(ngModel)]="khesaratSalesMali.noeSabegheId"  required>
+                        <option *ngIf="!editForm.value.noeSabeghe" [ngValue]="null" selected></option>
+                        <option [ngValue]="noeSabegheOption.id" *ngFor="let noeSabegheOption of noesabeghes; trackBy: trackNoeSabegheById">{{noeSabegheOption.name}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.noeSabeghe?.dirty && editForm.controls.noeSabeghe?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.noeSabeghe?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.khesaratSalesMali.noe" for="field_noe">Noe</label>
+                    <select class="form-control" name="noe" [(ngModel)]="khesaratSalesMali.noe" id="field_noe"  required>
+                        <option value="SALES">{{'insurancestartApp.SalesSarneshinEnum.SALES' | translate}}</option>
+                        <option value="SARNESHIN">{{'insurancestartApp.SalesSarneshinEnum.SARNESHIN' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.noe?.dirty && editForm.controls.noe?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.noe?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.khesaratSalesMali.nerkhKhesaratMali" for="field_nerkhKhesaratMali">Nerkh Khesarat Mali</label>
+                    <input type="number" class="form-control" name="nerkhKhesaratMali" id="field_nerkhKhesaratMali"
+                        [(ngModel)]="khesaratSalesMali.nerkhKhesaratMali" required min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.nerkhKhesaratMali?.dirty && editForm.controls.nerkhKhesaratMali?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nerkhKhesaratMali?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nerkhKhesaratMali?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nerkhKhesaratMali?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nerkhKhesaratMali?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insurancestartApp.khesaratSalesMali.faal" for="field_faal">Faal</label>
+                    <input type="checkbox" class="form-control" name="faal" id="field_faal"
+                        [(ngModel)]="khesaratSalesMali.faal" />
+                    <div [hidden]="!(editForm.controls.faal?.dirty && editForm.controls.faal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.faal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

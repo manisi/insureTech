@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "khesaratSalesMali": {
+            "home": {
+                "title": "خسارت ثالث مالی",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Khesarat Sales Mali is created with identifier {{ param }}",
+            "updated": "A Khesarat Sales Mali is updated with identifier {{ param }}",
+            "deleted": "A Khesarat Sales Mali is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Khesarat Sales Mali {{ id }}?"
+            },
+            "detail": {
+                "title": "خسارت ثالث مالی"
+            },
+            "noe": "نوع",
+            "nerkhKhesaratMali": "نرخ",
+            "faal": "فعال",
+            "sabeghe": "سابقه",
+            "noeSabeghe": "نوع سابقه"
+        }
+    }
+}

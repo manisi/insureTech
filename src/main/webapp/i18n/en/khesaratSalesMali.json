@@ -1,0 +1,25 @@
+{
+    "insurancestartApp": {
+        "khesaratSalesMali": {
+            "home": {
+                "title": "Khesarat Sales Malis",
+                "createLabel": "Create a new Khesarat Sales Mali",
+                "createOrEditLabel": "Create or edit a Khesarat Sales Mali"
+            },
+            "created": "A new Khesarat Sales Mali is created with identifier {{ param }}",
+            "updated": "A Khesarat Sales Mali is updated with identifier {{ param }}",
+            "deleted": "A Khesarat Sales Mali is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Khesarat Sales Mali {{ id }}?"
+            },
+            "detail": {
+                "title": "Khesarat Sales Mali"
+            },
+            "noe": "Noe",
+            "nerkhKhesaratMali": "Nerkh Khesarat Mali",
+            "faal": "Faal",
+            "sabeghe": "Sabeghe",
+            "noeSabeghe": "Noe Sabeghe"
+        }
+    }
+}

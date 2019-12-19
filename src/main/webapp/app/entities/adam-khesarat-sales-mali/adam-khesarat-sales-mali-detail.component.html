@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adamKhesaratSalesMali">
+            <h2><span jhiTranslate="insurancestartApp.adamKhesaratSalesMali.detail.title">Adam Khesarat Sales Mali</span> {{adamKhesaratSalesMali.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSalesMali.salesMali">Sales Mali</span></dt>
+                <dd>
+                    <span>{{adamKhesaratSalesMali.salesMali}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSalesMali.faal">Faal</span></dt>
+                <dd>
+                    <span>{{adamKhesaratSalesMali.faal}}</span>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSalesMali.sabeghe">Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="adamKhesaratSalesMali.sabegheId">
+                        <a [routerLink]="['/sabeghe', adamKhesaratSalesMali.sabegheId, 'view']">{{adamKhesaratSalesMali.sabegheName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="insurancestartApp.adamKhesaratSalesMali.noeSabeghe">Noe Sabeghe</span></dt>
+                <dd>
+                    <div *ngIf="adamKhesaratSalesMali.noeSabegheId">
+                        <a [routerLink]="['/noe-sabeghe', adamKhesaratSalesMali.noeSabegheId, 'view']">{{adamKhesaratSalesMali.noeSabegheName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adam-khesarat-sales-mali', adamKhesaratSalesMali.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

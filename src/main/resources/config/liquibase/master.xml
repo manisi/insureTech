@@ -41,6 +41,8 @@
     <include file="config/liquibase/changelog/20191215170958_added_entity_ModateBimename.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191215181759_added_entity_SabegheKhesarat.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191216171820_added_entity_TakhfifTavafoghi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191219160321_added_entity_KhesaratSalesMali.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191219164042_added_entity_AdamKhesaratSalesMali.xml" relativeToChangelogFile="false"/>
     <!--&lt;!&ndash; jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here &ndash;&gt;-->
     <!--<include file="config/liquibase/changelog/20190116184640_added_entity_constraints_Pooshesh.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20190116184642_added_entity_constraints_TipKhodro.xml" relativeToChangelogFile="false"/>-->
@@ -63,5 +65,7 @@
     <!--<include file="config/liquibase/changelog/20190423174158_added_entity_constraints_MoredEstefadeSales.xml" relativeToChangelogFile="false"/>-->
     <!--<include file="config/liquibase/changelog/20191118182659_added_entity_constraints_EstelaamSalesNerkh.xml" relativeToChangelogFile="false"/>-->
     <include file="config/liquibase/changelog/20191216171820_added_entity_constraints_TakhfifTavafoghi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191219160321_added_entity_constraints_KhesaratSalesMali.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191219164042_added_entity_constraints_AdamKhesaratSalesMali.xml" relativeToChangelogFile="false"/>
     <!--&lt;!&ndash; jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here &ndash;&gt;-->
 </databaseChangeLog>

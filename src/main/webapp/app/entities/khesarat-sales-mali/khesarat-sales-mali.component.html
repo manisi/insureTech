@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insurancestartApp.khesaratSalesMali.home.title">Khesarat Sales Malis</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-khesarat-sales-mali" [routerLink]="['/khesarat-sales-mali/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="insurancestartApp.khesaratSalesMali.home.createLabel">
+            Create new Khesarat Sales Mali
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="khesaratSalesMalis">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sabegheName"><span jhiTranslate="insurancestartApp.khesaratSalesMali.sabeghe">Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="noeSabegheName"><span jhiTranslate="insurancestartApp.khesaratSalesMali.noeSabeghe">Noe Sabeghe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="noe"><span jhiTranslate="insurancestartApp.khesaratSalesMali.noe">Noe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="nerkhKhesaratMali"><span jhiTranslate="insurancestartApp.khesaratSalesMali.nerkhKhesaratMali">Nerkh Khesarat Mali</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="faal"><span jhiTranslate="insurancestartApp.khesaratSalesMali.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let khesaratSalesMali of khesaratSalesMalis ;trackBy: trackId">
+                <td><a [routerLink]="['/khesarat-sales-mali', khesaratSalesMali.id, 'view' ]">{{khesaratSalesMali.id}}</a></td>
+                <td>
+                    <div *ngIf="khesaratSalesMali.sabegheId">
+                        <a [routerLink]="['../sabeghe', khesaratSalesMali.sabegheId , 'view' ]" >{{khesaratSalesMali.sabegheName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="khesaratSalesMali.noeSabegheId">
+                        <a [routerLink]="['../noe-sabeghe', khesaratSalesMali.noeSabegheId , 'view' ]" >{{khesaratSalesMali.noeSabegheName}}</a>
+                    </div>
+                </td>
+                <td jhiTranslate="{{'insurancestartApp.SalesSarneshinEnum.' + khesaratSalesMali.noe}}">{{khesaratSalesMali.noe}}</td>
+                <td>{{khesaratSalesMali.nerkhKhesaratMali | currency:'  % ':true:'1.0-0'}}</td>
+                <!--<td>{{khesaratSalesMali.faal}}</td>-->
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(khesaratSalesMali, true)" *ngIf="!khesaratSalesMali.faal"
+                            jhiTranslate="userManagement.deactivated">Deactivated</button>
+                    <button class="btn btn-success btn-sm" (click)="setActive(khesaratSalesMali, false)" *ngIf="khesaratSalesMali.faal"
+                            jhiTranslate="userManagement.activated">Activated</button>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/khesarat-sales-mali', khesaratSalesMali.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/khesarat-sales-mali', khesaratSalesMali.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'khesarat-sales-mali', { outlets: { popup: khesaratSalesMali.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

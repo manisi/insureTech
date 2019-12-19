@@ -227,6 +227,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'takhfif-tavafoghi',
                 loadChildren: './takhfif-tavafoghi/takhfif-tavafoghi.module#InsurancestartTakhfifTavafoghiModule'
+            },
+            {
+                path: 'khesarat-sales-mali',
+                loadChildren: './khesarat-sales-mali/khesarat-sales-mali.module#InsurancestartKhesaratSalesMaliModule'
+            },
+            {
+                path: 'adam-khesarat-sales-mali',
+                loadChildren: './adam-khesarat-sales-mali/adam-khesarat-sales-mali.module#InsurancestartAdamKhesaratSalesMaliModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

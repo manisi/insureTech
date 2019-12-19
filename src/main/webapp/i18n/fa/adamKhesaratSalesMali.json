@@ -1,0 +1,24 @@
+{
+    "insurancestartApp": {
+        "adamKhesaratSalesMali": {
+            "home": {
+                "title": "عدم خسارت ثالث مالی",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ایجاد/ویرایش"
+            },
+            "created": "A new Adam Khesarat Sales Mali is created with identifier {{ param }}",
+            "updated": "A Adam Khesarat Sales Mali is updated with identifier {{ param }}",
+            "deleted": "A Adam Khesarat Sales Mali is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Adam Khesarat Sales Mali {{ id }}?"
+            },
+            "detail": {
+                "title": "عدم خسارت ثالث مالی"
+            },
+            "salesMali": "ثالث مالی",
+            "faal": "فعال",
+            "sabeghe": "سابقه",
+            "noeSabeghe": "نوع سابقه"
+        }
+    }
+}

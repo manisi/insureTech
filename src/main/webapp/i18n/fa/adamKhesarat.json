@@ -2,7 +2,7 @@
     "insurancestartApp": {
         "adamKhesarat": {
             "home": {
-                "title": "عدم خسارت ثالث",
+                "title": "عدم خسارت ثالث جانی",
                 "createLabel": "ایجاد",
                 "createOrEditLabel": "ایجاد/ویرایش"
             },
@@ -13,9 +13,9 @@
                 "question": "Are you sure you want to delete Adam Khesarat {{ id }}?"
             },
             "detail": {
-                "title": "عدم خسارت ثالث"
+                "title": "عدم خسارت ثالث جانی"
             },
-            "sales": "ثالث",
+            "sales": "ثالث جانی",
             "mazad": "مازاد",
             "faal": "فعال",
             "sabeghe": "سابقه",

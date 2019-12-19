@@ -41,7 +41,7 @@
                 "noeSabeghe": "Noe Sabeghe",
                 "adamKhesarat": "Adam Khesarat",
                 "jarimeDirkard": "Jarime Dirkard",
-                "khesaratSales": "Khesarat Sales",
+                "khesaratSales": "Khesarat Sales Jani",
                 "kohnegiBadane": "Kohnegi Badane",
                 "khesaratSrneshin": "Khesarat Srneshin",
                 "adamKhesaratSarneshin": "Adam Khesarat Sarneshin",
@@ -60,6 +60,8 @@
                 "modateBimename": "Modate Bimename",
                 "sabegheKhesarat": "Sabeghe Khesarat",
                 "takhfifTavafoghi": "Takhfif Tavafoghi",
+                "khesaratSalesMali": "Khesarat Sales Mali",
+                "adamKhesaratSalesMali": "Adam Khesarat Sales Mali",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

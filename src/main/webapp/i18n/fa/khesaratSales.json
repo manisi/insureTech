@@ -2,7 +2,7 @@
     "insurancestartApp": {
         "khesaratSales": {
             "home": {
-                "title": "خسارت ثالث",
+                "title": "خسارت ثالث جانی",
                 "createLabel": "ایجاد",
                 "createOrEditLabel": "ایجاد/ویرایش"
             },
@@ -13,7 +13,7 @@
                 "question": "Are you sure you want to delete Khesarat Sales {{ id }}?"
             },
             "detail": {
-                "title": "خسارت ثالث"
+                "title": "خسارت ثالث جانی"
             },
             "noe": "نوع",
             "nerkhKhesarat": "نرخ خسارت",
