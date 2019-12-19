@@ -158,53 +158,11 @@
                              </small>
                          </div>
                      </div>
-                     <!--<div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">-->
-                         <!--<label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Khesarat Sales</label>-->
-                         <!--<select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>-->
-                             <!--<option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>-->
-                             <!--<option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">({{khesaratSalesOption.nerkhKhesarat}}%){{khesaratSalesOption.sabegheName}}</option>-->
-                         <!--</select>-->
-                     <!--</div>-->
-                     <!--<div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">-->
-                         <!--<small class="form-text text-danger"-->
-                                <!--[hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">-->
-                             <!--This field is required.-->
-                         <!--</small>-->
-                     <!--</div>-->
-                     <!--<div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">-->
-                         <!--<label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesmali" for="field_khesaratSalesmali">Khesarat Sales</label>-->
-                         <!--<select class="form-control" id="field_khesaratSalesmali" name="khesaratSalesMali" [(ngModel)]="khesaratSalesmali" required>-->
-                             <!--<option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>-->
-                             <!--<option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">({{khesaratSalesOption.nerkhKhesarat}}%){{khesaratSalesOption.sabegheName}}</option>-->
-                         <!--</select>-->
-                     <!--</div>-->
-                     <!--<div [hidden]="!(editForm.controls.khesaratSalesMali?.dirty && editForm.controls.khesaratSalesMali?.invalid)">-->
-                         <!--<small class="form-text text-danger"-->
-                                <!--[hidden]="!editForm.controls.khesaratSalesMali?.errors?.required" jhiTranslate="entity.validation.required">-->
-                             <!--This field is required.-->
-                         <!--</small>-->
-                     <!--</div>-->
-                     <!--<div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">-->
-                         <!--<label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>-->
-                         <!--<select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>-->
-                             <!--<option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>-->
-                             <!--<option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">({{khesaratSrneshinOption.nerkhKhesarat}}%){{khesaratSrneshinOption.sabegheName}}</option>-->
-                         <!--</select>-->
-                     <!--</div>-->
-                     <!--<div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">-->
-                         <!--<small class="form-text text-danger"-->
-                                <!--[hidden]="!editForm.controls.khesaratSrneshin?.errors?.required" jhiTranslate="entity.validation.required">-->
-                             <!--This field is required.-->
-                         <!--</small>-->
-                     <!--</div>-->
-
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">
-                         <label class="input-group-text"  style="width: 35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Estate</label>
-                         <select class="form-control" name="khesaratSales" [(ngModel)]="khesaratSales" id="field_khesaratSales"  required>
-                             <option value="0">{{'hi-there.khesaratSalesEnum.ZERO' | translate}}</option>
-                             <option value="1">{{'hi-there.khesaratSalesEnum.ONE' | translate}}</option>
-                             <option value="2">{{'hi-there.khesaratSalesEnum.TWO' | translate}}</option>
-                             <option value="3">{{'hi-there.khesaratSalesEnum.THREE' | translate}}</option>
+                         <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Khesarat Sales</label>
+                         <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
+                             <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">{{khesaratSalesOption.sabegheName}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
@@ -213,33 +171,75 @@
                              This field is required.
                          </small>
                      </div>
-
                      <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">
-                         <label class="input-group-text"  style="width: 35%" jhiTranslate="hi-there.khesaratSalesmali" for="field_khesaratSalesmali">Estate</label>
-                         <select class="form-control" name="khesaratSalesmali" [(ngModel)]="khesaratSalesmali" id="field_khesaratSalesmali"  required>
-                             <option value="0">{{'hi-there.khesaratSalesEnum.ZERO' | translate}}</option>
-                             <option value="1">{{'hi-there.khesaratSalesEnum.ONE' | translate}}</option>
-                             <option value="2">{{'hi-there.khesaratSalesEnum.TWO' | translate}}</option>
-                             <option value="3">{{'hi-there.khesaratSalesEnum.THREE' | translate}}</option>
+                         <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesmali" for="field_khesaratSalesmali">Khesarat Sales</label>
+                         <select class="form-control" id="field_khesaratSalesmali" name="khesaratSalesMali" [(ngModel)]="khesaratSalesmali" required>
+                             <option *ngIf="!editForm.value.khesaratSalesmalis" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSalesmalisOption.id" *ngFor="let khesaratSalesmalisOption of khesaratSalesmalis; trackBy: trackKhesaratSalesMaliById">{{khesaratSalesmalisOption.sabegheName}}</option>
                          </select>
                      </div>
-                     <div [hidden]="!(editForm.controls.khesaratSalesmali?.dirty && editForm.controls.khesaratSalesmali?.invalid)">
+                     <div [hidden]="!(editForm.controls.khesaratSalesMali?.dirty && editForm.controls.khesaratSalesMali?.invalid)">
                          <small class="form-text text-danger"
-                                [hidden]="!editForm.controls.khesaratSalesmali?.errors?.required" jhiTranslate="entity.validation.required">
+                                [hidden]="!editForm.controls.khesaratSalesMali?.errors?.required" jhiTranslate="entity.validation.required">
+                             This field is required.
+                         </small>
+                     </div>
+                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">
+                         <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
+                         <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>
+                             <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>
+                             <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">{{khesaratSrneshinOption.sabegheName}}</option>
+                         </select>
+                     </div>
+                     <div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">
+                         <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.khesaratSrneshin?.errors?.required" jhiTranslate="entity.validation.required">
                              This field is required.
                          </small>
                      </div>
 
+                     <!--<div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">-->
+                         <!--<label class="input-group-text"  style="width: 35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Estate</label>-->
+                         <!--<select class="form-control" name="khesaratSales" [(ngModel)]="khesaratSales" id="field_khesaratSales"  required>-->
+                             <!--<option value="0">{{'hi-there.khesaratSalesEnum.ZERO' | translate}}</option>-->
+                             <!--<option value="1">{{'hi-there.khesaratSalesEnum.ONE' | translate}}</option>-->
+                             <!--<option value="2">{{'hi-there.khesaratSalesEnum.TWO' | translate}}</option>-->
+                             <!--<option value="3">{{'hi-there.khesaratSalesEnum.THREE' | translate}}</option>-->
+                         <!--</select>-->
+                     <!--</div>-->
+                     <!--<div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">-->
+                         <!--<small class="form-text text-danger"-->
+                                <!--[hidden]="!editForm.controls.khesaratSales?.errors?.required" jhiTranslate="entity.validation.required">-->
+                             <!--This field is required.-->
+                         <!--</small>-->
+                     <!--</div>-->
 
-                     <div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">
-                         <label class="input-group-text"  style="width: 35%" jhiTranslate="hi-there.khesaratSrneshin" for="field_khesaratSrneshin">Estate</label>
-                         <select class="form-control" name="khesaratSrneshin" [(ngModel)]="khesaratSrneshin" id="field_khesaratSrneshin"  required>
-                             <option value="0">{{'hi-there.khesaratSalesEnum.ZERO' | translate}}</option>
-                             <option value="1">{{'hi-there.khesaratSalesEnum.ONE' | translate}}</option>
-                             <option value="2">{{'hi-there.khesaratSalesEnum.TWO' | translate}}</option>
-                             <option value="3">{{'hi-there.khesaratSalesEnum.THREE' | translate}}</option>
-                         </select>
-                     </div>
+                     <!--<div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">-->
+                         <!--<label class="input-group-text"  style="width: 35%" jhiTranslate="hi-there.khesaratSalesmali" for="field_khesaratSalesmali">Estate</label>-->
+                         <!--<select class="form-control" name="khesaratSalesmali" [(ngModel)]="khesaratSalesmali" id="field_khesaratSalesmali"  required>-->
+                             <!--<option value="0">{{'hi-there.khesaratSalesEnum.ZERO' | translate}}</option>-->
+                             <!--<option value="1">{{'hi-there.khesaratSalesEnum.ONE' | translate}}</option>-->
+                             <!--<option value="2">{{'hi-there.khesaratSalesEnum.TWO' | translate}}</option>-->
+                             <!--<option value="3">{{'hi-there.khesaratSalesEnum.THREE' | translate}}</option>-->
+                         <!--</select>-->
+                     <!--</div>-->
+                     <!--<div [hidden]="!(editForm.controls.khesaratSalesmali?.dirty && editForm.controls.khesaratSalesmali?.invalid)">-->
+                         <!--<small class="form-text text-danger"-->
+                                <!--[hidden]="!editForm.controls.khesaratSalesmali?.errors?.required" jhiTranslate="entity.validation.required">-->
+                             <!--This field is required.-->
+                         <!--</small>-->
+                     <!--</div>-->
+
+
+                     <!--<div class="input-group-append" [hidden]="vaziatBime == '17152' || vaziatBime == '17153' || sabegheKhesarat=='17452'">-->
+                         <!--<label class="input-group-text"  style="width: 35%" jhiTranslate="hi-there.khesaratSrneshin" for="field_khesaratSrneshin">Estate</label>-->
+                         <!--<select class="form-control" name="khesaratSrneshin" [(ngModel)]="khesaratSrneshin" id="field_khesaratSrneshin"  required>-->
+                             <!--<option value="0">{{'hi-there.khesaratSalesEnum.ZERO' | translate}}</option>-->
+                             <!--<option value="1">{{'hi-there.khesaratSalesEnum.ONE' | translate}}</option>-->
+                             <!--<option value="2">{{'hi-there.khesaratSalesEnum.TWO' | translate}}</option>-->
+                             <!--<option value="3">{{'hi-there.khesaratSalesEnum.THREE' | translate}}</option>-->
+                         <!--</select>-->
+                     <!--</div>-->
                          <div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">
                              <small class="form-text text-danger"
                                     [hidden]="!editForm.controls.khesaratSrneshin?.errors?.required" jhiTranslate="entity.validation.required">

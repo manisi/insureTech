@@ -31,6 +31,8 @@ import { ModateBimenameService } from 'app/entities/modate-bimename/modate-bimen
 import { IModateBimename } from 'app/shared/model/modate-bimename.model';
 import { SabegheKhesaratService } from 'app/entities/sabeghe-khesarat/sabeghe-khesarat.service';
 import { ISabegheKhesarat } from 'app/shared/model/sabeghe-khesarat.model';
+import { IKhesaratSalesMali, KhesaratSalesMali } from 'app/shared/model/khesarat-sales-mali.model';
+import { KhesaratSalesMaliService } from 'app/entities/khesarat-sales-mali/khesarat-sales-mali.service';
 
 @Component({
     selector: 'jhi-hi-there',
@@ -49,9 +51,9 @@ export class HiThereComponent implements OnInit {
     sabegheKhesarats: ISabegheKhesarat[];
     adamkhesarats: IAdamKhesarat[];
     adamkhesaratsarneshins: IAdamKhesaratSarneshin[];
-    // khesaratsrneshins: IKhesaratSrneshin[];
+    khesaratsrneshins: IKhesaratSrneshin[];
     khesaratsales: IKhesaratSales[];
-    // khesaratSalesmalis: IKhesaratSales[];
+    khesaratSalesmalis: IKhesaratSalesMali[];
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
     anvaeKhodro: string;
@@ -92,8 +94,9 @@ export class HiThereComponent implements OnInit {
         protected sherkatBimeService: SherkatBimeService,
         protected adamKhesaratService: AdamKhesaratService,
         protected adamKhesaratSarneshinService: AdamKhesaratSarneshinService,
-        // protected khesaratSrneshinService: KhesaratSrneshinService,
-        // protected khesaratSalesService: KhesaratSalesService,
+        protected khesaratSrneshinService: KhesaratSrneshinService,
+        protected khesaratSalesService: KhesaratSalesService,
+        protected khesaratSalesMaliService: KhesaratSalesMaliService,
         private nerkhsalesService: NerkhSalesService,
         private activatedRoute: ActivatedRoute
     ) {
@@ -180,27 +183,30 @@ export class HiThereComponent implements OnInit {
                 (res: IAdamKhesaratSarneshin[]) => (this.adamkhesaratsarneshins = res),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
-        // this.khesaratSrneshinService
-        //     .query()
-        //     .pipe(
-        //         filter((mayBeOk: HttpResponse<IKhesaratSrneshin[]>) => mayBeOk.ok),
-        //         map((response: HttpResponse<IKhesaratSrneshin[]>) => response.body)
-        //     )
-        //     .subscribe((res: IKhesaratSrneshin[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
-        // this.khesaratSalesService
-        //     .query()
-        //     .pipe(
-        //         filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
-        //         map((response: HttpResponse<IKhesaratSales[]>) => response.body)
-        //     )
-        //     .subscribe((res: IKhesaratSales[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
-        // this.khesaratSalesService
-        //     .query()
-        //     .pipe(
-        //         filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
-        //         map((response: HttpResponse<IKhesaratSales[]>) => response.body)
-        //     )
-        //     .subscribe((res: IKhesaratSales[]) => (this.khesaratSalesmalis = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.khesaratSrneshinService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IKhesaratSrneshin[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IKhesaratSrneshin[]>) => response.body)
+            )
+            .subscribe((res: IKhesaratSrneshin[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.khesaratSalesService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IKhesaratSales[]>) => response.body)
+            )
+            .subscribe((res: IKhesaratSales[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.khesaratSalesMaliService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IKhesaratSalesMali[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IKhesaratSalesMali[]>) => response.body)
+            )
+            .subscribe(
+                (res: IKhesaratSalesMali[]) => (this.khesaratSalesmalis = res),
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
     }
 
     loadAll() {
@@ -316,13 +322,16 @@ export class HiThereComponent implements OnInit {
         return item.id;
     }
 
-    // trackKhesaratSrneshinById(index: number, item: IKhesaratSrneshin) {
-    //     return item.id;
-    // }
-    //
-    // trackKhesaratSalesById(index: number, item: IKhesaratSales) {
-    //     return item.id;
-    // }
+    trackKhesaratSrneshinById(index: number, item: IKhesaratSrneshin) {
+        return item.id;
+    }
+
+    trackKhesaratSalesById(index: number, item: IKhesaratSales) {
+        return item.id;
+    }
+    trackKhesaratSalesMaliById(index: number, item: IKhesaratSalesMali) {
+        return item.id;
+    }
 
     trackSherkatBimeById(index: number, item: ISherkatBime) {
         return item.id;
