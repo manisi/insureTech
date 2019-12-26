@@ -33,6 +33,7 @@ import { SabegheKhesaratService } from 'app/entities/sabeghe-khesarat/sabeghe-kh
 import { ISabegheKhesarat } from 'app/shared/model/sabeghe-khesarat.model';
 import { IKhesaratSalesMali, KhesaratSalesMali } from 'app/shared/model/khesarat-sales-mali.model';
 import { KhesaratSalesMaliService } from 'app/entities/khesarat-sales-mali/khesarat-sales-mali.service';
+import { ILookup } from 'app/shared/model/lookup.model';
 
 @Component({
     selector: 'jhi-hi-there',
@@ -52,7 +53,7 @@ export class HiThereComponent implements OnInit {
     adamkhesarats: IAdamKhesarat[];
     adamkhesaratsarneshins: IAdamKhesaratSarneshin[];
     khesaratsrneshins: IKhesaratSrneshin[];
-    khesaratsales: IKhesaratSales[];
+    khesaratsales: ILookup[];
     khesaratSalesmalis: IKhesaratSalesMali[];
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
@@ -191,12 +192,12 @@ export class HiThereComponent implements OnInit {
             )
             .subscribe((res: IKhesaratSrneshin[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.khesaratSalesService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IKhesaratSales[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IKhesaratSales[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IKhesaratSales[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.khesaratSalesMaliService
             .query()
             .pipe(

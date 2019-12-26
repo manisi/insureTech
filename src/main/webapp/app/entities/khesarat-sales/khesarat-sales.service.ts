@@ -5,13 +5,16 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IKhesaratSales } from 'app/shared/model/khesarat-sales.model';
+import { ILookup } from 'app/shared/model/lookup.model';
 
 type EntityResponseType = HttpResponse<IKhesaratSales>;
 type EntityArrayResponseType = HttpResponse<IKhesaratSales[]>;
+type EntityArrayResponseTypeLookup = HttpResponse<ILookup[]>;
 
 @Injectable({ providedIn: 'root' })
 export class KhesaratSalesService {
     public resourceUrl = SERVER_API_URL + 'api/khesarat-sales';
+    public resourceUrl2 = SERVER_API_URL + 'api/khesarat-sales-lookup';
 
     constructor(protected http: HttpClient) {}
 
@@ -30,6 +33,11 @@ export class KhesaratSalesService {
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<IKhesaratSales[]>(this.resourceUrl, { params: options, observe: 'response' });
+    }
+
+    lookup(req?: any): Observable<EntityArrayResponseTypeLookup> {
+        const options = createRequestOption(req);
+        return this.http.get<ILookup[]>(this.resourceUrl2, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

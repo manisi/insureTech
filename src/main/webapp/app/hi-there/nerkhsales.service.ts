@@ -16,13 +16,18 @@ export class NerkhSalesService {
         //params.set('toDate', req.toDate);
         params.set('anvaeKhodro', req.anvaeKhodro);
         params.set('saalSakht', req.saalSakht);
+        params.set('vaziatBime', req.vaziatBime);
         params.set('onvanKhodro', req.onvanKhodro);
         params.set('adamKhesarat', req.adamKhesarat);
         params.set('adamKhesaratSarneshin', req.adamKhesaratSarneshin);
         params.set('khesaratSrneshin', req.khesaratSrneshin);
         params.set('khesaratSales', req.khesaratSales);
+        params.set('khesaratSalesmali', req.khesaratSalesmali);
         params.set('sherkatBime', req.sherkatBime);
         params.set('tarikhEtebar', req.tarikhEtebar);
+        params.set('codeyekta', req.codeyekta);
+        params.set('modateBimename', req.modateBimename);
+        params.set('sabegheKhesarat', req.sabegheKhesarat);
 
         // const requestURL = SERVER_API_URL + 'management/audits';
         const requestURL = SERVER_API_URL + 'api/hi-there';

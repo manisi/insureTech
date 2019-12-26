@@ -1,6 +1,9 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.KhesaratSales;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.KhesaratSalesService;
+import ir.insurance.startup.service.mapper.AdamKhesaratBadaneMapper;
+import ir.insurance.startup.service.mapper.KhesaratSalesMapper;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.web.rest.util.PaginationUtil;
@@ -8,12 +11,12 @@ import ir.insurance.startup.service.dto.KhesaratSalesDTO;
 import ir.insurance.startup.service.dto.KhesaratSalesCriteria;
 import ir.insurance.startup.service.KhesaratSalesQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -100,6 +104,18 @@ public class KhesaratSalesResource {
         Page<KhesaratSalesDTO> page = khesaratSalesQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/khesarat-sales");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/khesarat-sales-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllKhesaratSales() {
+        log.debug("REST request to get KhesaratSalesLookup");
+        List<KhesaratSales> list = khesaratSalesService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (KhesaratSales  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getSabeghe().getName()));
+        }
+        log.debug("REST request to get KhesaratSalesLookup"+res.get(0).getKey());
+        return ResponseEntity.ok().body(res);
     }
 
     /**

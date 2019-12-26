@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -56,6 +57,13 @@ public class KhesaratSalesService {
         log.debug("Request to get all KhesaratSales");
         return khesaratSalesRepository.findAll(pageable)
             .map(khesaratSalesMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<KhesaratSales> findAllforlookup() {
+        log.debug("Request to get all KhesaratSales lookup");
+        //return  khesaratSalesMapper.toDto(khesaratSalesRepository.findAllforLookup());
+        return  khesaratSalesRepository.findAllforLookup();
     }
 
 

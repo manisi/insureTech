@@ -162,7 +162,7 @@
                          <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Khesarat Sales</label>
                          <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
                              <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSalesOption.id" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">{{khesaratSalesOption.sabegheName}}</option>
+                             <option [ngValue]="khesaratSalesOption.key" *ngFor="let khesaratSalesOption of khesaratsales; ">{{khesaratSalesOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
