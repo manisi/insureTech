@@ -1,23 +1,22 @@
 package ir.insurance.startup.web.rest;
 
-import io.github.jhipster.web.util.ResponseUtil;
-import ir.insurance.startup.service.AuditEventService;
-import ir.insurance.startup.web.rest.util.PaginationUtil;
+import ir.insurance.startup.domain.AnvaeKhodro;
+import ir.insurance.startup.domain.SalesJaniCalc;
+import ir.insurance.startup.domain.SalesSarneshinCalc;
+import ir.insurance.startup.repository.SalesJaniCalcRepository;
+import ir.insurance.startup.service.*;
+import ir.insurance.startup.service.dto.SalesJaniCalcDTO;
+import ir.insurance.startup.service.dto.SalesSarneshinCalcDTO;
 import ir.insurance.startup.web.rest.vm.EstelamSalesNerkhVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.actuate.audit.AuditEvent;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * REST controller for getting the audit events.
@@ -26,11 +25,20 @@ import java.util.List;
 @RequestMapping("/api/hi-there")
 public class HithereResource {
 
-    private final AuditEventService auditEventService;
+    private final KhesaratSalesService khesaratSalesService;
+    private final AnvaeKhodroService anvaeKhodroService;
+    private final GrouhKhodroService grouhKhodroService;
+    private final SalesJaniCalcService salesJaniCalcService;
+    private final SalesSarneshinCalcService salesSarneshinCalcService;
 
-    public HithereResource(AuditEventService auditEventService) {
-        this.auditEventService = auditEventService;
+    public HithereResource(KhesaratSalesService khesaratSalesService, AnvaeKhodroService anvaeKhodroService, GrouhKhodroService grouhKhodroService, MohasebeSalesService mohasebeSalesService, SalesJaniCalcService salesJaniCalcService, SalesSarneshinCalcService salesSarneshinCalcService, SalesJaniCalcRepository salesJaniCalcRepository) {
+        this.khesaratSalesService = khesaratSalesService;
+        this.anvaeKhodroService = anvaeKhodroService;
+        this.grouhKhodroService = grouhKhodroService;
+        this.salesJaniCalcService = salesJaniCalcService;
+        this.salesSarneshinCalcService = salesSarneshinCalcService;
     }
+
     private final Logger log = LoggerFactory.getLogger(HithereResource.class);
 
 //    @GetMapping
@@ -41,9 +49,9 @@ public class HithereResource {
 //    }
 
 
-    @GetMapping(params = {"anvaeKhodro", "saalSakht","vaziatBime","onvanKhodro","adamKhesarat","adamKhesaratSarneshin","khesaratSrneshin","khesaratSales",
-        "khesaratSalesmali","sherkatBime","tarikhEtebar","codeyekta","modateBimename","sabegheKhesarat"})
-    public ResponseEntity<List<EstelamSalesNerkhVM>> getByDates(
+    @GetMapping(params = {"anvaeKhodro", "saalSakht", "vaziatBime", "onvanKhodro", "adamKhesarat", "adamKhesaratSarneshin", "khesaratSrneshin", "khesaratSales",
+        "khesaratSalesmali", "sherkatBime", "tarikhEtebar", "codeyekta", "modateBimename", "sabegheKhesarat"})
+    public ResponseEntity<List<EstelamSalesNerkhVM>> getByParams(
         @RequestParam(value = "anvaeKhodro") String anvaeKhodro,
         @RequestParam(value = "saalSakht") String saalSakht,
         @RequestParam(value = "vaziatBime") String vaziatBime,
@@ -57,19 +65,35 @@ public class HithereResource {
         @RequestParam(value = "tarikhEtebar") String tarikhEtebar,
         @RequestParam(value = "codeyekta") String codeyekta,
         @RequestParam(value = "modateBimename") String modateBimename,
-        @RequestParam(value = "sabegheKhesarat") String sabegheKhesarat,
-        Pageable pageable) {
-log.debug("**************************************************************************"+tarikhEtebar.toString());
-        Page<EstelamSalesNerkhVM> page =null;//auditEventService.findAll(pageable);
-//            auditEventService.findByDates(
-//            fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant(),
-//            toDate.atStartOfDay(ZoneId.systemDefault()).plusDays(1).toInstant(),
-//            pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/hi-there");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-       // return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
+        @RequestParam(value = "sabegheKhesarat") String sabegheKhesarat) {
+        log.debug("**************************************************************************" + tarikhEtebar.toString());
+        List<EstelamSalesNerkhVM> res = new ArrayList<>();
+        Optional<AnvaeKhodro> khodro = anvaeKhodroService.findById(Long.valueOf(anvaeKhodro));
 
+        if(khodro.isPresent()){
+            final Long id = khodro.get().getGrouhKhodro().getId();
+            List<SalesJaniCalc> all = salesJaniCalcService.findAllByGrouhKhodroId(id);
+            List<SalesSarneshinCalc> allSarneshin = salesSarneshinCalcService.findAllByGrouhKhodroId(id);
+
+            EstelamSalesNerkhVM estelam = null;
+            for (SalesJaniCalc sj: all) {
+                 estelam=new EstelamSalesNerkhVM();
+                estelam.setMablaghJani( sj.getMablaghJani().toString());
+                estelam.setMablaghMali( sj.getMablaghMaliEjbari().toString());
+                 estelam.setTedadRooz(sj.getTedadRooz().toString());
+                 estelam.setNaamSherkat(sj.getBimename().getName());
+                estelam.setHaghbimeSalesJani(String.valueOf(sj.getHaghbime().intValue()));
+                res.add(estelam);
+            }
+//            for (SalesSarneshinCalc ss: allSarneshin) {
+//                estelam.setHaghbimeSalesSarneshin(ss.getMablaghHaghBime().toString());
+//                res.add(estelam);
+//            }
+
+        }
+
+        return ResponseEntity.ok().body(res);
+    }
 
 
 //    var cities = new ArrayList<EstelamSalesNerkhVM>();
@@ -87,10 +111,8 @@ log.debug("*********************************************************************
 //}
 
 
-
-
-    @GetMapping("/{id:.+}")
-    public ResponseEntity<AuditEvent> get(@PathVariable Long id) {
-        return ResponseUtil.wrapOrNotFound(auditEventService.find(id));
-    }
+//    @GetMapping("/{id:.+}")
+//    public ResponseEntity<AuditEvent> get(@PathVariable Long id) {
+//        return ResponseUtil.wrapOrNotFound(auditEventService.find(id));
+//    }
 }

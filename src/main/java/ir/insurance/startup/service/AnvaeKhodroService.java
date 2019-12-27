@@ -83,7 +83,14 @@ public class AnvaeKhodroService {
         anvaeKhodroRepository.deleteById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<AnvaeKhodro> findAllforlookup() {
         return anvaeKhodroRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<AnvaeKhodro> findById(Long id) {
+       return anvaeKhodroRepository.findById(id);
+
     }
 }

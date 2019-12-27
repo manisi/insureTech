@@ -2,36 +2,23 @@ import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnvaeKhodroService } from 'app/entities/anvae-khodro/index';
-import { IAnvaeKhodro } from 'app/shared/model/anvae-khodro.model';
 import { filter, map } from 'rxjs/operators';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { JhiParseLinks, JhiAlertService } from 'ng-jhipster';
-import { ISaalSakht } from 'app/shared/model/saal-sakht.model';
+import { JhiAlertService, JhiParseLinks } from 'ng-jhipster';
 import { SaalSakhtService } from 'app/entities/saal-sakht';
-import { IOnvanKhodro } from 'app/shared/model/onvan-khodro.model';
 import { OnvanKhodroService } from 'app/entities/onvan-khodro';
-import { IAdamKhesarat } from 'app/shared/model/adam-khesarat.model';
 import { AdamKhesaratService } from 'app/entities/adam-khesarat';
-import { IAdamKhesaratSarneshin } from 'app/shared/model/adam-khesarat-sarneshin.model';
 import { AdamKhesaratSarneshinService } from 'app/entities/adam-khesarat-sarneshin';
-import { IKhesaratSrneshin } from 'app/shared/model/khesarat-srneshin.model';
 import { KhesaratSrneshinService } from 'app/entities/khesarat-srneshin';
-import { IKhesaratSales } from 'app/shared/model/khesarat-sales.model';
 import { KhesaratSalesService } from 'app/entities/khesarat-sales';
 import { IEstelaamSalesNerkh } from 'app/shared/model/estelaam-sales-nerkh.model';
 import { SalesNerkhData } from 'app/hi-there/nerkhSales.model';
 import { NerkhSalesService } from 'app/hi-there/nerkhsales.service';
-import { ITEMS_PER_PAGE } from 'app/shared';
 import { SherkatBimeService } from 'app/entities/sherkat-bime/sherkat-bime.service';
-import { ISherkatBime } from 'app/shared/model/sherkat-bime.model';
 import { Moment } from 'jalali-moment';
 import { VaziatBimeService } from 'app/entities/vaziat-bime/vaziat-bime.service';
-import { IVaziatBime } from 'app/shared/model/vaziat-bime.model';
 import { ModateBimenameService } from 'app/entities/modate-bimename/modate-bimename.service';
-import { IModateBimename } from 'app/shared/model/modate-bimename.model';
 import { SabegheKhesaratService } from 'app/entities/sabeghe-khesarat/sabeghe-khesarat.service';
-import { ISabegheKhesarat } from 'app/shared/model/sabeghe-khesarat.model';
-import { IKhesaratSalesMali, KhesaratSalesMali } from 'app/shared/model/khesarat-sales-mali.model';
 import { KhesaratSalesMaliService } from 'app/entities/khesarat-sales-mali/khesarat-sales-mali.service';
 import { ILookup } from 'app/shared/model/lookup.model';
 
@@ -259,8 +246,8 @@ export class HiThereComponent implements OnInit {
     }
 
     private onSuccess(data, headers) {
-        this.links = this.parseLinks.parse(headers.get('link'));
-        this.totalItems = headers.get('X-Total-Count');
+        // this.links = this.parseLinks.parse(headers.get('link'));
+        // this.totalItems = headers.get('X-Total-Count');
         this.salesnerkhs = data;
     }
 

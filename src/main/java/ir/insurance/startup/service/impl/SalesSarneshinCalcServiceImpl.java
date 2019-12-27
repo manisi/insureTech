@@ -1,5 +1,6 @@
 package ir.insurance.startup.service.impl;
 
+import ir.insurance.startup.domain.SalesJaniCalc;
 import ir.insurance.startup.service.SalesSarneshinCalcService;
 import ir.insurance.startup.domain.SalesSarneshinCalc;
 import ir.insurance.startup.repository.SalesSarneshinCalcRepository;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -84,5 +86,11 @@ public class SalesSarneshinCalcServiceImpl implements SalesSarneshinCalcService 
     @Override
     public void delete(Long id) {
         log.debug("Request to delete SalesSarneshinCalc : {}", id);        salesSarneshinCalcRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<SalesSarneshinCalc> findAllByGrouhKhodroId(Long id) {
+        return salesSarneshinCalcRepository.findAllByGrouhKhodroId(id);
     }
 }

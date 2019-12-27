@@ -264,6 +264,39 @@
          </div>
      </div>
  </div>
+
+
+
+    <div class="table-responsive" *ngIf="salesnerkhs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th ><span jhiTranslate="insurancestartApp.vaziatBime.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th ><span jhiTranslate="insurancestartApp.vaziatBime.faal">Faal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr *ngFor="let vaziatBime of salesnerkhs">
+                <td>{{vaziatBime.haghbimeSalesJani}}</td>
+                <td>{{vaziatBime.mablaghJani}}</td>
+                <td>{{vaziatBime.mablaghMali}}</td>
+                <td>{{vaziatBime.sherkatbime}}</td>
+                <td>{{vaziatBime.tedadRooz}}</td>
+                <td>{{vaziatBime.naamSherkat}}</td>
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
 </div>
 
 
