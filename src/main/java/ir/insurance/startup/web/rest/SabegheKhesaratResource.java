@@ -1,9 +1,11 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.SabegheKhesarat;
 import ir.insurance.startup.service.SabegheKhesaratService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.service.dto.SabegheKhesaratDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -82,6 +85,17 @@ public class SabegheKhesaratResource {
     public List<SabegheKhesaratDTO> getAllSabegheKhesarats() {
         log.debug("REST request to get all SabegheKhesarats");
         return sabegheKhesaratService.findAll();
+    }
+
+    @GetMapping("/sabeghe-khesarats-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllSabegheKhesaratsLookup() {
+        log.debug("REST request to ggetAllSabegheKhesaratsLookup");
+        List<SabegheKhesarat> list = sabegheKhesaratService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (SabegheKhesarat  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getName()));
+        }
+        return ResponseEntity.ok().body(res);
     }
 
     /**

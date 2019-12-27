@@ -1,9 +1,11 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.ModateBimename;
 import ir.insurance.startup.service.ModateBimenameService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.service.dto.ModateBimenameDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,6 +87,16 @@ public class ModateBimenameResource {
         return modateBimenameService.findAll();
     }
 
+    @GetMapping("/modate-bimenames-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllModateBimenamesLookup() {
+        log.debug("REST request to getAllModateBimenamesLookup");
+        List<ModateBimename> list = modateBimenameService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (ModateBimename  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getName()));
+        }
+        return ResponseEntity.ok().body(res);
+    }
     /**
      * GET  /modate-bimenames/:id : get the "id" modateBimename.
      *

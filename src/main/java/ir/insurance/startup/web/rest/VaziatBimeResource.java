@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.VaziatBime;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.VaziatBimeService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -6,6 +7,7 @@ import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.web.rest.util.PaginationUtil;
 import ir.insurance.startup.service.dto.VaziatBimeDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +51,6 @@ public class VaziatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/vaziat-bimes")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<VaziatBimeDTO> createVaziatBime(@Valid @RequestBody VaziatBimeDTO vaziatBimeDTO) throws URISyntaxException {
         log.debug("REST request to save VaziatBime : {}", vaziatBimeDTO);
         if (vaziatBimeDTO.getId() != null) {
@@ -70,7 +72,6 @@ public class VaziatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/vaziat-bimes")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<VaziatBimeDTO> updateVaziatBime(@Valid @RequestBody VaziatBimeDTO vaziatBimeDTO) throws URISyntaxException {
         log.debug("REST request to update VaziatBime : {}", vaziatBimeDTO);
         if (vaziatBimeDTO.getId() == null) {
@@ -96,6 +97,17 @@ public class VaziatBimeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/vaziat-bimes-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllVaziatBimesLookup() {
+        log.debug("REST request to getAllVaziatBimesLookup");
+        List<VaziatBime> list = vaziatBimeService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (VaziatBime  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getTitle()));
+        }
+        return ResponseEntity.ok().body(res);
+    }
+
     /**
      * GET  /vaziat-bimes/:id : get the "id" vaziatBime.
      *
@@ -116,7 +128,6 @@ public class VaziatBimeResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/vaziat-bimes/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteVaziatBime(@PathVariable Long id) {
         log.debug("REST request to delete VaziatBime : {}", id);
         vaziatBimeService.delete(id);

@@ -1,5 +1,6 @@
 package ir.insurance.startup.service;
 
+import ir.insurance.startup.domain.ModateBimename;
 import ir.insurance.startup.service.dto.ModateBimenameDTO;
 
 import java.util.List;
@@ -40,4 +41,6 @@ public interface ModateBimenameService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    List<ModateBimename> findAllforlookup();
 }

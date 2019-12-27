@@ -1,10 +1,12 @@
 package ir.insurance.startup.service;
 
+import ir.insurance.startup.domain.SaalSakht;
 import ir.insurance.startup.service.dto.SaalSakhtDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -43,4 +45,6 @@ public interface SaalSakhtService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    List<SaalSakht> findAllforlookup();
 }

@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.AdamKhesarat;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.AdamKhesaratService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -8,6 +9,7 @@ import ir.insurance.startup.service.dto.AdamKhesaratDTO;
 import ir.insurance.startup.service.dto.AdamKhesaratCriteria;
 import ir.insurance.startup.service.AdamKhesaratQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +56,6 @@ public class AdamKhesaratResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/adam-khesarats")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AdamKhesaratDTO> createAdamKhesarat(@Valid @RequestBody AdamKhesaratDTO adamKhesaratDTO) throws URISyntaxException {
         log.debug("REST request to save AdamKhesarat : {}", adamKhesaratDTO);
         if (adamKhesaratDTO.getId() != null) {
@@ -75,7 +77,6 @@ public class AdamKhesaratResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/adam-khesarats")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AdamKhesaratDTO> updateAdamKhesarat(@Valid @RequestBody AdamKhesaratDTO adamKhesaratDTO) throws URISyntaxException {
         log.debug("REST request to update AdamKhesarat : {}", adamKhesaratDTO);
         if (adamKhesaratDTO.getId() == null) {
@@ -102,6 +103,17 @@ public class AdamKhesaratResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+
+    @GetMapping("/adam-khesarats-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllAdamKhesarats() {
+        log.debug("REST request to get KhesaratSalesmaliLookup");
+        List<AdamKhesarat> list = adamKhesaratService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (AdamKhesarat  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getSabeghe().getName()));
+        }
+        return ResponseEntity.ok().body(res);
+    }
     /**
     * GET  /adam-khesarats/count : count all the adamKhesarats.
     *
@@ -134,7 +146,6 @@ public class AdamKhesaratResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/adam-khesarats/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteAdamKhesarat(@PathVariable Long id) {
         log.debug("REST request to delete AdamKhesarat : {}", id);
         adamKhesaratService.delete(id);

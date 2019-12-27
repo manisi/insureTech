@@ -1,5 +1,5 @@
 package ir.insurance.startup.web.rest;
-import ir.insurance.startup.security.AuthoritiesConstants;
+import ir.insurance.startup.domain.KhesaratSrneshin;
 import ir.insurance.startup.service.KhesaratSrneshinService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -8,20 +8,20 @@ import ir.insurance.startup.service.dto.KhesaratSrneshinDTO;
 import ir.insurance.startup.service.dto.KhesaratSrneshinCriteria;
 import ir.insurance.startup.service.KhesaratSrneshinQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +53,6 @@ public class KhesaratSrneshinResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/khesarat-srneshins")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSrneshinDTO> createKhesaratSrneshin(@Valid @RequestBody KhesaratSrneshinDTO khesaratSrneshinDTO) throws URISyntaxException {
         log.debug("REST request to save KhesaratSrneshin : {}", khesaratSrneshinDTO);
         if (khesaratSrneshinDTO.getId() != null) {
@@ -75,7 +74,6 @@ public class KhesaratSrneshinResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/khesarat-srneshins")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSrneshinDTO> updateKhesaratSrneshin(@Valid @RequestBody KhesaratSrneshinDTO khesaratSrneshinDTO) throws URISyntaxException {
         log.debug("REST request to update KhesaratSrneshin : {}", khesaratSrneshinDTO);
         if (khesaratSrneshinDTO.getId() == null) {
@@ -100,6 +98,17 @@ public class KhesaratSrneshinResource {
         Page<KhesaratSrneshinDTO> page = khesaratSrneshinQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/khesarat-srneshins");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/khesarat-srneshins-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllKhesaratSrneshins() {
+        log.debug("REST request to get KhesaratSalesmaliLookup");
+        List<KhesaratSrneshin> list = khesaratSrneshinService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (KhesaratSrneshin  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getSabeghe().getName()));
+        }
+        return ResponseEntity.ok().body(res);
     }
 
     /**
@@ -134,7 +143,6 @@ public class KhesaratSrneshinResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/khesarat-srneshins/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteKhesaratSrneshin(@PathVariable Long id) {
         log.debug("REST request to delete KhesaratSrneshin : {}", id);
         khesaratSrneshinService.delete(id);

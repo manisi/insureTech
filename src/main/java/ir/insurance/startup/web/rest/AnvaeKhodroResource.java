@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.AnvaeKhodro;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.AnvaeKhodroService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -8,6 +9,7 @@ import ir.insurance.startup.service.dto.AnvaeKhodroDTO;
 import ir.insurance.startup.service.dto.AnvaeKhodroCriteria;
 import ir.insurance.startup.service.AnvaeKhodroQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +56,6 @@ public class AnvaeKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/anvae-khodros")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AnvaeKhodroDTO> createAnvaeKhodro(@Valid @RequestBody AnvaeKhodroDTO anvaeKhodroDTO) throws URISyntaxException {
         log.debug("REST request to save AnvaeKhodro : {}", anvaeKhodroDTO);
         if (anvaeKhodroDTO.getId() != null) {
@@ -75,7 +77,6 @@ public class AnvaeKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/anvae-khodros")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AnvaeKhodroDTO> updateAnvaeKhodro(@Valid @RequestBody AnvaeKhodroDTO anvaeKhodroDTO) throws URISyntaxException {
         log.debug("REST request to update AnvaeKhodro : {}", anvaeKhodroDTO);
         if (anvaeKhodroDTO.getId() == null) {
@@ -102,6 +103,17 @@ public class AnvaeKhodroResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+
+    @GetMapping("/anvae-khodros-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllAnvaeKhodros() {
+        log.debug("REST request to get AnvaeKhodroLookup");
+        List<AnvaeKhodro> list = anvaeKhodroService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (AnvaeKhodro  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),(row.getGrouhVasile()+"-"+row.getSystemVasile()+"-"+row.getOnvan())));
+        }
+        return ResponseEntity.ok().body(res);
+    }
     /**
     * GET  /anvae-khodros/count : count all the anvaeKhodros.
     *
@@ -134,7 +146,6 @@ public class AnvaeKhodroResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/anvae-khodros/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteAnvaeKhodro(@PathVariable Long id) {
         log.debug("REST request to delete AnvaeKhodro : {}", id);
         anvaeKhodroService.delete(id);

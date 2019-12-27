@@ -43,18 +43,18 @@ import { ILookup } from 'app/shared/model/lookup.model';
 export class HiThereComponent implements OnInit {
     message: string;
     estelaamSalesNerkh: IEstelaamSalesNerkh;
-    anvaekhodros: IAnvaeKhodro[];
-    saalsakhts: ISaalSakht[];
-    vaziatBimes: IVaziatBime[];
-    onvankhodros: IOnvanKhodro[];
-    sherkatebimes: ISherkatBime[];
-    modateBimenames: IModateBimename[];
-    sabegheKhesarats: ISabegheKhesarat[];
-    adamkhesarats: IAdamKhesarat[];
-    adamkhesaratsarneshins: IAdamKhesaratSarneshin[];
-    khesaratsrneshins: IKhesaratSrneshin[];
+    anvaekhodros: ILookup[];
+    saalsakhts: ILookup[];
+    vaziatBimes: ILookup[];
+    onvankhodros: ILookup[];
+    sherkatebimes: ILookup[];
+    modateBimenames: ILookup[];
+    sabegheKhesarats: ILookup[];
+    adamkhesarats: ILookup[];
+    adamkhesaratsarneshins: ILookup[];
+    khesaratsrneshins: ILookup[];
     khesaratsales: ILookup[];
-    khesaratSalesmalis: IKhesaratSalesMali[];
+    khesaratSalesmalis: ILookup[];
     isSaving: boolean;
     salesnerkhs: SalesNerkhData[];
     anvaeKhodro: string;
@@ -119,78 +119,75 @@ export class HiThereComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.anvaeKhodroService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IAnvaeKhodro[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAnvaeKhodro[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IAnvaeKhodro[]) => (this.anvaekhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.anvaekhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.saalSakhtService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<ISaalSakht[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ISaalSakht[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: ISaalSakht[]) => (this.saalsakhts = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.saalsakhts = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.onvanKhodroService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IOnvanKhodro[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IOnvanKhodro[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IOnvanKhodro[]) => (this.onvankhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.onvankhodros = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.vaziatBimeService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IVaziatBime[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVaziatBime[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IVaziatBime[]) => (this.vaziatBimes = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.vaziatBimes = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.modateBimenameService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IModateBimename[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IModateBimename[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IModateBimename[]) => (this.modateBimenames = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.modateBimenames = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.sabegheKhesaratService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<ISabegheKhesarat[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ISabegheKhesarat[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: ISabegheKhesarat[]) => (this.sabegheKhesarats = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.sabegheKhesarats = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.sherkatBimeService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<ISherkatBime[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ISherkatBime[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: ISherkatBime[]) => (this.sherkatebimes = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.sherkatebimes = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.adamKhesaratService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IAdamKhesarat[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAdamKhesarat[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IAdamKhesarat[]) => (this.adamkhesarats = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.adamkhesarats = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.adamKhesaratSarneshinService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IAdamKhesaratSarneshin[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAdamKhesaratSarneshin[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe(
-                (res: IAdamKhesaratSarneshin[]) => (this.adamkhesaratsarneshins = res),
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
+            .subscribe((res: ILookup[]) => (this.adamkhesaratsarneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.khesaratSrneshinService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IKhesaratSrneshin[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IKhesaratSrneshin[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe((res: IKhesaratSrneshin[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ILookup[]) => (this.khesaratsrneshins = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.khesaratSalesService
             .lookup()
             .pipe(
@@ -199,15 +196,12 @@ export class HiThereComponent implements OnInit {
             )
             .subscribe((res: ILookup[]) => (this.khesaratsales = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.khesaratSalesMaliService
-            .query()
+            .lookup()
             .pipe(
-                filter((mayBeOk: HttpResponse<IKhesaratSalesMali[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IKhesaratSalesMali[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ILookup[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ILookup[]>) => response.body)
             )
-            .subscribe(
-                (res: IKhesaratSalesMali[]) => (this.khesaratSalesmalis = res),
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
+            .subscribe((res: ILookup[]) => (this.khesaratSalesmalis = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     loadAll() {
@@ -303,48 +297,48 @@ export class HiThereComponent implements OnInit {
         //     this.subscribeToSaveResponse(this.estelaamSalesNerkhService.create(this.estelaamSalesNerkh));
         // }
     }
-    trackAnvaeKhodroById(index: number, item: IAnvaeKhodro) {
-        return item.id;
+    trackAnvaeKhodroById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackSaalSakhtById(index: number, item: ISaalSakht) {
-        return item.id;
+    trackSaalSakhtById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackOnvanKhodroById(index: number, item: IOnvanKhodro) {
-        return item.id;
+    trackOnvanKhodroById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackAdamKhesaratById(index: number, item: IAdamKhesarat) {
-        return item.id;
+    trackAdamKhesaratById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackAdamKhesaratSarneshinById(index: number, item: IAdamKhesaratSarneshin) {
-        return item.id;
+    trackAdamKhesaratSarneshinById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackKhesaratSrneshinById(index: number, item: IKhesaratSrneshin) {
-        return item.id;
+    trackKhesaratSrneshinById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackKhesaratSalesById(index: number, item: IKhesaratSales) {
-        return item.id;
+    trackKhesaratSalesById(index: number, item: ILookup) {
+        return item.key;
     }
-    trackKhesaratSalesMaliById(index: number, item: IKhesaratSalesMali) {
-        return item.id;
+    trackKhesaratSalesMaliById(index: number, item: ILookup) {
+        return item.key;
     }
 
-    trackSherkatBimeById(index: number, item: ISherkatBime) {
-        return item.id;
+    trackSherkatBimeById(index: number, item: ILookup) {
+        return item.key;
     }
-    trackVaziatBimeById(index: number, item: IVaziatBime) {
-        return item.id;
+    trackVaziatBimeById(index: number, item: ILookup) {
+        return item.key;
     }
-    trackModateBimenameById(index: number, item: IModateBimename) {
-        return item.id;
+    trackModateBimenameById(index: number, item: ILookup) {
+        return item.key;
     }
-    trackSabegheKhesaratById(index: number, item: ISabegheKhesarat) {
-        return item.id;
+    trackSabegheKhesaratById(index: number, item: ILookup) {
+        return item.key;
     }
 }
 

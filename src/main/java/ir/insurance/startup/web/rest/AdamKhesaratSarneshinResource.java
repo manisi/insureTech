@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.AdamKhesaratSarneshin;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.AdamKhesaratSarneshinService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -8,6 +9,7 @@ import ir.insurance.startup.service.dto.AdamKhesaratSarneshinDTO;
 import ir.insurance.startup.service.dto.AdamKhesaratSarneshinCriteria;
 import ir.insurance.startup.service.AdamKhesaratSarneshinQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +56,6 @@ public class AdamKhesaratSarneshinResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/adam-khesarat-sarneshins")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AdamKhesaratSarneshinDTO> createAdamKhesaratSarneshin(@Valid @RequestBody AdamKhesaratSarneshinDTO adamKhesaratSarneshinDTO) throws URISyntaxException {
         log.debug("REST request to save AdamKhesaratSarneshin : {}", adamKhesaratSarneshinDTO);
         if (adamKhesaratSarneshinDTO.getId() != null) {
@@ -75,7 +77,6 @@ public class AdamKhesaratSarneshinResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/adam-khesarat-sarneshins")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<AdamKhesaratSarneshinDTO> updateAdamKhesaratSarneshin(@Valid @RequestBody AdamKhesaratSarneshinDTO adamKhesaratSarneshinDTO) throws URISyntaxException {
         log.debug("REST request to update AdamKhesaratSarneshin : {}", adamKhesaratSarneshinDTO);
         if (adamKhesaratSarneshinDTO.getId() == null) {
@@ -100,6 +101,17 @@ public class AdamKhesaratSarneshinResource {
         Page<AdamKhesaratSarneshinDTO> page = adamKhesaratSarneshinQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/adam-khesarat-sarneshins");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/adam-khesarat-sarneshins-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllAdamKhesarats() {
+        log.debug("REST request to get adamkhesaratsarneshinsLookup");
+        List<AdamKhesaratSarneshin> list = adamKhesaratSarneshinService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (AdamKhesaratSarneshin  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getSabeghe().getName()));
+        }
+        return ResponseEntity.ok().body(res);
     }
 
     /**
@@ -134,7 +146,6 @@ public class AdamKhesaratSarneshinResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/adam-khesarat-sarneshins/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteAdamKhesaratSarneshin(@PathVariable Long id) {
         log.debug("REST request to delete AdamKhesaratSarneshin : {}", id);
         adamKhesaratSarneshinService.delete(id);

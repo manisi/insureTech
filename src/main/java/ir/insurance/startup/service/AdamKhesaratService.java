@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -78,6 +79,11 @@ public class AdamKhesaratService {
      * @param id the id of the entity
      */
     public void delete(Long id) {
-        log.debug("Request to delete AdamKhesarat : {}", id);        adamKhesaratRepository.deleteById(id);
+        log.debug("Request to delete AdamKhesarat : {}", id);
+        adamKhesaratRepository.deleteById(id);
+    }
+
+    public List<AdamKhesarat> findAllforlookup() {
+        return  adamKhesaratRepository.findAll();
     }
 }

@@ -87,4 +87,9 @@ public class ModateBimenameServiceImpl implements ModateBimenameService {
         log.debug("Request to delete ModateBimename : {}", id);
         modateBimenameRepository.deleteById(id);
     }
+
+    @Override
+    public List<ModateBimename> findAllforlookup() {
+        return modateBimenameRepository.findAll();
+    }
 }

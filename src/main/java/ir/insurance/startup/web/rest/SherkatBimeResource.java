@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.SherkatBime;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.SherkatBimeService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -6,6 +7,7 @@ import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.web.rest.util.PaginationUtil;
 import ir.insurance.startup.service.dto.SherkatBimeDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,7 +50,6 @@ public class SherkatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/sherkat-bimes")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SherkatBimeDTO> createSherkatBime(@RequestBody SherkatBimeDTO sherkatBimeDTO) throws URISyntaxException {
         log.debug("REST request to save SherkatBime : {}", sherkatBimeDTO);
         if (sherkatBimeDTO.getId() != null) {
@@ -69,7 +71,6 @@ public class SherkatBimeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/sherkat-bimes")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SherkatBimeDTO> updateSherkatBime(@RequestBody SherkatBimeDTO sherkatBimeDTO) throws URISyntaxException {
         log.debug("REST request to update SherkatBime : {}", sherkatBimeDTO);
         if (sherkatBimeDTO.getId() == null) {
@@ -95,6 +96,17 @@ public class SherkatBimeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/sherkat-bimes-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllSherkatBimesLookup() {
+        log.debug("REST request to getAllSherkatBimesLookup");
+        List<SherkatBime> list = sherkatBimeService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (SherkatBime  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getName()));
+        }
+        return ResponseEntity.ok().body(res);
+    }
+
     /**
      * GET  /sherkat-bimes/:id : get the "id" sherkatBime.
      *
@@ -115,7 +127,6 @@ public class SherkatBimeResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/sherkat-bimes/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteSherkatBime(@PathVariable Long id) {
         log.debug("REST request to delete SherkatBime : {}", id);
         sherkatBimeService.delete(id);

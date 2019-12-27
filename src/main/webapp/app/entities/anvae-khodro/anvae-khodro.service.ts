@@ -5,13 +5,16 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IAnvaeKhodro } from 'app/shared/model/anvae-khodro.model';
+import { ILookup } from 'app/shared/model/lookup.model';
 
 type EntityResponseType = HttpResponse<IAnvaeKhodro>;
 type EntityArrayResponseType = HttpResponse<IAnvaeKhodro[]>;
+type EntityArrayLookupResponseType = HttpResponse<ILookup[]>;
 
 @Injectable({ providedIn: 'root' })
 export class AnvaeKhodroService {
     public resourceUrl = SERVER_API_URL + 'api/anvae-khodros';
+    public resourceUrlForLookup = this.resourceUrl + '-lookup';
 
     constructor(protected http: HttpClient) {}
 
@@ -30,6 +33,11 @@ export class AnvaeKhodroService {
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<IAnvaeKhodro[]>(this.resourceUrl, { params: options, observe: 'response' });
+    }
+
+    lookup(req?: any): Observable<EntityArrayLookupResponseType> {
+        const options = createRequestOption(req);
+        return this.http.get<ILookup[]>(this.resourceUrlForLookup, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

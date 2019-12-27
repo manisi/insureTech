@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.MoredEstefadeSales;
 import ir.insurance.startup.service.MoredEstefadeSalesService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
@@ -7,6 +8,7 @@ import ir.insurance.startup.service.dto.MoredEstefadeSalesDTO;
 import ir.insurance.startup.service.dto.MoredEstefadeSalesCriteria;
 import ir.insurance.startup.service.MoredEstefadeSalesQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -97,6 +100,7 @@ public class MoredEstefadeSalesResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/mored-estefade-sales");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+
 
     /**
     * GET  /mored-estefade-sales/count : count all the moredEstefadeSales.

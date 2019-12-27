@@ -57,7 +57,6 @@ public class KhesaratSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/khesarat-sales")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSalesDTO> createKhesaratSales(@Valid @RequestBody KhesaratSalesDTO khesaratSalesDTO) throws URISyntaxException {
         log.debug("REST request to save KhesaratSales : {}", khesaratSalesDTO);
         if (khesaratSalesDTO.getId() != null) {
@@ -79,7 +78,6 @@ public class KhesaratSalesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/khesarat-sales")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSalesDTO> updateKhesaratSales(@Valid @RequestBody KhesaratSalesDTO khesaratSalesDTO) throws URISyntaxException {
         log.debug("REST request to update KhesaratSales : {}", khesaratSalesDTO);
         if (khesaratSalesDTO.getId() == null) {
@@ -114,7 +112,6 @@ public class KhesaratSalesResource {
         for (KhesaratSales  row: list) {
             res.add(new KeyAndValueVM(row.getId().toString(),row.getSabeghe().getName()));
         }
-        log.debug("REST request to get KhesaratSalesLookup"+res.get(0).getKey());
         return ResponseEntity.ok().body(res);
     }
 
@@ -137,7 +134,6 @@ public class KhesaratSalesResource {
      * @return the ResponseEntity with status 200 (OK) and with body the khesaratSalesDTO, or with status 404 (Not Found)
      */
     @GetMapping("/khesarat-sales/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<KhesaratSalesDTO> getKhesaratSales(@PathVariable Long id) {
         log.debug("REST request to get KhesaratSales : {}", id);
         Optional<KhesaratSalesDTO> khesaratSalesDTO = khesaratSalesService.findOne(id);

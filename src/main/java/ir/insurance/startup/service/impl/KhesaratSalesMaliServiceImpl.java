@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -85,5 +86,10 @@ public class KhesaratSalesMaliServiceImpl implements KhesaratSalesMaliService {
     public void delete(Long id) {
         log.debug("Request to delete KhesaratSalesMali : {}", id);
         khesaratSalesMaliRepository.deleteById(id);
+    }
+
+    @Override
+    public List<KhesaratSalesMali> findAllforlookup() {
+        return khesaratSalesMaliRepository.findAll();
     }
 }

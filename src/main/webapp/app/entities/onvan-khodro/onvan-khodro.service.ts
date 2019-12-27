@@ -8,13 +8,16 @@ import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IOnvanKhodro } from 'app/shared/model/onvan-khodro.model';
+import { ILookup } from 'app/shared/model/lookup.model';
 
 type EntityResponseType = HttpResponse<IOnvanKhodro>;
 type EntityArrayResponseType = HttpResponse<IOnvanKhodro[]>;
+type EntityArrayLookupResponseType = HttpResponse<ILookup[]>;
 
 @Injectable({ providedIn: 'root' })
 export class OnvanKhodroService {
     public resourceUrl = SERVER_API_URL + 'api/onvan-khodros';
+    public resourceUrlForLookup = this.resourceUrl + '-lookup';
 
     constructor(protected http: HttpClient) {}
 
@@ -43,6 +46,11 @@ export class OnvanKhodroService {
         return this.http
             .get<IOnvanKhodro[]>(this.resourceUrl, { params: options, observe: 'response' })
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+    }
+
+    lookup(req?: any): Observable<EntityArrayLookupResponseType> {
+        const options = createRequestOption(req);
+        return this.http.get<ILookup[]>(this.resourceUrlForLookup, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

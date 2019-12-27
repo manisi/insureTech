@@ -63,7 +63,7 @@ public class KhesaratSalesService {
     public List<KhesaratSales> findAllforlookup() {
         log.debug("Request to get all KhesaratSales lookup");
         //return  khesaratSalesMapper.toDto(khesaratSalesRepository.findAllforLookup());
-        return  khesaratSalesRepository.findAllforLookup();
+        return  khesaratSalesRepository.findAll();
     }
 
 

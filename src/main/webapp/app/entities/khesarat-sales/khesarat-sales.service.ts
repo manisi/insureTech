@@ -14,7 +14,7 @@ type EntityArrayResponseTypeLookup = HttpResponse<ILookup[]>;
 @Injectable({ providedIn: 'root' })
 export class KhesaratSalesService {
     public resourceUrl = SERVER_API_URL + 'api/khesarat-sales';
-    public resourceUrl2 = SERVER_API_URL + 'api/khesarat-sales-lookup';
+    public resourceUrlForLookup = this.resourceUrl + '-lookup';
 
     constructor(protected http: HttpClient) {}
 
@@ -37,7 +37,7 @@ export class KhesaratSalesService {
 
     lookup(req?: any): Observable<EntityArrayResponseTypeLookup> {
         const options = createRequestOption(req);
-        return this.http.get<ILookup[]>(this.resourceUrl2, { params: options, observe: 'response' });
+        return this.http.get<ILookup[]>(this.resourceUrlForLookup, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

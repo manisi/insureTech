@@ -87,4 +87,9 @@ public class SabegheKhesaratServiceImpl implements SabegheKhesaratService {
         log.debug("Request to delete SabegheKhesarat : {}", id);
         sabegheKhesaratRepository.deleteById(id);
     }
+
+    @Override
+    public List<SabegheKhesarat> findAllforlookup() {
+        return sabegheKhesaratRepository.findAll();
+    }
 }

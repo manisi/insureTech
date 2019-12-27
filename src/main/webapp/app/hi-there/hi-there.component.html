@@ -19,7 +19,8 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.anvaeKhodro" for="field_anvaeKhodro">Anvae Khodro</label>
                          <select class="form-control" id="field_anvaeKhodro" name="anvaeKhodro" [(ngModel)]="anvaeKhodro" required>
                              <option *ngIf="!editForm.value.anvaeKhodro" [ngValue]="null" selected></option>
-                             <option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}-{{anvaeKhodroOption.systemVasile}}-{{anvaeKhodroOption.grouhVasile}}</option>
+                             <option [ngValue]="anvaeKhodroOption.key" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.value}}</option>
+                             <!--<option [ngValue]="anvaeKhodroOption.id" *ngFor="let anvaeKhodroOption of anvaekhodros; trackBy: trackAnvaeKhodroById">{{anvaeKhodroOption.onvan}}-{{anvaeKhodroOption.systemVasile}}-{{anvaeKhodroOption.grouhVasile}}</option>-->
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.anvaeKhodro?.dirty && editForm.controls.anvaeKhodro?.invalid)">
@@ -32,7 +33,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.saalSakht" for="field_saalSakht">Saal Sakht</label>
                          <select class="form-control" id="field_saalSakht" name="saalSakht"  [(ngModel)]="saalSakht" required>
                              <option *ngIf="!editForm.value.saalSakht" [ngValue]="null" selected></option>
-                             <option [ngValue]="saalSakhtOption.id" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.saalShamsi}} - {{saalSakhtOption.saalMiladi}}</option>
+                             <option [ngValue]="saalSakhtOption.key" *ngFor="let saalSakhtOption of saalsakhts; trackBy: trackSaalSakhtById">{{saalSakhtOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.saalSakht?.dirty && editForm.controls.saalSakht?.invalid)">
@@ -45,7 +46,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.estelaamSalesNerkh.onvanKhodro" for="field_onvanKhodro">Onvan Khodro</label>
                          <select class="form-control" id="field_onvanKhodro" name="onvanKhodro" [(ngModel)]="onvanKhodro"  required>
                              <option *ngIf="!editForm.value.onvanKhodro" [ngValue]="null" selected></option>
-                             <option [ngValue]="onvanKhodroOption.id" *ngFor="let onvanKhodroOption of onvankhodros; trackBy: trackOnvanKhodroById">{{onvanKhodroOption.name}}</option>
+                             <option [ngValue]="onvanKhodroOption.key" *ngFor="let onvanKhodroOption of onvankhodros; trackBy: trackOnvanKhodroById">{{onvanKhodroOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.onvanKhodro?.dirty && editForm.controls.onvanKhodro?.invalid)">
@@ -59,7 +60,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="insurancestartApp.vaziatBime.lable" for="field_vaziatbime">title</label>
                          <select class="form-control" id="field_vaziatbime" name="vaziatBime" [(ngModel)]="vaziatBime"  required>
                              <option *ngIf="!editForm.value.vaziatBime" [ngValue]="null" selected></option>
-                             <option [ngValue]="vaziatBimeOption.id" *ngFor="let vaziatBimeOption of vaziatBimes; trackBy: trackVaziatBimeById">{{vaziatBimeOption.title}}</option>
+                             <option [ngValue]="vaziatBimeOption.key" *ngFor="let vaziatBimeOption of vaziatBimes; trackBy: trackVaziatBimeById">{{vaziatBimeOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.vaziatBime?.dirty && editForm.controls.vaziatBime?.invalid)">
@@ -79,7 +80,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.sherkatBime" for="field_sherkatBime">Sherkat Bime</label>
                          <select class="form-control" id="field_sherkatBime" name="sherkatBime" [(ngModel)]="sherkatBime"  required>
                              <option *ngIf="!editForm.value.sherkatBime" [ngValue]="null" selected></option>
-                             <option [ngValue]="sherkatBimeOption.id" *ngFor="let sherkatBimeOption of sherkatebimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.name}}</option>
+                             <option [ngValue]="sherkatBimeOption.key" *ngFor="let sherkatBimeOption of sherkatebimes; trackBy: trackSherkatBimeById">{{sherkatBimeOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.sherkatBime?.dirty && editForm.controls.sherkatBime?.invalid)">
@@ -109,7 +110,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.modateBimename" for="field_name">Name</label>
                          <select class="form-control" id="field_name" name="name" [(ngModel)]="modateBimename"  required>
                              <option *ngIf="!editForm.value.modateBimename" [ngValue]="null" selected></option>
-                             <option [ngValue]="modateBimenameOption.id" *ngFor="let modateBimenameOption of modateBimenames; trackBy: trackModateBimenameById">{{modateBimenameOption.name}}</option>
+                             <option [ngValue]="modateBimenameOption.key" *ngFor="let modateBimenameOption of modateBimenames; trackBy: trackModateBimenameById">{{modateBimenameOption.value}}</option>
                          </select>
                          <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
                              <small class="form-text text-danger"
@@ -123,7 +124,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.adamKhesarat" for="field_adamKhesarat">Adam Khesarat</label>
                          <select class="form-control" id="field_adamKhesarat" name="adamKhesarat"  [(ngModel)]="adamKhesarat" required>
                              <option *ngIf="!editForm.value.adamKhesarat" [ngValue]="null" selected></option>
-                             <option [ngValue]="adamKhesaratOption.id" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">{{adamKhesaratOption.sabegheName}}</option>
+                             <option [ngValue]="adamKhesaratOption.key" *ngFor="let adamKhesaratOption of adamkhesarats; trackBy: trackAdamKhesaratById">{{adamKhesaratOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.adamKhesarat?.dirty && editForm.controls.adamKhesarat?.invalid)">
@@ -136,7 +137,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.adamKhesaratSarneshin" for="field_adamKhesaratSarneshin">Adam Khesarat Sarneshin</label>
                          <select class="form-control" id="field_adamKhesaratSarneshin" name="adamKhesaratSarneshin" [(ngModel)]="adamKhesaratSarneshin" required>
                              <option *ngIf="!editForm.value.adamKhesaratSarneshin" [ngValue]="null" selected></option>
-                             <option [ngValue]="adamKhesaratSarneshinOption.id" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">{{adamKhesaratSarneshinOption.sabegheName}}</option>
+                             <option [ngValue]="adamKhesaratSarneshinOption.key" *ngFor="let adamKhesaratSarneshinOption of adamkhesaratsarneshins; trackBy: trackAdamKhesaratSarneshinById">{{adamKhesaratSarneshinOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.adamKhesaratSarneshin?.dirty && editForm.controls.adamKhesaratSarneshin?.invalid)">
@@ -149,7 +150,7 @@
                          <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.sabegheKhesarat" for="field_sabeghename">Name</label>
                          <select class="form-control" id="field_sabeghename" name="sabeghename" [(ngModel)]="sabegheKhesarat" required>
                              <option *ngIf="!editForm.value.sabeghename" [ngValue]="null" selected></option>
-                             <option [ngValue]="sabegheKhesaratOption.id" *ngFor="let sabegheKhesaratOption of sabegheKhesarats; trackBy: trackSabegheKhesaratById">{{sabegheKhesaratOption.name}}</option>
+                             <option [ngValue]="sabegheKhesaratOption.key" *ngFor="let sabegheKhesaratOption of sabegheKhesarats; trackBy: trackSabegheKhesaratById">{{sabegheKhesaratOption.value}}</option>
                          </select>
                          <div [hidden]="!(editForm.controls.sabeghename?.dirty && editForm.controls.sabeghename?.invalid)">
                              <small class="form-text text-danger"
@@ -162,7 +163,7 @@
                          <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesjani" for="field_khesaratSales">Khesarat Sales</label>
                          <select class="form-control" id="field_khesaratSales" name="khesaratSales" [(ngModel)]="khesaratSales" required>
                              <option *ngIf="!editForm.value.khesaratSales" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSalesOption.key" *ngFor="let khesaratSalesOption of khesaratsales; ">{{khesaratSalesOption.value}}</option>
+                             <option [ngValue]="khesaratSalesOption.key" *ngFor="let khesaratSalesOption of khesaratsales; trackBy: trackKhesaratSalesById">{{khesaratSalesOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.khesaratSales?.dirty && editForm.controls.khesaratSales?.invalid)">
@@ -175,7 +176,7 @@
                          <label class="input-group-text" style="width:35%" jhiTranslate="hi-there.khesaratSalesmali" for="field_khesaratSalesmali">Khesarat Sales</label>
                          <select class="form-control" id="field_khesaratSalesmali" name="khesaratSalesMali" [(ngModel)]="khesaratSalesmali" required>
                              <option *ngIf="!editForm.value.khesaratSalesmalis" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSalesmalisOption.id" *ngFor="let khesaratSalesmalisOption of khesaratSalesmalis; trackBy: trackKhesaratSalesMaliById">{{khesaratSalesmalisOption.sabegheName}}</option>
+                             <option [ngValue]="khesaratSalesmalisOption.key" *ngFor="let khesaratSalesmalisOption of khesaratSalesmalis; trackBy: trackKhesaratSalesMaliById">{{khesaratSalesmalisOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.khesaratSalesMali?.dirty && editForm.controls.khesaratSalesMali?.invalid)">
@@ -188,7 +189,7 @@
                          <label class="input-group-text" style="width: 35%" jhiTranslate="hi-there.khesaratSrneshin" for="field_khesaratSrneshin">Khesarat Srneshin</label>
                          <select class="form-control" id="field_khesaratSrneshin" name="khesaratSrneshin"  [(ngModel)]="khesaratSrneshin" required>
                              <option *ngIf="!editForm.value.khesaratSrneshin" [ngValue]="null" selected></option>
-                             <option [ngValue]="khesaratSrneshinOption.id" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">{{khesaratSrneshinOption.sabegheName}}</option>
+                             <option [ngValue]="khesaratSrneshinOption.key" *ngFor="let khesaratSrneshinOption of khesaratsrneshins; trackBy: trackKhesaratSrneshinById">{{khesaratSrneshinOption.value}}</option>
                          </select>
                      </div>
                      <div [hidden]="!(editForm.controls.khesaratSrneshin?.dirty && editForm.controls.khesaratSrneshin?.invalid)">

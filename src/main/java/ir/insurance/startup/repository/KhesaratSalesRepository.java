@@ -17,4 +17,7 @@ public interface KhesaratSalesRepository extends JpaRepository<KhesaratSales, Lo
 //    @Query("select ks.id as id, ks.sabeghe.name as name   from KhesaratSales ks")
     @Query("select ks from KhesaratSales ks")
     List<KhesaratSales> findAllforLookup();
+
+    @Override
+    List<KhesaratSales> findAll();
 }

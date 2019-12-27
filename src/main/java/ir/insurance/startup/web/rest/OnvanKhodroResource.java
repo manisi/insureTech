@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.OnvanKhodro;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.OnvanKhodroService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -8,6 +9,7 @@ import ir.insurance.startup.service.dto.OnvanKhodroDTO;
 import ir.insurance.startup.service.dto.OnvanKhodroCriteria;
 import ir.insurance.startup.service.OnvanKhodroQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +56,6 @@ public class OnvanKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/onvan-khodros")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<OnvanKhodroDTO> createOnvanKhodro(@Valid @RequestBody OnvanKhodroDTO onvanKhodroDTO) throws URISyntaxException {
         log.debug("REST request to save OnvanKhodro : {}", onvanKhodroDTO);
         if (onvanKhodroDTO.getId() != null) {
@@ -75,7 +77,6 @@ public class OnvanKhodroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/onvan-khodros")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<OnvanKhodroDTO> updateOnvanKhodro(@Valid @RequestBody OnvanKhodroDTO onvanKhodroDTO) throws URISyntaxException {
         log.debug("REST request to update OnvanKhodro : {}", onvanKhodroDTO);
         if (onvanKhodroDTO.getId() == null) {
@@ -100,6 +101,17 @@ public class OnvanKhodroResource {
         Page<OnvanKhodroDTO> page = onvanKhodroQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/onvan-khodros");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/onvan-khodros-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllOnvanKhodrosLookup() {
+        log.debug("REST request to getAllOnvanKhodrosLookup");
+        List<OnvanKhodro> list = onvanKhodroService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (OnvanKhodro  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getName()));
+        }
+        return ResponseEntity.ok().body(res);
     }
 
     /**
@@ -134,7 +146,6 @@ public class OnvanKhodroResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/onvan-khodros/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteOnvanKhodro(@PathVariable Long id) {
         log.debug("REST request to delete OnvanKhodro : {}", id);
         onvanKhodroService.delete(id);

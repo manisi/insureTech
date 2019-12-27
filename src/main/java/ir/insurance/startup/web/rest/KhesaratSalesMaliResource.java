@@ -1,10 +1,13 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.KhesaratSales;
+import ir.insurance.startup.domain.KhesaratSalesMali;
 import ir.insurance.startup.service.KhesaratSalesMaliService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
 import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.web.rest.util.PaginationUtil;
 import ir.insurance.startup.service.dto.KhesaratSalesMaliDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -18,6 +21,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,6 +94,17 @@ public class KhesaratSalesMaliResource {
         Page<KhesaratSalesMaliDTO> page = khesaratSalesMaliService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/khesarat-sales-malis");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/khesarat-sales-malis-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllKhesaratSales() {
+        log.debug("REST request to get KhesaratSalesmaliLookup");
+        List<KhesaratSalesMali> list = khesaratSalesMaliService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (KhesaratSalesMali  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getSabeghe().getName()));
+        }
+        return ResponseEntity.ok().body(res);
     }
 
     /**

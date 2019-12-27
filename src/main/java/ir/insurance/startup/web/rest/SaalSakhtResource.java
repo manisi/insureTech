@@ -1,4 +1,5 @@
 package ir.insurance.startup.web.rest;
+import ir.insurance.startup.domain.SaalSakht;
 import ir.insurance.startup.security.AuthoritiesConstants;
 import ir.insurance.startup.service.SaalSakhtService;
 import ir.insurance.startup.web.rest.errors.BadRequestAlertException;
@@ -6,6 +7,7 @@ import ir.insurance.startup.web.rest.util.HeaderUtil;
 import ir.insurance.startup.web.rest.util.PaginationUtil;
 import ir.insurance.startup.service.dto.SaalSakhtDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import ir.insurance.startup.web.rest.vm.KeyAndValueVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +51,6 @@ public class SaalSakhtResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/saal-sakhts")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SaalSakhtDTO> createSaalSakht(@Valid @RequestBody SaalSakhtDTO saalSakhtDTO) throws URISyntaxException {
         log.debug("REST request to save SaalSakht : {}", saalSakhtDTO);
         if (saalSakhtDTO.getId() != null) {
@@ -70,7 +72,6 @@ public class SaalSakhtResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/saal-sakhts")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SaalSakhtDTO> updateSaalSakht(@Valid @RequestBody SaalSakhtDTO saalSakhtDTO) throws URISyntaxException {
         log.debug("REST request to update SaalSakht : {}", saalSakhtDTO);
         if (saalSakhtDTO.getId() == null) {
@@ -96,6 +97,17 @@ public class SaalSakhtResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+
+    @GetMapping("/saal-sakhts-lookup")
+    public ResponseEntity<List<KeyAndValueVM>> getAllSaalSakhtsLookup() {
+        log.debug("REST request to getAllSaalSakhtsLookup");
+        List<SaalSakht> list = saalSakhtService.findAllforlookup();
+        List<KeyAndValueVM> res = new ArrayList<>();
+        for (SaalSakht  row: list) {
+            res.add(new KeyAndValueVM(row.getId().toString(),row.getSaalShamsi()+" - "+row.getSaalMiladi()));
+        }
+        return ResponseEntity.ok().body(res);
+    }
     /**
      * GET  /saal-sakhts/:id : get the "id" saalSakht.
      *
@@ -116,7 +128,6 @@ public class SaalSakhtResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/saal-sakhts/{id}")
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteSaalSakht(@PathVariable Long id) {
         log.debug("REST request to delete SaalSakht : {}", id);
         saalSakhtService.delete(id);

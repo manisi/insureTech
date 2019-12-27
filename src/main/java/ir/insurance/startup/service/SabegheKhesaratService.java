@@ -1,5 +1,6 @@
 package ir.insurance.startup.service;
 
+import ir.insurance.startup.domain.SabegheKhesarat;
 import ir.insurance.startup.service.dto.SabegheKhesaratDTO;
 
 import java.util.List;
@@ -40,4 +41,6 @@ public interface SabegheKhesaratService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    List<SabegheKhesarat> findAllforlookup();
 }
