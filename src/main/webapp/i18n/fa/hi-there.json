@@ -13,6 +13,12 @@
         "khesaratSalesmali": "تعداد خسارت ثالث مالی ",
         "khesaratSalesjani": "تعداد خسارت ثالث جانی ",
         "khesaratSrneshin": "تعداد خسارت سرنشین ",
+        "haghebime": "حق بیمه",
+        "jani": "جانی",
+        "mali": "مالی",
+        "takhfif": "تخفیف",
+        "rooz": "تعدادروز",
+        "sherkat": "نام شرکت",
         "khesaratSalesEnum": {
             "null": "",
             "ZERO": "بدون خسارت",
